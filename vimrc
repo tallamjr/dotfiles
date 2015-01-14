@@ -71,4 +71,4 @@ au BufRead,BufNewFile *.tex setlocal textwidth=80
 
 " autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd FileType gitcommit setlocal spell
-" set complete+=kspell
+set complete+=kspell
