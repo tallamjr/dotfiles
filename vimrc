@@ -57,9 +57,13 @@ set number
 :imap ;; <Esc>
 
 let mapleader = ","
+
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
+map <leader>lm :!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+
+
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 
