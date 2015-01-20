@@ -67,7 +67,7 @@ map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 
 " Jython JSyn build shortcuts
-map <leader>jython :!jython -J-classpath jsyn_16_7_3.jar <C-R>%<CR>
+map <leader>jj :!jython -J-classpath jsyn_16_7_3.jar <C-R>%<CR>
 
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
