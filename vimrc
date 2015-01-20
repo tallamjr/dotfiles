@@ -56,16 +56,23 @@ set number
 " Map escape 
 :imap ;; <Esc>
 
+
 let mapleader = ","
 
+" Latex shortcuts. 
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
-map <leader>lm :!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 
+" Jython JSyn build shortcuts
+map <leader>jython :!jython -J-classpath jsyn_16_7_3.jar <C-R>%<CR>
 
+" write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
+map <leader>qq :q!<CR>
 
 " highlight when over 80 characters in latexx
 highlight Overlength ctermbg=red ctermfg=white
@@ -73,6 +80,7 @@ match Overlength /\%81v.\+/
 
 au BufRead,BufNewFile *.tex setlocal textwidth=80
 
-" autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
