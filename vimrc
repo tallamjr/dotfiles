@@ -31,6 +31,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
+" Yet another debugger"
+Plugin 'vim-scripts/yavdb'
 
 "Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 " ==============================================================================
@@ -83,12 +85,12 @@ map <leader>f :NERDTree<CR>
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-d>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
@@ -101,10 +103,10 @@ map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 
 " Jython JSyn build shortcuts
-map <leader>jj :w<CR>:!jython -J-classpath ../jsyn_16_7_3.jar <C-R>%<CR>
+map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 
 " Java compile and run shortcuts
-map <leader>jrun :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS><CR>
+map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
 
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
@@ -124,3 +126,14 @@ set complete+=kspell
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+
