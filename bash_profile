@@ -2,8 +2,11 @@ MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
 
 #Shell prompt customisation
-PS1="\[\033[0;41m\]\u @\t> \w: \[\033[0m\]"
-export PS1
+#PS1="\[\033[0;41m\]\u @\t> \w: \[\033[0m\]"
+#export PS1
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0m\]"
+
 
 #Find .bashrc file and source.
 if [ -f ~/.bashrc ]; then
