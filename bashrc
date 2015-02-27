@@ -49,3 +49,5 @@ alias ls="ls -Gh"
 alias cl="clear"
 alias la="ls -la"
 alias qq="exit"
+
+alias sleep="sudo shutdown -s now"

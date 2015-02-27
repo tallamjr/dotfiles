@@ -113,9 +113,12 @@ map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
 
+"git shortcut to add all to staging area
+" map <leader>gg :!git add . <CR>:!git commit<CR>
+
 " highlight when over 80 characters
 "highlight Overlength ctermbg=red ctermfg=white
-match Overlength /\%81v.\+/
+"match Overlength /\%81v.\+/
 
 au BufRead,BufNewFile *.tex setlocal textwidth=80
 
