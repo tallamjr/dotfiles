@@ -25,14 +25,20 @@ Plugin 'scrooloose/syntastic'
 Plugin 'uguu-org/vim-matrix-screensaver'
 
 Plugin 'vim-scripts/AutoComplPop' 
+
 " Track the engine. 
 Plugin 'SirVer/ultisnips'
+
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
+
 " Yet another debugger"
 Plugin 'vim-scripts/yavdb'
+
+" Haskell help for Vim
+Plugin 'raichoo/haskell-vim'
 
 "Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 " ==============================================================================
@@ -113,6 +119,10 @@ map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
 
+" tab view in vim
+map <leader>t :tabe<Space>
+map <leader>tt :tabnew<CR>
+
 "git shortcut to add all to staging area
 " map <leader>gg :!git add . <CR>:!git commit<CR>
 
@@ -139,4 +149,24 @@ autocmd! bufwritepost .vimrc source %
 " auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+
+" 4 space tab.
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" for Haskell
+let g:haskell_enable_quantification = 1 " to enable highlighting of forall
+let g:haskell_enable_recursivedo = 1 " to enable highlighting of mdo and rec
+let g:haskell_enable_arrowsyntax = 1 " to enable highlighting of proc
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of pattern
+let g:haskell_enable_typeroles = 1 " to enable highlighting of type roles
+
+let g:haskell_indent_if = 3
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
 
