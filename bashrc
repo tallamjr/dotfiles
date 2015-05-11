@@ -21,6 +21,8 @@ export PATH="/Users/tarek_allam/Documents/tmux/bin:$PATH"
 export PATH="/Users/tarek_allam/anaconda3/bin:$PATH"
 # path for mysql
 export PATH="/usr/local/mysql/bin:$PATH"
+# jMusic classpath
+export CLASSPATH="Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
 #===============================================================================
 #COLOUR CUSTOMISATION
 #===============================================================================
@@ -51,4 +53,7 @@ alias la="ls -la"
 alias qq="exit"
 
 alias sleep="sudo shutdown -s now"
+alias pat="pygmentize -g"
 
+alias python2="source activate python2"
+alias pclose="source deactivate"

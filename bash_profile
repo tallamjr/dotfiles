@@ -7,6 +7,7 @@ export MKL_NUM_THREADS
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0m\]"
 
+alias mp="cd ~/Google\ Drive/ucl_2015/MajorProject"
 
 #Find .bashrc file and source.
 if [ -f ~/.bashrc ]; then

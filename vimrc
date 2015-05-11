@@ -40,6 +40,9 @@ Plugin 'vim-scripts/yavdb'
 " Haskell help for Vim
 Plugin 'raichoo/haskell-vim'
 
+" To allow just one NERDTree
+Plugin 'jistr/vim-nerdtree-tabs'
+
 "Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 " ==============================================================================
 " Plugins that are not used.
@@ -77,9 +80,20 @@ set number
 let mapleader = ","
 
 " NERDTree Shortcut
-map <leader>f :NERDTree<CR>
+"map <leader>f :NERDTree<CR>
+map <Leader>ff <plug>NERDTreeTabsToggle<CR>
+:nmap ?? <Plug>NERDTreeTabsToggle<CR>
+
+map <leader>f :NERDTreeFocusToggle<CR>
+
+map <leader>nfind :NERDTreeTabsFind<CR>
+let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
+let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
+let g:nerdtree_tabs_autofind = 0    " Automatically find and select currently opened file in NERDTree.
+let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving a tab for descriptive tab names
 
 " Syntastic settings
+
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -110,6 +124,9 @@ map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-e
 
 " Jython JSyn build shortcuts
 map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
+"map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
+"map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
+map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
 
 " Java compile and run shortcuts
 map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
