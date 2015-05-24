@@ -1,7 +1,10 @@
 #===============================================================================
 #PROMPT
 #===============================================================================
-export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Grey directory info
+#export PS1="\[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Green directory with blue time.
+export PS1="\[\e[0;36m\]\t \[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]" # Bright Green directory with blue time.
 #===============================================================================
 #PATH EXPORTS
 #===============================================================================
@@ -21,8 +24,10 @@ export PATH="/Users/tarek_allam/Documents/tmux/bin:$PATH"
 export PATH="/Users/tarek_allam/anaconda3/bin:$PATH"
 # path for mysql
 export PATH="/usr/local/mysql/bin:$PATH"
+# mongodb PATH
+export PATH="/Users/tarek_allam/mongodb/bin:$PATH"
 # jMusic classpath
-export CLASSPATH="Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
+export CLASSPATH="/Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
 #===============================================================================
 #COLOUR CUSTOMISATION
 #===============================================================================
@@ -57,3 +62,8 @@ alias pat="pygmentize -g"
 
 alias python2="source activate python2"
 alias pclose="source deactivate"
+
+alias chrome="open /Applications/Google\ Chrome.app/"
+
+alias poker="open /Applications/PokerStarsUK.app/"
+

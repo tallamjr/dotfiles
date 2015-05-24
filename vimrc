@@ -4,7 +4,12 @@ syntax on             	" Enable syntax highlighting
 filetype on           	" Enable filetype detection
 filetype indent on    	" Enable filetype-specific indenting
 filetype plugin on    	" Enable filetype-specific plugins 
- 
+set nrformats=          " Disables Vim's built in octal-numeric system. All numbers if containing leading zero now decimal format
+set hls
+set wildmenu
+set wildmode=full
+set history=200
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -25,28 +30,21 @@ Plugin 'scrooloose/syntastic'
 Plugin 'uguu-org/vim-matrix-screensaver'
 
 Plugin 'vim-scripts/AutoComplPop' 
-
 " Track the engine. 
 Plugin 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
-
 " Yet another debugger"
 Plugin 'vim-scripts/yavdb'
-
 " Haskell help for Vim
 Plugin 'raichoo/haskell-vim'
-
 " To allow just one NERDTree
 Plugin 'jistr/vim-nerdtree-tabs'
-
 "Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 " ==============================================================================
 " Plugins that are not used.
-
 "Plugin 'kchmck/vim-coffee-script'      
 "Plugin 'tpope/vim-endwise'
 "Plugin 'rstacruz/sparkup'
@@ -74,9 +72,14 @@ colorscheme molokai
 "display line numbers on the left
 set number
 
-" Map escape 
-:imap ;; <Esc>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   
+"   Map leader shortcuts 
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map escape 
+:imap df <Esc>
 let mapleader = ","
 
 " NERDTree Shortcut
@@ -85,6 +88,10 @@ map <Leader>ff <plug>NERDTreeTabsToggle<CR>
 :nmap ?? <Plug>NERDTreeTabsToggle<CR>
 
 map <leader>f :NERDTreeFocusToggle<CR>
+
+map <leader>- :split<Space>
+map <leader><Bar> :vsplit<Space>
+map <leader>qw :close<CR>
 
 map <leader>nfind :NERDTreeTabsFind<CR>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
@@ -114,34 +121,35 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-
 " Latex shortcuts. 
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
-
+map <leader>wc :!texcount <C-R>%<CR>
 " Jython JSyn build shortcuts
 map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
 map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
-
 " Java compile and run shortcuts
 map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
-
+" Plays .wav file
+map <leader>pl :!afplay<Space>  
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
-
 " tab view in vim
 map <leader>t :tabe<Space>
 map <leader>tt :tabnew<CR>
-
 "git shortcut to add all to staging area
 " map <leader>gg :!git add . <CR>:!git commit<CR>
+map <leader>b :bnext<CR>
+map <leader>bp :bprev<CR>
+map <leader>bf :bfirst<CR>
+map <leader>bl :blast<CR>
 
 " highlight when over 80 characters
 "highlight Overlength ctermbg=red ctermfg=white

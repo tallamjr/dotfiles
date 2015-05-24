@@ -15,3 +15,4 @@ if [ -f ~/.bashrc ]; then
 fi
 
 source "`brew --prefix grc`/etc/grc.bashrc"
+export PATH="/usr/local/sbin:$PATH"
