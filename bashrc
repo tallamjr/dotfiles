@@ -47,23 +47,24 @@ export GREP_OPTIONS="--color=auto"
 alias pylab="ipython -pylab"
 # force tmux to use 256 colours
 alias tmux="tmux -2"
-# sublime shortcut
-alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 # azure mysql connection shortcut
 alias dbcw="mysql -h eu-cdbr-azure-north-b.cloudapp.net -u b868b961e0bfe6 -p554e5f66 -D MarkingP2PDB"
-
+# listing in colour and easy quitting
 alias ls="ls -Gh"
 alias cl="clear"
 alias la="ls -la"
 alias qq="exit"
-
+alias grep="grep -E"
+# put computer to sleep
 alias sleep="sudo shutdown -s now"
+# colourful version of cat command
 alias pat="pygmentize -g"
-
+# python2 enviroment
 alias python2="source activate python2"
 alias pclose="source deactivate"
-
+# application shortcuts
 alias chrome="open /Applications/Google\ Chrome.app/"
-
 alias poker="open /Applications/PokerStarsUK.app/"
-
+alias fire="open -a /Applications/Firefox.app/"
+# sublime shortcut
+alias sub="open -a /Applications/Sublime\ Text\ 2.app/"

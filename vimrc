@@ -151,6 +151,10 @@ map <leader>bp :bprev<CR>
 map <leader>bf :bfirst<CR>
 map <leader>bl :blast<CR>
 
+map <leader>gg :!git add <C-R>%<CR>:!git status<CR>
+map <leader>gc :!git commit -m "
+
+
 " highlight when over 80 characters
 "highlight Overlength ctermbg=red ctermfg=white
 "match Overlength /\%81v.\+/
@@ -195,3 +199,7 @@ let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
 
+noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+set incsearch
+set hlsearch
