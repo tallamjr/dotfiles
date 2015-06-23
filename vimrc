@@ -82,6 +82,7 @@ set number
 :imap df <Esc>
 let mapleader = ","
 
+map <leader>rr :w<CR>:!R CMD BATCH %<CR>
 " NERDTree Shortcut
 "map <leader>f :NERDTree<CR>
 map <Leader>ff <plug>NERDTreeTabsToggle<CR>

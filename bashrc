@@ -68,3 +68,4 @@ alias poker="open /Applications/PokerStarsUK.app/"
 alias fire="open -a /Applications/Firefox.app/"
 # sublime shortcut
 alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
+alias rr="R CMD BATCH "
