@@ -8,7 +8,18 @@ set nrformats=          " Disables Vim's built in octal-numeric system. All numb
 set hls
 set wildmenu
 set wildmode=full
-set history=200
+set history=1000
+set fileformat=unix
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+" ================ Turn Off Swap Files ==============
+"
+set noswapfile
+set nobackup
+set nowb
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim

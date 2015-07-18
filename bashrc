@@ -69,3 +69,4 @@ alias fire="open -a /Applications/Firefox.app/"
 # sublime shortcut
 alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 alias rr="R CMD BATCH "
+alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
