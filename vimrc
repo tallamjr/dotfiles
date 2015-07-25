@@ -1,3 +1,5 @@
+" ================ Turn Off Swap Files ==============
+"
 set nocompatible     	 " We're running Vim, not Vi!
 set term=screen-256color
 syntax on             	" Enable syntax highlighting
@@ -21,6 +23,73 @@ set noswapfile
 set nobackup
 set nowb
 
+" ================ Search ===========================
+"
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" ================ Turn Off Swap Files ==============
+"
+"For Vim solarized
+syntax enable
+let g:solarized_termcolors=256
+set background=dark
+"colorscheme solarized
+"#############################
+colorscheme molokai
+             
+"display line numbers on the left
+set number
+
+:imap df <Esc> 
+" Map escape 
+" ================ Turn Off Swap Files ==============
+"
+" highlight when over 80 characters
+"highlight Overlength ctermbg=red ctermfg=white
+"match Overlength /\%81v.\+/
+
+au BufRead,BufNewFile *.tex setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
+
+autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" ================ Turn Off Swap Files ==============
+"
+
+" 4 space tab.
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" tab view in vim
+map <leader>t :tabe<Space>
+map <leader>tt :tabnew<CR>
+"git shortcut to add all to staging area
+" map <leader>gg :!git add . <CR>:!git commit<CR>
+map <leader>b :bnext<CR>
+map <leader>bp :bprev<CR>
+map <leader>bf :bfirst<CR>
+map <leader>bl :blast<CR>
+" ================ Turn Off Swap Files ==============
+"
+map <leader>- :split<Space>
+map <leader><Bar> :vsplit<Space>
+map <leader>qw :close<CR>
+
+" ================ PLUGINS ==============
+"
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,6 +99,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
   
+Plugin 'altercation/vim-colors-solarized'
+
 Plugin 'tomasr/molokai'
    
 Plugin 'scrooloose/nerdtree'
@@ -71,40 +142,33 @@ Plugin 'jistr/vim-nerdtree-tabs'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" ==============================================================================
-"For Vim solarized
-syntax enable
-"let g:solarized_termcolors=256
-"set background=dark
-"colorscheme solarized
-"#############################
-colorscheme molokai
-             
-"display line numbers on the left
-set number
-
-
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   
 "   Map leader shortcuts 
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map escape 
-:imap df <Esc>
 let mapleader = ","
 
+" ================ Turn Off Swap Files ==============
+"
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
+" ================ Turn Off Swap Files ==============
+"
 " NERDTree Shortcut
 "map <leader>f :NERDTree<CR>
 map <Leader>ff <plug>NERDTreeTabsToggle<CR>
 :nmap ?? <Plug>NERDTreeTabsToggle<CR>
 
 map <leader>f :NERDTreeFocusToggle<CR>
-
-map <leader>- :split<Space>
-map <leader><Bar> :vsplit<Space>
-map <leader>qw :close<CR>
-
 map <leader>nfind :NERDTreeTabsFind<CR>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
@@ -133,6 +197,8 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+" ================ Turn Off Swap Files ==============
+"
 " Latex shortcuts. 
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
@@ -141,62 +207,21 @@ map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>wc :!texcount <C-R>%<CR>
 " Jython JSyn build shortcuts
+" ================ Turn Off Swap Files ==============
+"
 map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
 map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
 " Java compile and run shortcuts
 map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
-" Plays .wav file
-map <leader>pl :!afplay<Space>  
+" ================ Turn Off Swap Files ==============
+"
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
-" tab view in vim
-map <leader>t :tabe<Space>
-map <leader>tt :tabnew<CR>
-"git shortcut to add all to staging area
-" map <leader>gg :!git add . <CR>:!git commit<CR>
-map <leader>b :bnext<CR>
-map <leader>bp :bprev<CR>
-map <leader>bf :bfirst<CR>
-map <leader>bl :blast<CR>
-
-map <leader>gg :!git add <C-R>%<CR>:!git status<CR>
-map <leader>gc :!git commit -m "
-
-
-" highlight when over 80 characters
-"highlight Overlength ctermbg=red ctermfg=white
-"match Overlength /\%81v.\+/
-
-au BufRead,BufNewFile *.tex setlocal textwidth=80
-
-autocmd BufRead,BufNewFile *.tex setlocal spell
-autocmd BufRead,BufNewFile *.txt setlocal spell
-autocmd FileType gitcommit setlocal spell
-set complete+=kspell
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
-
-" 4 space tab.
-filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
 " for Haskell
 let g:haskell_enable_quantification = 1 " to enable highlighting of forall
 let g:haskell_enable_recursivedo = 1 " to enable highlighting of mdo and rec
@@ -210,8 +235,3 @@ let g:haskell_indent_let = 4
 let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
-
-noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-set incsearch
-set hlsearch
