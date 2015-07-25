@@ -1,0 +1,2023 @@
+Delivered-To: t.allam.jr@gmail.com
+Received: by 10.52.242.107 with SMTP id wp11csp1195801vdc;
+        Tue, 16 Dec 2014 09:08:00 -0800 (PST)
+X-Received: by 10.66.102.106 with SMTP id fn10mr26922652pab.156.1418749680375;
+        Tue, 16 Dec 2014 09:08:00 -0800 (PST)
+Return-Path: <bounces+361267-6d32-t.allam.jr=gmail.com@mail8.glassdoor.com>
+Received: from o6.mail8.glassdoor.com (o6.mail8.glassdoor.com. [50.31.57.91])
+        by mx.google.com with ESMTPS id zn6si1874597pac.126.2014.12.16.09.07.59
+        for <t.allam.jr@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 16 Dec 2014 09:08:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+361267-6d32-t.allam.jr=gmail.com@mail8.glassdoor.com designates 50.31.57.91 as permitted sender) client-ip=50.31.57.91;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounces+361267-6d32-t.allam.jr=gmail.com@mail8.glassdoor.com designates 50.31.57.91 as permitted sender) smtp.mail=bounces+361267-6d32-t.allam.jr=gmail.com@mail8.glassdoor.com;
+       dkim=pass header.i=@mail8.glassdoor.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=mail8.glassdoor.com; 
+	h=content-type:mime-version:from:to:subject; s=smtpapi; 
+	bh=JAjkBhAqHllM2shUAQqnZJ9Yvqk=; b=UbeqiXmM9dZ0BPn/miJqTtfMmMQMR
+	6vo7EAfKTfnsUuS5LB3OvYNdLXf/qtRZpN97fll103FISb8CRoo5chWAND1tcJaj
+	SRjC61zqpOvm8VQC2dvyZPTf5+yAG45mMZWyDGSQ4zzMeg1VBMhx8u7oK3Jb0wiz
+	qpZOb9VQY9y+4E=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=sendgrid.info; 
+	h=content-type:mime-version:from:to:subject:x-feedback-id; 
+	s=smtpapi; bh=JAjkBhAqHllM2shUAQqnZJ9Yvqk=; b=G2dnZd4ZRR6MwfzuZJ
+	X3bXm6MzJl4toLC2rdOABjOhf+FFdymPlskhjsSqejfpdve9SH+EyFHaIzOCUUig
+	b43Ny2Fyey+PRzOzfoDoqbI18zrnqJUE0DUwKcJX7bwkj7sROWCIeFd2Mi8kVR27
+	ecokLQ5GSCEYQ87md97a3CCPw=
+Received: by filter-143.sjc1.sendgrid.net with SMTP id filter-143.29991.5490209013
+        2014-12-16 12:07:45.037070239 +0000 UTC
+Received: from MzYxMjY3 (unknown [104.130.148.84])
+	by ismtpd-085 (SG) with HTTP id 14a52ff3684.5870.9bd8
+	for <t.allam.jr@gmail.com>; Tue, 16 Dec 2014 12:07:45 +0000 (UTC)
+Content-Type: multipart/alternative;
+	boundary="===============4123023013996257559=="
+MIME-Version: 1.0
+From: Glassdoor <noreply@glassdoor.com>
+To: t.allam.jr@gmail.com
+Subject: 10+ new jobs found for you this month
+Message-ID: <14a52ff3684.5870.9bd8@ismtpd-085>
+Date: Tue, 16 Dec 2014 12:07:45 +0000 (UTC)
+X-SG-EID: RK7wAk4Ydc8zMyLJFqJHvwheLews/MYsqs1pTR8KlB1C36ddyGFOpkgGUpZjJuuA4qIbRxXgHGdXzw
+ 9M2JNflMQkzAl+uIBw27u1sK+Spi7PiK5wmhdJRd/mEccEis7OxPOrPqPm9GwNGnJvlc27WmUfwFF7
+ 7I7JtNQgFfOye1k=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7IyROPXp6YgnNDUqrhawmoV7fpiEaqmJX1RkGYD90tV8HvNTKHeYKBNLIg
+ 9NH3WTM4YME2OZv+dfBS0SoqFWOos=
+X-Feedback-ID: 361267:3hDJO1tdpU20T+UDmVzn9xWj0ifCc1Rxyoj9wbWvb6k=:YT/9bCbnUNHIUex9xVWTjw==:SG
+
+--===============4123023013996257559==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We found 10+ new jobs for you this month
+
+Developer/Programmer, Quant, C#, up to 20k + Benefits
+Evolution Recruitment Solutions - Cambridge, East of England, England
+6 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D101&ao=3D39444&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679712&jobListingId=3D1269682371
+Business Analyst / Project Manager - Sales Trading - Director
+McGregor Boyall Associates - London, England
+26 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D102&ao=3D4120&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679713&jobListingId=3D1250838258
+High Frequency Trading Firm Hiring Quant Developer - new
+London4Jobs - City of London, England
+2 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D103&ao=3D12704&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679714&jobListingId=3D1272947486
+Quant Developer
+ETS Technical Sales - London, England
+26 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D104&ao=3D42077&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679714&jobListingId=3D1250722467
+Quant Developer
+ETS Technical - London, England
+27 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D105&ao=3D38357&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679715&jobListingId=3D1249564980
+Quant Developer
+ETS Technical Selection Limited - London, England
+26 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D106&ao=3D44912&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679716&jobListingId=3D1252201111
+High Frequency Trading Firm Hiring Quant Developer - new
+UKStaffsearch - City of London, England
+2 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D107&ao=3D12702&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679716&jobListingId=3D1272617005
+2015 Software/Quant Development Graduate Programme
+SunGard - Cambridge, East of England, England
+12 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D108&ao=3D44912&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679716&jobListingId=3D1264161903
+Jr Desk Quant Analyst/Developer - Front Office Rates - Investment Bank - new
+London4Jobs - City of London, England
+2 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D109&ao=3D12704&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679717&jobListingId=3D1272947938
+Jr Desk Quant Analyst/Developer - Front Office Rates - Investment Bank - new
+UKStaffsearch - City of London, England
+2 days ago
+http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D110&ao=3D12702&tgt=
+=3DGD_JOB_VIEW&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB=
+_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A=
+217DC3773AB66A9F182&cb=3D1418731679717&jobListingId=3D1272617053=09=09
+Find more jobs:
+http://www.glassdoor.co.uk/Jobs/jobs.htm
+
+To unsubscribe:
+https://www.glassdoor.co.uk/profile//profile/unsubscribeEmail.htm
+
+--===============4123023013996257559==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta name=3D"format-detection" content=3D"address=3Dno">
+<title>10+ new jobs found for you this month</title>
+<!-- Master Email CSS -->
+<style type=3D"text/css">
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+#GDEmail p,
+body#GDEmail {
+margin: 0;
+padding: 0;
+font-size: 14px;
+font-family: Arial, sans-serif; }
+/* Client-specific Styles */
+#outlook a {padding:0;} /* Force Outlook to provide a "view in browser" men=
+u link. */
+body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-ad=
+just:100%; margin:0; padding:0;}
+/* Prevent Webkit and Windows Mobile platforms from changing default font s=
+izes, while not breaking desktop design. */
+.ExternalClass {width:100%;} /* Force Hotmail to display emails at full wid=
+th */
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,=
+ .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmai=
+l to display normal line spacing. More on that: http://www.emailonacid.com/=
+forum/viewthread/43/ */
+/* End reset */
+.ExternalClass p {
+margin-bottom: 0.5em;
+}
+*[class=3Dappdownload] {
+display: none !important;
+}
+*[class=3Dappdownload] td {
+border-spacing: 0px;
+line-height: 0px;
+}
+*[class=3Dappdownloadtext] {
+line-height: 0px;
+font-size: 0px;
+display: none;
+}
+*[class=3Dappdownloadtext] img {
+height: 0px !important;
+}
+.ecxmobileHide {
+margin: 0px !important;
+}
+.mobileShow {
+display: none !important;
+font-size: 0 !important;
+max-height: 0 !important;
+line-height: 0 !important;
+padding: 0 !important;
+mso-hide: all !important;
+}
+@media only screen and (max-device-width: 480px), screen and (max-width: 48=
+0px) {
+*[class=3DmainTable] {
+width:100% !important;
+}
+*[class=3DnextTable],
+*[class=3DbigWidth] {
+width:95% !important;
+margin:0px auto;
+}
+div[id=3DGDEmailWrapper] .appdownload {
+display: inline-block !important;
+}
+div[id=3DGDEmailWrapper] .appdownload td {
+line-height: 12px;
+}
+div[id=3DGDEmailWrapper] .appdownloadtext {
+font-weight: bold;
+line-height: 12px !important;
+font-size: 12px !important;
+display: inline !important;
+}
+div[id=3DGDEmailWrapper] .appdownload img {
+display: inline !important;
+height: 18px !important;
+}
+div[id=3DGDEmailWrapper] .colPadding {
+width:0px !important;
+}
+.links {
+display: none;
+}
+h1[class=3Dy] {
+line-height:16px !important;
+font-size: 14px !important;
+/*margin: 0 0 12px;
+padding: 0 0 13px 0;*/
+}
+p[class=3Dy] {
+font-size:12px !important;
+}
+br[class=3DbrBreak] {
+line-height: 0px !important;
+display: none !important;
+}
+div[id=3DGDEmailWrapper] #Logo {
+width:100px !important;
+height: 21px !important;
+}
+div[id=3DGDEmailWrapper] p.footer {
+font-size:10px !important;
+} }
+</style><!-- Core Email CSS -->
+<style type=3D"text/css">
+/*************
+* SPACERS
+************ *//*************
+* LAYOUT
+************ */
+td.col1 {
+min-width:105px;
+width:105px;
+}
+.flushed {
+width: 100%;
+}
+/*************
+* FONT
+* *********** */
+div[id=3DGDEmailWrapper] p.alignLeft {
+text-align: left !important;
+}
+/*************
+* ELEMENTS
+************ */
+img.ecxfbCompanyLogo {
+width:75px;
+height:75px;
+max-width:75px;
+}
+td.squareLogo {
+width:75px;
+max-width:75px;
+}
+div.uploadResumeHeader {
+display: block;
+}
+table.ecxrecommendedAlerts {
+padding-left: 20px;
+padding-bottom: 20px;
+border-spacing: 5px;
+}
+p.footer {
+text-align: center;
+}
+table.ecxhtmlButton p {
+margin-bottom: 0px !important;
+margin: 0 0 0 0 !important;
+}
+table.noBorder {
+border: 0px !important;
+}
+</style><!-- Core Mobile Email CSS -->
+<style type=3D"text/css">
+@media only screen and (max-device-width: 480px) ,screen and (max-width: 48=
+0px) {
+/*************
+* SPACERS
+************ */
+div[id=3DGDEmailWrapper] .noMobilePad {
+padding: 0 !important;
+}
+div[id=3DGDEmailWrapper] .mobileBlock {
+display: block !important;
+margin-bottom: 3px;
+}
+div[id=3DGDEmailWrapper] .mobileCenter {
+text-align: center !important;
+}
+div[id=3DGDEmailWrapper] td.spacer {
+width: 10px !important;
+}
+div[id=3DGDEmailWrapper] td div[class=3Dvspacer],
+div[id=3DGDEmailWrapper] td.squareLogo div[class=3Dvspacer],
+div[id=3DGDEmailWrapper] td.aboutJob div[class=3Dvspacer] {
+height:10px !important;
+font-size:10px !important;
+line-height:10px !important;
+}
+div[id=3DGDEmailWrapper] .hspacer {
+min-width: 5px !important;
+width: 5px !important;
+}
+div[id=3DGDEmailWrapper] .flexHdr div[class=3Dhspacer] {
+max-height: 0px !important;
+height: 0px !important;
+overflow: hidden;
+}
+div[id=3DGDEmailWrapper] .flexHdr div[class=3Dvspacer] {
+height: 10px !important;
+}
+div[id=3DGDEmailWrapper] .flexHdr tr[class=3Dhspacer] {
+height: 0px !important;
+}
+div[id=3DGDEmailWrapper] .flexBody td[class=3Dhspacer] {
+width: 0.2em !important;
+}
+div[id=3DGDEmailWrapper] .flexFtr *[class=3Dhspacer] {
+width: 10px !important;
+}
+table[class=3DspacerTable] tr,
+table[class=3DspacerTable] td {
+height: 10px !important;
+max-height: 10px !important;
+border-spacing: 0px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidth5 {
+width: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidth10 {
+width: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidthFull {
+width: 100% !important;
+}
+div[id=3DGDEmailWrapper] input[type=3Dtext].mobWidthFull {
+width: 100% !important;
+box-sizing: border-box !important;
+}
+div[id=3DGDEmailWrapper] .mobH5 {
+height: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobH10 {
+height: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot5 {
+margin-bottom: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot10 {
+margin-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot15 {
+margin-bottom: 15px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot20 {
+margin-bottom: 20px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot5 {
+padding-bottom: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot10 {
+padding-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot15 {
+padding-bottom: 15px !important;
+}
+div[id=3DGDEmailWrapper] .vspacerMacro {
+height: 15px !important;
+}
+/*************
+* LAYOUT
+************ */
+*[class=3Dwrapper] {
+margin-bottom: 0px !important;
+}
+*[class=3DbigWidth] {
+width:93% !important;
+margin:0px auto;
+}
+*[class=3DfullWidthHeader] {
+width:100% !important;
+margin:0px auto;
+}
+td[class=3DcontainerTopPadding] {
+height: 12px !important;
+}
+div[id=3DGDEmailWrapper] td.col1 {
+min-width:0px !important;
+width:0px !important;
+}
+*[class=3DflexHdr] .flexHdrCol1 {
+width: 100% !important;
+display: block !important;
+}
+*[class=3DflexHdr] .flexHdrCol2 {
+width: 100% !important;
+display: block !important;
+}
+*[class=3DflexHdr] .flexHdrCol2 table {
+margin-top: 5px;
+}
+*[class=3DflexHdr] .flexHdrCol2 table td {
+text-align: left !important;
+}
+table[class=3DflexBody] {
+margin-left: 10px !important;
+width: 92% !important;
+}
+table[class=3DflexBody] td.flexBodyCol1,
+table[class=3DflexBody] td.flexBodyCol2 {
+width: 100% !important;
+display: block !important;
+padding-left: 0.2em !important;
+}
+table[class=3DflexBody] td.flexBodyCol2 {
+margin-top: 20px !important;
+margin-bottom: 20px !important;
+}
+*[class=3DflexBody] td.hspacer {
+display: none !important;
+}
+/* Collapsing */
+div[id=3DGDEmailWrapper] table.collapseMobile > tr > td,
+div[id=3DGDEmailWrapper] table.collapseMobile > tbody > tr > td {
+width: 100% !important;
+display: block !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile > tr > td.mobileHide,
+div[id=3DGDEmailWrapper] table.collapseMobile > tbody > tr > td.mobileHide {
+display: none !important;
+font-size: 0 !important;
+max-height: 0 !important;
+line-height: 0 !important;
+padding: 0 !important;
+mso-hide: all !important; /* hide elements in Outlook 2007-2013 */
+}
+div[id=3DGDEmailWrapper] table.collapseMobile p {
+text-align: center !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile .collapseAlignLeft {
+text-align: left !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile p.alignLeft {
+text-align: left !important;
+}
+div[id=3DGDEmailWrapper] .mobileShow {
+display: block !important;
+font-size: 12px !important;
+max-height: none !important;
+line-height: 1.5 !important;
+}/*************
+* FONT
+* *********** */
+div[id=3DGDEmailWrapper] p.y {
+font-size:14px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobTitle,
+div[id=3DGDEmailWrapper] p.y.jobLocation,
+div[id=3DGDEmailWrapper] p.y.jobMeta {
+margin: 0px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobTitle {
+font-size: 14px !important;
+line-height: 18px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobLocation {
+font-size: 12px !important;
+line-height: 20px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobMeta {
+font-size: 11px !important;
+line-height: 16px !important;
+}
+div[id=3DGDEmailWrapper] .highlightContent p.y {
+float:none !important;
+text-align:center !important;
+margin:0 !important;
+width:auto;
+display:block;
+line-height:1em !important;
+margin-left:0 !important;
+margin-top:0.4em !important;
+}
+div[id=3DGDEmailWrapper] p.flexHdrLine1 {
+font-size: 20px !important;
+margin-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] h1.heading {
+line-height: 20px;
+}
+div[id=3DGDEmailWrapper] p.subHeading {
+line-height: 20px;
+}
+div[id=3DGDEmailWrapper] table.block p.subHeading {
+margin-bottom: 10px !important;
+}/*************
+* ELEMENTS
+************ */
+div[id=3DGDEmailWrapper] .viewJob,
+div[id=3DGDEmailWrapper] .mobileHide {
+display: none !important;
+}
+div[id=3DGDEmailWrapper] .mobileBlock {
+display: block !important;
+margin-bottom: 3px;
+}
+*[class=3DmobileOnly] td {
+display : block !important;
+width : auto !important;
+max-height: inherit !important;
+overflow : visible !important;
+float : none !important;
+}
+*[class=3DlinkButton] a {
+font-size: .8em !important;
+}
+*[class=3DlinkButton] td {
+padding-left: .5em !important;
+padding-right: .5em !important;
+}
+.highlightContent {
+margin-bottom:1em
+}
+.highlightContent .linkButton {
+float:none !important;
+text-align:center !important;
+margin:0 !important;
+width:auto;
+display:block;
+}
+div[class=3DuploadResumeHeader] {
+display: none !important;
+}
+div[id=3DGDEmailWrapper] *[class=3D"headerTitleMobile"] {
+font-size: 12px !important;
+color: #ffffff !important;
+line-height: 12px !important;
+height: auto !important;
+}
+div[id=3DGDEmailWrapper] .htmlButton.fullWidthBtn {
+width: 100% !important;
+}
+}
+</style><!--[if gte mso 9]>
+<style type=3D"text/css">
+table[class=3DrecommendedAlerts] td {
+padding: 5px;
+}
+div[class=3DrecommendItem] {
+margin: 0px;
+margin-right: 0px;
+}
+.mobileOnly {
+display: none !important;
+visibility: hidden !important;
+mso-hide: all !important;
+}
+table.htmlButton td {border-collapse: collapse;}
+table.htmlButton { border-collapse:collapse; mso-table-lspace:0pt; mso-tabl=
+e-rspace:0pt; }
+</style>
+<![endif]--><!-- Email Theme CSS -->
+<style type=3D"text/css">
+/*************
+* Theme 2014
+* Green header + Card style body content + Boxed Footer
+************ */
+</style>
+<style type=3D"text/css">
+.ExternalClass p.ecxjobTitle {
+}
+.ExternalClass p.ecxjobLocation {
+}
+.ExternalClass p.ecxjobMeta {
+}
+@media only screen and (max-device-width: 480px) ,screen and (max-width: 48=
+0px) {
+img[class=3DecxfbCompanyLogo] {
+width: 45px !important;
+height: 45px !important;
+}
+td[class=3DsquareLogo] {
+width: 47px !important;
+min-width: 47px !important;
+}
+.wrapper p[class=3DjobTitle],
+.wrapper p[class=3DjobLocation],
+.wrapper p[class=3DjobMeta] {
+margin-bottom: 5px !important;
+}
+*[class=3DlocationTable]{
+border-bottom:1px dotted #cccccc;
+}
+p[class=3DrecommendedText] {
+margin-left: 10px !important;
+}
+*[class=3DrecommendedAlerts] td[class=3DrecommendedItemTd] {
+width: 100% !important;
+display: block !important;
+}
+*[class=3DrecommendItem] {
+margin-right: 0px !important;
+}
+*[class=3DeditingText] {
+margin-left: 0px !important;
+line-height: 16px !important;
+margin-bottom: 10px !important;
+}
+*[class=3DoneClickSuggestions] {
+line-height: 15px;
+padding-top: 3px !important;
+padding-bottom: 3px !important;
+}
+}
+</style>
+</head>
+<body bgcolor=3D"#f3f3f3" id=3D"GDEmail" yahoofix class=3D"yahoofix">
+<div id=3D"GDEmailWrapper" style=3D"margin: 0; padding: 0; font-size: 14px;=
+ font-family: Arial, sans-serif;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgco=
+lor=3D"#f3f3f3">
+<tr>
+<td>
+<table class=3D"flushed" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" style=3D"background-color:#7cb228">
+<tbody><tr>
+<td valign=3D"top" style=3D"border-collapse:collapse;">
+<center>
+<table class=3D"fullWidthHeader" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" style=3D"background-color:#7cb228" align=3D"center">
+<tbody><tr>
+<td class=3D"mobWidth10" style=3D"width: 0px"></td>
+<td valign=3D"top" style=3D"border-collapse:collapse">
+<table class=3D"fullWidthLogo" width=3D"" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" align=3D"left" style=3D"background-color:#7CB228">
+<tbody><tr>
+<td valign=3D"middle" height=3D"45" style=3D"border-collapse:collapse;">
+<a href=3D"http://www.glassdoor.co.uk/index.htm?utm_medium=3Demail&utm_sour=
+ce=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-logo" style=3D"c=
+olor:#ffffff;font-weight:normal;text-decoration:none" target=3D"_blank">
+<img src=3D"http://www.glassdoor.com/crs/mail/logos/logowhite_2x.png" id=3D=
+"Logo" class=3D"logo" alt=3D"Glassdoor" title=3D"Glassdoor" border=3D"0" wi=
+dth=3D"141" height=3D"30" style=3D"height:30px;width:141px;">
+</a>
+</td>
+</tr>
+</tbody></table>
+<table class=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"right" style=3D"background-color:#7cb228">
+<tbody><tr>
+<td valign=3D"middle" height=3D"45" style=3D"border-collapse:collapse">
+<div style=3D"text-align:right; color:#ffffff; font-family: Arial, sans-ser=
+if; font-size: 14px;">
+<p class=3D"headerTitle mobileHide" style=3D"color:#ffffff;font-family: Ari=
+al, sans-serif;font-size:16px; margin: 0; margin-top: 0px; margin-bottom: 0=
+px;">New monthly jobs</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table class=3D"appdownload" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" style=3D"display: none; line-height: 0px; font-size: 12px; float: right;=
+">
+<tr>
+<td valign=3D"middle">
+<img id=3D"phone" width=3D"11" height=3D"0" title=3D"" alt=3D"" border=3D"0=
+" style=3D"display:none; vertical-align: middle; margin-right: 10px;" src=
+=3D"http://www.glassdoor.com/crs/mail/icons/phone_white_2x.png">
+</td>
+<td valign=3D"middle" align=3D"right" height=3D"45">
+<a href=3D"http://www.glassdoor.co.uk/apps.htm?utm_medium=3Demail&utm_sourc=
+e=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-nav-appdownload" =
+class=3D"appdownloadtext headerTitle" style=3D"font-size: 0px; color:#fffff=
+f; text-decoration:none; font-family: Arial, sans-serif; ">
+Get free mobile app
+</a>
+</td>
+</tr>
+</table>
+</td>
+<td class=3D"mobWidth10" style=3D"width: 0px"></td>
+</tr>
+</tbody></table>
+</center>
+</td>
+</tr>
+</tbody></table>
+<table class=3D"mainTable" width=3D"620" border=3D"0" align=3D"center" cell=
+padding=3D"0" cellspacing=3D"0"><tr><td class=3D"colPadding" style=3D"width=
+: 10px"></td><td>
+<table class=3D"nextTable" width=3D"600" border=3D"0" align=3D"center" cell=
+padding=3D"0" cellspacing=3D"0">
+<!-- Floating header -->
+<!-- /Floating header -->
+<tr bgcolor=3D"#f3f3f3" height=3D"15" class=3D"">
+<td colspan=3D"1" height=3D"15" bgcolor=3D"#f3f3f3" class=3D"vspacerMacro" =
+style=3D'background-color: #f3f3f3'></td>
+</tr>
+<tr>
+<td bgcolor=3D"#ffffff">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td colspan=3D"3" style=3D"border-top:1px solid #d4d4d4;">
+</td>
+</tr>
+<tr>
+<td class=3D"colPadding" style=3D"width:2.1em; border-left:1px solid #d4d4d=
+4;">
+</td>
+<td class=3D"bigWidth" width=3D"689" valign=3D"top">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr><td height=3D"20" class=3D"containerTopPadding"></td></tr>
+<tr><td>
+<!--[if gte mso 9]>
+<style type=3D"text/css">
+.jobAlertHTMLForm,
+.jobAlertHTMLForm p,
+.jobAlertHTMLForm td,
+.jobAlertHTMLForm table {
+display: none !important;
+color: white !important;
+width: 0px !important;
+height: 0px !important;
+}
+</style>
+<![endif]-->
+<form method=3D'get' action=3D'https://www.glassdoor.co.uk/job-alert/jobAle=
+rtAjax.htm' class=3D'jobAlertHTMLForm'>
+<h1 class=3D"heading " style=3D"line-height:18px; font-family: Arial, sans-=
+serif; font-weight: normal; font-size: 18px; color: #2c2c2c; margin: 0 0 0p=
+x; margin-bottom: 8px; padding: 0 0 0 0;">
+<strong>Did we miss the boat?</strong> <span class=3D'mobileBlock mobPadBot=
+15'>No worries, we can customize it for you.</span>
+</h1>
+<style>
+h1.ecxheading {margin-bottom: 0;}
+</style>
+<table class=3D"jobAlertTableForm collapseMobile mobWidthFull" width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td valign=3D"middle" class=3D"mobPadBot10" width=3D"173">
+<p class=3D"alignLeft mobileBlock" style=3D"font-family: Arial, sans-serif;=
+ font-size: 12px; color: #2c2c2c; line-height: 14px; margin: 0; margin-top:=
+ 0px; margin-bottom: 0px;;margin-bottom: 5px !important;">
+<strong class=3D''>Job Title</strong> (Ex. Sales Manager)
+</p>
+<input type=3D'text' name=3D'keywords' class=3D"mobWidthFull"
+style=3D'width: 100%; box-shadow: none; padding: 0px 0px 0px 1px; font-size=
+: 12px; height: 32px; border-radius:3px; border-collapse:collapse; margin: =
+0; margin-top: 0px; margin-bottom: 0px;; border: 1px solid #bbb;' />
+</td>
+<td width=3D"20" class=3D"mobileHide"></td>
+<td valign=3D"middle" class=3D"mobPadBot10" width=3D"173">
+<p class=3D"alignLeft mobileBlock" style=3D"font-family: Arial, sans-serif;=
+ font-size: 12px; color: #2c2c2c; line-height: 14px; margin: 0; margin-top:=
+ 0px; margin-bottom: 0px;;margin-bottom: 5px !important;">
+<strong class=3D''>Location</strong> (Enter a city)
+</p>
+<input type=3D'text' name=3D'loc' class=3D"mobWidthFull"
+style=3D'width: 100%; padding: 0px 0px 0px 1px; font-size: 12px; height: 32=
+px; border-radius:3px; border-collapse:collapse; border: 1px solid #bbb;mar=
+gin: 0; margin-top: 0px; margin-bottom: 0px;;' />
+</td>
+<td width=3D"20" class=3D"mobileHide"></td>
+<td align=3D"right" valign=3D"bottom" width=3D"160">
+<table class=3D"htmlButton fullWidthBtn" width=3D"160" cellspacing=3D"0" ce=
+llpadding=3D"0" bgcolor=3D"#e18641" style=3D'border-radius:2px; border: non=
+e;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<button type=3D"submit" style=3D"color:#ffffff; background:#e18641; width:1=
+00%; border: none !important; border-radius: 3px; border-collapse: collapse=
+; cursor: pointer; white-space:nowrap; font-size: 12px; font-weight: bold; =
+font-family: Arial, sans-serif; text-decoration:none; display:block; margin=
+: 0; margin-top: 0px; margin-bottom: 0px;; height: 32px;">
+Customize Alerts
+</button>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<input type=3D'hidden' name=3D'userValidationKey' value=3D'ohkObrh:ftDpYICB=
+BKT9yHNIwvK1g' >
+<input type=3D'hidden' name=3D'oneClick' value=3D'true' >
+<input type=3D'hidden' name=3D'setupJobAlertEmail' value=3D'true' >
+<input type=3D'hidden' name=3D'source' value=3D'EMAIL_JOB_FEED_FORM' >
+<input type=3D'hidden' name=3D'utm_medium' value=3D'email' >
+<input type=3D'hidden' name=3D'utm_source' value=3D'jobfeed' >
+<input type=3D'hidden' name=3D'utm_campaign' value=3D'jobfeed-ol' >
+<input type=3D'hidden' name=3D'utm_content' value=3D'jf-ol-form-button' >
+</form>
+<!--[if gte mso 9]>
+<table class=3D"collapseMobile mobWidthFull" width=3D"100%" cellspacing=3D"=
+0" cellpadding=3D"0">
+<tr>
+<td valign=3D"middle" class=3D"mobPadBot10">
+<h1 class=3D"heading " style=3D"line-height:18px; font-family: Arial, sans-=
+serif; font-weight: bold; font-size: 18px; color: #2c2c2c; margin: 0 0 0px;=
+ margin-bottom: 8px; padding: 0 0 0 0;">
+Did we miss the boat?
+</h1>
+<style>
+h1.ecxheading {margin-bottom: 0;}
+</style>
+<h1 class=3D"heading " style=3D"line-height:18px; font-family: Arial, sans-=
+serif; font-weight: normal; font-size: 18px; color: #2c2c2c; margin: 0 0 0p=
+x; margin-bottom: 8px; padding: 0 0 0 0;">
+No worries, we can customize it for you.
+</h1>
+<style>
+h1.ecxheading {margin-bottom: 0;}
+</style>
+</td>
+<td width=3D"15" class=3D"mobileHide"></td>
+<td valign=3D"middle" align=3D"right">
+<table class=3D"htmlButton fullWidthBtn" width=3D"150" cellspacing=3D"0" ce=
+llpadding=3D"0" bgcolor=3D"#e18641" style=3D'border-radius:2px; border: non=
+e;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/profile/createJobAlert_inp=
+ut.htm?jobAlertId=3D0&keywords=3D&rawLocationName=3D&userValidationKey=3Doh=
+kObrh:ftDpYICBBKT9yHNIwvK1g&oneClick=3Dtrue&setupJobAlertEmail=3Dtrue&sourc=
+e=3DEMAIL_JOB_FEED_CTA&utm_medium=3Demail&utm_source=3Djobfeed&utm_campaign=
+=3Djobfeed-ol&utm_content=3Djf-ol-ja-cta" style=3D"color:#ffffff; white-spa=
+ce:nowrap; font-size: 12px; font-weight: bold; font-family: Arial, sans-ser=
+if; text-decoration:none; display:block; line-height: 32px; height: 32px;">
+Customize Alerts
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<![endif]-->
+</td>
+</tr>
+<tr height=3D"20"><td height=3D"20" class=3D"vspacerMacro"></td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class=3D"colPadding" style=3D"width: 0px; border-right:1px solid #d4d4d=
+4;">
+</td>
+</tr>
+<tr>
+<td colspan=3D"3" style=3D"border-bottom:1px solid #d4d4d4;">
+</td>
+</tr>
+<tr bgcolor=3D"#f3f3f3" class=3D"">
+<td colspan=3D"3" height=3D"15" bgcolor=3D"#f3f3f3" class=3D"vspacerMacro">=
+</td>
+</tr>
+<tr class=3D"">
+<td colspan=3D"3" style=3D"border-top:1px solid #d4d4d4;">
+</td>
+</tr>
+<tr class=3D"">
+<td class=3D"colPadding" style=3D"width: 0px; border-left:1px solid #d4d4d4=
+;">
+</td>
+<td class=3D"bigWidth" width=3D"689" valign=3D"top">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<table class=3D"block" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0">
+<tr>
+<td>
+<table class=3D"spacerTable " cellspacing=3D"0" cellpadding=3D"0">
+<tr height=3D"15"><td height=3D"15" width=3D'0'></td></tr>
+</table>
+<p class=3D"subHeading " style=3D"line-height:16px; font-family: Arial, san=
+s-serif; font-size: 16px; font-weight: bold; color: #2c2c2c; margin: 0 0 0p=
+x; margin-bottom: 8px; padding: 0 0 0 0;">
+10+ new jobs found for you this month:
+</p>
+<style>
+p.ecxsubHeading {margin-bottom: 0;}
+</style>
+<hr style=3D"height: 1px; color: #e7e7e7; background-color: #e7e7e7; border=
+: none; margin-top:0px; margin-bottom:0px; margin-left: 0px; margin-right: =
+0px;">
+<table class=3D"spacerTable mobileHide" cellspacing=3D"0" cellpadding=3D"0">
+<tr height=3D"5"><td height=3D"5" width=3D'0'></td></tr>
+</table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;">
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" >
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[Evolution Recrui=
+tment Solutions logo]" title=3D"[Evolution Recruitment Solutions logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D101&ao=
+=3D39444&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679722&jobListingId=3D1269682371&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>D=
+eveloper/Programmer, Quant, C#, up to 20k + Benefits</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>Evolution Recruitment Solutions</strong> - Cambridge, East of Engla=
+nd, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span style=3D"position: relative; top: 1px;">
+<img src=3D'http://www.glassdoor.com/crs/mail/rating-stars/4.0-med.png' wid=
+th=3D'76' height=3D'12' alt=3D'4'/>&nbsp;&nbsp;
+</span>
+<span class=3D"mobileHide">
+<span class=3D"mobileHide">
+<a href=3D"http://www.glassdoor.co.uk/Salary/Evolution-Recruitment-Solution=
+s-Salaries-E451846.htm?utm_medium=3Demail&utm_source=3Djobfeed&utm_campaign=
+=3Djobfeed-ol&utm_content=3Djf-ol-salaries" style=3D"text-decoration:none; =
+font-size: 11px; color: #0088cc">Salaries</a>
+</span>
+<span style=3D"font-size:11px; color:#777;">&nbsp;|&nbsp;</span>
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+6 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D101&ao=3D39444&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679721&jobListingId=3D1269682371&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" bgcolor=3D"#f7f7f7">
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"https://med=
+ia.glassdoor.com/sqlm/393992/mcgregor-boyall-associates-squarelogo-13890405=
+56385.png" alt=3D"[McGregor Boyall Associates logo]" title=3D"[McGregor Boy=
+all Associates logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D102&ao=
+=3D4120&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679725&jobListingId=3D1250838258&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>B=
+usiness Analyst / Project Manager - Sales Trading - Director</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>McGregor Boyall Associates</strong> - London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span style=3D"position: relative; top: 1px;">
+<img src=3D'http://www.glassdoor.com/crs/mail/rating-stars/4.0-med.png' wid=
+th=3D'76' height=3D'12' alt=3D'4.198'/>&nbsp;&nbsp;
+</span>
+<span class=3D"mobileHide">
+<span class=3D"mobileHide">
+<a href=3D"http://www.glassdoor.co.uk/Salary/McGregor-Boyall-Associates-Sal=
+aries-E393992.htm?utm_medium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djo=
+bfeed-ol&utm_content=3Djf-ol-salaries" style=3D"text-decoration:none; font-=
+size: 11px; color: #0088cc">Salaries</a>
+</span>
+<span style=3D"font-size:11px; color:#777;">&nbsp;|&nbsp;</span>
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+26 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D102&ao=3D4120&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_J=
+OB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB6578=
+4A217DC3773AB66A9F182&cb=3D1418731679724&jobListingId=3D1250838258&utm_medi=
+um=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-=
+ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; fo=
+nt-weight: bold; font-family: Arial, sans-serif; text-decoration:none; disp=
+lay:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" >
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[London4Jobs logo=
+]" title=3D"[London4Jobs logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D103&ao=
+=3D12704&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679736&jobListingId=3D1272947486&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>H=
+igh Frequency Trading Firm Hiring Quant Developer</a>
+<span style=3D"color: #E88300; font-size: 11px;"> - new</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>London4Jobs</strong> - City of London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+2 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D103&ao=3D12704&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679735&jobListingId=3D1272947486&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" bgcolor=3D"#f7f7f7">
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[ETS Technical Sa=
+les logo]" title=3D"[ETS Technical Sales logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D104&ao=
+=3D42077&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679738&jobListingId=3D1250722467&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>Q=
+uant Developer</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>ETS Technical Sales</strong> - London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+26 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D104&ao=3D42077&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679737&jobListingId=3D1250722467&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" >
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[ETS Technical lo=
+go]" title=3D"[ETS Technical logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D105&ao=
+=3D38357&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679740&jobListingId=3D1249564980&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>Q=
+uant Developer</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>ETS Technical</strong> - London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+27 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D105&ao=3D38357&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679739&jobListingId=3D1249564980&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" bgcolor=3D"#f7f7f7">
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[ETS Technical Se=
+lection Limited logo]" title=3D"[ETS Technical Selection Limited logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D106&ao=
+=3D44912&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679742&jobListingId=3D1252201111&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>Q=
+uant Developer</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>ETS Technical Selection Limited</strong> - London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+26 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D106&ao=3D44912&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679741&jobListingId=3D1252201111&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" >
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[UKStaffsearch lo=
+go]" title=3D"[UKStaffsearch logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D107&ao=
+=3D12702&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679743&jobListingId=3D1272617005&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>H=
+igh Frequency Trading Firm Hiring Quant Developer</a>
+<span style=3D"color: #E88300; font-size: 11px;"> - new</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>UKStaffsearch</strong> - City of London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+2 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D107&ao=3D12702&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679743&jobListingId=3D1272617005&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" bgcolor=3D"#f7f7f7">
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"https://med=
+ia.glassdoor.com/sqlm/1925/sungard-squarelogo.png" alt=3D"[SunGard logo]" t=
+itle=3D"[SunGard logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D108&ao=
+=3D44912&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679745&jobListingId=3D1264161903&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>2=
+015 Software/Quant Development Graduate Programme</a>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>SunGard</strong> - Cambridge, East of England, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span style=3D"position: relative; top: 1px;">
+<img src=3D'http://www.glassdoor.com/crs/mail/rating-stars/3.0-med.png' wid=
+th=3D'76' height=3D'12' alt=3D'3.194'/>&nbsp;&nbsp;
+</span>
+<span class=3D"mobileHide">
+<span class=3D"mobileHide">
+<a href=3D"http://www.glassdoor.co.uk/Salary/SunGard-Salaries-E1925.htm?utm=
+_medium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=
+=3Djf-ol-salaries" style=3D"text-decoration:none; font-size: 11px; color: #=
+0088cc">Salaries</a>
+</span>
+<span style=3D"font-size:11px; color:#777;">&nbsp;|&nbsp;</span>
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+12 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D108&ao=3D44912&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679744&jobListingId=3D1264161903&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" >
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[London4Jobs logo=
+]" title=3D"[London4Jobs logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D109&ao=
+=3D12704&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679748&jobListingId=3D1272947938&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>J=
+r Desk Quant Analyst/Developer - Front Office Rates - Investment Bank</a>
+<span style=3D"color: #E88300; font-size: 11px;"> - new</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>London4Jobs</strong> - City of London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+2 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D109&ao=3D12704&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679747&jobListingId=3D1272947938&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"15"></td></tr>
+</table>
+</td></tr>
+<tr><td>
+<!-- Job row -->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" clas=
+s=3D"" style=3D"width:100%;" bgcolor=3D"#f7f7f7">
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+<tr>
+<td class=3D"spacer" style=3D"width:10px;">&#160;</td>
+<td class=3D"squareLogo" align=3D"left" style=3D"vertical-align:top; min-wi=
+dth:65px; width:65px;" valign=3D"top">
+<img class=3D"ecxfbCompanyLogo" style=3D"width:65px;height:65px; padding:2p=
+x; border:1px solid #e3e3e3;" width=3D"65" height=3D"65" src=3D"http://www.=
+glassdoor.com/crs/mail/icons/building_200x200.png" alt=3D"[UKStaffsearch lo=
+go]" title=3D"[UKStaffsearch logo]">
+</td>
+<td class=3D"spacer" style=3D"width:15px;"></td>
+<td class=3D"aboutJob" align=3D"left" style=3D"padding:0px !important; vert=
+ical-align:top; line-height:0;" valign=3D"top">
+<div class=3D"wrapper" style=3D"margin-top:0px; margin-bottom: 0px; padding=
+:0px !important;">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td>
+<p class=3D"y jobTitle" style=3D"font-size: 16px; margin-left:0px; margin-r=
+ight: 0px; margin-bottom:8px; margin-top:0px; line-height:16px; font-family=
+: Arial, sans-serif;">
+<a href=3D'http://www.glassdoor.co.uk/partner/jobListing.htm?pos=3D110&ao=
+=3D12702&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_JOB_AD&t=
+=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB65784A217DC=
+3773AB66A9F182&cb=3D1418731679777&jobListingId=3D1272617053&utm_medium=3Dem=
+ail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-jobt=
+itle' style=3D'font-weight: bold; text-decoration:none; color: #0088cc; '>J=
+r Desk Quant Analyst/Developer - Front Office Rates - Investment Bank</a>
+<span style=3D"color: #E88300; font-size: 11px;"> - new</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D'padding:0px !important;'>
+<p class=3D"y jobLocation" style=3D"font-size: 12px; margin:0px; margin-top=
+:0px; margin-bottom:8px; line-height:12px; font-family: Arial, sans-serif;">
+<strong>UKStaffsearch</strong> - City of London, England
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class=3D"y jobMeta" style=3D"font-size: 12px; margin:0px; margin-bottom:=
+0px; line-height:16px; font-family: Arial, sans-serif;">
+<span class=3D"mobileHide">
+</span>
+<span class=3D"" style=3D"font-size:11px; color:#777;">
+2 days ago
+</span>
+</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:5px;"></td>
+<td class=3D"viewJob mobileHide" align=3D"right" style=3D"padding:0px !impo=
+rtant; vertical-align:middle; line-height:0;" valign=3D"middle">
+<table class=3D"htmlButton mobileHide" width=3D"80" cellspacing=3D"0" cellp=
+adding=3D"0" bgcolor=3D"#e3e3e3" style=3D'border-radius:2px; border: 1px so=
+lid #b8b8b8;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 12px; line-height:=
+ 12px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/partner/jobListing.htm?pos=
+=3D110&ao=3D12702&s=3D184&guid=3D0000014a52ff6b75b0bfa075d1d7a231&src=3DGD_=
+JOB_AD&t=3DJF&extid=3D12&exst=3DL&ist=3DO&ast=3DOL&vt=3De&uido=3D9EA72BB657=
+84A217DC3773AB66A9F182&cb=3D1418731679776&jobListingId=3D1272617053&utm_med=
+ium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf=
+-ol-viewjob" style=3D"color:#2c2c2c; white-space:nowrap; font-size: 12px; f=
+ont-weight: bold; font-family: Arial, sans-serif; text-decoration:none; dis=
+play:block; line-height: 32px; height: 32px;">
+View Job
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td class=3D"spacer mobileHide" style=3D"width:10px;"></td>
+</tr>
+<tr><td colspan=3D"7" height=3D"10"></td></tr>
+</table>
+</td></tr>
+</table>
+</br>
+</br>
+<table class=3D"spacerTable " cellspacing=3D"0" cellpadding=3D"0">
+<tr height=3D"20"><td height=3D"20" width=3D'0'></td></tr>
+</table>
+<hr style=3D"height: 1px; color: #e7e7e7; background-color: #e7e7e7; border=
+: none; margin-top:0px; margin-bottom:0px; margin-left: 0px; margin-right: =
+0px;">
+<table class=3D"spacerTable " cellspacing=3D"0" cellpadding=3D"0">
+<tr height=3D"20"><td height=3D"20" width=3D'0'></td></tr>
+</table>
+<table class=3D"mobWidthFull" style=3D"margin-bottom:10px; border-spacing:0=
+px;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td class=3D"spacer mobileHide" style=3D"width:10px;">&#160;</td>
+<td valign=3D"middle">
+<table class=3D"htmlButton fullWidthBtn" width=3D"175" cellspacing=3D"0" ce=
+llpadding=3D"0" bgcolor=3D"#e18641" style=3D'border-radius:2px; border: non=
+e;'>
+<tr><td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 13px; line-height:=
+ 13px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"http://www.glassdoor.co.uk/Jobs/jobs.htm?utm_medium=
+=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol=
+-alljobs" style=3D"color:#ffffff; white-space:nowrap; font-size: 13px; font=
+-weight: bold; font-family: Arial, sans-serif; text-decoration:none; displa=
+y:block; line-height: 32px; height: 32px;">
+See All Matching Jobs
+</a>
+</div>
+</td></tr>
+</table>
+</td>
+<td valign=3D"middle">
+<span class=3D"mobileHide">
+&nbsp;&nbsp;
+<a href=3D"http://www.glassdoor.co.uk/Jobs/jobs.htm?fromAge=3D1&utm_medium=
+=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol=
+-alljobs1" style=3D"font-family: Arial, sans-serif; font-size: 13px; text-d=
+ecoration:none; color:#0088cc;">
+Last 24 Hours
+</a>
+</span>
+</td>
+<td valign=3D"middle">
+<span class=3D"mobileHide">
+&nbsp;|&nbsp;
+<a href=3D"http://www.glassdoor.co.uk/Jobs/jobs.htm?fromAge=3D7&utm_medium=
+=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol=
+-alljobs7" style=3D"font-family: Arial, sans-serif; font-size: 13px; text-d=
+ecoration:none; color:#0088cc;">
+This Week
+</a>
+</span>
+</td>
+<td valign=3D"middle">
+<span class=3D"mobileHide">
+&nbsp;|&nbsp;
+<a href=3D"http://www.glassdoor.co.uk/Jobs/jobs.htm?fromAge=3D30&utm_medium=
+=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol=
+-alljobs30" style=3D"font-family: Arial, sans-serif; font-size: 13px; text-=
+decoration:none; color:#0088cc;">
+This Month
+</a>
+</span>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr height=3D"20" class=3D'mobH10'><td height=3D"20" class=3D'mobH10'></td>=
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class=3D"colPadding" style=3D"width:2.1em; border-right:1px solid #d4d4=
+d4;">
+</td>
+</tr>
+<tr height=3D"1">
+<td height=3D"1" colspan=3D"3" style=3D"border-bottom:1px solid #d4d4d4;">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr bgcolor=3D"#f3f3f3" height=3D"15" class=3D"">
+<td colspan=3D"1" height=3D"15" bgcolor=3D"#f3f3f3" class=3D"vspacerMacro" =
+style=3D'background-color: #f3f3f3'></td>
+</tr>
+<tr>
+<td align=3D"left">
+<p class=3D"footer" style=3D"font-family: Arial, sans-serif; font-size: 10p=
+x; color: #888888; line-height: 18px; margin: 0; margin-top: 0px; margin-bo=
+ttom: 0px;; text-align: center;">
+Glassdoor &nbsp;|&nbsp; P.O. Box 900 &nbsp;|&nbsp; Sausalito, CA 94966-0900
+<br>
+This message was sent to <a href=3D"mailto:t.allam.jr@gmail.com" style=3D"c=
+olor:#0066CC; text-decoration: none;">t.allam.jr@gmail.com</a>.
+<br>
+<a href=3D"http://www.glassdoor.co.uk/about/privacy.htm?utm_medium=3Demail&=
+utm_source=3Djobfeed&utm_campaign=3Djobfeed-ol&utm_content=3Djf-ol-footer-p=
+rivacy" style=3D"color:#0066CC; text-decoration: none;">Privacy Policy</a>
+&nbsp;|&nbsp; <a href=3D"https://www.glassdoor.co.uk/profile/unsubscribeEma=
+il.htm?key=3DohkObrh:ftDpYICBBKT9yHNIwvK1g&emailType=3DJOB_FEED&emailCatego=
+ry=3DJOB_FEED&utm_medium=3Demail&utm_source=3Djobfeed&utm_campaign=3Djobfee=
+d-ol&utm_content=3Djf-ol-unsubscribe" style=3D"color:#0066CC; text-decorati=
+on: none;">Unsubscribe</a>
+<br>
+www.glassdoor.co.uk
+<br>
+<br>
+</p>
+</td>
+</tr>
+</table>
+</td><td class=3D"colPadding" style=3D"width: 10px;"></td></tr></table>
+<br>
+</td>
+</tr>
+</table>
+</div>
+
+<img src=3D"http://mail8.glassdoor.com/wf/open?upn=3D2XrDegX3-2BEOdXtZv5zr0=
+SXDpgcwaBVoZRW857iE0-2FwxpGfhKujIxDzdnZ8n51-2FI6CJ5YLKNZBcoPocIn1peX7cknHLH=
+0c5VP3aKxRhy9vaGffcU1tJ2kXHHNZrWMG-2FIWVquHlfvuO5H0igB3VGAPDULhJdEXOizirgaZ=
+07QtQKBHKOCQVlIBJTMtdcyu-2FmMvHwCrFF3CBDHA3smM4aQiiWwJSG7hgQMMFWdrNMXkJKC7n=
+L4N5mhPxaqL2fEx-2Bv2ULEEps43Dy0uvgR1mQGZABOp25MPrBdLQ7XzHvQVmXf5w7OqEvdh79h=
+Kt2iYKU206" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:=
+1px !important;width:1px !important;border-width:0 !important;margin-top:0 =
+!important;margin-bottom:0 !important;margin-right:0 !important;margin-left=
+:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-=
+right:0 !important;padding-left:0 !important;"/>
+</body>
+</html>
+
+--===============4123023013996257559==--

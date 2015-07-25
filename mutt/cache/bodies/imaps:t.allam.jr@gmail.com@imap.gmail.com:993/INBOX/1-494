@@ -1,0 +1,434 @@
+Delivered-To: t.allam.jr@gmail.com
+Received: by 10.79.12.198 with SMTP id 189csp1169258ivm;
+        Sun, 3 May 2015 20:41:02 -0700 (PDT)
+X-Received: by 10.180.74.208 with SMTP id w16mr15803286wiv.31.1430710861354;
+        Sun, 03 May 2015 20:41:01 -0700 (PDT)
+Return-Path: <events@uk.pokerstars.com>
+Received: from mail41.pokerstars.eu (mail41.pokerstars.eu. [77.87.180.211])
+        by mx.google.com with ESMTP id oz6si20718163wjb.53.2015.05.03.20.41.00
+        for <t.allam.jr@gmail.com>;
+        Sun, 03 May 2015 20:41:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of events@uk.pokerstars.com designates 77.87.180.211 as permitted sender) client-ip=77.87.180.211;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of events@uk.pokerstars.com designates 77.87.180.211 as permitted sender) smtp.mail=events@uk.pokerstars.com;
+       dkim=pass (test mode) header.i=@uk.pokerstars.com
+Date: Sun, 03 May 2015 20:41:01 -0700 (PDT)
+Message-Id: <5546ea4d.2685c20a.4052.ffffa20bSMTPIN_ADDED_MISSING@mx.google.com>
+Received: from 192.168.1.41 (unknown [192.168.1.24])
+	by mail41.pokerstars.eu (mailer) with SMTP id 04F971A40B16
+	for <t.allam.jr@gmail.com>; Sun,  3 May 2015 23:41:00 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=uk.pokerstars.com; h=to
+	:list-unsubscribe:subject:from:mime-version:content-type; s=
+	s1024; bh=/3tPVop83C9rwOXXgcjySY4y3wk=; b=DAVF4rBI1JEA9VfWzmtc/r
+	hSU/7vjVEhHsG10tn1F2U20oQLxmlwMS5mBGQGF2i775ZDVGrAbBoQJZYabBaMVh
+	qsC3oiwrEqfcRDxivsqGSSjmSE4f0q5SaJafD6f/L7FPiIuA7ZKxHX/hIrEMniJJ
+	6qSKJFs/rkQJnM7C4t9/A=
+To: t.allam.jr@gmail.com
+X-PS-ID: dC5hbGxhbS5qckBnbWFpbC5jb20=
+List-Unsubscribe: <mailto:events@uk.pokerstars.com?subject=pokerstars_campSCOOP_REMOVE>
+Subject:tikodan, win your free $10K SCOOP Main Event entry in the All-in Shootout Raffle
+From: "Events at PokerStars" <events@uk.pokerstars.com>
+MIME-Version: 1.0
+Content-type: multipart/alternative;
+ boundary="------WmlPYgstaTAv2cT6Gq0VsUbU1E3wfNlX"
+
+
+--------WmlPYgstaTAv2cT6Gq0VsUbU1E3wfNlX
+Content-Type: text/plain;
+ charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+﻿Dear ,
+
+PokerStars is giving away over $400,000 worth of SCOOP Main Event entries:
+		Deposit $25 or more using bonus code ‘SCOOP2015’ before 23:59 ET on May 21, for a ticket to the SCOOP All-in Shootout Deposit Raffle. Click "http://www.pokerstars.uk/poker/promotions/pmm/scoop-raffle/" here to find out more.
+		In the All-in Shootout we’ve got 16 free SCOOP High Main Event entries - each worth $10,300 - up for grabs, plus over 2,000 free entries to the SCOOP Low and Medium Main Events.
+		There’s even a special $85,000 SCOOP High Last Longer Challenge - click "http://www.pokerstars.uk/poker/promotions/pmm/scoop-raffle/" here for more.
+"http://pokerstars.uk/locate/pokerstars/menu/cashier/deposit" [DEPOSIT NOW]
+		
+Regards,
+
+Chris Moneymaker
+Team PokerStars PRO
+	
+
+Copyright © 2004- 2014 UK. All rights reserved. Amaya Group Limited, Douglas Bay Complex, King Edward Road, Onchan, Isle of Man, IM3 1DZ. Licence 000-039108-R-319334-001 issued November 1st, 2014. Licensed and regulated by the UK Gambling Commission.
+You are receiving this email message because you have opened an account with PokerStars.com. If you wish to unsubscribe from future promotional emails please go to ‘Communications Preferences’ which can be found under ‘Settings’ in the poker client - click "http://uk.pokerstars.com/locate/pokerstarsuk/settings/commprefs" here to open. Please note, by doing this you will not be notified of any exclusive offers from PokerStars. We do reserve the right to contact you, even if unsubscribed, with important account or service information, or changes to our Terms & Conditions.
+--------WmlPYgstaTAv2cT6Gq0VsUbU1E3wfNlX
+Content-Type: text/html;
+ charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- campaignid: pokerstars_campSCOOP-RAFFLE-LAUNCH-UK-EN --><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>tikodan, win your free $10K SCOOP Main Event entry in the All-in Shootout Raffle</title>
+      <style type="text/css">
+         /* Client-specific Styles */
+         #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+         body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+         /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+         .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+         .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+         #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+         img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;}
+         a img {border:none;}
+         .image_fix {display:block;}
+         p {margin: 0px 0px !important;}
+         
+         table td {border-collapse: collapse;}
+         table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+         /*a {color: #e95353;text-decoration: none;text-decoration:none!important;}*/
+         /*STYLES*/
+         table[class=full] { width: 100%; clear: both; }
+         
+         /*################################################*/
+         /*IPAD STYLES*/
+         /*################################################*/
+         @media only screen and (max-width: 640px) {
+         a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: #ffffff; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+         }
+         .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: #ffffff !important;
+         pointer-events: auto;
+         cursor: default;
+         }
+         table[class=devicewidth] {width: 440px!important;text-align:center!important;display:block!important;}
+         table[class=devicewidthinner] {width: 420px!important;text-align:center!important;}
+         table[class="sthide"]{display: none!important;}
+		 table[class="mobilespacing"]{display: none!important;}
+         img[class="col2img"]{width: 420px!important;height:486px!important;}
+         img[class="image-banner"]{width: 440px!important;height:106px!important;}
+         td[class="menu"]{text-align:center !important; padding: 0 0 10px 0 !important;}
+         td[class="logo"]{padding:10px 0 5px 0!important;margin: 0 auto !important;}
+         img[class="logo"]{padding:0!important;margin: 0 auto !important;}
+		 td[class="nomobile"]{display: none!important;}
+		 td[class="ContentPadding"]{width: 30px !important;}
+		 td[class="contentBtmSpacer"]{height:30px !important;}
+		 td[class="topSpacer"]{display:none !important;}
+		 
+		  /* This replaces the POKERSTARS LOGO GRAPHIC with a smaller version */
+		  td[class="pscell"] {background-image: url(http://newsletters.pokerstars.com/2015/images/res/ps-440.jpg); width: 440px !important; height: 55px !important;}
+		  td[class="pscell"] img { display: none !important; }
+         td[id="pscell-link"] { display: block !important;	width: 440px !important; height: 35px !important;}
+		 
+		 /* This activates the MOBILE MENU */
+		  a[class="emailnobbutton"] {display:block !important; font-size:24px !important; color:#656565 !important; font-weight:normal !important; padding:10px 10px 10px 10px !important; background:#323232 !important; text-align:center !important; text-decoration:none !important; margin-bottom:1px !important; margin-top:1px !important; width:420px !important;}
+		  td[class="emailmenunodesk"] { background:#656565 !important; }
+
+         }
+         /*##############################################*/
+         /*IPHONE STYLES*/
+         /*##############################################*/
+         @media only screen and (max-width: 480px) {
+         a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: #ffffff; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+         }
+         .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: #ffffff !important; 
+         pointer-events: auto;
+         cursor: default;
+         }
+         table[class=devicewidth] {width: 280px!important;text-align:center!important;display:block!important;}
+         table[class=devicewidthinner] {width: 260px!important;text-align:center!important;}
+         table[class="sthide"]{display: none!important;}
+		 table[class="mobilespacing"]{display: none!important;}
+         img[class="col2img"]{width: 260px!important;height:301px!important;}
+         img[class="image-banner"]{width: 280px!important;height:68px!important;}
+		 img[class="logo-banner"]{width: 280px!important;height:36px!important;}
+		 td[class="nomobile"]{display: none!important}
+		 td[class="ContentPadding"]{width: 30px !important;}
+		td[class="contentBtmSpacer"]{height:30px !important;}
+		 
+		  /* This replaces the POKERSTARS LOGO GRAPHIC with a smaller version */
+		  td[class="pscell"] {background-image: url(http://newsletters.pokerstars.com/2015/images/res/ps-280.jpg); width: 280px !important; height: 35px !important;}
+		  td[class="pscell"] img { display: none !important; }
+         td[id="pscell-link"] { display: block !important;	width: 280px !important; height: 35px !important;}
+		  /* This activates the MOBILE MENU */
+		  a[class="emailnobbutton"] {display:block !important; font-size:24px !important; color:#656565 !important; font-weight:normal !important; padding:10px 10px 10px 10px !important; background:#323232 !important; text-align:center !important; text-decoration:none !important; margin-bottom:1px !important; margin-top:1px !important; width:260px !important;}
+		  td[class="emailmenunodesk"] { background:#656565 !important; }
+         
+         }
+      </style>
+
+      
+   </head>
+<body bgcolor="#323232">
+<div class="block">
+   <!-- Start of preheader -->
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" >
+      <tbody>
+         <tr>
+            <td width="100%">
+               <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                  <tbody>
+                     <tr>
+                        <td width="100%" height="5"></td>
+                     </tr>
+                     <tr>
+                        <td width="640" align="center" valign="middle" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #656565;">
+                          <span style="color:#323232;">PokerStars Makes Millionaires - SCOOP All-in Shootout Deposit Raffle</span><br>
+				  If you are having trouble viewing this email, please click <a href="http://et.ps.im/?url=http%3A%2F%2Fnewsletters%2Epokerstars%2Ecom%2F2015%2Fscoop%2Draffle%2Dlaunch%2Fen%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D0%26a5%3D67461326" style="color:#656565" target="_blank">here</a>. 
+                        </td>
+                     </tr>
+                     <tr>
+                        <td width="100%" height="15"></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- End of preheader -->
+</div>
+<div class="block">
+   <!-- start of header -->
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" >
+      <tbody>
+         <tr>
+            <td>
+               <table width="640" bgcolor="#000000" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" >
+                  <tbody>
+                     <tr>
+                        <td>
+                           <!-- logo -->
+                           <table width="280" cellpadding="0" cellspacing="0" border="0" align="left" class="devicewidth">
+                              <tbody>
+                                 <tr>
+                                    <td align="left" bgcolor="#000000" class="pscell">
+                                          <a href="http://et.ps.im/?url=http%3A%2F%2Fwww%2Epokerstars%2Ecom%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D1%26a5%3D67461326" id="pscell-link" target="_blank"><img src="http://newsletters.pokerstars.com/2015/images/res/ps-250.jpg" alt="PokerStars" width="250" height="50" border="0" style="display:block; line-height: 50%; vertical-align:bottom;"></a>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <!-- End of logo -->
+                           <!-- menu -->
+                           <table width="280" cellpadding="0" cellspacing="0" border="0" align="right" class="devicewidth">
+                              <tr>
+                              <td class="nomobile" height="18px" colspan="2"></td>
+                              </tr>
+                                 <tr>
+                                    <td valign="middle" style="font-family: Helvetica, Arial, sans-serif;font-size: 11px; color: #656565; line-height: 24px;" align="right" class="nomobile">
+                                        <a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Flocate%2Fpokerstarsuk%2Fmenu%2Flobby%2Flogin%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D2%26a5%3D67461326" style="text-decoration: none; color: #656565;" target="_blank">Login</a>&nbsp;
+                                        | 
+                                       &nbsp;<a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Fpoker%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D3%26a5%3D67461326" style="text-decoration: none; color: #656565;" target="_blank">How to Play</a>&nbsp;
+                                        | 
+                                       &nbsp;<a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Flocate%2Fpokerstarsuk%2Fmenu%2Fcashier%2Fdeposit%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D4%26a5%3D67461326" style="text-decoration: none; color: #656565;" target="_blank">Cashier</a>&nbsp;
+                                        | 
+                                       &nbsp;<a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Fpoker%2Froom%2Fsupport%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D5%26a5%3D67461326" style="text-decoration: none; color: #656565;" target="_blank">Help</a>
+                                    </td>
+                                    <td width="20"></td>
+                                 </tr>
+                           </table>
+                           <!-- End of Menu -->
+                        </td>
+                     </tr>
+                     <tr>
+                        <td bgcolor="#1d1d1d" align="center" width="640" height="1">
+                          
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- end of header -->
+</div>
+<div class="block">
+   <!-- Start of 2-columns -->
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" >
+      <tbody>
+         <tr>
+            <td>
+               <table bgcolor="#000000" width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <table width="310" align="left" border="0" cellpadding="0" cellspacing="0" class="devicewidth">
+                                          <tbody>
+                                             <tr>
+                                                <td width="310" height="359" align="center" class="devicewidth">
+                                                   <a href="http://et.ps.im/?url=http%3A%2F%2Fwww%2Epokerstars%2Euk%2Fpoker%2Fpromotions%2Fpmm%2Fscoop%2Draffle%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D6%26a5%3D67461326" target="_blank"><img src="http://newsletters.pokerstars.com/2015/scoop-raffle-launch/images/title-en.jpg" alt="Over $400,000 worth of SCOOP tickets given away! " border="0" width="310" height="359" style="display:block; border:none; outline:none; text-decoration:none;" class="col2img"></a>
+                                                </td>
+                                             </tr>                                             <!-- end of text content table -->
+                                          </tbody>
+                                       </table>
+                                       <!-- end of left column -->
+                                       <!-- spacing for mobile devices-->
+                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="mobilespacing">
+                                          <tbody>
+                                             <tr>
+                                                <td width="100%" height="15" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">&nbsp;</td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <!-- end of for mobile devices-->
+                                       <!-- start of right column -->
+                                       <table width="310" align="right" border="0" cellpadding="0" cellspacing="0" class="devicewidth">
+                                          <tbody>
+                                             <tr>
+                                                <td width="310" height="15" colspan="2" class="topSpacer" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">&nbsp;</td>
+                                             </tr>
+                                             <tr>
+                                                <td class="ContentPadding" width="20"></td>
+                                                <!-- start of text content table --><td><table width="100%" style="padding-left:15px; padding-left:15px; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                             
+                <tr>
+                  <td colspan="3" width="260" align="left" style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; color: #FFFFFF; padding-right: 20px;"><strong>Dear tikodan,<br>
+<br>
+PokerStars is giving away over $400,000 worth of SCOOP Main Event entries:</strong><br>
+					</td>
+                </tr>
+                <tr>
+                  <td height="16" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td width="18" valign="top"><img src="http://newsletters.pokerstars.com/2015/images/star.gif" width="18" height="16" style="display:block;"></td>
+                  <td width="5"></td>
+                  <td align="left" style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; color: #ffffff; padding-right: 20px;">Deposit $25 or more using bonus code &lsquo;<strong>SCOOP2015</strong>&rsquo; before 23:59 ET on May 21, for a ticket to the <strong>SCOOP All-in Shootout Deposit Raffle. </strong>Click <a href="http://et.ps.im/?url=http%3A%2F%2Fwww%2Epokerstars%2Euk%2Fpoker%2Fpromotions%2Fpmm%2Fscoop%2Draffle%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D7%26a5%3D67461326" style="color:#FF0000; font-weight:bold;" target="_blank">here</a> to find out more.</td>
+                </tr>
+                <tr>
+                  <td height="10" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td width="18" valign="top"><img src="http://newsletters.pokerstars.com/2015/images/star.gif" width="18" height="16" style="display:block;"></td>
+                  <td width="5"></td>
+                  <td align="left" style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; color: #ffffff; padding-right: 20px;">In the All-in Shootout we&rsquo;ve got <strong>16 free SCOOP High Main Event entries</strong> - each worth $10,300 - up for grabs, plus over 2,000 free entries to the SCOOP Low and Medium Main Events. </td>
+                </tr>
+                <tr>
+                  <td height="4" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td width="18" valign="top"><img src="http://newsletters.pokerstars.com/2015/images/star.gif" width="18" height="16" style="display:block;"></td>
+                  <td width="5"></td>
+                  <td align="left" style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; color: #ffffff; padding-right: 20px;">There&rsquo;s even a special <strong>$85,000</strong> <strong>SCOOP High Last Longer Challenge</strong> - click <a href="http://et.ps.im/?url=http%3A%2F%2Fwww%2Epokerstars%2Euk%2Fpoker%2Fpromotions%2Fpmm%2Fscoop%2Draffle%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D8%26a5%3D67461326" style="color:#FF0000; font-weight:bold;" target="_blank">here</a> for more.</td>
+                </tr>
+                <tr>
+                  <td height="10" colspan="3"></td>
+                </tr>
+                
+                <tr>
+                  <td height="15" colspan="3"></td>
+                </tr>
+                 <tr>
+                  <td height="38" colspan="3" style="font-family: Helvetica, Arial, sans-serif; font-size:20px; color:#dc2227;"><a href="http://et.ps.im/?url=http%3A%2F%2Fpokerstars%2Euk%2Flocate%2Fpokerstars%2Fmenu%2Fcashier%2Fdeposit%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D9%26a5%3D67461326" target="_blank"><img src="http://newsletters.pokerstars.com/2015/images/res/deposit-pc-en.gif" alt="[DEPOSIT NOW]" border="0" style="display:block"></a></td>
+                </tr>
+                <tr>
+                  <td height="15" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td colspan="3"><table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="65" height="76"><img src="http://newsletters.pokerstars.com/2015/images/moneymaker-bla.jpg" width="65" height="76" border="0" style="display:block"></td>
+                      <td width="15" height="76"></td>
+                      <td height="76" align="left" valign="bottom" style="font-family:Arial, Helvetica, sans-serif; color:#FFFFFF; font-size:12px;">Regards,<br>
+                        <br>
+                        <strong>Chris Moneymaker<br>
+						Team PokerStars PRO</strong></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td class="contentBtmSpacer" colspan="3" height="15"></td>
+                </tr>
+                                             <!-- end of text content table -->
+                                       </table></td>
+                                       <td class="ContentPadding" width="10"></td>
+                                             </tr>
+                                             <!-- end of text content table -->
+                                          </tbody>
+                                       </table>
+                                       <!-- end of right column -->
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td width="100%" height="5"></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!-- End of 2-columns -->   
+</div>
+<div class="block">
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0">
+         <tr>
+            <td>
+               <table bgcolor="#000000" width="640" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth">
+                  <!-- BANNER GRAPHIC END -->
+                                 <tr> <!-- MOBILE MENU BEGIN - DO NOT DELETE -->
+                                    <td width="100%" class="emailmenunodesk" align="center" bgcolor="#000000" style="font-size:0px;"><a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Flocate%2Fpokerstarsuk%2Fmenu%2Flobby%2Flogin%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D10%26a5%3D67461326" class="emailnobbutton" target="_blank" style="font-family: Arial,Helvetica,sans-serif; color:#FFFFFF; text-decoration: none;">Login</a><a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Fpoker%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D11%26a5%3D67461326" class="emailnobbutton" target="_blank" style="font-family: Arial,Helvetica,sans-serif; color:#FFFFFF; text-decoration: none;">How to Play</a><a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Flocate%2Fpokerstarsuk%2Fmenu%2Fcashier%2Fdeposit%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D12%26a5%3D67461326" class="emailnobbutton" target="_blank" style="font-family: Arial,Helvetica,sans-serif; color:#FFFFFF; text-decoration: none;">Cashier</a><a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Fpoker%2Froom%2Fsupport%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D13%26a5%3D67461326" class="emailnobbutton" target="_blank" style="font-family: Arial,Helvetica,sans-serif; color:#FFFFFF; text-decoration: none;">Help</a></td>
+                                 </tr> <!-- MOBILE MENU END -->
+               </table>
+            </td>
+         </tr>
+   </table>
+</div>
+<div class="block">
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
+         <tr>
+            <td>
+               <table bgcolor="#000000" width="640" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth">
+               <tr>
+                        <td bgcolor="#1d1d1d" align="center" width="640" height="1">
+                          
+                        </td>
+                     </tr>
+               <tr>
+                        <td align="center" bgcolor="#000000" width="640" height="57">
+                           <img src="http://newsletters.pokerstars.com/2015/images/res/logos.gif" width="440" height="57" border="0" alt="" style="display:block; border:none; line-height: 50%; outline:none; text-decoration:none;" class="logo-banner">
+                        </td>
+                     </tr>
+               </table>
+            </td>
+         </tr>
+   </table>
+</div>
+<div class="block">
+   <table width="100%" bgcolor="#323232" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" >
+         <tr>
+            <td width="100%">
+               <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                     <tr>
+                        <td width="100%" height="15"></td>
+                     </tr>
+                     <tr>
+                        <td align="center" valign="middle" style="font-family:Arial, Helvetica, sans-serif; font-size: 10px;color: #656565">Copyright © 2004- 2014 UK. All rights reserved. Amaya Group Limited, Douglas Bay Complex, King Edward Road, Onchan, Isle of Man, IM3 1DZ.
+Licence 000-039108-R-319334-001 issued November 1st, 2014. Licensed and regulated by the UK Gambling Commission.<br />
+		    You are receiving this email message because you have opened an account with PokerStars.com. If you wish to unsubscribe from future promotional emails please go to ‘Communications Preferences’ which can be found under ‘Settings’ in the poker client - click <a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Flocate%2Fpokerstarsuk%2Fsettings%2Fcommprefs%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D14%26a5%3D67461326" style="color:#656565;" target="_blank">here</a> to open. Please note, by doing this you will not be notified of any exclusive offers from PokerStars. We do reserve the right to contact you, even if unsubscribed, with important account or service information, or changes to our Terms & Conditions.<br/><br/>Add <a href="mailto:support@uk.pokerstars.com" style="color:#656565"><strong>support@uk.pokerstars.com</strong></a> to the trusted senders list. Click <a href="http://et.ps.im/?url=http%3A%2F%2Fuk%2Epokerstars%2Ecom%2Fabout%2Femails%2F%3F%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a8%3D2015%2D05%2D03%2D23%2E21%2E49%26a7%3D15%26a5%3D67461326" style="color:#656565" target="_blank"><strong>here</strong></a> to learn how.
+                        </td>
+                     </tr>
+                     <tr>
+                        <td width="100%" height="5"></td>
+                     </tr>
+               </table>
+            </td>
+         </tr>
+   </table>
+</div>
+
+<img src="http://et.ps.im/pixel.gif?a8=2015%2D05%2D03%2D23%2E21%2E49%26html%3D1%26a1%3Dpokerstars%5FcampSCOOP%2DRAFFLE%2DLAUNCH%2DUK%2DEN%26a2%3D0%26a3%3D0%26a4%3D4058522%26a9%3D0%26a5%3D67461326"></body></html>
+--------WmlPYgstaTAv2cT6Gq0VsUbU1E3wfNlX--
+

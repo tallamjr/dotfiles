@@ -1,0 +1,56 @@
+Delivered-To: t.allam.jr@gmail.com
+Received: by 10.79.12.198 with SMTP id 189csp3328051ivm;
+        Mon, 18 May 2015 04:59:48 -0700 (PDT)
+X-Received: by 10.180.88.8 with SMTP id bc8mr2465255wib.19.1431950388483;
+        Mon, 18 May 2015 04:59:48 -0700 (PDT)
+Return-Path: <tarek.allam.10@ucl.ac.uk>
+Received: from emea01-db3-obe.outbound.protection.outlook.com (mail-db3on0104.outbound.protection.outlook.com. [157.55.234.104])
+        by mx.google.com with ESMTPS id he3si12302491wib.114.2015.05.18.04.59.48
+        for <t.allam.jr@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Mon, 18 May 2015 04:59:48 -0700 (PDT)
+Received-SPF: neutral (google.com: 157.55.234.104 is neither permitted nor denied by best guess record for domain of tarek.allam.10@ucl.ac.uk) client-ip=157.55.234.104;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 157.55.234.104 is neither permitted nor denied by best guess record for domain of tarek.allam.10@ucl.ac.uk) smtp.mail=tarek.allam.10@ucl.ac.uk
+Received: from AM3PR01MB1297.eurprd01.prod.exchangelabs.com (25.163.11.154) by
+ AM3PR01MB1298.eurprd01.prod.exchangelabs.com (25.163.11.155) with Microsoft
+ SMTP Server (TLS) id 15.1.166.22; Mon, 18 May 2015 11:59:47 +0000
+Received: from AM3PR01MB1297.eurprd01.prod.exchangelabs.com ([25.163.11.154])
+ by AM3PR01MB1297.eurprd01.prod.exchangelabs.com ([25.163.11.154]) with mapi
+ id 15.01.0166.017; Mon, 18 May 2015 11:59:47 +0000
+From: "Allam, Tarek" <tarek.allam.10@ucl.ac.uk>
+To: "t.allam.jr@gmail.com" <t.allam.jr@gmail.com>
+Subject: test
+Thread-Topic: test
+Thread-Index: AQHQkWIiAY4Kz6irsEyyeQ1akMF7dg==
+Date: Mon, 18 May 2015 11:59:46 +0000
+Message-ID: <3D71D2EE-C1AA-437D-AD6C-1D0BF0281C9D@live.ucl.ac.uk>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=tarek.allam.10@ucl.ac.uk; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [82.40.197.15]
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:;SRVR:AM3PR01MB1298;
+x-ucllive-sclrule: HASRUN
+x-microsoft-antispam-prvs: <AM3PR01MB129891BC090620600898B5EE99C40@AM3PR01MB1298.eurprd01.prod.exchangelabs.com>
+x-exchange-antispam-report-test: UriScan:;
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(601004)(5005006)(3002001);SRVR:AM3PR01MB1298;BCL:0;PCL:0;RULEID:;SRVR:AM3PR01MB1298;
+x-forefront-prvs: 058043A388
+x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(6009001)(199003)(189002)(50986999)(229853001)(82746002)(74482002)(92566002)(122556002)(558084003)(5001830100001)(2351001)(5001860100001)(54356999)(40100003)(33656002)(105586002)(101416001)(588024002)(5001960100002)(110136002)(450100001)(87936001)(2656002)(107886002)(64706001)(81156007)(4001540100001)(97736004)(106356001)(2501003)(62966003)(106116001)(77156002)(83716003)(46102003)(555874004)(86362001)(551214005)(221733001)(2900100001)(66066001)(68736005)(102836002)(217283001)(104396002)(220243001)(558944008)(15288005002)(19559445001);DIR:OUT;SFP:1102;SCL:1;SRVR:AM3PR01MB1298;H:AM3PR01MB1297.eurprd01.prod.exchangelabs.com;FPR:;SPF:None;PTR:InfoNoRecords;A:1;MX:1;LANG:en;
+received-spf: None (protection.outlook.com: ucl.ac.uk does not designate
+ permitted sender hosts)
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <863BBA6018839A4195760A381ED77B1F@eurprd01.prod.exchangelabs.com>
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: ucl.ac.uk
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 May 2015 11:59:46.5129
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 1faf88fe-a998-4c5b-93c9-210a11d9a5c2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM3PR01MB1298
+
+test

@@ -1,12 +1,17 @@
 #===============================================================================
-#PROMPT
+#   PROMPT
 #===============================================================================
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
+#Shell prompt customisation
+#PS1="\[\033[0;41m\]\u @\t> \w: \[\033[0m\]"
+#export PS1
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0;33m\]:: \[\e[0m\]"
+#export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0m\]"
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Grey directory info
 #export PS1="\[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Green directory with blue time.
 export PS1="\[\e[0;36m\]\t \[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]" # Bright Green directory with blue time.
 #===============================================================================
-#PATH EXPORTS
+#   PATH EXPORTS
 #===============================================================================
 # Setting PATH for EPD-6.3-1
 # The orginal version is saved in .bash_profile.pysave
@@ -28,8 +33,11 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/Users/tarek_allam/mongodb/bin:$PATH"
 # jMusic classpath
 export CLASSPATH="/Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
+
+source "`brew --prefix grc`/etc/grc.bashrc"
+export PATH="/usr/local/sbin:$PATH"
 #===============================================================================
-#COLOUR CUSTOMISATION
+#   COLOUR CUSTOMISATION
 #===============================================================================
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
@@ -39,7 +47,7 @@ export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
 #export LSCOLORS=Dxfxcxdxbxegedabagacad - Yellow
 export GREP_OPTIONS="--color=auto"
 #===============================================================================
-#ALIASES
+#   ALIASES
 #===============================================================================
 # force tmux to use 256 colours
 #alias tmux="TERM=screen-256color-bce tmux"
@@ -70,3 +78,9 @@ alias fire="open -a /Applications/Firefox.app/"
 alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 alias rr="R CMD BATCH "
 alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
+#===============================================================================
+#   MISC.
+#===============================================================================
+MKL_NUM_THREADS=1
+export MKL_NUM_THREADS
+
