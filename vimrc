@@ -31,16 +31,11 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-" ================ Turn Off Swap Files ==============
-"
-"For Vim solarized
-syntax enable
-let g:solarized_termcolors=256
-set background=dark
-"colorscheme solarized
-"#############################
-colorscheme molokai
              
+" ================ Search ===========================
+"
+let mapleader = ","
+
 "display line numbers on the left
 set number
 
@@ -87,9 +82,9 @@ map <leader>bl :blast<CR>
 map <leader>- :split<Space>
 map <leader><Bar> :vsplit<Space>
 map <leader>qw :close<CR>
-
-" ================ PLUGINS ==============
-"
+"################################################
+" ================ PLUGINS SECTION ==============
+"################################################
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -113,8 +108,6 @@ Plugin 'uguu-org/vim-matrix-screensaver'
 
 Plugin 'vim-scripts/AutoComplPop' 
 " Track the engine. 
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
@@ -135,7 +128,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 "Plugin 'mattn/webapi-vim'         
 "Plugin 'mattn/gist-vim'          
 "Plugin 'tpope/vim-rails'
-
+"Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
 " ==============================================================================
 
 " All of your Plugins must be added before the following line
@@ -151,13 +145,14 @@ filetype plugin indent on    " required
 " auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   
-"   Map leader shortcuts 
+" ================ Turn Off Swap Files ==============
 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader = ","
-
+"For Vim solarized
+syntax enable
+let g:solarized_termcolors=256
+set background=dark
+"colorscheme solarized
+colorscheme molokai
 " ================ Turn Off Swap Files ==============
 "
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
