@@ -30,7 +30,7 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
+set clipboard=unnamed
              
 " ================ Search ===========================
 "
@@ -117,9 +117,13 @@ Plugin 'vim-scripts/yavdb'
 Plugin 'raichoo/haskell-vim'
 " To allow just one NERDTree
 Plugin 'jistr/vim-nerdtree-tabs'
-"Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
+
+Plugin 'bling/vim-airline'
+
+Plugin 'tpope/vim-fugitive'
 " ==============================================================================
 " Plugins that are not used.
+"Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 "Plugin 'kchmck/vim-coffee-script'      
 "Plugin 'tpope/vim-endwise'
 "Plugin 'rstacruz/sparkup'
@@ -170,6 +174,8 @@ let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree w
 let g:nerdtree_tabs_autofind = 0    " Automatically find and select currently opened file in NERDTree.
 let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving a tab for descriptive tab names
 
+" ================ Turn Off Swap Files ==============
+"
 " Syntastic settings
 
 "set statusline+=%#warningmsg#
@@ -217,16 +223,33 @@ map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
 "
+" ================ Turn Off Swap Files ==============
+"
 " for Haskell
 let g:haskell_enable_quantification = 1 " to enable highlighting of forall
 let g:haskell_enable_recursivedo = 1 " to enable highlighting of mdo and rec
 let g:haskell_enable_arrowsyntax = 1 " to enable highlighting of proc
 let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of pattern
 let g:haskell_enable_typeroles = 1 " to enable highlighting of type roles
-
 let g:haskell_indent_if = 3
 let g:haskell_indent_case = 2
 let g:haskell_indent_let = 4
 let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
+
+" ================ Turn Off Swap Files ==============
+"
+" airline options
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+"let g:airline_theme='base16'
+
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
+
+set laststatus=2 " show the satus line all the time
+
