@@ -84,3 +84,7 @@ alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
 
+#Find .bashrc file and source.
+if [ -f ~/.localrc]; then
+	   source ~/.localrc
+fi
