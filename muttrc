@@ -1,5 +1,5 @@
 set imap_user = "t.allam.jr@gmail.com"
-set imap_pass = "slaxness89"
+set imap_pass = "$PASSWORD"
 set smtp_url = "smtp://user@smtp.gmail.com:587/"
 set smtp_pass = "user123"
 set from = "user@gmail.com"
