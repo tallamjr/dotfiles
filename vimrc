@@ -252,4 +252,4 @@ if !exists('g:airline_symbols')
   let g:airline_symbols.space = "\ua0"
 
 set laststatus=2 " show the satus line all the time
-
+let g:netrw_dirhistmax = 0
