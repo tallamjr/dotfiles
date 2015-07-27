@@ -39,7 +39,7 @@ let mapleader = ","
 "display line numbers on the left
 set number
 
-:imap df <Esc> 
+:imap kj <Esc> 
 " Map escape 
 " ================ Turn Off Swap Files ==============
 "
@@ -253,3 +253,38 @@ if !exists('g:airline_symbols')
 
 set laststatus=2 " show the satus line all the time
 let g:netrw_dirhistmax = 0
+
+" ================  vim/airline   ==============
+"
+" enable/disable detection of whitespace errors. >
+let g:airline#extensions#whitespace#enabled = 0
+
+" customize the type of mixed indent checking to perform. >
+" must be all spaces or all tabs before the first non-whitespace character
+let g:airline#extensions#whitespace#mixed_indent_algo = 0 
+
+" certain number of spaces are allowed after tabs, but not in between
+" this algorithm works well for /** */ style comments in a tab-indented file
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+" spaces are allowed after tabs, but not in between
+" this algorithm works well with programming styles that use tabs for
+" indentation and spaces for alignment
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+
+" customize the whitespace symbol. >
+let g:airline#extensions#whitespace#symbol = '!'
+
+" configure which whitespace checks to enable. >
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
+
+" configure the maximum number of lines where whitespace checking is enabled. >
+let g:airline#extensions#whitespace#max_lines = 20000
+
+" configure whether a message should be displayed. >
+let g:airline#extensions#whitespace#show_message = 0
+
+" configure the formatting of the warning messages. >
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+
