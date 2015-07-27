@@ -121,6 +121,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'tpope/vim-commentary'
+
+Plugin 'mileszs/ack.vim'
 " ==============================================================================
 " Plugins that are not used.
 "Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
@@ -287,4 +293,6 @@ let g:airline#extensions#whitespace#show_message = 0
 " configure the formatting of the warning messages. >
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+
+
 
