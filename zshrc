@@ -1,3 +1,2 @@
-
-
-This is my zshrc
+#bindkey -v
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

@@ -61,7 +61,6 @@ autocmd! bufwritepost .vimrc source %
 
 " ================ Turn Off Swap Files ==============
 "
-
 " 4 space tab.
 filetype plugin indent on
 set tabstop=4
@@ -82,6 +81,34 @@ map <leader>bl :blast<CR>
 map <leader>- :split<Space>
 map <leader><Bar> :vsplit<Space>
 map <leader>qw :close<CR>
+" ================ Turn Off Swap Files ==============
+"
+map <leader>rr :w<CR>:!R CMD BATCH %<CR>
+" ================ Turn Off Swap Files ==============
+"
+" Latex shortcuts. 
+map <leader>lc :!latex <C-R>%<CR>
+map <leader>pc :!pdflatex <C-R>%<CR>
+map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
+map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+map <leader>wc :!texcount <C-R>%<CR>
+" Jython JSyn build shortcuts
+" ================ Turn Off Swap Files ==============
+"
+map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
+"map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
+"map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
+map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
+" Java compile and run shortcuts
+map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
+" ================ Turn Off Swap Files ==============
+"
+" write, write-quit, quit-force shortcuts
+map <leader>w :w<CR>
+map <leader>wq :wq<CR>
+map <leader>qq :q!<CR>
+"
 "################################################
 " ================ PLUGINS SECTION ==============
 "################################################
@@ -127,9 +154,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
 Plugin 'mileszs/ack.vim'
+
+Plugin 'SirVer/ultisnips'
+
+"Plugin 'Valloric/YouCompleteMe' 
 " ==============================================================================
 " Plugins that are not used.
-"Plugin 'Valloric/YouCompleteMe' ---- Requires later version of Vim.
 "Plugin 'kchmck/vim-coffee-script'      
 "Plugin 'tpope/vim-endwise'
 "Plugin 'rstacruz/sparkup'
@@ -138,7 +168,6 @@ Plugin 'mileszs/ack.vim'
 "Plugin 'mattn/webapi-vim'         
 "Plugin 'mattn/gist-vim'          
 "Plugin 'tpope/vim-rails'
-"Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 " ==============================================================================
 
@@ -163,10 +192,7 @@ let g:solarized_termcolors=256
 set background=dark
 "colorscheme solarized
 colorscheme molokai
-" ================ Turn Off Swap Files ==============
-"
-map <leader>rr :w<CR>:!R CMD BATCH %<CR>
-" ================ Turn Off Swap Files ==============
+" ================ jistr/vim-nerdtree-tabs =============
 "
 " NERDTree Shortcut
 "map <leader>f :NERDTree<CR>
@@ -182,8 +208,6 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 
 " ================ Turn Off Swap Files ==============
 "
-" Syntastic settings
-
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -192,7 +216,8 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-
+" ================ Turn Off Swip Files ==============
+"
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -204,32 +229,7 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-" ================ Turn Off Swap Files ==============
-"
-" Latex shortcuts. 
-map <leader>lc :!latex <C-R>%<CR>
-map <leader>pc :!pdflatex <C-R>%<CR>
-map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
-map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
-map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
-map <leader>wc :!texcount <C-R>%<CR>
-" Jython JSyn build shortcuts
-" ================ Turn Off Swap Files ==============
-"
-map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
-"map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
-"map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
-map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
-" Java compile and run shortcuts
-map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
-" ================ Turn Off Swap Files ==============
-"
-" write, write-quit, quit-force shortcuts
-map <leader>w :w<CR>
-map <leader>wq :wq<CR>
-map <leader>qq :q!<CR>
-"
-" ================ Turn Off Swap Files ==============
+" ================ jistr/vim-nerdtree-tabs ==============
 "
 " for Haskell
 let g:haskell_enable_quantification = 1 " to enable highlighting of forall
@@ -243,8 +243,7 @@ let g:haskell_indent_let = 4
 let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
-
-" ================ Turn Off Swap Files ==============
+" ================  vim/airline   ==============
 "
 " airline options
 let g:airline_powerline_fonts=1
@@ -259,40 +258,26 @@ if !exists('g:airline_symbols')
 
 set laststatus=2 " show the satus line all the time
 let g:netrw_dirhistmax = 0
-
-" ================  vim/airline   ==============
-"
 " enable/disable detection of whitespace errors. >
 let g:airline#extensions#whitespace#enabled = 0
-
 " customize the type of mixed indent checking to perform. >
 " must be all spaces or all tabs before the first non-whitespace character
 let g:airline#extensions#whitespace#mixed_indent_algo = 0 
-
 " certain number of spaces are allowed after tabs, but not in between
 " this algorithm works well for /** */ style comments in a tab-indented file
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-
 " spaces are allowed after tabs, but not in between
 " this algorithm works well with programming styles that use tabs for
 " indentation and spaces for alignment
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
-
 " customize the whitespace symbol. >
 let g:airline#extensions#whitespace#symbol = '!'
-
 " configure which whitespace checks to enable. >
 let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
-
 " configure the maximum number of lines where whitespace checking is enabled. >
 let g:airline#extensions#whitespace#max_lines = 20000
-
 " configure whether a message should be displayed. >
 let g:airline#extensions#whitespace#show_message = 0
-
 " configure the formatting of the warning messages. >
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-
-
-
