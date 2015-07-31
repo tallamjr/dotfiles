@@ -16,6 +16,7 @@ set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set backspace=2 " make backspace work like most other apps
 
 " ================ Turn Off Swap Files ==============
 "
@@ -31,7 +32,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 set clipboard=unnamed
-             
+
 " ================ Search ===========================
 "
 let mapleader = ","
@@ -41,6 +42,7 @@ set number
 
 :imap kj <Esc> 
 " Map escape 
+
 " ================ Turn Off Swap Files ==============
 "
 " highlight when over 80 characters
@@ -156,8 +158,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'SirVer/ultisnips'
-
-"Plugin 'Valloric/YouCompleteMe' 
 " ==============================================================================
 " Plugins that are not used.
 "Plugin 'kchmck/vim-coffee-script'      
@@ -168,6 +168,7 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'mattn/webapi-vim'         
 "Plugin 'mattn/gist-vim'          
 "Plugin 'tpope/vim-rails'
+"Plugin 'Valloric/YouCompleteMe' -- trouble with python. fatal errors.
 " Snippets are separated from the engine. Add this if you want them:
 " ==============================================================================
 
