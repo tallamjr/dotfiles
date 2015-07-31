@@ -1,4 +1,13 @@
 #set -o vi
+if [ -f ~/.localrc ]; then
+	source ~/.localrc
+fi
+
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash     
+fi
+
+source ~/.git-prompt.sh
 #===============================================================================
 #   PROMPT
 #===============================================================================
@@ -10,7 +19,9 @@
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[0;33m\]\w \[\e[0m\]"
 #export PS1="\[\e[0;35m\]\u \[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Grey directory info
 #export PS1="\[\e[0;36m\]\t \[\e[1;32m\]\w \[\e[1;32m\]:: \[\e[0m\]" # Green directory with blue time.
-export PS1="\[\e[0;36m\]\t \[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]" # Bright Green directory with blue time.
+# export PS1="\[\e[0;36m\]\t \[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]" # Bright Green directory with blue time.
+
+export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working directory clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
 #===============================================================================
 #   PATH EXPORTS
 #===============================================================================
@@ -22,6 +33,7 @@ export PATH
 ##
 # Your previous /Users/tarek_allam/.bash_profile file was backed up as /Users/tarek_allam/.bash_profile.macports-saved_2010-11-26_at_17:56:28
 ##
+#export PATH="/Users/tarek_allam/anaconda/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 # adding path for bash script to allow battery status bar in tmux
@@ -84,8 +96,30 @@ alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 #===============================================================================
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
-
+  
+#if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+#    GIT_PROMPT_THEME=Default
+#    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+#fi
 #Find .bashrc file and source.
-if [ -f ~/.localrc ]; then
-	   source ~/.localrc
-fi
+# if [ -f `brew --prefix`/etc/bash_completion ]; then
+#     . `brew --prefix`/etc/bash_completion
+
+#     GIT_PS1_SHOWDIRTYSTATE=1 #... untagged(*) and staged(+) changes
+#     GIT_PS1_SHOWSTASHSTATE=1 #... if something is stashed($)
+#     GIT_PS1_SHOWUNTRACKEDFILES=1 #... untracked files(%)
+
+#     export PS1='\[\e[01;30m\]\t `if [ $? = 0 ]; then echo "\[\e[32m\]✔"; else echo "\[\e[31m\]✘"; fi` \[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "\[\e[31m\]" || echo "\[\e[32m\]"`$(__git_ps1 "(✔)\[\e[00m\]")\[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]' # Bright Green directory with blue time.
+# fi
+
+# export PS1='\[\e[01;36m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi `\[\e[01;34m\]\w\[\e[00m\]``[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")'
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[01;34m\]\w\[\e[00m\]\$ '
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1)\[\e[0m\]'
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1) \[\e[0m\]'
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[01;34m\]\w\[\e[00m\]\$ '
+
+# export PS1='\[\e[01;30m\]\t `if [ $? = 0 ]; then echo "\[\e[32m\]✔"; else echo "\[\e[31m\]✘"; fi` \[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "\[\e[31m\]" || echo "\[\e[32m\]"`$(__git_ps1 "(✔)\[\e[00m\]")\[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]' # Bright Green directory with blue time.
+
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `echo "\[\e[01;32m\]"$(__git_ps1 "(%s)")` `echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
+# \[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | head -n2 | tail -n1) != "# Changes to be committed:" ]] && echo "\[\e[31m\]" || echo "\[\e[33m\]"``[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")$ '
+
