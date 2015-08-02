@@ -1,22 +1,31 @@
-" ================ Turn Off Swap Files ==============
+" ================ General Configuration ==============
 "
 set nocompatible     	 " We're running Vim, not Vi!
 set term=screen-256color
 syntax on             	" Enable syntax highlighting
 filetype on           	" Enable filetype detection
 filetype indent on    	" Enable filetype-specific indenting
-filetype plugin on    	" Enable filetype-specific plugins 
+filetype plugin on    	" Enable filetype-specific plugins
 set nrformats=          " Disables Vim's built in octal-numeric system. All numbers if containing leading zero now decimal format
 set hls
 set wildmenu
 set wildmode=full
 set history=1000
 set fileformat=unix
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-set backspace=2 " make backspace work like most other apps
+set showcmd             "Show incomplete cmds down the bottom
+set showmode            "Show current mode down the bottom
+set visualbell          "No sounds
+set autoread            "Reload files changed outside vim
+set backspace=2         "Make backspace work like most other apps
+set number              "display line numbers on the left
+set clipboard=unnamed
+
+" ================ Un-map Arrow Keys ==============
+"
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
+noremap <Left>  <Nop>
+noremap <Right> <Nop>
 
 " ================ Turn Off Swap Files ==============
 "
@@ -31,19 +40,17 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-set clipboard=unnamed
 
-" ================ Search ===========================
+" ================ Leader-Key ===========================
 "
 let mapleader = ","
 
-"display line numbers on the left
-set number
-
-:imap kj <Esc> 
+" ================ Re-map Escape ===========================
+"
 " Map escape 
+:imap kj <Esc> 
 
-" ================ Turn Off Swap Files ==============
+" ================ Textwidth/Spellchecker ==============
 "
 " highlight when over 80 characters
 "highlight Overlength ctermbg=red ctermfg=white
@@ -61,7 +68,7 @@ set complete+=kspell
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" ================ Turn Off Swap Files ==============
+" ================ Tabs/Buffers ==============
 "
 " 4 space tab.
 filetype plugin indent on
@@ -78,15 +85,17 @@ map <leader>b :bnext<CR>
 map <leader>bp :bprev<CR>
 map <leader>bf :bfirst<CR>
 map <leader>bl :blast<CR>
-" ================ Turn Off Swap Files ==============
+
+" ================ Splits ==============
 "
 map <leader>- :split<Space>
 map <leader><Bar> :vsplit<Space>
 map <leader>qw :close<CR>
-" ================ Turn Off Swap Files ==============
+
+" ================ R Batch Mode ==============
 "
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
-" ================ Turn Off Swap Files ==============
+" ================ LaTeX ==============
 "
 " Latex shortcuts. 
 map <leader>lc :!latex <C-R>%<CR>
@@ -95,8 +104,8 @@ map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>wc :!texcount <C-R>%<CR>
-" Jython JSyn build shortcuts
-" ================ Turn Off Swap Files ==============
+
+" ================ Jython JSyn Build ==============
 "
 map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
@@ -104,13 +113,14 @@ map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
 " Java compile and run shortcuts
 map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
-" ================ Turn Off Swap Files ==============
+
+" ================ Write/Save/Quit ==============
 "
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
-"
+
 "################################################
 " ================ PLUGINS SECTION ==============
 "################################################
@@ -158,11 +168,20 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'SirVer/ultisnips'
+
+Plugin 'rstacruz/sparkup'
+
+Plugin 'ntpeters/vim-better-whitespace'
+
+Plugin 'tmhedberg/matchit'
+
+Plugin 'ervandew/supertab'
+
+Plugin 'sickill/vim-pasta'
 " ==============================================================================
 " Plugins that are not used.
 "Plugin 'kchmck/vim-coffee-script'      
 "Plugin 'tpope/vim-endwise'
-"Plugin 'rstacruz/sparkup'
 "Plugin 'https://bitbucket.org/kink/kink.vim'
 "needed for gist
 "Plugin 'mattn/webapi-vim'         
@@ -171,11 +190,10 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'Valloric/YouCompleteMe' -- trouble with python. fatal errors.
 " Snippets are separated from the engine. Add this if you want them:
 " ==============================================================================
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just
@@ -185,7 +203,8 @@ filetype plugin indent on    " required
 " auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" ================ Turn Off Swap Files ==============
+
+" ================ Colour Scheme ==============
 "
 "For Vim solarized
 syntax enable
@@ -193,6 +212,7 @@ let g:solarized_termcolors=256
 set background=dark
 "colorscheme solarized
 colorscheme molokai
+
 " ================ jistr/vim-nerdtree-tabs =============
 "
 " NERDTree Shortcut
@@ -207,7 +227,7 @@ let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree w
 let g:nerdtree_tabs_autofind = 0    " Automatically find and select currently opened file in NERDTree.
 let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving a tab for descriptive tab names
 
-" ================ Turn Off Swap Files ==============
+" ================ 'scrooloose/syntastic' ==============
 "
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -217,7 +237,8 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-" ================ Turn Off Swip Files ==============
+
+" ================ 'SirVer/ultisnips' ==============
 "
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
@@ -228,8 +249,11 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
+" ================ 'vim-scripts/AutoComplPop' ==============
+"
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+
 " ================ jistr/vim-nerdtree-tabs ==============
 "
 " for Haskell
@@ -244,6 +268,7 @@ let g:haskell_indent_let = 4
 let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
+
 " ================  vim/airline   ==============
 "
 " airline options
@@ -282,3 +307,7 @@ let g:airline#extensions#whitespace#show_message = 0
 " configure the formatting of the warning messages. >
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+
+" ++++++++++++++++++++++++++++++++++++++
+" ================  EOF   ==============
+" ++++++++++++++++++++++++++++++++++++++
