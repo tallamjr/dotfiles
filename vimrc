@@ -178,6 +178,8 @@ Plugin 'tmhedberg/matchit'
 Plugin 'ervandew/supertab'
 
 Plugin 'sickill/vim-pasta'
+
+Plugin 'jceb/vim-orgmode'
 " ==============================================================================
 " Plugins that are not used.
 "Plugin 'kchmck/vim-coffee-script'      
