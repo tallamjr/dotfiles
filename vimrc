@@ -242,12 +242,12 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 "
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-d>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-s>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="vertical"
 
 " ================ 'vim-scripts/AutoComplPop' ==============
 "
