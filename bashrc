@@ -94,3 +94,4 @@ alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 #===============================================================================
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
