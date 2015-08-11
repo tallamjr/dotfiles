@@ -180,6 +180,9 @@ Plugin 'ervandew/supertab'
 Plugin 'sickill/vim-pasta'
 
 Plugin 'jceb/vim-orgmode'
+
+set rtp+=~/usr/local/Cellar/fzf/0.10.2
+Plugin 'junegunn/fzf'
 " ==============================================================================
 " Plugins that are not used.
 "Plugin 'kchmck/vim-coffee-script'      
@@ -217,12 +220,16 @@ colorscheme molokai
 
 " ================ jistr/vim-nerdtree-tabs =============
 "
+map <Leader>f :FZF<CR>
+
+" ================ jistr/vim-nerdtree-tabs =============
+"
 " NERDTree Shortcut
 "map <leader>f :NERDTree<CR>
-map <Leader>ff <plug>NERDTreeTabsToggle<CR>
+map <Leader>nn <plug>NERDTreeTabsToggle<CR>
 :nmap ?? <Plug>NERDTreeTabsToggle<CR>
 
-map <leader>f :NERDTreeFocusToggle<CR>
+map <leader>n :NERDTreeFocusToggle<CR>
 map <leader>nfind :NERDTreeTabsFind<CR>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
