@@ -18,7 +18,7 @@ set signature=”~/.mutt/sig” # mail signature file location
 set mail_check=60           # check for new mail every 60 seconds
 set timeout=15              # after 15 secs of no keypresses, start checking for new mail
 # set sendmail="/usr/sbin/sendmail -oi -oem"
-# set smtp_authenticators = 'login'
+set smtp_authenticators = 'sasl:gssapi:cram-md5:login'
 # set ssl_starttls=yes
 # set ssl_force_tls=yes
 
