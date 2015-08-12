@@ -1,7 +1,10 @@
 set imap_user = "t.allam.jr@gmail.com"
-set imap_pass = "$PASSWORD"
+# set imap_pass = "$PASSWORD"
+set imap_pass = `gpg -r "Tarek Allam Jr." --quiet --batch -d ~/.passwd/gmail.gpg` 
+# set smtp_url = "smtp://user@smtp.gmail.com:465/"
+# set smtp_url = "smtps://username@domain.ex@smtp.gmail.com:465/"
 set smtp_url = "smtp://user@smtp.gmail.com:587/"
-set smtp_pass = "user123"
+set smtp_pass = "$PASSWORD"
 set from = "user@gmail.com"
 set realname = "Tarek Allam Jr."
 set folder = "imaps://imap.gmail.com:993"
@@ -14,6 +17,10 @@ set move = no
 set signature=”~/.mutt/sig” # mail signature file location
 set mail_check=60           # check for new mail every 60 seconds
 set timeout=15              # after 15 secs of no keypresses, start checking for new mail
+# set sendmail="/usr/sbin/sendmail -oi -oem"
+# set smtp_authenticators = 'login'
+# set ssl_starttls=yes
+# set ssl_force_tls=yes
 
 ## mutt color scheme ##
 
