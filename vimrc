@@ -317,6 +317,10 @@ let g:airline#extensions#whitespace#show_message = 0
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
+" ================  'mileszs/ack.vim' ==============
+"
+map <leader>a :Ack<Space>
+
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
 " ++++++++++++++++++++++++++++++++++++++
