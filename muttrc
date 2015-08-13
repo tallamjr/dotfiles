@@ -1,23 +1,38 @@
-set imap_user = "t.allam.jr@gmail.com"
-# set imap_pass = "$PASSWORD"
-set imap_pass = `gpg -r "Tarek Allam Jr." --quiet --batch -d ~/.passwd/gmail.gpg` 
-# set smtp_url = "smtp://user@smtp.gmail.com:465/"
-# set smtp_url = "smtps://username@domain.ex@smtp.gmail.com:465/"
-set smtp_url = "smtp://user@smtp.gmail.com:587/"
-set smtp_pass = "$PASSWORD"
-set from = "user@gmail.com"
+set from = "t.allam.jr@gmail.com"
 set realname = "Tarek Allam Jr."
+set imap_user = "t.allam.jr@gmail.com"
+set imap_pass = "$PASSWORD"
+# set imap_pass = `gpg -r "Tarek Allam Jr." --quiet --batch -d ~/.passwd/gmail.gpg` 
+
+##REMOTE GMAIL FOLDERS
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
-set postponed = "+[Gmail]/Drafts"
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
-set certificate_file = ~/.mutt/certificates
-set move = no
+set postponed ="+[Google Mail]/Drafts"
+# set trash = "+[Google Mail]/Trash"
+
+###SMTP Settings to sent email
+set smtp_url = "smtp://t.allam.jr@smtp.gmail.com:587/"
+set smtp_pass = "$PASSWORD"
+
+###LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+###SECURING
+set move = no #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+#
+##Sort by newest conversation first.
+set sort = reverse-threads
+set sort_aux = last-date-received
+
+##Set editor to create new email
+set editor='vim'
+
 set signature=”~/.mutt/sig” # mail signature file location
 set mail_check=60           # check for new mail every 60 seconds
 set timeout=15              # after 15 secs of no keypresses, start checking for new mail
-# set sendmail="/usr/sbin/sendmail -oi -oem"
 set smtp_authenticators = 'sasl:gssapi:cram-md5:login'
 # set ssl_starttls=yes
 # set ssl_force_tls=yes
