@@ -118,6 +118,7 @@ map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>
 "
 " write, write-quit, quit-force shortcuts
 map <leader>w :w<CR>
+map <leader><Space> :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
 
