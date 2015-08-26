@@ -182,6 +182,10 @@ Plugin 'sickill/vim-pasta'
 
 Plugin 'jceb/vim-orgmode'
 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
 " ==============================================================================
