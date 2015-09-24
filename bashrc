@@ -89,6 +89,7 @@ alias fire="open -a /Applications/Firefox.app/"
 alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 alias rr="R CMD BATCH "
 alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
+alias xx="chmod +x"
 #===============================================================================
 #   MISC.
 #===============================================================================
