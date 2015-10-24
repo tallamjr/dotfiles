@@ -61,6 +61,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.txt setlocal textwidth=80
 
 autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
@@ -104,6 +105,10 @@ map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
 map <leader>wc :!texcount <C-R>%<CR>
+
+" ================ Pandoc ==============
+"
+map <leader>pan :!pandoc <C-R>% --latex-engine=xelatex --toc -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR> 
 
 " ================ Jython JSyn Build ==============
 "
