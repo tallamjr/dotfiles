@@ -47,6 +47,9 @@ export PATH="/usr/local/mysql/bin:$PATH"
 # mongodb PATH
 export PATH="/Users/tarek_allam/mongodb/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+# Path to allow coreutils to use default names instead of having each one prefixed with g.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # jMusic classpath
 export CLASSPATH="/Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
 #===============================================================================
@@ -69,9 +72,10 @@ alias tmux="tmux -2"
 # azure mysql connection shortcut
 alias dbcw="mysql -h eu-cdbr-azure-north-b.cloudapp.net -u b868b961e0bfe6 -p554e5f66 -D MarkingP2PDB"
 # listing in colour and easy quitting
-alias ls="ls -Gh"
+#alias ls="ls -Gh"
+alias ls="ls --color"
 alias cl="clear"
-alias la="ls -la"
+alias la="ls -lah"
 alias qq="exit"
 alias grep="grep -E"
 # put computer to sleep
@@ -90,9 +94,17 @@ alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 alias rr="R CMD BATCH "
 alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 alias xx="chmod +x"
+alias todo="vim `$DATE`.md"
+alias lsg="ls | grep -i"
 #===============================================================================
 #   MISC.
 #===============================================================================
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Global variable for date format YY-MM-DD
+DATE='date +%Y-%m-%d'
+export DATE
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/tarek_allam/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
