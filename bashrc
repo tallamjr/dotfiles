@@ -96,6 +96,7 @@ alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 alias xx="chmod +x"
 alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"
+alias crontabedit="env EDITOR=vim crontab -e"
 #===============================================================================
 #   MISC.
 #===============================================================================
