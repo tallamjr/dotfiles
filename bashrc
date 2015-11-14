@@ -33,25 +33,25 @@ PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 # MacPorts Installer addition on 2010-11-26_at_17:56:28: adding an appropriate PATH variable for use with MacPorts.
 ##
-# Your previous /Users/tarek_allam/.bash_profile file was backed up as /Users/tarek_allam/.bash_profile.macports-saved_2010-11-26_at_17:56:28
+# Your previous $HOME/.bash_profile file was backed up as $HOME/.bash_profile.macports-saved_2010-11-26_at_17:56:28
 ##
-#export PATH="/Users/tarek_allam/anaconda/bin:$PATH"
+#export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 # adding path for bash script to allow battery status bar in tmux
-export PATH="/Users/tarek_allam/Documents/tmux/bin:$PATH"
+export PATH="$HOME/Documents/tmux/bin:$PATH"
 # added by Anaconda3 2.1.0 installer
-export PATH="/Users/tarek_allam/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 # path for mysql
 export PATH="/usr/local/mysql/bin:$PATH"
 # mongodb PATH
-export PATH="/Users/tarek_allam/mongodb/bin:$PATH"
+export PATH="$HOME/mongodb/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 # Path to allow coreutils to use default names instead of having each one prefixed with g.
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # jMusic classpath
-export CLASSPATH="/Users/tarek_allam/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
+export CLASSPATH="$HOME/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
 #===============================================================================
 #   COLOUR CUSTOMISATION
 #===============================================================================
@@ -106,5 +106,5 @@ export MKL_NUM_THREADS
 DATE='date +%Y-%m-%d'
 export DATE
 export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/tarek_allam/.boot2docker/certs/boot2docker-vm
+export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
