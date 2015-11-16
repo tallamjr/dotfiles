@@ -1,23 +1,17 @@
-set from = "t.allam.jr@gmail.com"
-set realname = "Tarek Allam Jr."
-set imap_user = "t.allam.jr@gmail.com"
-set imap_pass = "$PASSWORD"
-# set imap_pass = `gpg -r "Tarek Allam Jr." --quiet --batch -d ~/.passwd/gmail.gpg` 
+# FOLDER HOOKS
+folder-hook 'account.com.gmail.tallamjr' 'source ~/.mutt/account.com.gmail.tallamjr'
+# folder-hook 'account.com.gmail.tallamjr3' 'source ~/.mutt/account.com.gmail.tallamjr3'
+folder-hook 'account.com.hotmail.tarek_allam53' 'source ~/.mutt/account.com.hotmail.tarek_allam53'
+# DEFAULT ACCOUNT
+# source ~/.mutt/account.com.hotmail.tarek_allam53
+source ~/.mutt/account.com.gmail.tallamjr
 
-##REMOTE GMAIL FOLDERS
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
-set postponed ="+[Google Mail]/Drafts"
-# set trash = "+[Google Mail]/Trash"
-
-###SMTP Settings to sent email
-set smtp_url = "smtp://t.allam.jr@smtp.gmail.com:587/"
-set smtp_pass = "$PASSWORD"
-
-###LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
-set header_cache =~/.mutt/cache/headers
-set message_cachedir =~/.mutt/cache/bodies
-set certificate_file =~/.mutt/certificates
+# Macros for switching accounts
+macro index <F5> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.tallamjr<enter><change-folder>!<enter>'
+# macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.tallamjr3<enter><change-folder>!<enter>'
+macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/account.com.hotmail.tarek_allam53<enter><change-folder>!<enter>'
+# macro index <F10> '<sync-mailbox><enter-command>source ~/.mutt/account.com.live.gotbletu<enter><change-folder>!<enter>'
+# macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/account.com.hotmail.gotbletu<enter><change-folder>!<enter>'
 
 ###SECURING
 set move = no #Stop asking to "move read messages to mbox"!

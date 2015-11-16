@@ -2,6 +2,8 @@
 
 ## Pre-installation downloads
 
+Remember to manually install the items below
+
 - Java SDK
 - X-code Command Line Tools
 - MacTex/LaTeX
