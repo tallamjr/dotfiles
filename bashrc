@@ -97,6 +97,7 @@ alias xx="chmod +x"
 alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"
 alias crontabedit="env EDITOR=vim crontab -e"
+alias gf="gfortran"
 #===============================================================================
 #   MISC.
 #===============================================================================
