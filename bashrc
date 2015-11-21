@@ -1,14 +1,18 @@
 # Vim key-bindings for movement within the shell.
-#set -o vi
-
+set -o vi
+# major=${BASH_VERSINFO[0]}
+# minor=${BASH_VERSINFO[1]}
+# if (( major > 4 )) || (( major == 4 && minor >= 3 )); then
+#     bind -m vi-insert '"kj": vi-movement-mode'
+# fi
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
 
-if [ -f ~/.git-completion.bash ]; then 
-    source ~/.git-completion.bash     
-else 
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+else
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 

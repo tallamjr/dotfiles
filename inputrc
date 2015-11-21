@@ -1,0 +1,15 @@
+set editing-mode vi
+"\C-x\C-r": re-read-init-file
+set keymap vi
+set bell-style none
+$if mode=vi
+    # normal mode
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+    # insert mode
+    set keymap vi-insert
+    "kj": vi-movement-mode
+    "\C-w": backward-kill-word
+    "\C-p": history-search-backward
+$endif
