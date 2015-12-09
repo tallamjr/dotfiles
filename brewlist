@@ -1,6 +1,8 @@
 arpack
 brew-cask
+cloc
 coreutils
+dos2unix
 emacs
 epstool
 fftw
