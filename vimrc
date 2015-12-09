@@ -47,8 +47,8 @@ let mapleader = ","
 
 " ================ Re-map Escape ===========================
 "
-" Map escape 
-:imap kj <Esc> 
+" Map escape
+:imap kj <Esc>
 
 " ================ Textwidth/Spellchecker ==============
 "
@@ -98,17 +98,17 @@ map <leader>qw :close<CR>
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
 " ================ LaTeX ==============
 "
-" Latex shortcuts. 
+" Latex shortcuts.
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
-map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
-map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR> 
+map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
+map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>wc :!texcount <C-R>%<CR>
 
 " ================ Pandoc ==============
 "
-map <leader>pan :!pandoc <C-R>% --latex-engine=xelatex --toc -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR> 
+map <leader>pan :!pandoc <C-R>% --latex-engine=xelatex --toc -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR>
 
 " ================ Jython JSyn Build ==============
 "
@@ -117,7 +117,7 @@ map <leader>jyr :w<CR>:!jython -J-classpath ~/jars/*.jar <C-R>%<CR>
 "map <leader>jj :w<CR>:!jython -J-classpath ~/jMusic/*.jar <C-R>%<CR>
 map <leader>jj :w<CR>:!sh jython.sh <C-R>%<CR>
 " Java compile and run shortcuts
-map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>  
+map <leader>jr :w<CR>:!javac <C-R>%<CR>:!java <C-R>%<BS><BS><BS><BS><BS>
 
 " ================ Write/Save/Quit ==============
 "
@@ -138,21 +138,21 @@ call vundle#begin()
 " run ':PluginInstall' to properly load vundle plguins
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-  
+
 Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'tomasr/molokai'
-   
+
 Plugin 'scrooloose/nerdtree'
-    
-Plugin 'kien/ctrlp.vim' 
+
+Plugin 'kien/ctrlp.vim'
 
 Plugin 'scrooloose/syntastic'
 
 Plugin 'uguu-org/vim-matrix-screensaver'
 
-Plugin 'vim-scripts/AutoComplPop' 
-" Track the engine. 
+Plugin 'vim-scripts/AutoComplPop'
+" Track the engine.
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
@@ -173,7 +173,7 @@ Plugin 'tpope/vim-commentary'
 
 Plugin 'mileszs/ack.vim'
 
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 Plugin 'rstacruz/sparkup'
 
@@ -191,16 +191,17 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+Plugin 'vimwiki/vimwiki'
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
 " ==============================================================================
 " Plugins that are not used.
-"Plugin 'kchmck/vim-coffee-script'      
+"Plugin 'kchmck/vim-coffee-script'
 "Plugin 'tpope/vim-endwise'
 "Plugin 'https://bitbucket.org/kink/kink.vim'
 "needed for gist
-"Plugin 'mattn/webapi-vim'         
-"Plugin 'mattn/gist-vim'          
+"Plugin 'mattn/webapi-vim'
+"Plugin 'mattn/gist-vim'
 "Plugin 'tpope/vim-rails'
 "Plugin 'Valloric/YouCompleteMe' -- trouble with python. fatal errors.
 " Snippets are separated from the engine. Add this if you want them:
@@ -307,7 +308,7 @@ let g:netrw_dirhistmax = 0
 let g:airline#extensions#whitespace#enabled = 0
 " customize the type of mixed indent checking to perform. >
 " must be all spaces or all tabs before the first non-whitespace character
-let g:airline#extensions#whitespace#mixed_indent_algo = 0 
+let g:airline#extensions#whitespace#mixed_indent_algo = 0
 " certain number of spaces are allowed after tabs, but not in between
 " this algorithm works well for /** */ style comments in a tab-indented file
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
@@ -330,6 +331,12 @@ let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 " ================  'mileszs/ack.vim' ==============
 "
 map <leader>a :Ack<Space>
+" let g:ackprg = $HOME/bin/ack -s -H --nocolor --nogroup --column
+
+" ================  'ntpeters/vim-better-whitespace' ==============
+"
+autocmd BufWritePre * StripWhitespace
+" map <leader>ws :StripWhitespace<CR>
 
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
