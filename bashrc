@@ -115,6 +115,7 @@ alias lsg="ls | grep -i"
 alias crontabedit="env EDITOR=vim crontab -e"
 alias ff="gfortran"
 alias dockerdaemon="eval '$(docker-machine env default)'"
+alias pingg="ping www.google.com"
 #===============================================================================
 #   MISC.
 #===============================================================================
