@@ -93,6 +93,11 @@ map <leader>- :split<Space>
 map <leader><Bar> :vsplit<Space>
 map <leader>qw :close<CR>
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " ================ R Batch Mode ==============
 "
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
@@ -102,7 +107,7 @@ map <leader>rr :w<CR>:!R CMD BATCH %<CR>
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
-map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
+map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>wc :!texcount <C-R>%<CR>
 
@@ -126,6 +131,7 @@ map <leader>w :w<CR>
 map <leader><Space> :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
+map <leader>q :q<CR>
 
 "################################################
 " ================ PLUGINS SECTION ==============
