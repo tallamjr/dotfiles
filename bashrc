@@ -85,8 +85,6 @@ source "`brew --prefix grc`/etc/grc.bashrc"
 alias pylab="ipython -pylab"
 # force tmux to use 256 colours
 alias tmux="tmux -2"
-# azure mysql connection shortcut
-alias dbcw="mysql -h eu-cdbr-azure-north-b.cloudapp.net -u b868b961e0bfe6 -p554e5f66 -D MarkingP2PDB"
 # listing in colour and easy quitting
 #alias ls="ls -Gh"
 alias ls="ls --color"
@@ -98,9 +96,6 @@ alias grep="grep -E"
 alias sleep="sudo shutdown -s now"
 # colourful version of cat command
 alias pat="pygmentize -g"
-# python2 enviroment
-alias python2="source activate python2"
-alias pclose="source deactivate"
 # application shortcuts
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias poker="open /Applications/PokerStarsUK.app/"
@@ -108,7 +103,6 @@ alias fire="open -a /Applications/Firefox.app/"
 # sublime shortcut
 alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
 alias rr="R CMD BATCH "
-alias www="cd ~/Google\ Drive/tarekallam_webpage/Ceevee10/"
 alias xx="chmod +x"
 alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"
