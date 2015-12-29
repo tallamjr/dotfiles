@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# git clone dotfiles
+# git clone dotfiles.
 if [ ! -d "$HOME/dotfiles" ]; then
     echo "Installing DOTFILES for the first time..."
     git clone https://github.com/tallamjr/dotfiles.git "$HOME"
@@ -8,21 +8,21 @@ else
     echo "DOTFILES are already installed"
 fi
 
-# Check if Homebrew is install on system
+# Check if Homebrew is install on system.
 which brew
-
-operatingSystem=`uname`
-
 exitCode=$?
+operatingSystem=`uname`
 if [[ $exitCode != 0 ]]; then
-    if [ $operatingSystem == "Darwin" ]; then
     # Determine operating system via uname. Install appropriate Homebrew.
+    if [ $operatingSystem == "Darwin" ]; then
+    # Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 elif [ "$operatingSystem" == "Linux" ]; then
-    #linuxbrew
+    # Linuxbrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 else
     echo "Not running OSX or Linux. Sort it out mate!"
+    # Need a catch here to halt script alltogether.
     fi
     exit $exitCode;
 fi
@@ -37,8 +37,8 @@ echo "========================="
 echo " Installing Packages..."
 echo "========================="
 
-# needs work around for additional arguments such as 'override system-vi'
-FILE=".brewlist"
+# Brew install each package in "brewlist" file.
+FILE="dotfiles/brewlist"
 while read line; do
     if [ "$line" == "vim"]; then
        brew install --override-system-vim
@@ -71,7 +71,9 @@ ln -s dotfiles/muttrc .muttrc
 
 # source bashrc, source vimrc, source muttrc (stderr to dev null)
 
-echo "========================="
+# make un-install script too that checks for backup files and put them back in place of the symlinked dotfiles, then removes dotfiles directory
+echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."
-echo "========================="
+echo " Please re-start shell"
+echo "=============================="
