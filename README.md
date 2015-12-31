@@ -17,4 +17,9 @@ To start installation, please run:
 ```bash
 sh -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/install.sh`"
 ```
-Also remember to run `:PluginInstall` inside vim 
+Also remember to run `:PluginInstall` inside vim
+
+*TODO*
+
+move brewlist.sh script from home directory into brew folder in dotfiles. Alter
+path variable to remove redundant paths.

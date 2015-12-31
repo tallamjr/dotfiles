@@ -47,6 +47,11 @@ while read line; do
     fi
 done < $FILE
 
+# symlink all files in dotfiles folder
+stow -vt $HOME .
+# Delete all symlinks
+stow -Dvt $HOME .
+
 # make symlinks for files and dotfiles
 # check for certain files, remove if required, created if needed. ie bashrc and emacs.d
 if [ ! -f "$HOME/.vimrc" ]; then
@@ -71,9 +76,18 @@ ln -s dotfiles/muttrc .muttrc
 
 # source bashrc, source vimrc, source muttrc (stderr to dev null)
 
+# uninstall should also remove dotfiles folder after removing symlinks. Stow -Dvt first then cd ~ && rm dir dotfiles directory
+
+# can stow as temp, with just vim and bash
+
+# can temp with emails.
+
+# can do full
+
 # make un-install script too that checks for backup files and put them back in place of the symlinked dotfiles, then removes dotfiles directory
 echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."
 echo " Please re-start shell"
 echo "=============================="
+stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
