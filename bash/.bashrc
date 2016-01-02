@@ -103,9 +103,9 @@ alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"
 alias crontabedit="env EDITOR=vim crontab -e"
 alias ff="gfortran"
-# alias dockerdaemon="eval '$(docker-machine env default)'"
+alias dockerdaemon="eval '$(docker-machine env default)'"
 alias pingg="ping www.google.com"
-alias kali="docker run -t -i kali /bin/bash"
+alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"
 #===============================================================================
 #   MISC.
 #===============================================================================
