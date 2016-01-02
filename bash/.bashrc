@@ -1,21 +1,13 @@
 # Vim key-bindings for movement within the shell.
 set -o vi
-
-# major=${BASH_VERSINFO[0]}
-# minor=${BASH_VERSINFO[1]}
-# if (( major > 4 )) || (( major == 4 && minor >= 3 )); then
-#     bind -m vi-insert '"kj": vi-movement-mode'
-# fi
-
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
-
 # If docker is installed on system. Run this command to start docker daemon as shell starts
-# if [ -d ~/.docker ]; then
-#     eval "$(docker-machine env default)"
-# fi
+if [ -d ~/.docker ]; then
+     eval "$(docker-machine env default)"
+fi
 
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
@@ -43,10 +35,13 @@ export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else ech
 PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 
+if [ `uname` == "Darwin" ]; then
 # juliaVersion=`julia --version | awk '{ print $3 }'`
 juliaVersion=`cd /Applications && ls | grep -i julia`
 PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
 export PATH
+fi
+
 # MacPorts Installer addition on 2010-11-26_at_17:56:28: adding an appropriate PATH variable for use with MacPorts.
 ##
 # Your previous $HOME/.bash_profile file was backed up as $HOME/.bash_profile.macports-saved_2010-11-26_at_17:56:28
@@ -108,7 +103,7 @@ alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"
 alias crontabedit="env EDITOR=vim crontab -e"
 alias ff="gfortran"
-alias dockerdaemon="eval '$(docker-machine env default)'"
+# alias dockerdaemon="eval '$(docker-machine env default)'"
 alias pingg="ping www.google.com"
 alias kali="docker run -t -i kali /bin/bash"
 #===============================================================================
