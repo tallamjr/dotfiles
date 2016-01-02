@@ -110,6 +110,7 @@ alias crontabedit="env EDITOR=vim crontab -e"
 alias ff="gfortran"
 alias dockerdaemon="eval '$(docker-machine env default)'"
 alias pingg="ping www.google.com"
+alias kali="docker run -t -i kali /bin/bash"
 #===============================================================================
 #   MISC.
 #===============================================================================
@@ -120,5 +121,5 @@ export MKL_NUM_THREADS
 DATE='date +%Y-%m-%d'
 export DATE
 export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
+export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
 export DOCKER_TLS_VERIFY=1
