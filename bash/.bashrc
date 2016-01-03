@@ -42,6 +42,11 @@ PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
 export PATH
 fi
 
+if [ `uname` == "Linux" ]; then
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
 # MacPorts Installer addition on 2010-11-26_at_17:56:28: adding an appropriate PATH variable for use with MacPorts.
 ##
 # Your previous $HOME/.bash_profile file was backed up as $HOME/.bash_profile.macports-saved_2010-11-26_at_17:56:28

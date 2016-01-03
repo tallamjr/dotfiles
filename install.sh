@@ -7,7 +7,7 @@ dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.c
 # Git clone dotfiles.
 if [ ! -d "$HOME/dotfiles/" ]; then
     echo "Installing DOTFILES for the first time..."
-    git clone https://github.com/tallamjr/dotfiles.git "$HOME/"
+    git clone https://github.com/tallamjr/dotfiles.git
 else
     echo "DOTFILES are already installed."
     echo
@@ -29,12 +29,16 @@ if [[ $exitCode != 0 ]]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     elif [ "$operatingSystem" == "Linux" ]; then
         # Linuxbrew
+        sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+        export PATH="$HOME/.linuxbrew/bin:$PATH"
+        export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+        export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
     else
         echo "Not running OSX or Linux. Sort it out mate!"
         # Need a catch here to halt script alltogether.
+        # exit $exitCode;
     fi
-    # exit $exitCode;
 fi
 
 echo "========================="
