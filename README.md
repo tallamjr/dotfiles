@@ -17,7 +17,9 @@ To start installation, please run:
 ```bash
 sh -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/install.sh`"
 ```
-Also remember to run `:PluginInstall` inside vim
+> ## Screenshot
+
+![screenshot](screenshot.png)
 
 *TODO*
 
