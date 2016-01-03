@@ -2,12 +2,12 @@
 clear
 
 # Arrays containing list of dotfiles that will be in use.
-dotfile_array=(.bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc)
+dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 
 # Git clone dotfiles.
-if [ ! -d "$HOME/dotfiles" ]; then
+if [ ! -d "$HOME/dotfiles/" ]; then
     echo "Installing DOTFILES for the first time..."
-    git clone https://github.com/tallamjr/dotfiles.git "$HOME"
+    git clone https://github.com/tallamjr/dotfiles.git "$HOME/"
 else
     echo "DOTFILES are already installed."
     echo
@@ -34,7 +34,7 @@ if [[ $exitCode != 0 ]]; then
         echo "Not running OSX or Linux. Sort it out mate!"
         # Need a catch here to halt script alltogether.
     fi
-    exit $exitCode;
+    # exit $exitCode;
 fi
 
 echo "========================="
