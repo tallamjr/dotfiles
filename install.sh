@@ -53,7 +53,7 @@ echo " Installing Packages..."
 echo "========================="
 sleep 1
 
-brew stow
+brew install stow
 brew install --override-system-vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
