@@ -54,7 +54,7 @@ echo "========================="
 sleep 1
 
 brew install stow
-brew install --override-system-vim
+brew install vim --override-system-vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
@@ -154,6 +154,7 @@ while true; do
     esac
 done
 # TODO::set up cron job for daily back up of brewlist
+source $HOME/.bashrc
 echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."
