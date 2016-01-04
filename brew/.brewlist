@@ -11,6 +11,7 @@ fftw
 fontconfig
 freetype
 fzf
+gawk
 gcc
 gd
 ghc
