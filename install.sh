@@ -66,7 +66,7 @@ brewlist_install(){
 brewlist="dotfiles/brew/.brewlist"
 while read line; do
     if [ "$line" == "vim" ]; then
-        brew install --override-system-vim
+        brew install vim --override-system-vi
     else
         brew install $line
     fi
@@ -100,10 +100,8 @@ full_install(){
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
     echo "$my_output" > $file
 
-    stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
+    cd dotfiles/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
 
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
 }
 
 temporay_install(){
@@ -114,10 +112,8 @@ temporay_install(){
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
     echo "$my_output" > $file
 
-    stow -v bash/ brew/ vim/ readline/
+    cd dotfiles/ && stow -v bash/ brew/ vim/ readline/
 
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
 }
 
 emails_only_install(){
@@ -128,10 +124,8 @@ emails_only_install(){
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
     echo "$my_output" > $file
 
-    stow -v bash/ vim/ mutt/
+    cd dotfiles/ && stow -v bash/ vim/ mutt/
 
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
 }
 
 while true; do
