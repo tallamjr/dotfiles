@@ -53,15 +53,29 @@ echo " Installing Packages..."
 echo "========================="
 sleep 1
 
+brew stow
+brew install --override-system-vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+read -r -p "Install all brew packages now? [y/N] " response
+echo "This may take a while.."
+echo "Skip this step for quick install"
+brewlist_install(){
 # Brew install each package in "brewlist" file.
 brewlist="dotfiles/brew/.brewlist"
 while read line; do
-    if [ "$line" == "vim"]; then
+    if [ "$line" == "vim" ]; then
         brew install --override-system-vim
     else
         brew install $line
     fi
 done < $brewlist
+}
+response=${response,,}    # tolower
+if [[ $response =~ ^(yes|y)$ ]]; then
+brewlist_install
+fi
 
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
 for i in ${dotfile_array[*]}
@@ -80,7 +94,7 @@ echo
 
 full_install(){
     # Full system install. Ideal for use on own property.
-    file='uninstall.sh'
+    file='dofiles/uninstall.sh'
     insert='choice="FULL"'
 
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
@@ -94,7 +108,7 @@ full_install(){
 
 temporay_install(){
     # For use when temporarily using a system but would still like personal configuration.
-    file='uninstall.sh'
+    file='dotfiles/uninstall.sh'
     insert='choice="TEMPORARY"'
 
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
@@ -108,7 +122,7 @@ temporay_install(){
 
 emails_only_install(){
     # Will only install bash, vim  and mutt to view, edit and send emails.
-    file='uninstall.sh'
+    file='dotfiles/uninstall.sh'
     insert='choice="EMAILS"'
 
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
