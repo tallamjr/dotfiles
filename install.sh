@@ -102,7 +102,8 @@ exitCode=$?
 
     if [ ! -d ~/.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        eval $(vim +PluginInstall +qall)
+        # eval $(vim +PluginInstall +qall)
+        `vim +PluginInstall +qall`
     fi
 
 # Ask user if they would like to install all brew packages in .brewlist
