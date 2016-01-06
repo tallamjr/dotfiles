@@ -18,6 +18,8 @@ else
     exit
 fi
 
+echo "Looking for brew package manager..."
+sleep 1
 # Check if Homebrew is install on system.
 which brew
 exitCode=$?
@@ -36,8 +38,7 @@ if [[ $exitCode != 0 ]]; then
         export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
     else
         echo "Not running OSX or Linux. Sort it out mate!"
-        # Need a catch here to halt script alltogether.
-        # exit $exitCode;
+        exit $exitCode;
     fi
 fi
 
@@ -54,14 +55,57 @@ echo "========================="
 sleep 1
 
 brew install stow
-brew install vim --override-system-vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
 
-read -r -p "Install all brew packages now? [y/N] " response
-echo "This may take a while.."
-echo "Skip this step for quick install"
-brewlist_install(){
+function get_brewVimVersion(){
+
+brew_VimVersion=`brew info vim | awk 'FNR==1 {print $3}'`
+a=( ${brew_VimVersion//./ } )                   # replace points, split into array
+brew_vimMajor="${a[0]}"
+brew_vimMinor="${a[1]}"
+
+}
+get_brewVimVersion
+
+function get_localVimVersion(){
+
+local_VimVersion=`vim --version | awk 'FNR==1 {print $5}'`
+a=( ${local_VimVersion//./ } )                   # replace points, split into array
+local_vimMajor="${a[0]}"
+local_vimMinor="${a[1]}"
+
+}
+
+function vim_install(){
+
+brew install --system-override-vi
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+sleep 2
+eval $(vim +PluginInstall +qall)
+
+}
+
+which vim
+exitCode=$?
+    if [[ $exitCode != 0 ]]; then
+        echo "Vim not found.. Installing latest version..."
+        vim_install
+    else
+        get_localVimVersion
+        if [ $local_vimMinor -lt $brew_vimMinor ]; then
+            read -r -p "Would you like to update your version of vim? [y/N]" update_response
+            update_response=${update_response,,}    # tolower
+            if [[ $update_response =~ ^(yes|y)$ ]]; then
+                vim_install
+            fi
+        fi
+    fi
+
+# Ask user if they would like to install all brew packages in .brewlist
+echo "Install all brew packages now? [y/N] "
+echo "This may take a while..and can be done later"
+read -r -p "Skip this step for quick install" response
+
+function brewlist_install(){
 # Brew install each package in "brewlist" file.
 brewlist="dotfiles/brew/.brewlist"
 while read line; do
@@ -89,10 +133,10 @@ done
 
 sleep 2
 echo
-echo "Please choose what type of installation to carry out..."
+echo "Please choose what type of installation to carry out...??"
 echo
 
-full_install(){
+function full_install(){
     # Full system install. Ideal for use on own property.
     file='dofiles/uninstall.sh'
     insert='choice="FULL"'
@@ -104,7 +148,7 @@ full_install(){
 
 }
 
-temporay_install(){
+function temporay_install(){
     # For use when temporarily using a system but would still like personal configuration.
     file='dotfiles/uninstall.sh'
     insert='choice="TEMPORARY"'
@@ -116,7 +160,7 @@ temporay_install(){
 
 }
 
-emails_only_install(){
+function emails_only_install(){
     # Will only install bash, vim  and mutt to view, edit and send emails.
     file='dotfiles/uninstall.sh'
     insert='choice="EMAILS"'
