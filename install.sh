@@ -160,7 +160,7 @@ function temporay_install(){
     my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
     echo "$my_output" > $file
 
-    cd dotfiles/ && stow -v bash/ brew/ vim/ readline/
+    cd dotfiles/ && stow -v bash/ brew/ vim/ readline/ git/
 
 }
 
