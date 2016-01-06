@@ -100,10 +100,15 @@ exitCode=$?
         fi
     fi
 
+    if [ ! -d ~/.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        eval $(vim +PluginInstall +qall)
+    fi
+
 # Ask user if they would like to install all brew packages in .brewlist
 echo "Install all brew packages now? [y/N] "
 echo "This may take a while..and can be done later"
-read -r -p "Skip this step for quick install" response
+read -r -p "Skip this step for quick install\n" response
 
 function brewlist_install(){
 # Brew install each package in "brewlist" file.
