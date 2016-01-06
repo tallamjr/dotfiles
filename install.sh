@@ -80,7 +80,7 @@ function vim_install(){
 brew install --system-override-vi
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sleep 2
-eval $(vim +PluginInstall +qall)
+# eval $(vim +PluginInstall +qall)
 
 }
 
@@ -103,13 +103,15 @@ exitCode=$?
     if [ ! -d ~/.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         # eval $(vim +PluginInstall +qall)
-        `vim +PluginInstall +qall`
+        # `vim +PluginInstall +qall`
     fi
 
 # Ask user if they would like to install all brew packages in .brewlist
 echo "Install all brew packages now? [y/N] "
 echo "This may take a while..and can be done later"
-read -r -p "Skip this step for quick install\n" response
+read -r -p "Skip this step for quick install"
+echo
+response
 
 function brewlist_install(){
 # Brew install each package in "brewlist" file.
@@ -205,6 +207,7 @@ while true; do
 done
 # TODO::set up cron job for daily back up of brewlist
 source $HOME/.bashrc
+vimplugininstall
 echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."

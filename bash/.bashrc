@@ -111,6 +111,7 @@ alias ff="gfortran"
 alias dockerdaemon="eval '$(docker-machine env default)'"
 alias pingg="ping www.google.com"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"
+alias vimplugininstall="vim +PluginInstall +qall"
 #===============================================================================
 #   MISC.
 #===============================================================================
