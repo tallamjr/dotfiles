@@ -107,7 +107,7 @@ exitCode=$?
     fi
 
 # Ask user if they would like to install all brew packages in .brewlist
-read -r -p "Install all brew packages now? [y/N] Not recommended unless a full system install" response
+read -r -p "Install all brew packages now? [y/N] "  response
 
 function brewlist_install(){
 # Brew install each package in "brewlist" file.
@@ -202,8 +202,8 @@ while true; do
     esac
 done
 # TODO::set up cron job for daily back up of brewlist
-source $HOME/.bashrc
-# vimplugininstall
+source $HOME/.bashrc 2> /dev/null
+# Install Vim plugins
 vim +PluginInstall +qall
 echo "==============================="
 echo " DOTFILES have been installed."
