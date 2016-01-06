@@ -2,16 +2,13 @@
 case $choice in
     "FULL" )
         echo "Full uninstall was selected";
-        stow -Dv bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/;
-        break;;
+        stow -Dv bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/;;
     "TEMPORARY" )
         echo "Temp uninstall was selected";
-        stow -Dv bash/ brew/ vim/ readline/;
-        break;;
+        stow -Dv bash/ brew/ vim/ readline/;;
     "EMAILS" )
         echo "Emails uninstall was selected";
-        stow -Dv bash/ vim/ mutt/;
-        break;;
+        stow -Dv bash/ vim/ mutt/;;
     * )
         echo "Please run install script first befire uninstall" ;
         exit;;
