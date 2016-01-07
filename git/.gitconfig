@@ -3,6 +3,10 @@
 	email = t.allam.jr@gmail.com
 [push]
 	default = simple
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -11,3 +15,4 @@
 	ss = status
 	co = checkout
 	logg = log --graph --decorate --oneline --abbrev --all
+    vimdiff = difftool
