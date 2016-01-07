@@ -98,12 +98,18 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" ================ Vimdiff Splits ==============
+"
+map <leader>wqa :wqa
+map <leader>qa :qa
+map <leader>qaa :qa!
+
 " ================ R Batch Mode ==============
 "
 map <leader>rr :w<CR>:!R CMD BATCH %<CR>
+
 " ================ LaTeX ==============
 "
-" Latex shortcuts.
 map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
