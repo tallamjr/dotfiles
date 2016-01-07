@@ -7,7 +7,7 @@ dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.c
 # Git clone dotfiles.
 if [ ! -d "$HOME/dotfiles/" ]; then
     echo "Installing DOTFILES for the first time..."
-    git clone https://github.com/tallamjr/dotfiles.git
+    git clone https://github.com/tallamjr/dotfiles.git "$HOME/.tdr"
 else
     echo "DOTFILES are already installed."
     echo
@@ -86,25 +86,25 @@ sleep 2
 
 which vim
 exitCode=$?
-    if [[ $exitCode != 0 ]]; then
-        echo "Vim not found.. Installing latest version..."
-        vim_install
-    else
-        get_localVimVersion
-        if [ $local_vimMinor -lt $brew_vimMinor ]; then
-            read -r -p "Would you like to update your version of vim? [y/N]" update_response
-            update_response=${update_response,,}    # tolower
-            if [[ $update_response =~ ^(yes|y)$ ]]; then
-                vim_install
-            fi
+if [[ $exitCode != 0 ]]; then
+    echo "Vim not found.. Installing latest version..."
+    vim_install
+else
+    get_localVimVersion
+    if [ $local_vimMinor -lt $brew_vimMinor ]; then
+        read -r -p "Would you like to update your version of vim? [y/N]" update_response
+        update_response=${update_response,,}    # tolower
+        if [[ $update_response =~ ^(yes|y)$ ]]; then
+            vim_install
         fi
     fi
+fi
 
-    if [ ! -d ~/.vim ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        # eval $(vim +PluginInstall +qall)
-        # `vim +PluginInstall +qall`
-    fi
+if [ ! -d ~/.vim ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    # eval $(vim +PluginInstall +qall)
+    # `vim +PluginInstall +qall`
+fi
 
 # Ask user if they would like to install all brew packages in .brewlist
 read -r -p "Install all brew packages now? [y/N] "  response
@@ -122,7 +122,7 @@ done < $brewlist
 }
 response=${response,,}    # tolower
 if [[ $response =~ ^(yes|y)$ ]]; then
-brewlist_install
+    brewlist_install
 fi
 
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
@@ -141,38 +141,38 @@ echo "Please choose what type of installation to carry out...??"
 echo
 
 function full_install(){
-    # Full system install. Ideal for use on own property.
-    file='dofiles/uninstall.sh'
-    insert='choice="FULL"'
+# Full system install. Ideal for use on own property.
+file='dofiles/uninstall.sh'
+insert='choice="FULL"'
 
-    my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
-    echo "$my_output" > $file
+my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
+echo "$my_output" > $file
 
-    cd dotfiles/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
+cd dotfiles/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
 
 }
 
 function temporay_install(){
-    # For use when temporarily using a system but would still like personal configuration.
-    file='dotfiles/uninstall.sh'
-    insert='choice="TEMPORARY"'
+# For use when temporarily using a system but would still like personal configuration.
+file='dotfiles/uninstall.sh'
+insert='choice="TEMPORARY"'
 
-    my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
-    echo "$my_output" > $file
+my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
+echo "$my_output" > $file
 
-    cd dotfiles/ && stow -v bash/ brew/ vim/ readline/ git/
+cd dotfiles/ && stow -v bash/ brew/ vim/ readline/ git/
 
 }
 
 function emails_only_install(){
-    # Will only install bash, vim  and mutt to view, edit and send emails.
-    file='dotfiles/uninstall.sh'
-    insert='choice="EMAILS"'
+# Will only install bash, vim  and mutt to view, edit and send emails.
+file='dotfiles/uninstall.sh'
+insert='choice="EMAILS"'
 
-    my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
-    echo "$my_output" > $file
+my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
+echo "$my_output" > $file
 
-    cd dotfiles/ && stow -v bash/ vim/ mutt/
+cd dotfiles/ && stow -v bash/ vim/ mutt/
 
 }
 
