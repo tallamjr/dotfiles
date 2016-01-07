@@ -6,7 +6,7 @@ if [ -f ~/.localrc ]; then
 fi
 # If docker is installed on system. Run this command to start docker daemon as shell starts
 if [ -d ~/.docker ]; then
-     eval "$(docker-machine env default)"
+    eval "$(docker-machine env default)"
 fi
 
 if [ -f ~/.git-completion.bash ]; then
