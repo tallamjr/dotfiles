@@ -4,10 +4,13 @@ clear
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 
+dotfiles_DIR="$HOME/.tdr"
+export $dotfiles_DIR
+
 # Git clone dotfiles.
-if [ ! -d "$HOME/dotfiles/" ]; then
+if [ ! -d "$dotfiles_DIR" ]; then
     echo "Installing DOTFILES for the first time..."
-    git clone https://github.com/tallamjr/dotfiles.git "$HOME/.tdr"
+    git clone https://github.com/tallamjr/dotfiles.git "$dotfiles_DIR"
 else
     echo "DOTFILES are already installed."
     echo
@@ -111,7 +114,7 @@ read -r -p "Install all brew packages now? [y/N] "  response
 
 function brewlist_install(){
 # Brew install each package in "brewlist" file.
-brewlist="dotfiles/brew/.brewlist"
+brewlist="$dotfiles_DIR/brew/.brewlist"
 while read line; do
     if [ "$line" == "vim" ]; then
         brew install vim --override-system-vi
@@ -142,37 +145,37 @@ echo
 
 function full_install(){
 # Full system install. Ideal for use on own property.
-file='dofiles/uninstall.sh'
+file='$dotfiles_DIR/uninstall.sh'
 insert='choice="FULL"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd dotfiles/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
+cd $dotfiles_DIR/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
 
 }
 
 function temporay_install(){
 # For use when temporarily using a system but would still like personal configuration.
-file='dotfiles/uninstall.sh'
+file='$dotfiles_DIR/uninstall.sh'
 insert='choice="TEMPORARY"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd dotfiles/ && stow -v bash/ brew/ vim/ readline/ git/
+cd $dotfiles_DIR/ && stow -v bash/ brew/ vim/ readline/ git/
 
 }
 
 function emails_only_install(){
 # Will only install bash, vim  and mutt to view, edit and send emails.
-file='dotfiles/uninstall.sh'
+file='$dotfiles_DIR/uninstall.sh'
 insert='choice="EMAILS"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd dotfiles/ && stow -v bash/ vim/ mutt/
+cd $dotfiles_DIR/ && stow -v bash/ vim/ mutt/
 
 }
 
