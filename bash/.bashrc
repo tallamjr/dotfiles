@@ -1,3 +1,5 @@
+# ================ Initialisation  ==============
+#
 # Vim key-bindings for movement within the shell.
 set -o vi
 # Locate file containing passwords and global variables that will be sourced within other files.
@@ -8,116 +10,111 @@ fi
 if [ -d ~/.docker ]; then
     eval "$(docker-machine env default)"
 fi
-
+# For Git completion
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 else
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
-
+# For Git branch information in prompt
 if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 else
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
-#===============================================================================
-#   PROMPT
-#===============================================================================
-#Shell prompt customisation with Blue time and bright green directory.
-# export PS1="\[\e[0;36m\]\t \[\e[0;32m\]\w \[\e[0;92m\]:: \[\e[0m\]"
-#Shell prompt customisation with Grey time, exit code status, blue directory and git branch informations.
+# If fuzzy finder installed, source
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ================ Prompt ==============
+#
+# Shell prompt customisation with Grey time, exit code status, blue directory and git branch informations.
 export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working directory clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
-#===============================================================================
-#   PATH EXPORTS
-#===============================================================================
+
+# ================ Path Exports ==============
+#
 # Setting PATH for EPD-6.3-1
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 
 if [ `uname` == "Darwin" ]; then
-# juliaVersion=`julia --version | awk '{ print $3 }'`
-juliaVersion=`cd /Applications && ls | grep -i julia`
-PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
-export PATH
+    # juliaVersion=`julia --version | awk '{ print $3 }'`
+    juliaVersion=`cd /Applications && ls | grep -i julia`
+    PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
+    export PATH
 fi
 
 if [ `uname` == "Linux" ]; then
+    # Export path variables for linuxbrew.
     export PATH="$HOME/.linuxbrew/bin:$PATH"
     export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
-# MacPorts Installer addition on 2010-11-26_at_17:56:28: adding an appropriate PATH variable for use with MacPorts.
-##
-# Your previous $HOME/.bash_profile file was backed up as $HOME/.bash_profile.macports-saved_2010-11-26_at_17:56:28
-##
 #export PATH="$HOME/anaconda/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-# adding path for bash script to allow battery status bar in tmux
+# TMUX Battery Status
 export PATH="$HOME/Documents/tmux/bin:$PATH"
-# added by Anaconda3 2.1.0 installer
+# Added by Anaconda3 2.1.0 installer
 export PATH="$HOME/anaconda3/bin:$PATH"
-# path for mysql
+# MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
-# mongodb PATH
+# Mongodb PATH
 export PATH="$HOME/mongodb/bin:$PATH"
+#
 export PATH="/usr/local/sbin:$PATH"
-# Path to allow coreutils to use default names instead of having each one prefixed with g.
+# Allows Coreutils package to be used without 'g' prefix before each command.
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # jMusic classpath
 export CLASSPATH="$HOME/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
-#===============================================================================
-#   COLOUR CUSTOMISATION
-#===============================================================================
+
+# ================ Colour Customisation  ==============
+#
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
 export GREP_OPTIONS="--color=auto"
 # Source for colouring of grep output.
 source "`brew --prefix grc`/etc/grc.bashrc"
-#===============================================================================
-#   ALIASES
-#===============================================================================
-# force tmux to use 256 colours
-#alias tmux="TERM=screen-256color-bce tmux"
-# ipython
-alias pylab="ipython -pylab"
-# force tmux to use 256 colours
-alias tmux="tmux -2"
-# listing in colour and easy quitting
-#alias ls="ls -Gh"
-alias ls="ls --color"
+
+# ================ Aliases ==============
+#
+alias pylab="ipython -pylab"    # Ipython
+alias tmux="tmux -2"            # Force tmux to use 256 colours
+alias ls="ls --color"           # Listing in colour
 alias cl="clear"
-alias la="ls -lah"
+alias la="ls -lah"              # Listing in human-readable format
 alias qq="exit"
 alias grep="grep -E"
-# put computer to sleep
-alias sleep="sudo shutdown -s now"
-# colourful version of cat command
-alias pat="pygmentize -g"
-# application shortcuts
+alias sleep="sudo shutdown -s now"  # Put computer to sleep
+alias pat="pygmentize -g"           # Colourful 'cat' output
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias poker="open /Applications/PokerStarsUK.app/"
-alias fire="open -a /Applications/Firefox.app/"
-# sublime shortcut
-alias sub="open -a /Applications/Sublime\ Text\ 2.app/"
+alias fire="open /Applications/Firefox.app/"
 alias rr="R CMD BATCH "
-alias xx="chmod +x"
+alias xx="chmod +x"             # Make file executable
 alias todo="vim `$DATE`.md"
-alias lsg="ls | grep -i"
-alias crontabedit="env EDITOR=vim crontab -e"
+alias lsg="ls | grep -i"        # Search a directory listing with grep case-insensitive.
+alias crontabedit="env EDITOR=vim crontab -e"   # Edit crontab with vim
 alias ff="gfortran"
-alias dockerdaemon="eval '$(docker-machine env default)'"
+alias dockerdaemon="eval '$(docker-machine env default)'"           # Set enviroment variables for docker default machine.
 alias pingg="ping www.google.com"
-alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"
-alias vimplugininstall="vim +PluginInstall +qall"
-#===============================================================================
-#   MISC.
-#===============================================================================
+alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
+alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
+alias lsc="ls | wc | awk '{print \$1}'"                             # Show the 'count' of files in a director.
+alias py3="source activate py3"                                     # Conda enviroment for Python 3.5.
+
+# ================ Functions ==============
+#
+function mkcd() {
+
+mkdir $1 && cd $1
+
+}
+
+# ================ Miscellaneous ==============
+#
 MKL_NUM_THREADS=1
 export MKL_NUM_THREADS
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Global variable for date format YY-MM-DD
 DATE='date +%Y-%m-%d'
 export DATE
