@@ -1,20 +1,13 @@
 # FOLDER HOOKS
 folder-hook 'account.com.gmail.tallamjr' 'source ~/.mutt/account.com.gmail.tallamjr'
-folder-hook 'account.com.ucl.tarek.allam.10' 'source ~/.mutt/account.com.ucl.tarek.allam.10'
 # folder-hook 'account.com.gmail.tallamjr3' 'source ~/.mutt/account.com.gmail.tallamjr3'
-# folder-hook 'account.com.hotmail.tarek_allam53' 'source ~/.mutt/account.com.hotmail.tarek_allam53'
 
 # DEFAULT ACCOUNT
-# source ~/.mutt/account.com.hotmail.tarek_allam53
 source ~/.mutt/account.com.gmail.tallamjr
 
 # Macros for switching accounts
 macro index <F5> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.tallamjr<enter><change-folder>!<enter>'
-macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/account.com.ucl.tarek.allam.10<enter><change-folder>!<enter>'
 # macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/account.com.gmail.tallamjr3<enter><change-folder>!<enter>'
-# macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/account.com.hotmail.tarek_allam53<enter><change-folder>!<enter>'
-# macro index <F10> '<sync-mailbox><enter-command>source ~/.mutt/account.com.live.gotbletu<enter><change-folder>!<enter>'
-# macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/account.com.hotmail.gotbletu<enter><change-folder>!<enter>'
 
 ###SECURING
 set move = no #Stop asking to "move read messages to mbox"!
