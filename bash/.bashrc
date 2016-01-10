@@ -106,9 +106,18 @@ alias py3="source activate py3"                                     # Conda envi
 # ================ Functions ==============
 #
 function mkcd() {
-
+#
 mkdir $1 && cd $1
+}
 
+function cmdfu() {
+#
+curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext"
+}
+
+function calc() {
+#
+python -ic "from __future__ import division; from math import *; from random import *"
 }
 
 # ================ Miscellaneous ==============
