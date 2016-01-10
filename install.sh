@@ -4,7 +4,7 @@ clear
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 
-dotfiles_DIR="$HOME/.tdr"
+dotfiles_DIR="$HOME/.tadr"
 export $dotfiles_DIR
 
 # Git clone dotfiles.
@@ -145,37 +145,37 @@ echo
 
 function full_install(){
 # Full system install. Ideal for use on own property.
-file='$dotfiles_DIR/uninstall.sh'
+file='.tadr/uninstall.sh'
 insert='choice="FULL"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd $dotfiles_DIR/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
+cd .tadr/ && stow -v bash/ brew/ emacs/ git/ mutt/ readline/ tmux/ vim/ xcode/ zsh/
 
 }
 
 function temporay_install(){
 # For use when temporarily using a system but would still like personal configuration.
-file='$dotfiles_DIR/uninstall.sh'
+file='.tadr/uninstall.sh'
 insert='choice="TEMPORARY"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd $dotfiles_DIR/ && stow -v bash/ brew/ vim/ readline/ git/
+cd .tadr/ && stow -v bash/ brew/ vim/ readline/ git/
 
 }
 
 function emails_only_install(){
 # Will only install bash, vim  and mutt to view, edit and send emails.
-file='$dotfiles_DIR/uninstall.sh'
+file='.tadr/uninstall.sh'
 insert='choice="EMAILS"'
 
 my_output="$(awk -v insert="$insert" '{print} NR==1{print insert}' $file)"
 echo "$my_output" > $file
 
-cd $dotfiles_DIR/ && stow -v bash/ vim/ mutt/
+cd .tadr/ && stow -v bash/ vim/ mutt/
 
 }
 
