@@ -1,5 +1,4 @@
 #!/bin/bash
-choice="TEMPORARY"
 case $choice in
     "FULL" )
         echo "Full uninstall was selected";
