@@ -24,4 +24,4 @@ do
 done
 
 # This will remove dotfiles directory
-cd $HOME && rm -rf dotfiles/ .vim/
+cd $HOME && rm -rf .tadr/ .vim/
