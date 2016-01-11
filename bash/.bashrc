@@ -120,6 +120,11 @@ function calc() {
 python -ic "from __future__ import division; from math import *; from random import *"
 }
 
+function lag() {
+#
+ls -la | grep -i "$1" | awk '{print $9}'
+}
+
 # ================ Miscellaneous ==============
 #
 MKL_NUM_THREADS=1
