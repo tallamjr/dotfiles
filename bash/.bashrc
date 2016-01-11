@@ -7,9 +7,9 @@ if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
 # If docker is installed on system. Run this command to start docker daemon as shell starts
-if [ -d ~/.docker ]; then
-    eval "$(docker-machine env default)"
-fi
+# if [ -d ~/.docker ]; then
+#     eval "$(docker-machine env default)"
+# fi
 # For Git completion
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
@@ -96,7 +96,7 @@ alias todo="vim `$DATE`.md"
 alias lsg="ls | grep -i"        # Search a directory listing with grep case-insensitive.
 alias crontabedit="env EDITOR=vim crontab -e"   # Edit crontab with vim
 alias ff="gfortran"
-alias dockerdaemon="eval '$(docker-machine env default)'"           # Set enviroment variables for docker default machine.
+# alias dockerdaemon="eval '$(docker-machine env default)'"           # Set enviroment variables for docker default machine.
 alias pingg="ping www.google.com"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
 alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
