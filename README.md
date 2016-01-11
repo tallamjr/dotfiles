@@ -30,3 +30,5 @@ path variable to remove redundant paths.
 
 Install and uninstall scripts have been tested but not extensively, please use
 with caution. Inspect files first.
+
+Modify script to ask if user is guest or me
