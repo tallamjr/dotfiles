@@ -1,7 +1,7 @@
-Example account.com.EMAILCLIENT.USERNAME file.
-==============================================
+##Example account.com.EMAILCLIENT.USERNAME file.
 
-#GMAIL
+###GMAIL
+```bash
 set from = "EMAIL ADDRESS"
 set realname = "FULL NAME"
 set imap_user = "EMAIL ADDRESS"
@@ -22,13 +22,12 @@ set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
 
-#HOTMAIL
 set imap_user = "EMAIL ADDRESS"
 set imap_pass = "PASSWORD"
 set smtp_url = "smtp://USERNAME@smtp.live.com:587/"
 set smtp_pass = "PASSWORD"
 set from = "EMAIL ADDRESS"
-set realname = "Tarek Allam"
+set realname = "FULL NAME"
 set folder = "pops://pop3.live.com:995"
 set spoolfile = "+INBOX"
 set postponed = "+[Hotmail]/Drafts"
@@ -36,9 +35,11 @@ set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/certificates
 set ssl_force_tls = yes
-
+```
 ##OR
 
+###HOTMAIL
+```bash
 set imap_user = "USERNAME@live.com"
 set imap_pass = "PASSWORD"
 set smtp_url = "smtp://USERNAME3@live.com@smtp.live.com:587/"
@@ -53,5 +54,4 @@ set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/certificates
 set ssl_force_tls = yes
 set folder = "imaps://imap-mail.outlook.com:993"
-
-
+```
