@@ -5,7 +5,6 @@ clear
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 
 dotfiles_DIR="$HOME/.tadr"
-export $dotfiles_DIR
 
 # Git clone dotfiles.
 if [ ! -d "$dotfiles_DIR" ]; then
@@ -208,6 +207,8 @@ done
 source $HOME/.bashrc 2> /dev/null
 # Install Vim plugins
 vim +PluginInstall +qall
+# Prevent accidental git push to master on GitHub.
+git remote set-url --push origin no-pushing
 echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."
