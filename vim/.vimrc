@@ -150,62 +150,40 @@ call vundle#begin()
 " run ':PluginInstall' to properly load vundle plguins
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
 Plugin 'altercation/vim-colors-solarized'
-
 Plugin 'tomasr/molokai'
-
 Plugin 'scrooloose/nerdtree'
-
 Plugin 'kien/ctrlp.vim'
-
 Plugin 'scrooloose/syntastic'
-
 Plugin 'uguu-org/vim-matrix-screensaver'
-
 Plugin 'vim-scripts/AutoComplPop'
-" Track the engine.
-Plugin 'honza/vim-snippets'
-
+Plugin 'honza/vim-snippets'             " Track the engine.
 Plugin 'Yggdroot/indentLine'
-" Yet another debugger"
-Plugin 'vim-scripts/yavdb'
-" Haskell help for Vim
-Plugin 'raichoo/haskell-vim'
-" To allow just one NERDTree
-Plugin 'jistr/vim-nerdtree-tabs'
-
+Plugin 'vim-scripts/yavdb'              " Yet another debugger
+Plugin 'raichoo/haskell-vim'            " Haskell help for Vim
+Plugin 'jistr/vim-nerdtree-tabs'        " To allow just one NERDTree
 Plugin 'bling/vim-airline'
-
 Plugin 'tpope/vim-repeat'
-
 Plugin 'tpope/vim-fugitive'
-
 Plugin 'tpope/vim-surround'
-
 Plugin 'tpope/vim-commentary'
-
 Plugin 'mileszs/ack.vim'
-
 " Plugin 'SirVer/ultisnips'
-
 Plugin 'rstacruz/sparkup'
-
 Plugin 'ntpeters/vim-better-whitespace'
-
 Plugin 'tmhedberg/matchit'
-
 Plugin 'ervandew/supertab'
-
 Plugin 'sickill/vim-pasta'
-
 Plugin 'jceb/vim-orgmode'
-
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
+" Plugin 'garbas/vim-snipmate'
 Plugin 'vimwiki/vimwiki'
+"
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+"
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
 " ==============================================================================
@@ -282,6 +260,27 @@ let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" ================ 'Shougo/neosnippet.vim' ==============
+"
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " ================ 'vim-scripts/AutoComplPop' ==============
 "
