@@ -125,6 +125,11 @@ function lag() {
 ls -la | grep -i "$1" | awk '{print $9}'
 }
 
+function cath() {
+# cat a file but only show the head. In code, this is usually the description of the file.
+cat $1 | head
+}
+
 # ================ Miscellaneous ==============
 #
 MKL_NUM_THREADS=1
