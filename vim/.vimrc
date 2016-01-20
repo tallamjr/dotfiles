@@ -149,6 +149,9 @@ map <leader>q :q<CR>
 :autocmd FileType c nnoremap <buffer> <localleader>r :!gcc %<CR><CR>:!./a.out<CR>
 :autocmd FileType fortran nnoremap <buffer> <localleader>r :!gfortran %<CR><CR>:!./a.out<CR>
 
+:nmap cp :let @" = expand("%")
+:autocmd FileType java nnoremap <buffer> <localleader>r :!javac %<CR><CR>:!java <C-R>%<BS><BS><BS><BS><BS><CR>
+
 "################################################
 " ================ PLUGINS SECTION ==============
 "################################################
