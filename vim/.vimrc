@@ -87,6 +87,8 @@ map <leader>bp :bprev<CR>
 map <leader>bf :bfirst<CR>
 map <leader>bl :blast<CR>
 
+map<leader>e :e<CR>
+
 " ================ Splits ==============
 "
 map <leader>- :split<Space>
@@ -119,7 +121,9 @@ map <leader>wc :!texcount <C-R>%<CR>
 
 " ================ Pandoc ==============
 "
-map <leader>pan :!pandoc <C-R>% --latex-engine=xelatex --toc -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR>
+map <leader>pan :!pandoc <C-R>% --latex-engine=xelatex -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR>
+map <leader>panc :!pandoc <C-R>% --latex-engine=xelatex --toc -o <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR>
+map <leader>pans :!pandoc <C-R>% --latex-engine=xelatex --toc -o -s <C-R>%<BS><BS><BS>.pdf<CR><CR>:!open <C-R>%<BS><BS><BS>.pdf<CR>
 
 " ================ Jython JSyn Build ==============
 "
@@ -280,7 +284,8 @@ endif
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory="~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/my-snippets/"
+map<leader>se :NeoSnippetEdit<CR>
 
 " ================ 'vim-scripts/AutoComplPop' ==============
 "
