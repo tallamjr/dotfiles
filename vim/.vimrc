@@ -44,6 +44,7 @@ noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " ================ Leader-Key ===========================
 "
 let mapleader = ","
+let maplocalleader = "\\"
 
 " ================ Re-map Escape ===========================
 "
@@ -142,6 +143,11 @@ map <leader><Space> :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
 map <leader>q :q<CR>
+
+" ================ Compiling ==============
+"
+:autocmd FileType c nnoremap <buffer> <localleader>r :!gcc %<CR><CR>:!./a.out<CR>
+:autocmd FileType fortran nnoremap <buffer> <localleader>r :!gfortran %<CR><CR>:!./a.out<CR>
 
 "################################################
 " ================ PLUGINS SECTION ==============
