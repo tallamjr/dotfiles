@@ -3,6 +3,7 @@ awscli
 bash
 brew-cask
 cloc
+cmake
 coreutils
 dos2unix
 emacs
@@ -16,6 +17,7 @@ gcc
 gd
 ghc
 ghostscript
+git
 gl2ps
 glpk
 gmp
@@ -58,6 +60,7 @@ stow
 suite-sparse421
 szip
 tbb
+the_silver_searcher
 tmux
 tokyo-cabinet
 tree
