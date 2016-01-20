@@ -125,11 +125,6 @@ function lag() {
 ls -la | grep -i "$1" | awk '{print $9}'
 }
 
-function cath() {
-# cat a file but only show the head. In code, this is usually the description of the file.
-cat $1 | head
-}
-
 # ================ Miscellaneous ==============
 #
 MKL_NUM_THREADS=1
@@ -140,3 +135,5 @@ export DATE
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
 export DOCKER_TLS_VERIFY=1
+
+export PATH=$PATH:~/Google\ Drive/Teaching/FurtherUNIX/funix
