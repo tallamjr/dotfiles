@@ -180,7 +180,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 " Plugin 'SirVer/ultisnips'
 Plugin 'rstacruz/sparkup'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -234,11 +235,11 @@ set background=dark
 "colorscheme solarized
 colorscheme molokai
 
-" ================ jistr/vim-nerdtree-tabs =============
+" ================ 'junegunn/fzf' =============
 "
 map <Leader>f :FZF<CR>
 
-" ================ jistr/vim-nerdtree-tabs =============
+" ================ 'jistr/vim-nerdtree-tabs' =============
 "
 " NERDTree Shortcut
 "map <leader>f :NERDTree<CR>
@@ -301,7 +302,7 @@ map<leader>se :NeoSnippetEdit<CR>
 " Allows <Tab> to go through options in 'AutoComplPop'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 
-" ================ jistr/vim-nerdtree-tabs ==============
+" ================ 'raichoo/haskell-vim' ==============
 "
 " for Haskell
 let g:haskell_enable_quantification = 1 " to enable highlighting of forall
@@ -316,7 +317,7 @@ let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
 
-" ================  vim/airline   ==============
+" ================ 'vim/airline'  ==============
 "
 " airline options
 let g:airline_powerline_fonts=1
@@ -355,12 +356,17 @@ let g:airline#extensions#whitespace#show_message = 0
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
-" ================  'mileszs/ack.vim' ==============
+" ================ 'mileszs/ack.vim' ==============
 "
-map <leader>a :Ack<Space>
+" map <leader>a :Ack<Space>
 " let g:ackprg = $HOME/bin/ack -s -H --nocolor --nogroup --column
 
-" ================  'ntpeters/vim-better-whitespace' ==============
+" ================ 'rking/ag.vim' ==============
+"
+map <leader>a :Ag<Space>
+map <leader>aa :AgFromSearch<CR>
+
+" ================ 'ntpeters/vim-better-whitespace' ==============
 "
 autocmd BufWritePre * StripWhitespace
 " map <leader>ws :StripWhitespace<CR>
