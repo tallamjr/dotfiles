@@ -66,8 +66,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # jMusic classpath
-export CLASSPATH="$HOME/jMusic/jmusic.jar:Users/tarek_allam/jMusic/inst/:$CLASSPATH"
-
+export CLASSPATH="$HOME/jMusic/jmusic.jar:$HOME/jMusic/inst/:$CLASSPATH"
+export CLASSPATH="$HOME/Books/:$CLASSPATH"
 # ================ Colour Customisation  ==============
 #
 export CLICOLOR=1
