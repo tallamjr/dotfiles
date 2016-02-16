@@ -2,6 +2,7 @@ arpack
 awscli
 bash
 brew-cask
+cheat
 cloc
 cmake
 coreutils
@@ -31,6 +32,7 @@ imagemagick
 isl
 jbig2dec
 jpeg
+kawa
 libevent
 libmpc
 libpng
