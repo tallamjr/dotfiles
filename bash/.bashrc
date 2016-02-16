@@ -136,4 +136,5 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
 export DOCKER_TLS_VERIFY=1
 
+export CHEATCOLORS=true
 export PATH=$PATH:~/Google\ Drive/Teaching/FurtherUNIX/funix
