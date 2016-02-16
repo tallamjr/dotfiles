@@ -9,7 +9,8 @@ dotfiles_DIR="$HOME/.tadr"
 # Git clone dotfiles.
 if [ ! -d "$dotfiles_DIR" ]; then
     echo "Installing DOTFILES for the first time..."
-    git clone https://github.com/tallamjr/dotfiles.git "$dotfiles_DIR"
+    cd $HOME
+    git clone https://github.com/tallamjr/dotfiles.git .tadr
 else
     echo "DOTFILES are already installed."
     echo
