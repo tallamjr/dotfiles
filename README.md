@@ -1,5 +1,7 @@
 # DOTFILES
 
+![Automation](http://imgs.xkcd.com/comics/automation.png)
+
 ## Pre-installation downloads
 
 Remember to manually install the items below
@@ -9,6 +11,12 @@ Remember to manually install the items below
 - MacTex/LaTeX
 - Chrome/Firefox Browsers
 - iTerm2
+
+Brew cask installs:
+    mactex
+    java
+    iterm2
+    google-chrome
 
 ## Installation
 
@@ -32,3 +40,4 @@ Install and uninstall scripts have been tested but not extensively, please use
 with caution. Inspect files first.
 
 Modify script to ask if user is guest or me
+
