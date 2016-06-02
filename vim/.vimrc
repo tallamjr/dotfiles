@@ -162,6 +162,8 @@ map <leader>q :q<CR>
 :nmap cp :let @" = expand("%")
 :autocmd FileType java nnoremap <buffer> <localleader>r :!javac %<CR><CR>:!java <C-R>%<BS><BS><BS><BS><BS><CR>
 
+:autocmd FileType python nnoremap <buffer> <localleader>r :!python %<CR>
+
 "################################################
 " ================ PLUGINS SECTION ==============
 "################################################
