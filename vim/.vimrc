@@ -386,6 +386,50 @@ map <leader>aa :AgFromSearch<CR>
 autocmd BufWritePre * StripWhitespace
 " map <leader>ws :StripWhitespace<CR>
 
+" ================ 'vimwiki/vimwiki' ==============
+"
+" To use Markdown's wiki markup: >
+" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" vimwiki with markdown support
+" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+" helppage -> :h vimwiki-syntax
+let g:vimwiki_hl_headers = 1
+
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/'
+" let wiki_1.syntax = 'markdown'
+" let wiki_1.ext = '.md'
+" let wiki_1.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_2 = {}
+let wiki_2.path = '~/Dropbox/my-wiki/'
+let wiki_2.index = 'main'
+let wiki_2.syntax = 'markdown'
+" let wiki_2.ext = '.md'
+let wiki_2.ext = '.mdown'
+let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+
+let wiki_3 = {}
+let wiki_3.path = '~/UCL_2016/major-project/mp-wiki/'
+" let wiki_3.index = 'index'
+let wiki_3.syntax = 'markdown'
+" let wiki_3.ext = '.md'
+let wiki_3.ext = '.mdown'
+let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
+
+" ================ 'suan/vim-instant-markdown' ==============
+"
+" vim-instant-markdown - Instant Markdown previews from Vim
+" https://github.com/suan/vim-instant-markdown
+let g:instant_markdown_autostart = 0    " disable autostart
+map <leader>md :InstantMarkdownPreview<CR>
+
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
 " ++++++++++++++++++++++++++++++++++++++
