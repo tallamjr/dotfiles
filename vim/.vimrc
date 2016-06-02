@@ -66,6 +66,8 @@ map <Leader>/ :set hlsearch! hlsearch?<CR>
 au BufRead,BufNewFile *.tex setlocal textwidth=80
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.txt setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
+au BufRead,BufNewFile *.* setlocal textwidth=80
 
 autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
