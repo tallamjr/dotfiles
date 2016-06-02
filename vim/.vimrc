@@ -209,6 +209,9 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'mattn/calendar-vim'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'pbrisbin/vim-colors-off'
 "
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
