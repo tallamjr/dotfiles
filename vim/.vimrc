@@ -53,17 +53,9 @@ set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
-noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-" ================ Leader-Key ===========================
-"
-let mapleader = ","
-let maplocalleader = "\\"
-
-" ================ Re-map Escape ===========================
-"
-" Map escape
-:imap kj <Esc>
+" map <Leader>/ :noh<CR>
+" nnoremap <C-h> :set hlsearch! hlsearch?<CR>
+map <Leader>/ :set hlsearch! hlsearch?<CR>
 
 " ================ Textwidth/Spellchecker ==============
 "
