@@ -1,3 +1,13 @@
+" ================ Leader-Key ===========================
+"
+let mapleader = ","
+let maplocalleader = "\\"
+
+" ================ Re-map Escape ===========================
+"
+" Map escape
+:imap kj <Esc>
+
 " ================ General Configuration ==============
 "
 set nocompatible     	 " We're running Vim, not Vi!
