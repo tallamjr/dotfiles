@@ -77,6 +77,8 @@ set complete+=kspell
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+" Set files with extention of .md as markdown type.
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " ================ Tabs/Buffers ==============
 "
