@@ -29,6 +29,10 @@ set autoread            "Reload files changed outside vim
 set backspace=2         "Make backspace work like most other apps
 set number              "display line numbers on the left
 set clipboard=unnamed
+set cursorline
+nnoremap <Leader>l :set cursorline!<CR>
+map <Leader>c :set colorcolumn=80<CR>
+map <Leader>cc :set colorcolumn&<CR>
 
 " ================ Un-map Arrow Keys ==============
 "
