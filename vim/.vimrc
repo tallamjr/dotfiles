@@ -423,6 +423,8 @@ let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
 
+map <leader>iu :VimwikiDiaryGenerateLinks<CR>
+
 " ================ 'suan/vim-instant-markdown' ==============
 "
 " vim-instant-markdown - Instant Markdown previews from Vim
