@@ -16,3 +16,7 @@
 	co = checkout
 	logg = log --graph --decorate --oneline --abbrev --all
     vimdiff = difftool
+    ap = add --patch
+    dc = diff --cached
+    sa = stash apply
+    ba = branch --all
