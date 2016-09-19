@@ -70,6 +70,7 @@ au BufRead,BufNewFile *.wiki setlocal textwidth=80
 au BufRead,BufNewFile *.* setlocal textwidth=80
 
 autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.vimwiki setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
