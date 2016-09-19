@@ -81,6 +81,14 @@ export CLASSPATH="$HOME/Books/:$CLASSPATH"
 # reside inside, not just the path of where the jar is located.
 export CLASSPATH="/Users/tarek_allam/myJars/jsyn_16_7_3.jar:$CLASSPATH"
 
+#Caffe path.
+export PATH="$HOME/Caffe-Home/caffe/build/tools:$PATH"
+
+# MATLAB command line.
+export PATH="/Applications/MATLAB_R2015a.app/bin:$PATH"
+
+export PATH="/Users/tarek_allam/UCL_2016/major-project/main/src/RICNN/plot_logs.py:$PATH"
+
 # ================ Colour Customisation  ==============
 #
 export CLICOLOR=1
