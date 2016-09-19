@@ -424,7 +424,7 @@ let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 
 let wiki_3 = {}
-let wiki_3.path = '~/UCL_2016/major-project/mp-wiki/'
+let wiki_3.path = '~/UCL_2016/major-project/wiki/'
 " let wiki_3.index = 'index'
 let wiki_3.syntax = 'markdown'
 " let wiki_3.ext = '.md'
