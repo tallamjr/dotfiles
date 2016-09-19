@@ -160,6 +160,11 @@ function lag() {
 ls -la | grep -i "$1" | awk '{print $9}'
 }
 
+function ppwd() {
+# Get PWD variable and copy to system clipboard - OSX specific.
+echo $PWD | pbcopy
+}
+
 function extract() {
 # Extract any compressed file, courtsey http://efavdb.com/dotfiles/
     if [ -f "$1" ]; then
