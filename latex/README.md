@@ -1,8 +1,7 @@
+## USEFUL RESOURCES
 
-Useful Resources
-----------------
+### Weblinks
 
-Weblinks
-========
+Selection of CV and covering letter styles
+http://linuxandfriends.com/latex-resume-templates/
 
-Selection of CV and covering letter styles http://linuxandfriends.com/latex-resume-templates/
