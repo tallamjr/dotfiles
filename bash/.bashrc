@@ -214,3 +214,36 @@ source /usr/local/etc/bash_completion.d/password-store
 # ++++++++++++++++++++++++++++++++++++++
 # ================  EOF   ==============
 # ++++++++++++++++++++++++++++++++++++++
+
+
+. /Users/tarek_allam/torch/install/bin/torch-activate
+
+export INCLUDE="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0"
+export LIBRARY_PATH="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0/stage-python/lib"
+
+# export PYTHONPATH="~/Caffe-Home/caffe/python:$PYTHONPATH"
+
+function frameworkpython {
+if [[ ! -z "$VIRTUAL_ENV" ]]; then
+    PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
+else
+    /usr/local/bin/python "$@"
+fi
+}
+
+# For pycaffe
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib
+export DYLD_FALLBACK_LIBRARY_PATH=$HOME/anaconda/lib
+
+# bash history variables
+# What is the difference between HISTSIZE vs. HISTFILESIZE?
+# http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
+export HISTSIZE=1000
+export HISTFILESIZE=-1
+export HISTTIMEFORMAT='%F %T '
+export HISTCONTROL=ignoredups
+# export HISTCONTROL=erasedups
+export HISTIGNORE="pwd:ls:la:cl"
+
+export PYTHONPATH="${PYTHONPATH}:/Users/tarek_allam/Caffe-Home/caffe/python"
+
