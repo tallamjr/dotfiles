@@ -168,6 +168,13 @@ map <leader>q :q<CR>
 
 :autocmd FileType python nnoremap <buffer> <localleader>r :!python %<CR>
 
+" ================ Working Directory ==============
+"
+" Get the working directory and pipe in pbcopy, which is a mac specific program
+" that holds things to the system clipboard. CTRL-V to paste the aquired
+" contents or can use another mac specific program at the command line; pbpaste
+map <leader>pwd :!echo $PWD <Bar> pbcopy<CR><CR>
+
 "################################################
 " ================ PLUGINS SECTION ==============
 "################################################
