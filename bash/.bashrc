@@ -132,6 +132,11 @@ alias speed="speedtest-cli"
 alias dls="cd ~/Downloads/ && la -rt"
 alias vimrc="vim ~/.vimrc"
 alias ttop="top -o CPU"
+alias mp="cd ~/UCL_2016/major-project/"
+alias matlab="matlab -nodesktop"
+alias lrt="ls -lart"
+alias df="df -h"
+alias du="du -sh"
 
 # ================ Functions ==============
 #
