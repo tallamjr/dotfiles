@@ -247,3 +247,5 @@ export HISTIGNORE="pwd:ls:la:cl"
 
 export PYTHONPATH="${PYTHONPATH}:/Users/tarek_allam/Caffe-Home/caffe/python"
 
+# alias vim="vim -N -u NONE"
+export GIT_EDITOR=vim
