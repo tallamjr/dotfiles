@@ -27,3 +27,28 @@ snippet python
     \`\`\`python
     ${0}
     \`\`\`
+
+snippet less
+
+    \`\`\`less
+    ${0}
+    \`\`\`
+
+snippet post
+
+    ---
+    layout: post
+    title: ${1}
+    author: "Tarek Allam"
+    date: `system("date +%Y-%m-%d")`
+    category: ${2}
+    tags: [${3}]
+    cover:  /media/posts/
+    ---
+
+    ${4}
+
+    <!--more-->
+
+    ${5}
+
