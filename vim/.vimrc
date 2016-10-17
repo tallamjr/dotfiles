@@ -226,6 +226,8 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'mattn/calendar-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'pbrisbin/vim-colors-off'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 "
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
@@ -267,6 +269,13 @@ colorscheme molokai
 " ================ 'junegunn/fzf' =============
 "
 map <Leader>f :FZF<CR>
+
+" ================ 'plasticboy/vim-markdown' =============
+"
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
 
 " ================ 'jistr/vim-nerdtree-tabs' =============
 "
