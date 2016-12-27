@@ -19,6 +19,7 @@ fftw
 fltk
 fontconfig
 freetype
+fribidi
 fzf
 gawk
 gcc
@@ -97,6 +98,7 @@ opencv
 openexr
 openjpeg
 openssl
+p7zip
 pandoc
 pango
 pass
@@ -118,6 +120,7 @@ qrupdate
 qt
 readline
 reattach-to-user-namespace
+rlwrap
 scala
 scons
 sl
@@ -136,6 +139,7 @@ the_silver_searcher
 tmux
 tokyo-cabinet
 transfig
+translate-shell
 tree
 unrar
 veclibfort
