@@ -42,12 +42,12 @@ export PATH="/usr/local/Cellar/gcc/5.2.0/bin:$PATH"
 PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 
-if [ `uname` == "Darwin" ]; then
-    # juliaVersion=`julia --version | awk '{ print $3 }'`
-    juliaVersion=`cd /Applications && ls | grep -i julia`
-    PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
-    export PATH
-fi
+# if [ `uname` == "Darwin" ]; then
+#     # juliaVersion=`julia --version | awk '{ print $3 }'`
+#     juliaVersion=`cd /Applications && ls | grep -i julia`
+#     PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
+#     export PATH
+# fi
 
 if [ `uname` == "Linux" ]; then
     # Export path variables for linuxbrew.
@@ -138,6 +138,7 @@ alias matlab="matlab -nodesktop"
 alias lrt="ls -lart"
 alias df="df -h"
 alias du="du -sh"
+alias julia4="/Applications/Julia-0.4.1.app/Contents/Resources/julia/bin/julia"
 
 # ================ Functions ==============
 #
@@ -250,3 +251,7 @@ export PYTHONPATH="${PYTHONPATH}:/Users/tarek_allam/Caffe-Home/caffe/python"
 
 # alias vim="vim -N -u NONE"
 export GIT_EDITOR=vim
+
+export MATLAB_EXECUTABLE=/Applications/MATLAB_R2015a.app/bin/matlab
+
+export EDITOR=vim
