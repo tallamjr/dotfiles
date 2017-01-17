@@ -444,7 +444,16 @@ let wiki_3.ext = '.mdown'
 let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
-let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
+let wiki_4 = {}
+let wiki_4.path = '~/dsb3/wiki/'
+let wiki_4.index = 'index'
+" let wiki_4.syntax = 'markdown'
+" let wiki_2.ext = '.md'
+" let wiki_4.ext = '.mdown'
+" let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+"
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
 
