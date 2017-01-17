@@ -120,6 +120,7 @@ qrupdate
 qt
 readline
 reattach-to-user-namespace
+rename
 rlwrap
 scala
 scons
