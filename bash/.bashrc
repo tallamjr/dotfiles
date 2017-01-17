@@ -124,7 +124,7 @@ alias pingg="ping www.google.com"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
 alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
 alias lsc="ls | wc | awk '{print \$1}'"                             # Show the 'count' of files in a director.
-alias py3="source activate py3"                                     # Conda enviroment for Python 3.5.
+alias p3="source activate py3"                                     # Conda enviroment for Python 3.5.
 alias f="fzf -i --color=hl:200,hl+:200"
 alias sb="source ~/.bashrc"
 alias vb="vim ~/.bashrc"
