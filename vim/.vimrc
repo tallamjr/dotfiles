@@ -230,6 +230,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'pbrisbin/vim-colors-off'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'beloglazov/vim-online-thesaurus'
 "
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
