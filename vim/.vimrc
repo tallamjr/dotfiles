@@ -74,6 +74,7 @@ set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
 autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd BufRead,BufNewFile *.vimwiki setlocal spell
+autocmd BufRead,BufNewFile *.wiki setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
