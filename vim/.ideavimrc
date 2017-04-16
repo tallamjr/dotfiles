@@ -1,0 +1,132 @@
+" ================ Leader-Key ===========================
+"
+let mapleader = ","
+let maplocalleader = "\\"
+
+" ================ Re-map Escape ===========================
+"
+" Map escape
+:imap kj <Esc>
+
+" ================ General Configuration ==============
+"
+set nocompatible     	 " We're running Vim, not Vi!
+set term=screen-256color
+syntax on             	" Enable syntax highlighting
+filetype on           	" Enable filetype detection
+filetype indent on    	" Enable filetype-specific indenting
+filetype plugin on    	" Enable filetype-specific plugins
+set nrformats=          " Disables Vim's built in octal-numeric system. All numbers if containing leading zero now decimal format
+set hls
+set wildmenu
+set wildmode=full
+set history=1000
+set fileformat=unix
+set showcmd             "Show incomplete cmds down the bottom
+set showmode            "Show current mode down the bottom
+set visualbell          "No sounds
+set autoread            "Reload files changed outside vim
+set backspace=2         "Make backspace work like most other apps
+set number              "display line numbers on the left
+set clipboard=unnamed
+set cursorline
+nnoremap <Leader>l :set cursorline!<CR>
+map <Leader>c :set colorcolumn=80<CR>
+map <Leader>cc :set colorcolumn&<CR>
+
+" ================ Un-map Arrow Keys ==============
+"
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
+noremap <Left>  <Nop>
+noremap <Right> <Nop>
+
+" ================ Turn Off Swap Files ==============
+"
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Search ===========================
+"
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+" map <Leader>/ :noh<CR>
+" nnoremap <C-h> :set hlsearch! hlsearch?<CR>
+map <Leader>/ :set hlsearch! hlsearch?<CR>
+
+" ================ Textwidth/Spellchecker ==============
+"
+" highlight when over 80 characters
+"highlight Overlength ctermbg=red ctermfg=white
+"match Overlength /\%81v.\+/
+
+au BufRead,BufNewFile *.tex setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
+au BufRead,BufNewFile *.* setlocal textwidth=80
+
+set spelllang=en
+set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+
+autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.vimwiki setlocal spell
+autocmd BufRead,BufNewFile *.wiki setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+" Set files with extention of .md as markdown type.
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" ================ Tabs/Buffers ==============
+"
+" 4 space tab.
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" ================ Colour Scheme ==============
+"
+set background=dark
+
+" ================ github.com/rekendahl/dotfiles/blob/master/.ideavimrc ==============
+"
+" Insert date
+iabbrev ddate <C-R>=strftime("%Y-%m-%d")<CR>
+
+" copy current file name (relative/absolute) to system clipboard
+" from http://stackoverflow.com/a/17096082/22423
+if has('mac') || has('gui_macvim') || has('gui_mac')
+  " relative path  (src/foo.txt)
+  nnoremap <silent> <leader>yp :let @*=expand("%")<CR>
+
+  " absolute path  (/something/src/foo.txt)
+  nnoremap <silent> <leader>yP :let @*=expand("%:p")<CR>
+
+  " filename       (foo.txt)
+  nnoremap <silent> <leader>yf :let @*=expand("%:t")<CR>
+
+  " directory name (/something/src)
+  nnoremap <silent> <leader>yd :let @*=expand("%:p:h")<CR>
+endif
+
+" ================ github.com/beloglazov/vimrc/blob/master/.ideavimrc ==============
+" EDITOR ACTIONS
+" Enter the command-line mode
+noremap <CR> :
+
+" Reload .ideavimrc
+nnoremap <Space>vs :source ~/.ideavimrc<CR>
+
+" IDE ACTIONS
+nnoremap / :action Find<CR>
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
