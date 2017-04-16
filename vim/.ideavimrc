@@ -124,9 +124,12 @@ endif
 noremap <CR> :
 
 " Reload .ideavimrc
-nnoremap <Space>vs :source ~/.ideavimrc<CR>
+nnoremap <leader>sc :source ~/.ideavimrc<CR>
 
 " IDE ACTIONS
 nnoremap / :action Find<CR>
 nnoremap n :action FindNext<CR>
 nnoremap N :action FindPrevious<CR>
+
+nnoremap <leader><Space> :action SaveDocument<CR>
+nnoremap <leader>, :action RunClass<CR>
