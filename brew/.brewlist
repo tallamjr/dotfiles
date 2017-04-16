@@ -1,5 +1,7 @@
 ansible
+ant
 arpack
+autossh
 awscli
 bash
 boost
@@ -10,6 +12,7 @@ cloc
 cmake
 coreutils
 dirmngr
+docker
 dos2unix
 eigen
 emacs
@@ -85,6 +88,7 @@ lmdb
 lua
 lynx
 mad
+maven
 metis
 mongodb
 mpfr
@@ -112,6 +116,7 @@ poppler
 protobuf
 pstoedit
 pth
+pv
 pwgen
 pwsafe
 python
