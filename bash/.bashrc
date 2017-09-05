@@ -164,9 +164,31 @@ function lag() {
 ls -la | grep -i "$1" | awk '{print $9}'
 }
 
+function progress() {
+# Log each day entry
+echo "`date +%Y%m%d`"",$1"",$2" >> ~/vimwiki/progressLog.wiki
+}
+
+function poki() {
+# Log each day entry
+echo "`date +%Y%m%d`,`date +%H%M`"",$1"",$2"",$3" >> ~/vimwiki/pokerlog.wiki
+}
+
+function so() {
+# Size Of - folder, then sort in human readable form.
+
+du -s "$1" | sort -h
+
+}
+
 function ppwd() {
 # Get PWD variable and copy to system clipboard - OSX specific.
 echo $PWD | pbcopy
+}
+
+function jj() {
+# Compile and then run java code.
+javac $1 && java `basename $1 .java`
 }
 
 function extract() {
