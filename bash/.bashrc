@@ -139,6 +139,8 @@ alias lrt="ls -lart"
 alias df="df -h"
 alias du="du -sh"
 alias julia4="/Applications/Julia-0.4.1.app/Contents/Resources/julia/bin/julia"
+alias jn="jupyter notebook"
+alias youtube-dl-audio='youtube-dl -x --audio-format "wav" --audio-quality 0'
 
 # ================ Functions ==============
 #
