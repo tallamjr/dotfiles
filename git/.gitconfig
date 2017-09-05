@@ -20,3 +20,4 @@
     dc = diff --cached
     sa = stash apply
     ba = branch --all
+    pusm = pull upstream master
