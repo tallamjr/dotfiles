@@ -235,8 +235,8 @@ echo " Installing Anaconda Python (2.7) Distribution ..."
 echo "=================================================="
 sleep 2
 
-bash -c "`curl -fsSL https://repo.continuum.io/archive/Anaconda2-4.4.0-MacOSX-x86_64.sh`"
-# bash ~/Downloads/Anaconda2-4.4.0-MacOSX-x86_64.sh
+wget -P ~/Downloads https://repo.continuum.io/archive/Anaconda2-4.4.0-MacOSX-x86_64.sh
+bash ~/Downloads/Anaconda2-4.4.0-MacOSX-x86_64.sh
 
 }
 
