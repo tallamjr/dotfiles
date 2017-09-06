@@ -61,6 +61,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="$HOME/Documents/tmux/bin:$PATH"
 # Added by Anaconda3 2.1.0 installer
 export PATH="$HOME/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda2/bin:$PATH"
 
 # export PATH="$HOME/anaconda3/bin:$PATH"
 # MySQL
