@@ -211,8 +211,10 @@ do
         # Date variable, example 20170906, i.e. YYYYMMDD
         date=$(date +%Y%m%d)
         # echo "I have made fie: " $i
-        echo "Creating backup of existing' " $i
+        echo "Creating backup of existing" $i
         mv $HOME/$i $HOME/$i-backup-$date
+    else
+        echo "No original configuration files found..."
     fi
 done
 
