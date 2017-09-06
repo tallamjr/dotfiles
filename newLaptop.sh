@@ -203,6 +203,7 @@ if [[ $response =~ ^(yes|y)$ ]]; then
     brewcasklist_install
 fi
 
+#TODO Backup files are not being created.
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
 for i in ${dotfile_array[*]}
 do
@@ -228,6 +229,7 @@ done
 
 symlink_and_install
 
+
 function anaconda_install(){
 # Install Anaconda, Python 2.7 in this case
 
@@ -242,13 +244,20 @@ bash ~/Downloads/Anaconda2-4.4.0-MacOSX-x86_64.sh
 
 # Check if system Python is already linked to the anaconda distribution
 # grep -w checks for exact match of anaconda
-which python | grep -w "anaconda"
+which python | grep -w "anaconda2"
 exitCode=$?
 if [[ $exitCode != 0 ]]; then
     echo " Default Python Not Anaconda Distribution ..."
     echo "============================================="
     sleep 1
-    anaconda_install
+    # Ask user if they would like to install all brew packages in .brewlist
+    read -r -p "Would you like to install Anaconda Python 2.7 now? [y/N] "  response
+
+    response=${response,,}    # tolower
+    if [[ $response =~ ^(yes|y)$ ]]; then
+        # Install Anaconda Python
+        anaconda_install
+    fi
 fi
 
 source $HOME/.bashrc 2> /dev/null
