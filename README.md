@@ -10,9 +10,7 @@ To begin installation on a new machine, just run:
 bash -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/newLaptop.sh`"
 ```
 
-*NOTE*
-
-If only temporaliy installing on another machine, run:
+If only temporarily installing on another machine, run:
 
 ```bash
 bash -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/install.sh`"
