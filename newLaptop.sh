@@ -124,7 +124,7 @@ local_vimMinor="${a[1]}"
 
 function vim_install(){
 
-brew install --system-override-vi
+brew install vim --with-override-system-vi --with-python3
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sleep 2
 # eval $(vim +PluginInstall +qall)
@@ -162,7 +162,7 @@ function brewlist_install(){
 brewlist="$dotfiles_DIR/brew/.brewlist"
 while read line; do
     if [ "$line" == "vim" ]; then
-        brew install vim --override-system-vi
+        brew install vim --with-override-system-vi --with-python3
     else
         brew install $line
     fi
@@ -235,12 +235,12 @@ symlink_and_install
 function anaconda_install(){
 # Install Anaconda, Python 2.7 in this case
 
-echo " Installing Anaconda Python (2.7) Distribution ..."
+echo " Installing Anaconda Python (3.x) Distribution ..."
 echo "=================================================="
 sleep 2
 
-wget -P ~/Downloads https://repo.continuum.io/archive/Anaconda2-4.4.0-MacOSX-x86_64.sh
-bash ~/Downloads/Anaconda2-4.4.0-MacOSX-x86_64.sh
+wget -P ~/Downloads https://repo.continuum.io/archive/Anaconda3-4.4.0-MacOSX-x86_64.sh
+bash ~/Downloads/Anaconda3-4.4.0-MacOSX-x86_64.sh
 
 }
 
