@@ -1,5 +1,8 @@
 #!/bin/bash
 clear
+#TODO
+# Need to develop a work around for Python 3 install and make sure versions
+# are checked and caught before the actual install.
 
 echo " Beginning System Configuration File Install"
 sleep 3
