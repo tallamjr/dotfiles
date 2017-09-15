@@ -108,6 +108,7 @@ alias cl="clear"
 alias la="ls -lah"              # Listing in human-readable format
 alias qq="exit"
 alias grep="grep -E"
+alias gg="grep -i"
 alias sleep="sudo shutdown -s now"  # Put computer to sleep
 alias pat="pygmentize -g"           # Colourful 'cat' output
 alias chrome="open /Applications/Google\ Chrome.app/"
