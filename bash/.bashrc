@@ -55,15 +55,17 @@ if [ `uname` == "Linux" ]; then
     export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
-#export PATH="$HOME/anaconda/bin:$PATH"
+
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Homemade scripts
+export PATH="$HOME/scripts:$PATH"
 # TMUX Battery Status
 export PATH="$HOME/Documents/tmux/bin:$PATH"
 # Added by Anaconda3 2.1.0 installer
-export PATH="$HOME/anaconda/bin:$PATH"
-export PATH="$HOME/anaconda2/bin:$PATH"
+# export PATH="$HOME/anaconda/bin:$PATH"
+#export PATH="$HOME/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 
-# export PATH="$HOME/anaconda3/bin:$PATH"
 # MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
 # Mongodb PATH
