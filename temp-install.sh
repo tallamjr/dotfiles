@@ -1,6 +1,8 @@
 #!/bin/bash
 clear
 
+# TODO --  Remove homebrew install?
+
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 
