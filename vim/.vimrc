@@ -225,12 +225,13 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-Plugin 'mattn/calendar-vim'
+" Plugin 'mattn/calendar-vim'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'pbrisbin/vim-colors-off'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'itchyny/calendar.vim'
 "
 set rtp+=~/usr/local/Cellar/fzf/0.10.2
 Plugin 'junegunn/fzf'
@@ -414,6 +415,9 @@ autocmd BufWritePre * StripWhitespace
 
 " ================ 'vimwiki/vimwiki' ==============
 "
+let g:vimwiki_global_ext = 0
+let g:vimwiki_use_calendar = 1
+
 " To use Markdown's wiki markup: >
 " let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 " vimwiki with markdown support
