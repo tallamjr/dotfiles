@@ -99,7 +99,7 @@ export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
 export GREP_OPTIONS="--color=auto"
 # Source for colouring of grep output.
-source "`brew --prefix grc`/etc/grc.bashrc"
+# source "`brew --prefix grc`/etc/grc.bashrc"
 
 # ================ Aliases ==============
 #
