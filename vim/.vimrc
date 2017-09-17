@@ -433,14 +433,13 @@ let wiki_1.path = '~/vimwiki/'
 let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_2 = {}
-let wiki_2.path = '~/Dropbox/todo/'
+let wiki_2.path = '~/PhD/wiki/'
 let wiki_2.index = 'index'
 let wiki_2.syntax = 'markdown'
 " let wiki_2.ext = '.md'
-let wiki_2.ext = '.mdown'
+let wiki_2.ext = '.markdown'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
 
 let wiki_3 = {}
 let wiki_3.path = '~/UCL_2016/major-project/wiki/'
