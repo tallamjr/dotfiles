@@ -14,6 +14,13 @@ case $choice in
         exit;;
 esac
 
+dotfiles_DIR="$HOME/dotfiles"
+
+cd $dotfiles_DIR
+for d in */; do
+    stow -Dv $d
+done
+
 dotfile_array=(.bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc)
 for i in ${dotfile_array[*]}
 do
@@ -25,3 +32,4 @@ done
 
 # This will remove dotfiles directory
 cd $HOME && rm -rf .tadr/ .vim/
+# ~/anaconda/
