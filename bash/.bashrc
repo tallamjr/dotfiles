@@ -239,14 +239,14 @@ export CHEATCOLORS=true
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # For awscli completion
 complete -C aws_completer aws
-source /usr/local/etc/bash_completion.d/password-store
+# source /usr/local/etc/bash_completion.d/password-store
 
 # ++++++++++++++++++++++++++++++++++++++
 # ================  EOF   ==============
 # ++++++++++++++++++++++++++++++++++++++
 
 
-. /Users/tarek_allam/torch/install/bin/torch-activate
+# . /Users/tarek_allam/torch/install/bin/torch-activate
 
 export INCLUDE="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0"
 export LIBRARY_PATH="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0/stage-python/lib"
