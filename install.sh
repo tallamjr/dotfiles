@@ -2,6 +2,21 @@
 clear
 
 # TODO --  Make backup of dotfiles with date, make function for this.
+# Arrays containing list of dotfiles that will be in use.
+dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
+# Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
+for i in ${dotfile_array[*]}
+do
+    if [ -f "$HOME/$i" ]; then
+        # Date variable, example 20170906, i.e. YYYYMMDD
+        date=$(date +%Y%m%d)
+        # echo "I have made fie: " $i
+        echo "Creating backup of existing" $i
+        mv $HOME/$i $HOME/$i-backup-$date
+    else
+        echo "No original configuration files found..."
+    fi
+done
 
 operatingSystem=`uname`
 
@@ -59,24 +74,3 @@ else
 fi
 
 source $HOME/.bashrc 2> /dev/null
-
-#TODO -- Run this in playbook
-
-# brew isntall git
-# brew isntall stow
-
-# git clone https://github.com/tallamjr/dotfiles.git
-
-# brew install anaconda
-# brew install `grep -v vim ~/dotfiles/brew/.brewlist`
-# brew install vim --with-override-system-vi --with-python3
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# brew cask install `cat ~/dotfiles/brew/.brewcasklist`
-
-
-# vim +PluginInstall +qall
-
-# export PATH=/usr/local/anaconda3/bin:"$PATH"
-
-
