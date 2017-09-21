@@ -11,21 +11,28 @@ See my blog post for an overview of my dotfile story.
 To provision a new machine, just run:
 
 ```bash
-bash -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/install.sh`"
+bash -c "`curl -fsSL https://github.com/tallamjr/dotfiles/blob/dev/provisionANSI.sh`"
 ```
 
 This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/install.sh)
 script to determine the operating system that is running, and then either install [Homebrew](https://brew.sh/)
 or [Linuxbrew](http://linuxbrew.sh/).
 
-After one of these package managers is
+After the respective package manager is
 installed, it will then install [Ansible](https://www.ansible.com/) which
-handles the rest of the provisioning utilising the
+handles the rest of the provisioning, utilising the
 [*playbook*](https://github.com/tallamjr/dotfiles/tree/dev/playbook).
 
 The playbook handles installation of all desired brew packages (homebrew) and applications
 (homebrew-cask). It also, with the use of GNU Stow, symlinks all configuration
 files a.k.a *dotfiles* to `$HOME` directory.
+
+One may prefer to provision a machine without using Ansible and stick to good
+old UNIX commands only. To do so, run the command below:
+
+```bash
+bash -c "`curl -fsSL https://github.com/tallamjr/dotfiles/blob/dev/provisionNIX.sh`"
+```
 
 ### Temporary Configuration Install
 
