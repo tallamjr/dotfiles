@@ -1,13 +1,8 @@
 ---
-# - name: Clone dotfile repo to home directory
-# - git:
-#     repo: https://github.com/tallamjr/dotfiles.git
-#     dest: ~/dotfiles
-#
 - name: Symlink dotfiles
   shell: stow -v -d ~/dotfiles -t ~/ -S {{ item }}
   with_items:
-      #    - bash/
+    - bash/
     - brew/
     - emacs/
     - git/
@@ -20,12 +15,10 @@
 
 - name: Get packages to be install with Homebrew
   shell: "grep -v vim ~/dotfiles/brew/.brewlist"
-  # shell: "echo Hello Mate"
   register: brewlist
 
 - name: Install packages listed in brewlist.txt
   shell: "brew install {{ item }}"
-  # shell: "echo {{ item }}"
   with_items: "{{ brewlist.stdout_lines|default([]) }}"
 
 - name: Install Vim
