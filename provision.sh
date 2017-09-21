@@ -88,6 +88,10 @@ else
     exit 1;
 fi
 
+source $HOME/.bashrc 2> /dev/null
+source $HOME/.porfile 2> /dev/null
+source $HOME/.bash_profile 2> /dev/null
+
 git clone -b dev https://github.com/tallamjr/dotfiles.git
 
 cd dotfiles && stow -v \
