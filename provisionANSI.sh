@@ -2,7 +2,7 @@
 clear
 
 # Arrays containing list of dotfiles that will be in use.
-dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
+dotfile_array=( .profile .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
 for i in ${dotfile_array[*]}
 do
