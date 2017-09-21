@@ -74,13 +74,17 @@ elif [ "$operatingSystem" == "Linux" ]; then
     sudo -u linuxbrew -i /bin/bash
     PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+
     test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
     test -r ~/.bash_profile && echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.bash_profile
     echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.profile
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-
+    echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile
+    echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
+    echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
     # export PATH="$HOME/.linuxbrew/bin:$PATH"
     # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
