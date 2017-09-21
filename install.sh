@@ -1,7 +1,6 @@
 #!/bin/bash
 clear
 
-# TODO --  Make backup of dotfiles with date, make function for this.
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
@@ -9,10 +8,10 @@ for i in ${dotfile_array[*]}
 do
     if [ -f "$HOME/$i" ]; then
         # Date variable, example 20170906, i.e. YYYYMMDD
-        date=$(date +%Y%m%d)
+        # date=$(date +%Y%m%d)
         # echo "I have made fie: " $i
         echo "Creating backup of existing" $i
-        mv $HOME/$i $HOME/$i-backup-$date
+        mv $HOME/$i $HOME/$i-backup
     else
         echo "No original configuration files found..."
     fi
@@ -70,10 +69,9 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # Red Hat
     sudo yum groupinstall 'Development Tools' && sudo yum install curl file git irb python-setuptools ruby
 
-    useradd -m linuxbrew
-    sudo -u linuxbrew -i /bin/bash
-    PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
+    # useradd -m linuxbrew
+    # sudo -u linuxbrew -i /bin/bash
+    # PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 
@@ -88,6 +86,12 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # export PATH="$HOME/.linuxbrew/bin:$PATH"
     # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+    # source $HOME/.bashrc 2> /dev/null
+    # source $HOME/.bashrc 2> /dev/null
+    source $HOME/.bashrc 2> /dev/null
+    source $HOME/.porfile 2> /dev/null
+    source $HOME/.bash_profile 2> /dev/null
 
     brew install ansible
 
