@@ -58,7 +58,7 @@ elif [ "$operatingSystem" == "Linux" ]; then
     apt-get install sudo
 
     # Debian
-    sudo apt-get install build-essential curl file git python-setuptools ruby
+    sudo apt-get install build-essential curl file git python-setuptools ruby stow
 
     # Red Hat
     sudo yum groupinstall 'Development Tools' && sudo yum install curl file git irb python-setuptools ruby
@@ -89,6 +89,18 @@ else
 fi
 
 git clone -b dev https://github.com/tallamjr/dotfiles.git
+
+cd dotfiles && stow -v \
+    bash/ \
+    brew/ \
+    emacs/ \
+    git/ \
+    mutt/ \
+    readline/ \
+    tmux/ \
+    vim/ \
+    xcode/ \
+    zsh/
 
 # Brew install all pacakges listed in brewlist, except VIM
 brew install `grep -v vim ~/dotfiles/brew/.brewlist`
