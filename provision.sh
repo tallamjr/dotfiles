@@ -13,7 +13,7 @@ do
         echo "Creating backup of existing" $i
         mv $HOME/$i $HOME/$i-backup
     else
-        echo "No original configuration files found..."
+        echo $i " configuration file not found ..."
     fi
 done
 
@@ -82,18 +82,19 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
     # source $HOME/.bashrc 2> /dev/null
+    source $HOME/.bashrc 2> /dev/null
+    source $HOME/.porfile 2> /dev/null
+    source $HOME/.bash_profile 2> /dev/null
 
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
 fi
 
-source $HOME/.bashrc 2> /dev/null
-source $HOME/.porfile 2> /dev/null
-source $HOME/.bash_profile 2> /dev/null
-
+# Clone dotfiles
 git clone -b dev https://github.com/tallamjr/dotfiles.git
 
+# Symlink dotfiles to home directory
 cd dotfiles && stow -v \
     bash/ \
     brew/ \
@@ -109,10 +110,11 @@ cd dotfiles && stow -v \
 # Brew install all pacakges listed in brewlist, except VIM
 brew install `grep -v vim ~/dotfiles/brew/.brewlist`
 # Install VIM 8.0+ compiled with Python 3.5+
+export PATH="$HOME/anaconda3/bin:$PATH"
 brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
+# Install VIM plugins
 vim +PluginInstall! +qall
 
 source $HOME/.bashrc 2> /dev/null
