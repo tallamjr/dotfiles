@@ -46,6 +46,9 @@ if [ $operatingSystem == "Darwin" ]; then
 
     brew cask install xquartz
     brew install ansible
+
+    git clone https://github.com/tallamjr/dotfiles.git
+
     cd playbook
     ansible-playbook -i HOSTS -K $operatingSystem.yml -v
 
@@ -83,6 +86,9 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
     brew install ansible
+
+    git clone https://github.com/tallamjr/dotfiles.git
+
     cd playbook
     ansible-playbook -i HOSTS -K $operatingSystem.yml -v
 

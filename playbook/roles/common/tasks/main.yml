@@ -1,9 +1,9 @@
 ---
-- name: Clone dotfile repo to home directory
-- git:
-    repo: https://github.com/tallamjr/dotfiles.git
-    dest: ~/dotfiles
-
+# - name: Clone dotfile repo to home directory
+# - git:
+#     repo: https://github.com/tallamjr/dotfiles.git
+#     dest: ~/dotfiles
+#
 - name: Symlink dotfiles
 - shell: stow -dv ~/dotfiles -t ~/ {{ item }}
 - with_items:
