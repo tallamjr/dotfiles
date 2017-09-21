@@ -27,6 +27,7 @@
   shell: "brew install {{ item }}"
   # shell: "echo {{ item }}"
   with_items: "{{ brewlist.stdout_lines|default([]) }}"
+  ignore_errors: yes
 
 - name: Install Vim
   shell: brew install vim --with-override-system-vi --with-python3
