@@ -17,14 +17,14 @@
     - vim/
     - xcode/
     - zsh/
-    
+
 - name: Get packages to be install with Homebrew
   shell: "grep -v vim ~/dotfiles/brew/.brewlist"
   register: brewlist
 
 - name: Install packages listed in brewlist.txt
   shell: "brew install {{ item }}"
-  with_items: 
+  with_items:
     - "{{ brewlist.stdout_lines }}"
 
 - name: Install Vim
