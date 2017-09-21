@@ -49,7 +49,7 @@ if [ $operatingSystem == "Darwin" ]; then
 
     git clone https://github.com/tallamjr/dotfiles.git
 
-    cd playbook
+    cd dotfiles/playbook
     ansible-playbook -i HOSTS -K $operatingSystem.yml -v
 
 elif [ "$operatingSystem" == "Linux" ]; then
@@ -87,9 +87,9 @@ elif [ "$operatingSystem" == "Linux" ]; then
 
     brew install ansible
 
-    git clone https://github.com/tallamjr/dotfiles.git
+    git clone -b dev https://github.com/tallamjr/dotfiles.git
 
-    cd playbook
+    cd dotfiles/playbook
     ansible-playbook -i HOSTS -K $operatingSystem.yml -v
 
 else
