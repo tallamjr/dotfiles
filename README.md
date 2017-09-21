@@ -31,7 +31,7 @@ One may prefer to provision a machine without using Ansible and stick to good
 old UNIX commands only. To do so, run the command below:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionANSI.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionNIX.sh`"
 ```
 
 ### Temporary Configuration Install
