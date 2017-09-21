@@ -11,7 +11,7 @@ See my blog post for an overview of my dotfile story.
 To provision a new machine, just run:
 
 ```bash
-bash -c "`curl -fsSL https://github.com/tallamjr/dotfiles/blob/master/provisionANSI.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionANSI.sh`"
 ```
 
 This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/provisionANSI.sh)
@@ -31,7 +31,7 @@ One may prefer to provision a machine without using Ansible and stick to good
 old UNIX commands only. To do so, run the command below:
 
 ```bash
-bash -c "`curl -fsSL https://github.com/tallamjr/dotfiles/blob/master/provisionNIX.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionANSI.sh`"
 ```
 
 ### Temporary Configuration Install
