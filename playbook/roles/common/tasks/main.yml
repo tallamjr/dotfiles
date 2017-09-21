@@ -38,7 +38,7 @@
     dest: ~/.vim/bundle/Vundle.vim
 
 - name: Install/update VIM plugins
-  command: vim +PluginInstall! +qall
+  shell: vim +PluginInstall! +qall
 
 #- name: Get applications to be install with Homebrew-Cask
 #- shell: "cat ~/dotfiles/brew/.brewcasklist"
