@@ -110,8 +110,12 @@ fi
 
 # Brew install all pacakges listed in brewlist, except VIM
 brew install `grep -v vim ~/dotfiles/brew/.brewlist`
+if [ $operatingSystem == "Darwin" ]; then
+    # Brew install all applications listed in brewcasklist
+    brew cask install `cat ~/dotfile/brew/.brewcasklist`
+    export PATH="$HOME/anaconda3/bin:$PATH"
+fi
 # Install VIM 8.0+ compiled with Python 3.5+
-export PATH="$HOME/anaconda3/bin:$PATH"
 brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
