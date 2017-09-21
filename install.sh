@@ -67,7 +67,10 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # Red Hat
     sudo yum groupinstall 'Development Tools' && sudo yum install curl file git irb python-setuptools ruby
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    useradd -m linuxbrew
+    sudo -u linuxbrew -i /bin/bash
+    PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 
     test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
