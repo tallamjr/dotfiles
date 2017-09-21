@@ -7,7 +7,7 @@
 - name: Symlink dotfiles
   shell: stow -v -d ~/dotfiles -t ~/ -S {{ item }}
   with_items:
-    - bash/
+      #    - bash/
     - brew/
     - emacs/
     - git/
@@ -20,12 +20,13 @@
 
 - name: Get packages to be install with Homebrew
   shell: "grep -v vim ~/dotfiles/brew/.brewlist"
+  # shell: "echo Hello Mate"
   register: brewlist
 
 - name: Install packages listed in brewlist.txt
   shell: "brew install {{ item }}"
-  with_items:
-    - "{{ brewlist.stdout_lines }}"
+  # shell: "echo {{ item }}"
+  with_items: "{{ brewlist.stdout_lines|default([]) }}"
 
 - name: Install Vim
   shell: brew install vim --with-override-system-vi --with-python3
