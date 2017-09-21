@@ -17,6 +17,22 @@ do
     fi
 done
 
+# Clone dotfiles
+git clone -b dev https://github.com/tallamjr/dotfiles.git
+
+# Symlink dotfiles to home directory
+cd dotfiles && stow -v \
+    bash/ \
+    brew/ \
+    emacs/ \
+    git/ \
+    mutt/ \
+    readline/ \
+    tmux/ \
+    vim/ \
+    xcode/ \
+    zsh/
+
 operatingSystem=`uname`
 
 # Determine operating system via uname. Install appropriate Homebrew.
@@ -91,21 +107,6 @@ else
     exit 1;
 fi
 
-# Clone dotfiles
-git clone -b dev https://github.com/tallamjr/dotfiles.git
-
-# Symlink dotfiles to home directory
-cd dotfiles && stow -v \
-    bash/ \
-    brew/ \
-    emacs/ \
-    git/ \
-    mutt/ \
-    readline/ \
-    tmux/ \
-    vim/ \
-    xcode/ \
-    zsh/
 
 # Brew install all pacakges listed in brewlist, except VIM
 brew install `grep -v vim ~/dotfiles/brew/.brewlist`
