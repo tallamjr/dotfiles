@@ -58,11 +58,25 @@ elif [ "$operatingSystem" == "Linux" ]; then
     echo "======================================="
     sleep 1
     # Linuxbrew
-    sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    apt-get update
+    apt-get install sudo
+
+    # Debian
+    sudo apt-get install build-essential curl file git python-setuptools ruby
+
+    # Red Hat
+    sudo yum groupinstall 'Development Tools' && sudo yum install curl file git irb python-setuptools ruby
+
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+
+    test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
+    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    test -r ~/.bash_profile && echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.bash_profile
+    echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.profile
+
+    # export PATH="$HOME/.linuxbrew/bin:$PATH"
+    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
     brew install ansible
     cd playbook
