@@ -1,0 +1,9 @@
+---
+- name: Get applications to be install with Homebrew
+  shell: "cat ~/dotfiles/brew/.brewcasklist"
+  register: brewcasklist
+
+- name: Install applications listed in brewcasklist.txt
+  shell: "brew cask install {{ item }}"
+  with_items: "{{ brewcasklist.stdout_lines|default([]) }}"
+  ignore_errors: yes

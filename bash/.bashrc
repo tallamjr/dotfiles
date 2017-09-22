@@ -55,15 +55,17 @@ if [ `uname` == "Linux" ]; then
     export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
-#export PATH="$HOME/anaconda/bin:$PATH"
+
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Homemade scripts
+export PATH="$HOME/scripts:$PATH"
 # TMUX Battery Status
 export PATH="$HOME/Documents/tmux/bin:$PATH"
 # Added by Anaconda3 2.1.0 installer
-export PATH="$HOME/anaconda/bin:$PATH"
-export PATH="$HOME/anaconda2/bin:$PATH"
+# export PATH="$HOME/anaconda/bin:$PATH"
+#export PATH="$HOME/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 
-# export PATH="$HOME/anaconda3/bin:$PATH"
 # MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
 # Mongodb PATH
@@ -97,7 +99,7 @@ export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
 export GREP_OPTIONS="--color=auto"
 # Source for colouring of grep output.
-source "`brew --prefix grc`/etc/grc.bashrc"
+# source "`brew --prefix grc`/etc/grc.bashrc"
 
 # ================ Aliases ==============
 #
@@ -126,10 +128,10 @@ alias pingg="ping www.google.com"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
 alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
 alias lsc="ls | wc | awk '{print \$1}'"                             # Show the 'count' of files in a director.
-alias p3="source activate py3"                                     # Conda enviroment for Python 3.5.
+alias p3="source activate py35"                                     # Conda enviroment for Python 3.5.
 alias f="fzf -i --color=hl:200,hl+:200"
 alias sb="source ~/.bashrc"
-alias vb="vim ~/.bashrc"
+alias bashrc="vim ~/.bashrc"
 alias gcc="gcc-5"
 alias speed="speedtest-cli"
 alias dls="cd ~/Downloads/ && la -rt"
@@ -237,14 +239,14 @@ export CHEATCOLORS=true
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # For awscli completion
 complete -C aws_completer aws
-source /usr/local/etc/bash_completion.d/password-store
+# source /usr/local/etc/bash_completion.d/password-store
 
 # ++++++++++++++++++++++++++++++++++++++
 # ================  EOF   ==============
 # ++++++++++++++++++++++++++++++++++++++
 
 
-. /Users/tarek_allam/torch/install/bin/torch-activate
+# . /Users/tarek_allam/torch/install/bin/torch-activate
 
 export INCLUDE="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0"
 export LIBRARY_PATH="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0/stage-python/lib"

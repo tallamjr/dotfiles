@@ -1,0 +1,43 @@
+---
+- name: Symlink dotfiles
+  shell: stow -v -d ~/dotfiles -t ~/ -S {{ item }}
+  with_items:
+    - bash/
+    - brew/
+    - emacs/
+    - git/
+    - mutt/
+    - readline/
+    - tmux/
+    - vim/
+    - xcode/
+    - zsh/
+
+- name: Get packages to be install with Homebrew
+  shell: "grep -v vim ~/dotfiles/brew/.brewlist"
+  register: brewlist
+
+- name: Install packages listed in brewlist.txt
+  shell: "brew install {{ item }}"
+  with_items: "{{ brewlist.stdout_lines|default([]) }}"
+  ignore_errors: yes
+
+- name: Install Vim
+  shell: brew install vim --with-override-system-vi --with-python3
+
+- name: Clone Vundle
+  git:
+    repo: https://github.com/gmarik/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Install/update VIM plugins
+  shell: vim +PluginInstall! +qall
+
+#- name: Get applications to be install with Homebrew-Cask
+#- shell: "cat ~/dotfiles/brew/.brewcasklist"
+#- register: brewcasklist
+#
+#- name: Install applications listed in brewcasklist.txt
+#- homebrew_cask: name={{ item }} state=latest install_options: 'appdir=/Applications'
+#- with_items:
+#    - "{{ brewcasklist.stdout_lines }}"

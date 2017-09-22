@@ -463,6 +463,32 @@ let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
 
+" From docs; *VimwikiLinkHandler*
+" A customizable link handler can be defined to override Vimwiki's behavior when
+" opening links.
+"
+" A example which handles a new scheme, 'vfile:', which behaves similar to
+" 'file:', but the files are always opened with Vim in a new tab:
+function! VimwikiLinkHandler(link)
+  " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+  "   1) [[vfile:~/Code/PythonProject/abc123.py]]
+  "   2) [[vfile:./|Wiki Home]]
+  let link = a:link
+  if link =~# '^vfile:'
+    let link = link[1:]
+  else
+    return 0
+  endif
+  let link_infos = vimwiki#base#resolve_link(link)
+  if link_infos.filename == ''
+    echomsg 'Vimwiki Error: Unable to resolve link!'
+    return 0
+  else
+    exe 'tabnew ' . fnameescape(link_infos.filename)
+    return 1
+  endif
+endfunction
+"
 " ================ 'suan/vim-instant-markdown' ==============
 "
 " vim-instant-markdown - Instant Markdown previews from Vim
