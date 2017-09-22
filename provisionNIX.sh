@@ -1,6 +1,13 @@
 #!/bin/bash
 clear
 
+echo " Beginning System Configuration Install"
+sleep 3
+echo "............"
+sleep 1
+echo " Just Brace Yourself Rodney.... Brace Yourself!"
+sleep 3
+
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
@@ -39,7 +46,7 @@ operatingSystem=`uname`
 if [ $operatingSystem == "Darwin" ]; then
 
     echo " macOS Detected..."
-    echo "=========================="
+    echo "======================================="
     sleep 1
     # Ensure Apple's command line tools are installed
     if ! command -v cc > /dev/null; then
