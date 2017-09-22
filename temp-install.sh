@@ -211,7 +211,7 @@ source $HOME/.bashrc 2> /dev/null
 # Install Vim plugins
 vim +PluginInstall +qall
 # Prevent accidental git push to master on GitHub.
-git remote set-url --push origin no-pushing
+# git remote set-url --push origin no-pushing
 echo "==============================="
 echo " DOTFILES have been installed."
 echo " System ready."
