@@ -67,6 +67,7 @@ if [ $operatingSystem == "Darwin" ]; then
     fi
 
     brew cask install xquartz
+    brew cask install java
 
 elif [ "$operatingSystem" == "Linux" ]; then
 
