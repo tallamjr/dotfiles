@@ -18,7 +18,7 @@ do
 done
 
 # Clone dotfiles
-git clone -b dev https://github.com/tallamjr/dotfiles.git
+git clone https://github.com/tallamjr/dotfiles.git
 
 # Symlink dotfiles to home directory
 cd dotfiles && stow -v \
@@ -112,7 +112,7 @@ fi
 brew install `grep -v vim ~/dotfiles/brew/.brewlist`
 if [ $operatingSystem == "Darwin" ]; then
     # Brew install all applications listed in brewcasklist
-    brew cask install `cat ~/dotfile/brew/.brewcasklist`
+    brew cask install `cat ~/dotfiles/brew/.brewcasklist`
     export PATH="$HOME/anaconda3/bin:$PATH"
 fi
 # Install VIM 8.0+ compiled with Python 3.5+
