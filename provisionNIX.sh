@@ -27,6 +27,7 @@ done
 # Clone dotfiles
 git clone https://github.com/tallamjr/dotfiles.git
 
+function stowFiles(){
 # Symlink dotfiles to home directory
 cd dotfiles && stow -v \
     bash/ \
@@ -39,6 +40,7 @@ cd dotfiles && stow -v \
     vim/ \
     xcode/ \
     zsh/
+}
 
 operatingSystem=`uname`
 
@@ -68,6 +70,9 @@ if [ $operatingSystem == "Darwin" ]; then
 
     brew cask install xquartz
     brew cask install java
+    brew install stow
+
+    stowFiles
 
 elif [ "$operatingSystem" == "Linux" ]; then
 
@@ -92,6 +97,8 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+
+    stowFiles
 
     test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
