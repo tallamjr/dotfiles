@@ -283,3 +283,30 @@ export GIT_EDITOR=vim
 export MATLAB_EXECUTABLE=/Applications/MATLAB_R2015a.app/bin/matlab
 
 export EDITOR=vim
+
+# export DYLD_LIBRARY_PATH=$HOME/PhD/project/MultiNest/lib:$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$HOME/PhD/project/auxil/MultiNest/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/my/multinest/directory/lib::$LD_LIBRARY_PATH
+
+## Statistics ROOT
+# For bash users:
+. /usr/local/opt/root@5/bin/thisroot.sh
+# For zsh users:
+# pushd /usr/local/opt/root@5 >/dev/null; . bin/thisroot.sh; popd >/dev/null
+# For csh/tcsh users:
+# source /usr/local/opt/root@5/bin/thisroot.csh
+
+# This formula is keg-only, which means it was not symlinked into /usr/local,
+# because this is an alternate version of another formula.
+
+# If you need to have this software first in your PATH run:
+echo 'export PATH="/usr/local/opt/root@5/bin:$PATH"' >> ~/.bash_profile
+
+# For compilers to find this software you may need to set:
+LDFLAGS="-L/usr/local/opt/root@5/lib"
+CPPFLAGS="-I/usr/local/opt/root@5/include"
+
+export TF_CPP_MIN_LOG_LEVEL=2
+
+# export CC=gcc-7
+# export CXX=g++-7
