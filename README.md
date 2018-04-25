@@ -65,5 +65,5 @@ to change. In it's current form, it has drawn inspiration from these sources:
 
 ## Screenshot
 
-![screenshot](screenshot.png)
+![screenshot](a/raw/b/screenshot.png)
 
