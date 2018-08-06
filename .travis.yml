@@ -1,8 +1,8 @@
+language: bash
+
 os:
     - osx
     - linux
-
-language: bash
 
 before_script:
     - curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionNIX.sh
