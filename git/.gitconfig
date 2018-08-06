@@ -5,6 +5,7 @@
 	default = simple
 [diff]
     tool = vimdiff
+	submodule = log
 [difftool]
     prompt = false
 [filter "media"]
@@ -17,7 +18,15 @@
 	logg = log --graph --decorate --oneline --abbrev --all
     vimdiff = difftool
     ap = add --patch
+    cp = cherry-pick
     dc = diff --cached
     sa = stash apply
-    ba = branch --all
+    sp = stash pop
+    ba = branch --all --verbose
+    pulla = pull --all
     pusm = pull upstream master
+    pushnov = push --no-verify
+	spush = push --recurse-submodules=on-demand
+    spull = !git pull && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
+[status]
+	submoduleSummary = true
