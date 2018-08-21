@@ -128,7 +128,7 @@ brew install `grep -v vim ~/dotfiles/brew/.brewlist`
 if [ $operatingSystem == "Darwin" ]; then
     # Brew install all applications listed in brewcasklist
     brew cask install `cat ~/dotfiles/brew/.brewcasklist`
-    export PATH="$HOME/anaconda3/bin:$PATH"
+    export PATH="$HOME/anaconda/bin:$PATH"
 fi
 # Install VIM 8.0+ compiled with Python 3.5+
 brew install vim --with-override-system-vi --with-python3
