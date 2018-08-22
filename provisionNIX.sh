@@ -122,12 +122,15 @@ else
     exit 1;
 fi
 
+# Full path required for travis CI
+brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
+brewcasklist_loc=`find / -type f -name ".brewcasklist" 2> /dev/null`
 
 # Brew install all pacakges listed in brewlist, except VIM
-brew install `grep -v vim ./.brewlist`
+brew install `grep -v vim $brewlist_loc`
 if [ $operatingSystem == "Darwin" ]; then
     # Brew install all applications listed in brewcasklist
-    brew cask install `cat ./.brewcasklist`
+    brew cask install `cat $brewcasklist_loc`
     export PATH="$HOME/anaconda/bin:$PATH"
 fi
 # Install VIM 8.0+ compiled with Python 3.5+
