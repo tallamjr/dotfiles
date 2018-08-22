@@ -124,10 +124,10 @@ fi
 
 
 # Brew install all pacakges listed in brewlist, except VIM
-brew install `grep -v vim ~/dotfiles/brew/.brewlist`
+brew install `grep -v vim .brewlist`
 if [ $operatingSystem == "Darwin" ]; then
     # Brew install all applications listed in brewcasklist
-    brew cask install `cat ~/dotfiles/brew/.brewcasklist`
+    brew cask install `cat .brewcasklist`
     export PATH="$HOME/anaconda/bin:$PATH"
 fi
 # Install VIM 8.0+ compiled with Python 3.5+
