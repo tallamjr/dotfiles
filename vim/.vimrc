@@ -56,6 +56,7 @@ set smartcase       " ...unless we type a capital
 " map <Leader>/ :noh<CR>
 " nnoremap <C-h> :set hlsearch! hlsearch?<CR>
 map <Leader>/ :set hlsearch! hlsearch?<CR>
+map <Leader>wc :w !wc -w<CR>
 
 " ================ Textwidth/Spellchecker ==============
 "
