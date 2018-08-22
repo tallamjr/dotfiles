@@ -298,6 +298,7 @@ let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one win
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
 let g:nerdtree_tabs_autofind = 0    " Automatically find and select currently opened file in NERDTree.
 let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving a tab for descriptive tab names
+" let NERDTreeMapOpenInTab='<ENTER>'
 
 " ================ 'scrooloose/syntastic' ==============
 "
