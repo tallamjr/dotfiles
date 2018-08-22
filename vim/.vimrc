@@ -446,25 +446,26 @@ let wiki_2.ext = '.markdown'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
-let wiki_3 = {}
-let wiki_3.path = '~/UCL_2016/major-project/wiki/'
-" let wiki_3.index = 'index'
-let wiki_3.syntax = 'markdown'
-" let wiki_3.ext = '.md'
-let wiki_3.ext = '.mdown'
-let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+" let wiki_3 = {}
+" let wiki_3.path = '~/UCL_2016/major-project/wiki/'
+" " let wiki_3.index = 'index'
+" let wiki_3.syntax = 'markdown'
+" " let wiki_3.ext = '.md'
+" let wiki_3.ext = '.mdown'
+" let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+" let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
-let wiki_4 = {}
-let wiki_4.path = '~/dsb3/wiki/'
-let wiki_4.index = 'index'
-" let wiki_4.syntax = 'markdown'
-" let wiki_2.ext = '.md'
-" let wiki_4.ext = '.mdown'
-" let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+" let wiki_4 = {}
+" let wiki_4.path = '~/dsb3/wiki/'
+" let wiki_4.index = 'index'
+" " let wiki_4.syntax = 'markdown'
+" " let wiki_2.ext = '.md'
+" " let wiki_4.ext = '.mdown'
+" " let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+" let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "
-let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
+" let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
+let g:vimwiki_list = [wiki_1, wiki_2]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
 
@@ -493,6 +494,9 @@ function! VimwikiLinkHandler(link)
     return 1
   endif
 endfunction
+
+" Set vimwiki syntax highlighting to follow markdown style
+" au FileType vimwiki set syntax=pandoc
 "
 " ================ 'suan/vim-instant-markdown' ==============
 "
