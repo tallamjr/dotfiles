@@ -234,8 +234,10 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'itchyny/calendar.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'flazz/vim-colorschemes'
 "
-set rtp+=~/usr/local/Cellar/fzf/0.10.2
+set rtp+=~/usr/local/opt/fzf
 Plugin 'junegunn/fzf'
 " ==============================================================================
 " Plugins that are not used.
