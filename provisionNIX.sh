@@ -126,6 +126,9 @@ fi
 brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
 brewcasklist_loc=`find / -type f -name ".brewcasklist" 2> /dev/null`
 
+echo $brewlist_loc
+echo $brewcasklist_loc
+
 # Brew install all pacakges listed in brewlist, except VIM
 brew install `grep -v vim $brewlist_loc`
 if [ $operatingSystem == "Darwin" ]; then
