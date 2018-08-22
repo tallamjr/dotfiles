@@ -267,12 +267,12 @@ filetype plugin indent on    " required
 
 " ================ Colour Scheme ==============
 "
-"For Vim solarized
+"For Vim colorscheme
 syntax enable
 let g:solarized_termcolors=256
 set background=dark
-"colorscheme solarized
-colorscheme molokai
+" colorscheme solarized
+" colorscheme molokai
 
 " ================ 'junegunn/fzf' =============
 "
