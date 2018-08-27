@@ -13,6 +13,7 @@
 	smudge = git media smudge %f
 	required = true
 [alias]
+    merge = merge --no-ff
 	ss = status
 	co = checkout
 	logg = log --graph --decorate --oneline --abbrev --all
