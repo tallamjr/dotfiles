@@ -14,8 +14,11 @@ coreutils
 cowsay
 curl
 ddd
+dfu-util
 dirmngr
 dos2unix
+doxygen
+dtc
 emacs
 fzf
 gdb
@@ -48,6 +51,7 @@ mutt
 mysql
 nasm
 neovim
+ninja
 nmap
 node
 octave
@@ -64,6 +68,7 @@ pv
 pwgen
 pwsafe
 q
+qemu
 rbenv
 reattach-to-user-namespace
 rename
