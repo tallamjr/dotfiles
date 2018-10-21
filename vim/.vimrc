@@ -100,7 +100,7 @@ map <leader>t :tabe<Space>
 map <leader>tt :tabnew<CR>
 "git shortcut to add all to staging area
 " map <leader>gg :!git add . <CR>:!git commit<CR>
-map <leader>b :bnext<CR>
+map <leader>n :bnext<CR>
 map <leader>bp :bprev<CR>
 map <leader>bf :bfirst<CR>
 map <leader>bl :blast<CR>
@@ -292,7 +292,7 @@ let g:vim_markdown_frontmatter = 1
 map <Leader>nn <plug>NERDTreeTabsToggle<CR>
 :nmap ?? <Plug>NERDTreeTabsToggle<CR>
 
-map <leader>n :NERDTreeFocusToggle<CR>
+map <leader>nt :NERDTreeFocusToggle<CR>
 map <leader>nfind :NERDTreeTabsFind<CR>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
