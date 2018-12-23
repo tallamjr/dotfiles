@@ -2,14 +2,25 @@
 #
 # Vim key-bindings for movement within the shell.
 set -o vi
+PAGER=vim
+# bash history variables
+# What is the difference between HISTSIZE vs. HISTFILESIZE?
+# http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
+# export HISTSIZE=1000
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+# export HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL=ignoredups
+# export HISTCONTROL=erasedups
+export HISTIGNORE="pwd:ls:la:cl"
+# alias vim="vim -N -u NONE"
+export GIT_EDITOR=vim
+export EDITOR=vim
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
-# If docker is installed on system. Run this command to start docker daemon as shell starts
-# if [ -d ~/.docker ]; then
-#     eval "$(docker-machine env default)"
-# fi
 # For Git completion
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
@@ -25,28 +36,21 @@ fi
 # If fuzzy finder installed, source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# ================ Prompt ==============
-#
-# Shell prompt customisation with Grey time, exit code status, blue directory
-# and git branch informations. Needs to be on one line
-export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
-
 # ================ Path Exports ==============
 #
+# Allows Coreutils package to be used without 'g' prefix before each command.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 #
 export PATH="/usr/local/bin:$PATH"
 #
-export PATH="/usr/local/Cellar/gcc/5.2.0/bin:$PATH"
+# export PATH="/usr/local/Cellar/gcc/5.2.0/bin:$PATH"
 # Setting PATH for EPD-6.3-1
 # The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
-export PATH
+export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 
 # if [ `uname` == "Darwin" ]; then
-#     # juliaVersion=`julia --version | awk '{ print $3 }'`
-#     juliaVersion=`cd /Applications && ls | grep -i julia`
-#     PATH="/Applications/$juliaVersion/Contents/Resources/julia/bin:${PATH}"
-#     export PATH
+
 # fi
 
 if [ `uname` == "Linux" ]; then
@@ -55,51 +59,42 @@ if [ `uname` == "Linux" ]; then
     export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
-
+# Why this line?
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Homemade scripts
 export PATH="$HOME/scripts:$PATH"
+# Cronjobs
+export PATH="$HOME/cronjobs:$PATH"
 # TMUX Battery Status
 export PATH="$HOME/Documents/tmux/bin:$PATH"
-# Added by Anaconda3 2.1.0 installer
-# export PATH="$HOME/anaconda/bin:$PATH"
-#export PATH="$HOME/anaconda/bin:$PATH"
-export PATH="$HOME/anaconda3/bin:$PATH"
-
 # MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
 # Mongodb PATH
 export PATH="$HOME/mongodb/bin:$PATH"
-#
+# Why?
 export PATH="/usr/local/sbin:$PATH"
-# Allows Coreutils package to be used without 'g' prefix before each command.
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-# jMusic classpath
-export CLASSPATH="/Users/tarek_allam/jMusic/jMusic1.6.4.jar:$HOME/jMusic/inst/:$CLASSPATH"
-export CLASSPATH="/Users/tarek_allam/jMusic/HelperGUIAdapter.jar:$CLASSPATH"
-# Java jars classpath
-# export CLASSPATH="$HOME/Books/:$CLASSPATH"
-export CLASSPATH="$HOME/Books/:$CLASSPATH"
-# Full path to jar file is required to allow proper access to all classes that
-# reside inside, not just the path of where the jar is located.
-export CLASSPATH="/Users/tarek_allam/myJars/jsyn_16_7_3.jar:$CLASSPATH"
-
-#Caffe path.
-export PATH="$HOME/Caffe-Home/caffe/build/tools:$PATH"
-
 # MATLAB command line.
-export PATH="/Applications/MATLAB_R2015a.app/bin:$PATH"
+export PATH="$(dirname `which matlab`):$PATH"
+# MacTex binaries
+export PATH="$(dirname `which latex`):$PATH"
+## PYTHON
+# Base env anaconda
+export PATH="/usr/local/anaconda3/bin:$PATH"
+# Main env anaconda
+export PATH="/usr/local/anaconda3/envs/main/bin:$PATH"
+source activate main
 
-export PATH="/Users/tarek_allam/UCL_2016/major-project/main/src/RICNN/plot_logs.py:$PATH"
+# ================ Prompt ==============
+#
+# Shell prompt customisation with Grey time, exit code status, blue directory
+# and git branch informations. Needs to be on one line
+export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
 
 # ================ Colour Customisation  ==============
 #
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
 export GREP_OPTIONS="--color=auto"
-# Source for colouring of grep output.
-# source "`brew --prefix grc`/etc/grc.bashrc"
 
 # ================ Aliases ==============
 #
@@ -117,22 +112,20 @@ alias chrome="open /Applications/Google\ Chrome.app/"
 alias poker="open /Applications/PokerStarsUK.app/"
 alias fire="open /Applications/Firefox.app/"
 alias rr="R CMD BATCH "
-alias xx="chmod +x"             # Make file executable
-# alias todo="vim `$DATE`.md"
-alias todo="vim +VimwikiIndex"
+alias xx="chmod +x"                                         # Make file executable
+alias todo="vim +VimwikiUISelect"
 alias lsg="ls | grep -i"        # Search a directory listing with grep case-insensitive.
 alias crontabedit="env EDITOR=vim crontab -e"   # Edit crontab with vim
 alias ff="gfortran"
-# alias dockerdaemon="eval '$(docker-machine env default)'"           # Set enviroment variables for docker default machine.
 alias pingg="ping www.google.com"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
 alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
-alias lsc="ls | wc | awk '{print \$1}'"                             # Show the 'count' of files in a director.
-alias p3="source activate py35"                                     # Conda enviroment for Python 3.5.
+alias lsc="ls | wc | awk '{print $1}'"                             # Show the 'count' of files in a director.
+alias sa="source activate"
 alias f="fzf -i --color=hl:200,hl+:200"
 alias sb="source ~/.bashrc"
 alias bashrc="vim ~/.bashrc"
-alias gcc="gcc-5"
+alias gcc="gcc-8"
 alias speed="speedtest-cli"
 alias dls="cd ~/Downloads/ && la -rt"
 alias vimrc="vim ~/.vimrc"
@@ -144,10 +137,33 @@ alias df="df -h"
 alias du="du -sh"
 alias julia4="/Applications/Julia-0.4.1.app/Contents/Resources/julia/bin/julia"
 alias jn="jupyter notebook"
-alias youtube-dl-audio='youtube-dl -x --audio-format "wav" --audio-quality 0'
+alias adl='youtube-dl -x --audio-format "wav" --audio-quality 0'
+alias vimf='vim `f`'
+alias openf='open "`f`"'
+alias echof='echo "`f`"'
+alias headhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
+alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+alias hp="ssh hypatia"
+alias p2="ssh plus2"
 
 # ================ Functions ==============
 #
+function arxiv() {
+# Get source files from arxiv.org and create folder of them
+TAR=$1.tar.gz
+
+mv $1 $TAR
+mkdir $1
+mv $TAR $1
+cd $1
+tar -zxvf "$TAR"
+}
+
+function mkcd() {
+# Make directory and cd into it straight away.
+mkdir $1 && cd $1
+}
 function mkcd() {
 # Make directory and cd into it straight away.
 mkdir $1 && cd $1
@@ -168,19 +184,13 @@ function lag() {
 ls -la | grep -i "$1" | awk '{print $9}'
 }
 
-function progress() {
-# Log each day entry
-echo "`date +%Y%m%d`"",$1"",$2" >> ~/vimwiki/progressLog.wiki
-}
-
-function poki() {
-# Log each day entry
-echo "`date +%Y%m%d`,`date +%H%M`"",$1"",$2"",$3" >> ~/vimwiki/pokerlog.wiki
+function devlog() {
+# PhD Development Logbook
+vim ~/PhD/project/logs/logbook-`date +%Y%W`.md
 }
 
 function so() {
 # Size Of - folder, then sort in human readable form.
-
 du -s "$1" | sort -h
 
 }
@@ -219,16 +229,26 @@ function extract() {
     fi
 }
 
+function ccmake() {
+  # Don't invoke cmake from the top-of-tree
+  if [ -e "CMakeLists.txt" ]
+  then
+    echo "CMakeLists.txt file present, cowardly refusing to invoke cmake..."
+  else
+    ccmake_path=`which ccmake`
+    # /usr/bin/cmake $*
+    $ccmake_path $*
+  fi
+}
 # ================ Miscellaneous ==============
 #
-MKL_NUM_THREADS=1
-export MKL_NUM_THREADS
+export MKL_NUM_THREADS=1
 # Global variable for date format YY-MM-DD
-DATE='date +%Y-%m-%d'
+# DATE=date +"%A %b %d %Y"
 export DATE
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
-export DOCKER_TLS_VERIFY=1
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
+# export DOCKER_TLS_VERIFY=1
 # Command line cheat
 export CHEATCOLORS=true
 # --appdir=/my/path changes the path where the symlinks to the applications
@@ -241,17 +261,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 complete -C aws_completer aws
 # source /usr/local/etc/bash_completion.d/password-store
 
-# ++++++++++++++++++++++++++++++++++++++
-# ================  EOF   ==============
-# ++++++++++++++++++++++++++++++++++++++
-
-
-# . /Users/tarek_allam/torch/install/bin/torch-activate
-
-export INCLUDE="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0"
-export LIBRARY_PATH="/private/tmp/boost-python-20160621-24472-1nji332/boost_1_60_0/stage-python/lib"
-
-# export PYTHONPATH="~/Caffe-Home/caffe/python:$PYTHONPATH"
+export INCLUDE=""
+export LIBRARY_PATH=""
 
 function frameworkpython {
 if [[ ! -z "$VIRTUAL_ENV" ]]; then
@@ -261,52 +272,12 @@ else
 fi
 }
 
-# For pycaffe
-export DYLD_LIBRARY_PATH=/usr/local/cuda/lib
-export DYLD_FALLBACK_LIBRARY_PATH=$HOME/anaconda/lib
-
-# bash history variables
-# What is the difference between HISTSIZE vs. HISTFILESIZE?
-# http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
-export HISTSIZE=1000
-export HISTFILESIZE=-1
-export HISTTIMEFORMAT='%F %T '
-export HISTCONTROL=ignoredups
-# export HISTCONTROL=erasedups
-export HISTIGNORE="pwd:ls:la:cl"
-
-export PYTHONPATH="${PYTHONPATH}:/Users/tarek_allam/Caffe-Home/caffe/python"
-
-# alias vim="vim -N -u NONE"
-export GIT_EDITOR=vim
-
-export MATLAB_EXECUTABLE=/Applications/MATLAB_R2015a.app/bin/matlab
-
-export EDITOR=vim
-
-# export DYLD_LIBRARY_PATH=$HOME/PhD/project/MultiNest/lib:$LD_LIBRARY_PATH
-export DYLD_LIBRARY_PATH=$HOME/PhD/project/auxil/MultiNest/lib:$LD_LIBRARY_PATH
-# export LD_LIBRARY_PATH=/my/multinest/directory/lib::$LD_LIBRARY_PATH
-
-## Statistics ROOT
-# For bash users:
-. /usr/local/opt/root@5/bin/thisroot.sh
-# For zsh users:
-# pushd /usr/local/opt/root@5 >/dev/null; . bin/thisroot.sh; popd >/dev/null
-# For csh/tcsh users:
-# source /usr/local/opt/root@5/bin/thisroot.csh
-
-# This formula is keg-only, which means it was not symlinked into /usr/local,
-# because this is an alternate version of another formula.
-
-# If you need to have this software first in your PATH run:
-echo 'export PATH="/usr/local/opt/root@5/bin:$PATH"' >> ~/.bash_profile
-
-# For compilers to find this software you may need to set:
-LDFLAGS="-L/usr/local/opt/root@5/lib"
-CPPFLAGS="-I/usr/local/opt/root@5/include"
-
+# Tensorflow
 export TF_CPP_MIN_LOG_LEVEL=2
-
-# export CC=gcc-7
-# export CXX=g++-7
+# Kaggle
+export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
+# added by travis gem
+[ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
+# ++++++++++++++++++++++++++++++++++++++
+# ================  EOF   ==============
+# ++++++++++++++++++++++++++++++++++++++
