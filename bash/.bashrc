@@ -98,34 +98,30 @@ export GREP_OPTIONS="--color=auto"
 
 # ================ Aliases ==============
 #
-alias pylab="ipython -pylab"    # Ipython
-alias tmux="tmux -2"            # Force tmux to use 256 colours
-alias ls="ls --color"           # Listing in colour
+alias pylab="ipython -pylab"                                            # Ipython
+alias tmux="tmux -2"                                                    # Force tmux to use 256 colours
+alias ls="ls --color"                                                   # Listing in colour
 alias cl="clear"
-alias la="ls -lah"              # Listing in human-readable format
+alias la="ls -lah"                                                      # Listing in human-readable format
 alias qq="exit"
 alias grep="grep -E"
 alias gg="grep -i"
-alias sleep="sudo shutdown -s now"  # Put computer to sleep
-alias pat="pygmentize -g"           # Colourful 'cat' output
-alias chrome="open /Applications/Google\ Chrome.app/"
-alias poker="open /Applications/PokerStarsUK.app/"
-alias fire="open /Applications/Firefox.app/"
+alias sleep="sudo shutdown -s now"                                      # Put computer to sleep
+alias pat="pygmentize -g"                                               # Colourful 'cat' output
 alias rr="R CMD BATCH "
-alias xx="chmod +x"                                         # Make file executable
+alias xx="chmod +x"                                                     # Make file executable
 alias todo="vim +VimwikiUISelect"
-alias lsg="ls | grep -i"        # Search a directory listing with grep case-insensitive.
-alias crontabedit="env EDITOR=vim crontab -e"   # Edit crontab with vim
+alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
+alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
 alias ff="gfortran"
 alias pingg="ping www.google.com"
-alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash" # Start Kalilinux via docker vm.
-alias vimplugininstall="vim +PluginInstall +qall"                   # Vim pluin install from command line.
-alias lsc="ls | wc | awk '{print $1}'"                             # Show the 'count' of files in a director.
+alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"     # Start Kalilinux via docker vm.
+alias vimplugininstall="vim +PluginInstall +qall"                       # Vim pluin install from command line.
+alias lsc="ls | wc | awk '{print $1}'"                                  # Show the 'count' of files in a director.
 alias sa="source activate"
 alias f="fzf -i --color=hl:200,hl+:200"
 alias sb="source ~/.bashrc"
 alias bashrc="vim ~/.bashrc"
-alias gcc="gcc-8"
 alias speed="speedtest-cli"
 alias dls="cd ~/Downloads/ && la -rt"
 alias vimrc="vim ~/.vimrc"
@@ -135,9 +131,8 @@ alias matlab="matlab -nodesktop"
 alias lrt="ls -lart"
 alias df="df -h"
 alias du="du -sh"
-alias julia4="/Applications/Julia-0.4.1.app/Contents/Resources/julia/bin/julia"
 alias jn="jupyter notebook"
-alias adl='youtube-dl -x --audio-format "wav" --audio-quality 0'
+alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias vimf='vim `f`'
 alias openf='open "`f`"'
 alias echof='echo "`f`"'
@@ -146,7 +141,12 @@ alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 alias hp="ssh hypatia"
 alias p2="ssh plus2"
-
+GCC_VERSION=`brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1`
+alias gcc="gcc-$GCC_VERSION"
+# Application shortcuts
+alias chrome="open /Applications/Google\ Chrome.app/"
+alias poker="open /Applications/PokerStarsUK.app/"
+alias fire="open /Applications/Firefox.app/"
 # ================ Functions ==============
 #
 function arxiv() {
@@ -246,9 +246,6 @@ export MKL_NUM_THREADS=1
 # Global variable for date format YY-MM-DD
 # DATE=date +"%A %b %d %Y"
 export DATE
-# export DOCKER_HOST=tcp://192.168.59.103:2376
-# export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
-# export DOCKER_TLS_VERIFY=1
 # Command line cheat
 export CHEATCOLORS=true
 # --appdir=/my/path changes the path where the symlinks to the applications
@@ -260,7 +257,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # For awscli completion
 complete -C aws_completer aws
 # source /usr/local/etc/bash_completion.d/password-store
-
 export INCLUDE=""
 export LIBRARY_PATH=""
 
