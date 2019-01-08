@@ -74,7 +74,8 @@ export PATH="$HOME/mongodb/bin:$PATH"
 # Why?
 export PATH="/usr/local/sbin:$PATH"
 # MATLAB command line.
-export PATH="$(dirname `which matlab`):$PATH"
+export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
+# export PATH="$(dirname `which matlab`):$PATH"
 # MacTex binaries
 export PATH="$(dirname `which latex`):$PATH"
 ## PYTHON
