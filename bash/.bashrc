@@ -75,7 +75,7 @@ export PATH="$HOME/mongodb/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 # MATLAB command line.
 export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
-export PATH="$(dirname `which matlab`):$PATH"
+export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
 # MacTex binaries
 export PATH="$(dirname `which latex`):$PATH"
 ## PYTHON
@@ -148,6 +148,8 @@ alias gcc="gcc-$GCC_VERSION"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias poker="open /Applications/PokerStarsUK.app/"
 alias fire="open /Applications/Firefox.app/"
+alias matlab="matlab -nodesktop -nosplash"
+
 # ================ Functions ==============
 #
 function arxiv() {
