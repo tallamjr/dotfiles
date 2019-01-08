@@ -32,7 +32,7 @@ gpg-agent
 graphviz
 grc
 gsl
-hh
+hstr
 hugo
 jbig2dec
 jython
@@ -50,12 +50,12 @@ mongodb
 mutt
 mysql
 nasm
+ncdu
 neovim
 ninja
 nmap
 node
 octave
-openblas
 opencv
 openssl@1.1
 p7zip
@@ -69,6 +69,7 @@ pwgen
 pwsafe
 q
 qemu
+ranger
 rbenv
 reattach-to-user-namespace
 rename
@@ -84,6 +85,7 @@ stow
 the_silver_searcher
 tmux
 translate-shell
+travis
 unrar
 viennacl
 vim
