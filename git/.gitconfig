@@ -13,6 +13,7 @@
 	smudge = git media smudge %f
 	required = true
 [alias]
+    pull = pull --no-ff
     merge = merge --no-ff
 	ss = status
 	co = checkout
@@ -23,11 +24,19 @@
     dc = diff --cached
     sa = stash apply
     sp = stash pop
+    sl = stash list
+    sd = stash drop
     ba = branch --all --verbose
-    pulla = pull --all
+    pulla = pull --all --no-ff
     pusm = pull upstream master
     pushnov = push --no-verify
 	spush = push --recurse-submodules=on-demand
-    spull = !git pull && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
+    spull = !git pull --all && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
+	plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
 [status]
 	submoduleSummary = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
