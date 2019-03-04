@@ -16,12 +16,15 @@ curl
 ddd
 dfu-util
 dirmngr
+docker-compose
 dos2unix
 doxygen
 dtc
 emacs
+fd
 fzf
 gdb
+geckodriver
 git
 git-lfs
 glog
@@ -47,6 +50,7 @@ lynx
 make
 maven
 mongodb
+mupdf
 mutt
 mysql
 nasm
@@ -69,6 +73,7 @@ pwgen
 pwsafe
 q
 qemu
+qpdf
 ranger
 rbenv
 reattach-to-user-namespace
