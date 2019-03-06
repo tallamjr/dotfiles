@@ -88,6 +88,8 @@ export PATH="/usr/local/anaconda3/bin:$PATH"
 export PATH="/usr/local/anaconda3/envs/main/bin:$PATH"
 source activate main
 
+source $HOME/scripts/condasource.sh
+
 # ================ Prompt ==============
 #
 # Shell prompt customisation with Grey time, exit code status, blue directory
