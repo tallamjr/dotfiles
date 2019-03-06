@@ -7,7 +7,8 @@ os:
     - linux
 
 before_script:
-    - curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionNIX.sh
+    - git clone https://github.com/tallamjr/dotfiles.git
+    - git checkout issue/5/feature-bashrc
 
 script:
     - bash provisionNIX.sh
