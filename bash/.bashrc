@@ -43,6 +43,9 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 #
 export PATH="/usr/local/bin:$PATH"
+
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
 #
 # export PATH="/usr/local/Cellar/gcc/5.2.0/bin:$PATH"
 # Setting PATH for EPD-6.3-1
