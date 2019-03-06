@@ -93,35 +93,30 @@ elif [ "$operatingSystem" == "Linux" ]; then
     brew install stow
     stowFiles
 
-    test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
-    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-    test -r ~/.bash_profile && echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.bash_profile
-    echo 'export PATH="$(brew --prefix)/bin:$PATH"' >>~/.profile
+    # echo "export PATH='/home/linuxbrew/.linuxbrew/bin:$PATH'" >>~/.bash_profile
+    # echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
+    # echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
+    # export PATH="$HOME/.linuxbrew/bin:$PATH"
+    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-    echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile
-    echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
-    echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-
-    source $HOME/.bashrc 2> /dev/null
-    source $HOME/.porfile 2> /dev/null
-    source $HOME/.bash_profile 2> /dev/null
+    # source $HOME/.bashrc 2> /dev/null
+    # source $HOME/.porfile 2> /dev/null
+    # source $HOME/.bash_profile 2> /dev/null
 
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
 fi
 
-# anaconda
-# if [[ $operatingSystem == Darwin ]]; then
-#     brew cask install anaconda
-#     conda_prefix="/usr/local/anaconda3"
-# elif [[ $operatingSystem == Linux ]]; then
-#     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
-#     conda_prefix="$HOME/anaconda3"
-# fi
+# Install Anaconda
+if [[ $operatingSystem == Darwin ]]; then
+    brew cask install anaconda
+    conda_prefix="/usr/local/anaconda3"
+elif [[ $operatingSystem == Linux ]]; then
+    wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
+    conda_prefix="$HOME/anaconda3"
+fi
 
 # Full path required for travis CI
 # brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
@@ -130,11 +125,11 @@ fi
 # echo $brewlist_loc
 # echo $brewcasklist_loc
 
-# Brew install all pacakges listed in brewlist, except VIM
-brew install `grep -v vim $(find / -type f -name ".brewlist")`
+# # Brew install all pacakges listed in brewlist, except VIM
+# brew install `grep -v vim $(find / -type f -name ".brewlist")`
 
-# Install VIM 8.0+ compiled with Python 3.5+
-brew install vim --with-override-system-vi --with-python3
+# # Install VIM 8.0+ compiled with Python 3.5+
+# brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install VIM plugins
