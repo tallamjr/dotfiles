@@ -466,26 +466,7 @@ let wiki_2.syntax = 'markdown'
 let wiki_2.ext = '.markdown'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
-" let wiki_3 = {}
-" let wiki_3.path = '~/UCL_2016/major-project/wiki/'
-" " let wiki_3.index = 'index'
-" let wiki_3.syntax = 'markdown'
-" " let wiki_3.ext = '.md'
-" let wiki_3.ext = '.mdown'
-" let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-" let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
-" let wiki_4 = {}
-" let wiki_4.path = '~/dsb3/wiki/'
-" let wiki_4.index = 'index'
-" " let wiki_4.syntax = 'markdown'
-" " let wiki_2.ext = '.md'
-" " let wiki_4.ext = '.mdown'
-" " let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-" let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "
-" let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 let g:vimwiki_list = [wiki_1, wiki_2]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
@@ -516,6 +497,13 @@ function! VimwikiLinkHandler(link)
   endif
 endfunction
 
+
+" let g:vimwiki_list = [{'path': '~/PhD/wiki',
+"   \ 'path_html': '~/PhD/wiki/html',
+"   \ 'syntax': 'markdown',
+"   \ 'ext': '.markdown',
+"   \ 'custom_wiki2html': '~/scripts/wiki2html.sh'}]
+
 " Set vimwiki syntax highlighting to follow markdown style
 " au FileType vimwiki set syntax=pandoc
 "
@@ -525,6 +513,8 @@ endfunction
 " https://github.com/suan/vim-instant-markdown
 let g:instant_markdown_autostart = 0    " disable autostart
 map <leader>md :InstantMarkdownPreview<CR>
+
+let g:livepreview_previewer = 'open -a Preview'
 
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
