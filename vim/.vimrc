@@ -292,6 +292,8 @@ let g:solarized_termcolors=256
 set background=dark
 " colorscheme solarized
 colorscheme molokai
+au BufRead,BufNewFile *.py highlight Comment ctermfg=darkgrey
+au BufRead,BufNewFile *.bib highlight Comment ctermfg=green
 
 " ================ 'junegunn/fzf' =============
 "
