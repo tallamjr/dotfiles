@@ -34,6 +34,23 @@ nnoremap <Leader>l :set cursorline!<CR>
 map <Leader>c :set colorcolumn=80<CR>
 map <Leader>cc :set colorcolumn&<CR>
 
+set foldlevel=99
+set foldmethod=indent
+nnoremap <space> za
+vnoremap <space> zf
+
+" ================ Persistant Undo ===========================
+"
+" Modern Vim pg 100
+set undofile
+if !has('nvim')
+  set undodir=~/.vim/undo
+endif
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
+
 " ================ Un-map Arrow Keys ==============
 "
 noremap <Up>    <Nop>
