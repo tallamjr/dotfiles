@@ -5,3 +5,6 @@ fi
 
 # added by Anaconda 2.3.0 installer - if moved it loads 3.4 python
 export PATH="$HOME/anaconda/bin:$PATH"
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
