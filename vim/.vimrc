@@ -253,7 +253,9 @@ Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'itchyny/calendar.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'flazz/vim-colorschemes'
-"
+" Plugin 'python-mode/python-mode', { 'branch': 'develop' }
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'xuhdev/vim-latex-live-preview'"
 set rtp+=~/usr/local/opt/fzf
 Plugin 'junegunn/fzf'
 " ==============================================================================
