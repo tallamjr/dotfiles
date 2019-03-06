@@ -60,7 +60,7 @@ if [ $operatingSystem == "Darwin" ]; then
     echo " Installing Homebrew..."
     echo "======================================="
     sleep 1
-    # Homebreww
+    # Install Homebreww
     if ! command -v brew > /dev/null; then
         echo "Installing Homebrew..."
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -79,25 +79,21 @@ elif [ "$operatingSystem" == "Linux" ]; then
     echo " Linux Kernel Detected..."
     echo "=========================="
     sleep 1
-    echo " Installing Homebrew..."
-    echo "======================================="
-    sleep 1
-    # Linuxbrew
-    apt-get update
-    apt-get install sudo
+    # Install Linuxbrew
+    if ! command -v brew > /dev/null; then
+        echo " Installing Homebrew..."
+        echo "======================================="
+        sleep 1
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
-    # Debian
-    sudo apt-get install build-essential curl file git python-setuptools ruby stow
+        test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+        test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+        test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
+        echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
+    fi
 
-    # Red Hat
-    sudo yum groupinstall 'Development Tools' && sudo yum install curl file git irb python-setuptools ruby
-
-    # useradd -m linuxbrew
-    # sudo -u linuxbrew -i /bin/bash
-    # PATH=~/.linuxbrew/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-
+    # install stow dependencies
+    brew install stow
     stowFiles
 
     test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$PATH"
@@ -108,11 +104,10 @@ elif [ "$operatingSystem" == "Linux" ]; then
     echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile
     echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
     echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
-    # export PATH="$HOME/.linuxbrew/bin:$PATH"
-    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-    # source $HOME/.bashrc 2> /dev/null
     source $HOME/.bashrc 2> /dev/null
     source $HOME/.porfile 2> /dev/null
     source $HOME/.bash_profile 2> /dev/null
@@ -122,20 +117,25 @@ else
     exit 1;
 fi
 
-# Full path required for travis CI
-brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
-brewcasklist_loc=`find / -type f -name ".brewcasklist" 2> /dev/null`
+# anaconda
+# if [[ $operatingSystem == Darwin ]]; then
+#     brew cask install anaconda
+#     conda_prefix="/usr/local/anaconda3"
+# elif [[ $operatingSystem == Linux ]]; then
+#     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
+#     conda_prefix="$HOME/anaconda3"
+# fi
 
-echo $brewlist_loc
-echo $brewcasklist_loc
+# Full path required for travis CI
+# brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
+# brewcasklist_loc=`find / -type f -name ".brewcasklist" 2> /dev/null`
+
+# echo $brewlist_loc
+# echo $brewcasklist_loc
 
 # Brew install all pacakges listed in brewlist, except VIM
-brew install `grep -v vim $brewlist_loc`
-if [ $operatingSystem == "Darwin" ]; then
-    # Brew install all applications listed in brewcasklist
-    brew cask install `cat $brewcasklist_loc`
-    export PATH="$HOME/anaconda/bin:$PATH"
-fi
+brew install `grep -v vim $(find / -type f -name ".brewlist")`
+
 # Install VIM 8.0+ compiled with Python 3.5+
 brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
@@ -143,4 +143,9 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install VIM plugins
 vim +PluginInstall! +qall
 
+if [ $operatingSystem == "Darwin" ]; then
+    # Brew install all applications listed in brewcasklist
+    brew cask install `cat $brewcasklist_loc`
+    export PATH="$HOME/anaconda/bin:$PATH"
+fi
 source $HOME/.bashrc 2> /dev/null
