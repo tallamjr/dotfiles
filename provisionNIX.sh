@@ -134,7 +134,9 @@ fi
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 brew install vim
 # Restart SHELL for installation to take effect
+echo "Restarting SHELL"
 exec -l $SHELL
+echo "SHELL restarted"
 # Install VIM plugins
 vim +PluginInstall! +qall
 
