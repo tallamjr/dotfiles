@@ -132,6 +132,7 @@ fi
 # brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+brew install vim
 # Install VIM plugins
 vim +PluginInstall! +qall
 
