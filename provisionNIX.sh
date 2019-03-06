@@ -111,7 +111,7 @@ fi
 
 # Install Anaconda
 if [[ $operatingSystem == Darwin ]]; then
-    brew cask install anaconda
+    brew cask install anaconda > /dev/null 2>&1
     conda_prefix="/usr/local/anaconda3"
 elif [[ $operatingSystem == Linux ]]; then
     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
@@ -134,9 +134,9 @@ fi
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 brew install vim
 # Restart SHELL for installation to take effect
-echo "Restarting SHELL"
-exec -l $SHELL
-echo "SHELL restarted"
+# echo "Restarting SHELL"
+# exec -l $SHELL
+# echo "SHELL restarted"
 # Install VIM plugins
 vim +PluginInstall! +qall
 
