@@ -138,6 +138,6 @@ brew install vim
 # exec -l $SHELL
 # echo "SHELL restarted"
 # Install VIM plugins
-vim +PluginInstall! +qall
+vim +PluginInstall! +qall > /dev/null
 
 source $HOME/.bashrc 2> /dev/null
