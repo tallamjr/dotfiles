@@ -135,9 +135,4 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install VIM plugins
 vim +PluginInstall! +qall
 
-if [ $operatingSystem == "Darwin" ]; then
-    # Brew install all applications listed in brewcasklist
-    brew cask install `cat $brewcasklist_loc`
-    export PATH="$HOME/anaconda/bin:$PATH"
-fi
 source $HOME/.bashrc 2> /dev/null
