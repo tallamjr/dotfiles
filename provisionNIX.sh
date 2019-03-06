@@ -24,9 +24,6 @@ do
     fi
 done
 
-# Clone dotfiles
-git clone https://github.com/tallamjr/dotfiles.git
-
 function stowFiles(){
 # Symlink dotfiles to home directory
 cd dotfiles && stow -v \

@@ -8,7 +8,6 @@ os:
 
 before_script:
     - git clone https://github.com/tallamjr/dotfiles.git
-    - git checkout issue/5/feature-bashrc
 
 script:
     - bash provisionNIX.sh
