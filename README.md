@@ -1,5 +1,9 @@
 # DOTFILES
 
+| `master`  | `develop` |
+| ------------- | ------------- |
+| [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=master)](https://travis-ci.com/tallamjr/dotfiles) | [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=develop)](https://travis-ci.com/tallamjr/dotfiles) |
+
 ![Automation](http://imgs.xkcd.com/comics/automation.png)
 
 ## Installation
@@ -8,38 +12,36 @@ See my blog post for an overview of my dotfile story.
 
 ### Clean System Install
 
-To provision a new machine, just run:
+To provision a new machine, clone this repo and simply run:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionANSI.sh`"
+bash install.sh
 ```
 
-This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/provisionANSI.sh)
+This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/install.sh)
 script to determine the operating system that is running, and then either install [Homebrew](https://brew.sh/)
 or [Linuxbrew](http://linuxbrew.sh/).
 
-After the respective package manager is
-installed, it will then install [Ansible](https://www.ansible.com/) which
-handles the rest of the provisioning, utilising the
-[*playbook*](https://github.com/tallamjr/dotfiles/tree/master/playbook).
-
-The playbook handles installation of all desired brew packages (homebrew) and applications
-(homebrew-cask). It also, with the use of GNU Stow, symlinks all configuration
-files a.k.a *dotfiles* to `$HOME` directory.
-
-One may prefer to provision a machine without using Ansible and stick to good
-old UNIX commands only. To do so, run the command below:
+After the respective package manager is installed and dotfiles in place one can
+continue to install all brew packages (_This will take a while_) with:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionNIX.sh`"
+bash brew/brew_install.sh
 ```
 
-### Temporary Configuration Install
+Finally, when all is complete, resource the \$SHELL and install VIM plugins with:
+
+```bash
+source $HOME/.bashrc && vim +PluginInstall +qall
+```
+
+
+### Temporary Configuration Install [WIP]
 
 If only temporarily installing on another machine, run:
 
 ```bash
-bash -c "`curl -fsSL https://rawgit.com/tallamjr/dotfiles/master/temp-install.sh`"
+bash temp/temp-install.sh
 ```
 
 This is certainly a much simpler task than provisioning a new machine. This
@@ -51,17 +53,17 @@ remove all settings.
 
 **WARNING!**
 
-Install and uninstall scripts have been tested but not extensively, please use
+Install and uninstall scripts have been tested but please use
 with caution. Inspect files first!
 
 *NOTE* : This repo is a work in progress and subject
 to change. In it's current form, it has drawn inspiration from these sources:
 
-* Some repo
-* Some repo
-* Some repo
+https://github.com/skwp/dotfiles
 
-... and more.
+https://github.com/ruslanosipov/dotfiles
+
+..amongst many others..
 
 ## Screenshot
 

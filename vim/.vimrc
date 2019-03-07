@@ -34,6 +34,23 @@ nnoremap <Leader>l :set cursorline!<CR>
 map <Leader>c :set colorcolumn=80<CR>
 map <Leader>cc :set colorcolumn&<CR>
 
+set foldlevel=99
+set foldmethod=indent
+nnoremap <space> za
+vnoremap <space> zf
+
+" ================ Persistant Undo ===========================
+"
+" Modern Vim pg 100
+set undofile
+if !has('nvim')
+  set undodir=~/.vim/undo
+endif
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
+
 " ================ Un-map Arrow Keys ==============
 "
 noremap <Up>    <Nop>
@@ -70,8 +87,8 @@ au BufRead,BufNewFile *.txt setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
 au BufRead,BufNewFile *.* setlocal textwidth=80
 
-set spelllang=en
-set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+set spelllang=en_gb
+set spellfile=$HOME/Dropbox/vim/spell/custom.en.utf-8.add
 
 autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd BufRead,BufNewFile *.vimwiki setlocal spell
@@ -100,7 +117,7 @@ map <leader>t :tabe<Space>
 map <leader>tt :tabnew<CR>
 "git shortcut to add all to staging area
 " map <leader>gg :!git add . <CR>:!git commit<CR>
-map <leader>b :bnext<CR>
+map <leader>n :bnext<CR>
 map <leader>bp :bprev<CR>
 map <leader>bf :bfirst<CR>
 map <leader>bl :blast<CR>
@@ -236,7 +253,9 @@ Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'itchyny/calendar.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'flazz/vim-colorschemes'
-"
+" Plugin 'python-mode/python-mode', { 'branch': 'develop' }
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'xuhdev/vim-latex-live-preview'"
 set rtp+=~/usr/local/opt/fzf
 Plugin 'junegunn/fzf'
 " ==============================================================================
@@ -273,6 +292,8 @@ let g:solarized_termcolors=256
 set background=dark
 " colorscheme solarized
 colorscheme molokai
+au BufRead,BufNewFile *.py highlight Comment ctermfg=darkgrey
+au BufRead,BufNewFile *.bib highlight Comment ctermfg=green
 
 " ================ 'junegunn/fzf' =============
 "
@@ -292,7 +313,7 @@ let g:vim_markdown_frontmatter = 1
 map <Leader>nn <plug>NERDTreeTabsToggle<CR>
 :nmap ?? <Plug>NERDTreeTabsToggle<CR>
 
-map <leader>n :NERDTreeFocusToggle<CR>
+map <leader>nt :NERDTreeFocusToggle<CR>
 map <leader>nfind :NERDTreeTabsFind<CR>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
@@ -445,26 +466,7 @@ let wiki_2.syntax = 'markdown'
 let wiki_2.ext = '.markdown'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
-" let wiki_3 = {}
-" let wiki_3.path = '~/UCL_2016/major-project/wiki/'
-" " let wiki_3.index = 'index'
-" let wiki_3.syntax = 'markdown'
-" " let wiki_3.ext = '.md'
-" let wiki_3.ext = '.mdown'
-" let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-" let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
-" let wiki_4 = {}
-" let wiki_4.path = '~/dsb3/wiki/'
-" let wiki_4.index = 'index'
-" " let wiki_4.syntax = 'markdown'
-" " let wiki_2.ext = '.md'
-" " let wiki_4.ext = '.mdown'
-" " let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-" let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "
-" let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4]
 let g:vimwiki_list = [wiki_1, wiki_2]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
@@ -495,6 +497,13 @@ function! VimwikiLinkHandler(link)
   endif
 endfunction
 
+
+" let g:vimwiki_list = [{'path': '~/PhD/wiki',
+"   \ 'path_html': '~/PhD/wiki/html',
+"   \ 'syntax': 'markdown',
+"   \ 'ext': '.markdown',
+"   \ 'custom_wiki2html': '~/scripts/wiki2html.sh'}]
+
 " Set vimwiki syntax highlighting to follow markdown style
 " au FileType vimwiki set syntax=pandoc
 "
@@ -504,6 +513,8 @@ endfunction
 " https://github.com/suan/vim-instant-markdown
 let g:instant_markdown_autostart = 0    " disable autostart
 map <leader>md :InstantMarkdownPreview<CR>
+
+let g:livepreview_previewer = 'open -a Preview'
 
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
