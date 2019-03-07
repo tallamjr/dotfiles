@@ -7,7 +7,7 @@ os:
     - linux
 
 before_script:
-    - curl -fsSL https://raw.githubusercontent.com/tallamjr/dotfiles/master/provisionNIX.sh
+    - git clone https://github.com/tallamjr/dotfiles.git
 
 script:
-    - bash provisionNIX.sh
+    - travis_wait 30 bash install.sh
