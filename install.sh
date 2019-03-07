@@ -144,3 +144,11 @@ vim --version
 # vim +PluginInstall! +qall > /dev/null 2>&1
 
 # source $HOME/.bashrc 2> /dev/null
+echo "===============================  "
+echo " DOTFILES Installed.             "
+echo " System Ready.                   "
+echo " Please Restart $SHELL, Then Run:"
+echo "                                 "
+echo "      vim +PluginInstall +qall   "
+echo "                                 "
+echo "==============================   "
