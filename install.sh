@@ -7,16 +7,12 @@ echo "............"
 sleep 1
 echo " Just Brace Yourself Rodney.... Brace Yourself!"
 sleep 3
-
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
 for i in ${dotfile_array[*]}
 do
     if [ -f "$HOME/$i" ]; then
-        # Date variable, example 20170906, i.e. YYYYMMDD
-        # date=$(date +%Y%m%d)
-        # echo "I have made fie: " $i
         echo "Creating backup of existing" $i
         mv $HOME/$i $HOME/$i-backup
     else
@@ -38,9 +34,7 @@ cd dotfiles && stow -v \
     xcode/ \
     zsh/
 }
-
 operatingSystem=`uname`
-
 # Determine operating system via uname. Install appropriate Homebrew.
 if [ $operatingSystem == "Darwin" ]; then
 
@@ -72,9 +66,7 @@ if [ $operatingSystem == "Darwin" ]; then
     brew install stow
 
     stowFiles
-
 elif [ "$operatingSystem" == "Linux" ]; then
-
     echo " Linux Kernel Detected..."
     echo "=========================="
     sleep 1
@@ -90,27 +82,13 @@ elif [ "$operatingSystem" == "Linux" ]; then
         test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
         echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
     fi
-
     # install stow dependencies
     brew install stow
     stowFiles
-
-    # echo "export PATH='/home/linuxbrew/.linuxbrew/bin:$PATH'" >>~/.bash_profile
-    # echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
-    # echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
-    # export PATH="$HOME/.linuxbrew/bin:$PATH"
-    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-
-    # source $HOME/.bashrc 2> /dev/null
-    # source $HOME/.porfile 2> /dev/null
-    # source $HOME/.bash_profile 2> /dev/null
-
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
 fi
-
 # Install Anaconda
 if [[ $operatingSystem == Darwin ]]; then
     brew cask install anaconda > /dev/null 2>&1
@@ -119,31 +97,11 @@ elif [[ $operatingSystem == Linux ]]; then
     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
     conda_prefix="$HOME/anaconda3"
 fi
-
-# Full path required for travis CI
-# brewlist_loc=`find / -type f -name ".brewlist" 2> /dev/null`
-# brewcasklist_loc=`find / -type f -name ".brewcasklist" 2> /dev/null`
-
-# echo $brewlist_loc
-# echo $brewcasklist_loc
-
-# # Brew install all pacakges listed in brewlist, except VIM
-# brew install `grep -v vim $(find / -type f -name ".brewlist")`
-
-# # Install VIM 8.0+ compiled with Python 3.5+
-# brew install vim --with-override-system-vi --with-python3
 # Clone repo for bundle plug-ins installation
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 brew install vim
-# Restart SHELL for installation to take effect
-# echo "Restarting SHELL"
-# exec -l $SHELL
-# echo "SHELL restarted"
-# Install VIM plugins
 vim --version
-# vim +PluginInstall! +qall > /dev/null 2>&1
-
-# source $HOME/.bashrc 2> /dev/null
+# Restart SHELL for installation to take effect
 echo "===============================  "
 echo " DOTFILES Installed.             "
 echo " System Ready.                   "
