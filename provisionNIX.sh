@@ -60,6 +60,8 @@ if [ $operatingSystem == "Darwin" ]; then
     # Install Homebreww
     if ! command -v brew > /dev/null; then
         echo "Installing Homebrew..."
+        which ruby
+        ruby --version
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     else
         echo "Homebrew already installed. Skipping."
@@ -138,6 +140,7 @@ brew install vim
 # exec -l $SHELL
 # echo "SHELL restarted"
 # Install VIM plugins
-vim +PluginInstall! +qall > /dev/null 2>&1
+vim --version
+# vim +PluginInstall! +qall > /dev/null 2>&1
 
 source $HOME/.bashrc 2> /dev/null
