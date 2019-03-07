@@ -1,5 +1,9 @@
 # DOTFILES
 
+| `master`  | `develop` |
+| ------------- | ------------- |
+| [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=master)](https://travis-ci.com/tallamjr/dotfiles) | [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=develop)](https://travis-ci.com/tallamjr/dotfiles) |
+
 ![Automation](http://imgs.xkcd.com/comics/automation.png)
 
 ## Installation
