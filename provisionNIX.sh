@@ -143,4 +143,4 @@ brew install vim
 vim --version
 # vim +PluginInstall! +qall > /dev/null 2>&1
 
-source $HOME/.bashrc 2> /dev/null
+# source $HOME/.bashrc 2> /dev/null
