@@ -117,6 +117,7 @@ alias pat="pygmentize -g"                                               # Colour
 alias rr="R CMD BATCH "
 alias xx="chmod +x"                                                     # Make file executable
 alias todo="vim +VimwikiUISelect"
+alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/`date +%Y-%m-%d`.markdown"
 alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
 alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
 alias ff="gfortran"
@@ -282,6 +283,34 @@ export TF_CPP_MIN_LOG_LEVEL=2
 export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
 # added by travis gem
 [ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
+
+JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
+export FINK_HOME=~/github/fink-broker
+export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
+export SPARK_HOME=/usr/local/Cellar/apache-spark/2.4.0/libexec
+export PATH=$FINK_HOME/bin:$PATH
+
+export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
+export PYTHONPATH="${SPARKLIB}:${FINK_HOME}:${FINK_HOME}/python:$PYTHONPATH"
+export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
+
+# Hadoop home directory configuration
+export HADOOP_HOME=/usr/local/Cellar/hadoop/3.1.1
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+
+export HIVE_HOME=/usr/local/Cellar/hive/3.1.1
+export PATH=$PATH:$HIVE_HOME/bin
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# export GEM_HOME=/usr/local/opt/ruby/lib/ruby
+# export GEM_PATH=/usr/local/opt/ruby/lib/ruby
+# export PATH=$GEM_PATH/bin:$PATH
+
+# export SPARK_HOME=/usr/local/Cellar/apache-spark/2.4.0/bin
+# export PATH=$SPARK_HOME:$PATH
+
 # ++++++++++++++++++++++++++++++++++++++
 # ================  EOF   ==============
 # ++++++++++++++++++++++++++++++++++++++

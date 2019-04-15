@@ -17,6 +17,7 @@
     merge = merge --no-ff
 	ss = status
 	co = checkout
+    logo = log --oneline
 	logg = log --graph --decorate --oneline --abbrev --all
     vimdiff = difftool
     ap = add --patch
@@ -27,12 +28,18 @@
     sl = stash list
     sd = stash drop
     ba = branch --all --verbose
+    pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
     pulla = pull --all --no-ff
     pusm = pull upstream master
+    pus = !sh -c 'git pull upstream $1' -
+    rus = !sh -c 'git pull --rebase upstream $1' -
     pushnov = push --no-verify
 	spush = push --recurse-submodules=on-demand
     spull = !git pull --all && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
 	plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+    ra = remote add upstream
+    pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
+    ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
 [status]
 	submoduleSummary = true
 [filter "lfs"]
