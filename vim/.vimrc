@@ -443,6 +443,9 @@ autocmd BufWritePre * StripWhitespace
 "
 let g:vimwiki_global_ext = 0
 let g:vimwiki_use_calendar = 1
+" Plugin 'itchyny/calendar.vim' within vimwiki
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 
 " To use Markdown's wiki markup: >
 " let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
