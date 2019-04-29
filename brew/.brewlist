@@ -1,5 +1,6 @@
 ansible
 ant
+apache-spark
 autossh
 awscli
 azure-cli
@@ -35,11 +36,13 @@ gpg-agent
 graphviz
 grc
 gsl
+hive
 hstr
 hugo
 jbig2dec
 jython
 kawa
+kubernetes-cli
 leveldb
 librsvg
 libusb-compat
@@ -81,7 +84,6 @@ rename
 rhash
 scala
 scons
-shared-mime-info
 sl
 sox
 speedtest-cli
