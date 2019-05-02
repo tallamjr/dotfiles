@@ -19,6 +19,7 @@
 	co = checkout
     logo = log --oneline
 	logg = log --graph --decorate --oneline --abbrev --all
+    loggg = log --all --source --pretty=oneline --graph
     vimdiff = difftool
     ap = add --patch
     cp = cherry-pick
