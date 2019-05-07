@@ -108,9 +108,10 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 "
 " 4 space tab.
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
 
 " tab view in vim
 map <leader>t :tabe<Space>
