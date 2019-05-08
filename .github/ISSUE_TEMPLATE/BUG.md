@@ -1,6 +1,6 @@
 ---
 name: Bug
-about: Issue Tracker ID
+about: Report an error or program crash
 title: "[BUG]"
 labels: bug
 assignees: ''
