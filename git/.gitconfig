@@ -31,7 +31,7 @@
     ba = branch --all --verbose
     pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
     pulla = pull --all --no-ff
-    pusm = pull upstream master
+    pusm = pull --rebase upstream master
     pus = !sh -c 'git pull upstream $1' -
     rus = !sh -c 'git pull --rebase upstream $1' -
     pushnov = push --no-verify
