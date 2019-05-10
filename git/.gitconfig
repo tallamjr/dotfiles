@@ -40,6 +40,7 @@
 	plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
     ra = remote add upstream
     pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
+    pru = !sh -c 'git checkout -b pull/$1/test && git pull upstream pull/$1/head' -
     ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
     branch-rename = !sh -c 'git branch -m $1 $2 && git push origin :$1 $2 && git push origin -u $2' -
 [status]
