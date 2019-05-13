@@ -106,12 +106,14 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " ================ Tabs/Buffers ==============
 "
-" 4 space tab.
+" 8 space tab, inspired by Linux kernel development
+" MOdified from: https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 filetype plugin indent on
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
-set noexpandtab
+set expandtab
+set smarttab
 
 " tab view in vim
 map <leader>t :tabe<Space>
@@ -332,6 +334,7 @@ let g:nerdtree_tabs_meaningful_tab_names = 1    " Unfocus NERDTree when leaving 
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+let g:syntastic_python_flake8_post_args='--ignore=E501'
 
 " ================ 'SirVer/ultisnips' ==============
 "
