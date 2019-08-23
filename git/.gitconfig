@@ -1,48 +1,49 @@
 [user]
-        name = Tarek Allam
+    name = Tarek Allam
 	email = t.allam.jr@gmail.com
 [push]
 	default = simple
 [diff]
-        tool = vimdiff
+    tool = vimdiff
 	submodule = log
 [difftool]
-        prompt = false
+    prompt = false
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
 [alias]
-        pull = pull --no-ff
-        merge = merge --no-ff
-        ss = status
-	co = checkout
-        logo = log --oneline
-	logg = log --graph --decorate --oneline --abbrev --all
-        loggg = log --all --source --pretty=oneline --graph
-        vimdiff = difftool
-        ap = add --patch
-        cp = cherry-pick
-        dc = diff --cached
-        sa = stash apply
-        sp = stash pop
-        sl = stash list
-        sd = stash drop
-        ba = branch --all --verbose
-        pulla = pull --all --no-ff
-        pusm = pull --rebase upstream master
-        pus = "!git pull upstream $(git rev-parse --abbrev-ref HEAD)"
-        rus = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD)"
-        pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
-        pushnov = push --no-verify
-        spush = push --recurse-submodules=on-demand
-        spull = !git pull --all && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
-        plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
-        ra = remote add upstream
-        pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
-        pru = !sh -c 'git checkout -b pull/$1/test && git pull upstream pull/$1/head' -
-        ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
-        branch-rename = !sh -c 'git branch -m $1 $2 && git push origin :$1 $2 && git push origin -u $2' -
+    pull = pull --no-ff
+    merge = merge --no-ff
+    ss = status
+    co = checkout
+    logo = log --oneline
+    logg = log --graph --decorate --oneline --abbrev --all
+    loggg = log --all --source --pretty=oneline --graph
+    vimdiff = difftool
+    ap = add --patch
+    cp = cherry-pick
+    dc = diff --cached
+    sa = stash apply
+    sp = stash pop
+    sl = stash list
+    sd = stash drop
+    ba = branch --all --verbose
+    pulla = pull --all --no-ff
+    pusm = pull --rebase upstream master
+    pusb = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD)"
+        ; pus = "!git pull upstream $(git rev-parse --abbrev-ref HEAD)"
+    rus = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD)"
+    pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+    pushnov = push --no-verify
+    spush = push --recurse-submodules=on-demand
+    spull = !git pull --all && git submodule sync --recursive && git submodule update --init --recursive && git submodule update --remote
+    plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+    ra = remote add upstream
+    pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
+    pru = !sh -c 'git checkout -b pull/$1/test && git pull upstream pull/$1/head' -
+    ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
+    branch-rename = !sh -c 'git branch -m $1 $2 && git push origin :$1 $2 && git push origin -u $2' -
 [status]
 	submoduleSummary = true
 [filter "lfs"]
