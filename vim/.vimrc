@@ -34,8 +34,8 @@ set cursorline
 map <localleader>com :highlight Comment ctermfg=Grey<CR>
 
 nnoremap <Leader>l :set cursorline!<CR>
-map <Leader>c :set colorcolumn=80<CR>
-map <Leader>cc :set colorcolumn&<CR>
+map <Leader>col :set colorcolumn=80<CR>
+map <Leader>coll :set colorcolumn&<CR>
 
 set foldlevel=99
 set foldmethod=indent
