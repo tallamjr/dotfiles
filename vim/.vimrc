@@ -108,6 +108,8 @@ autocmd! bufwritepost .vimrc source %
 " Set files with extention of .md as markdown type.
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+au BufRead,BufNewFile *.sc set filetype=scala
+au! Syntax scala source ~/.vim/syntax/scala.vim
 " ================ Tabs/Buffers ==============
 "
 " 8 space tab, inspired by Linux kernel development
