@@ -199,6 +199,7 @@ map <leader>q :q<CR>
 "
 :autocmd FileType c nnoremap <buffer> <localleader>r :!gcc %<CR><CR>:!./a.out<CR>
 :autocmd FileType fortran nnoremap <buffer> <localleader>r :!gfortran %<CR><CR>:!./a.out<CR>
+:autocmd FileType scala nnoremap <buffer> <localleader>r :!scalac -d classes <C-R>%<CR><CR>:!scala -cp classes <C-R>%<BS><BS><BS><CR>
 
 :nmap cp :let @" = expand("%")
 :autocmd FileType java nnoremap <buffer> <localleader>r :!javac %<CR><CR>:!java <C-R>%<BS><BS><BS><BS><BS><CR>
