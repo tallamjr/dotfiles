@@ -112,12 +112,12 @@ au BufRead,BufNewFile *.sc set filetype=scala
 au! Syntax scala source ~/.vim/syntax/scala.vim
 " ================ Tabs/Buffers ==============
 "
-" 8 space tab, inspired by Linux kernel development
-" MOdified from: https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+" 4 space tab, inspired by Linux kernel development
+" Modified from: https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 filetype plugin indent on
-set tabstop=8
-set softtabstop=8
-set shiftwidth=8
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 
