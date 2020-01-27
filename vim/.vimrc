@@ -379,7 +379,7 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory="~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/my-snippets/"
-map<leader>se :NeoSnippetEdit<CR>
+map<leader>snip :NeoSnippetEdit<CR>
 
 " ================ 'vim-scripts/AutoComplPop' ==============
 "
@@ -400,7 +400,17 @@ let g:haskell_indent_let = 4
 let g:haskell_indent_where = 6
 let g:haskell_indent_do = 3
 let g:haskell_indent_in = 1
-
+"
+" ================ 'Shougo/neocomplete'  ==============
+"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " ================ 'vim/airline'  ==============
 "
 " airline options
