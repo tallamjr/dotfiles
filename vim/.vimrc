@@ -268,6 +268,10 @@ Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'itchyny/calendar.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'fsharp/vim-fsharp', {
+      \ 'for': 'fsharp',
+      \ 'do':  'make fsautocomplete',
+      \}"
 " Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'"
@@ -591,6 +595,9 @@ map <leader>md :InstantMarkdownPreview<CR>
 
 let g:livepreview_previewer = 'open -a Preview'
 
+" ================== 'fsharp/vim-fsharp' =====================
+
+let g:fsharp_only_check_errors_on_write = 1
 " ++++++++++++++++++++++++++++++++++++++
 " ================  EOF   ==============
 " ++++++++++++++++++++++++++++++++++++++
