@@ -1,22 +1,21 @@
-# ================ Initialisation  ==============
-#
+# ==================================================================================================
+#                                           INITIALISATION
+# ==================================================================================================
 # Vim key-bindings for movement within the shell.
 set -o vi
-PAGER=vim
-# bash history variables
+export PAGER=vim
+# bash History
 # What is the difference between HISTSIZE vs. HISTFILESIZE?
 # http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
-# export HISTSIZE=1000
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-# export HISTTIMEFORMAT='%F %T '
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoredups
-# export HISTCONTROL=erasedups
 export HISTIGNORE="pwd:ls:la:cl"
-# alias vim="vim -N -u NONE"
-export GIT_EDITOR=vim
+
 export EDITOR=vim
+export GIT_EDITOR=vim
+
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
 	source ~/.localrc
@@ -36,8 +35,9 @@ fi
 # If fuzzy finder installed, source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# ================ Path Exports ==============
-#
+# ==================================================================================================
+#                                           PATH EXPORTS
+# ==================================================================================================
 # Allows Coreutils package to be used without 'g' prefix before each command.
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -47,14 +47,9 @@ export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 #
-# export PATH="/usr/local/Cellar/gcc/5.2.0/bin:$PATH"
 # Setting PATH for EPD-6.3-1
 # The orginal version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
-
-# if [ `uname` == "Darwin" ]; then
-
-# fi
 
 if [ `uname` == "Linux" ]; then
     # Export path variables for linuxbrew.
@@ -80,30 +75,162 @@ export PATH="/usr/local/sbin:$PATH"
 export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
 export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
 # MacTex binaries
-export PATH="$(dirname `which latex`):$PATH"
-## PYTHON
+# export PATH="$(dirname `which latex`):$PATH"
+# ==================================================================================================
+#                                           PYTHON/ANACONDA
+# ==================================================================================================
 # Base env anaconda
 export PATH="/usr/local/anaconda3/bin:$PATH"
 # Main env anaconda
 export PATH="/usr/local/anaconda3/envs/main/bin:$PATH"
+
+source /usr/local/anaconda3/etc/profile.d/conda.sh
 source activate main
 
 source $HOME/scripts/condasource.sh
 
-# ================ Prompt ==============
-#
+# https://github.com/conda/conda/issues/6018
+export PYTHONNOUSERSITE=True
+# ==================================================================================================
+#                                           PROMPT
+# ==================================================================================================
 # Shell prompt customisation with Grey time, exit code status, blue directory
 # and git branch informations. Needs to be on one line
 export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
-
-# ================ Colour Customisation  ==============
-#
+# ==================================================================================================
+#                                           COLOUR CUSTOMISATION
+# ==================================================================================================
 export CLICOLOR=1
-export LSCOLORS=Exfxcxdxbxegedabagacad # Blue
+export LSCOLORS=Exfxcxdxbxegedabagacad # Blue directories
 export GREP_OPTIONS="--color=auto"
+# ==================================================================================================
+#                                           JAVA
+# ==================================================================================================
+export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
+# ==================================================================================================
+#                                           FINK
+# ==================================================================================================
+export FINK_HOME=~/github/fink-broker
+export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
+# ==================================================================================================
+#                                           SPARK
+# ==================================================================================================
+SPARK_VERSION_BREW=$(brew list --versions apache-spark | awk '{print $2}')
+export SPARK_HOME=/usr/local/Cellar/apache-spark/$SPARK_VERSION_BREW/libexec
+export PATH=$FINK_HOME/bin:$PATH
 
-# ================ Aliases ==============
-#
+export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
+export PYTHONPATH="${SPARKLIB}:${FINK_HOME}:${FINK_HOME}/python:$PYTHONPATH"
+export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
+
+# PySpark
+export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
+# ==================================================================================================
+#                                           HADOOP
+# ==================================================================================================
+# Hadoop home directory configuration
+HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
+export HADOOP_HOME=$HOME/bin/hadoop-$HADOOP_VERSION_BREW
+export HADOOP_INSTALL=$HADOOP_HOME
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_YARN_HOME=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
+export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+
+export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH
+
+alias hstart="$HADOOP_HOME/sbin/start-all.sh"
+alias hstop="$HADOOP_HOME/sbin/stop-dfs.sh;$HADOOP_HOME/sbin/stop-yarn.sh;$HADOOP_HOME/sbin/stop-all.sh"
+
+# Hide NativeCodeLoader Warning
+export HADOOP_HOME_WARN_SUPPRESS=1
+export HADOOP_ROOT_LOGGER="WARN,DRFA"
+# ==================================================================================================
+#                                           HIVE
+# ==================================================================================================
+HIVE_VERSION_BREW=$(brew list --versions hive | awk '{print $2}')
+export HIVE_HOME=/usr/local/Cellar/hive/$HIVE_VERSION_BREW
+export PATH=$PATH:$HIVE_HOME/bin
+
+HBASE_VERSION_BREW=$(brew list --versions hbase | awk '{print $2}')
+export HBASE_HOME=/usr/local/Cellar/hbase/$HBASE_VERSION_BREW/libexec
+export PATH=$PATH:$HBASE_HOME/bin
+export HBASE_CONF_DIR=$HBASE_HOME/conf
+
+export FINK_ALERT_SIMULATOR=$HOME/Github/fink-alert-simulator
+export PYTHONPATH=$FINK_ALERT_SIMULATOR:$PYTHONPATH
+export PATH=$FINK_ALERT_SIMULATOR/bin:$PATH
+# ==================================================================================================
+#                                           RUBY
+# ==================================================================================================
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# ==================================================================================================
+#                                       MISCELLANEOUS
+# ==================================================================================================
+export MKL_NUM_THREADS=1
+
+# Global variable for date format YY-MM-DD
+export DATE=`date +'%A %b %d %Y'`
+
+# Command line cheat
+export CHEATCOLORS=true
+
+# --appdir=/my/path changes the path where the symlinks to the applications
+# (above) will be generated. This is commonly used to create the links in the
+# root Applications directory instead of the home Applications directory by
+# specifying --appdir=/Applications. Default is ~/Applications. See
+# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# For awscli completion
+complete -C aws_completer aws
+# source /usr/local/etc/bash_completion.d/password-store
+export INCLUDE=""
+export LIBRARY_PATH=""
+
+# Tensorflow
+export TF_CPP_MIN_LOG_LEVEL=2
+
+# Kaggle
+export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
+
+# Added by travis gem
+[ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
+
+# Apache Arrow Compilation
+export ARROW_HOME=/usr/local/anaconda3/envs/pyarrow-dev
+export PYARROW_WITH_FLIGHT=1
+export PYARROW_WITH_GANDIVA=1
+export PYARROW_WITH_ORC=1
+export PYARROW_WITH_PARQUET=1
+export CC=`which clang`
+export CXX=`which clang++`
+# export CC=`which gcc-$GCC_VERSION`
+# export CXX=`which g++-$GCC_VERSION`
+export LC_ALL="en_US.UTF-8"
+
+# Scala
+export SCALA_HOME="/usr/local/opt/scala"
+export PATH="$PATH:$SCALA_HOME/bin"
+
+# GNU sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# If you need to have bison first in your PATH run:
+export PATH="/usr/local/opt/bison/bin:$PATH"
+
+# For compilers to find bison you may need to set:
+export LDFLAGS="-L/usr/local/opt/bison/lib"
+# ==================================================================================================
+#                                           ALIASES
+# ==================================================================================================
 alias pylab="ipython -pylab"                                            # Ipython
 alias tmux="tmux -2"                                                    # Force tmux to use 256 colours
 alias ls="ls --color"                                                   # Listing in colour
@@ -117,6 +244,7 @@ alias pat="pygmentize -g"                                               # Colour
 alias rr="R CMD BATCH "
 alias xx="chmod +x"                                                     # Make file executable
 alias todo="vim +VimwikiUISelect"
+alias wiki="vim +VimwikiIndex"
 alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/`date +%Y-%m-%d`.markdown"
 alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
 alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
@@ -143,7 +271,7 @@ alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias vimf='vim `f`'
 alias openf='open "`f`"'
 alias echof='echo "`f`"'
-alias headhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
+alias printhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
 alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 alias hp="ssh hypatia"
@@ -155,9 +283,11 @@ alias chrome="open /Applications/Google\ Chrome.app/"
 alias poker="open /Applications/PokerStarsUK.app/"
 alias fire="open /Applications/Firefox.app/"
 alias matlab="matlab -nodesktop -nosplash"
-
-# ================ Functions ==============
-#
+alias wpp="which pip && which python && python --version"
+alias ca="conda activate"
+# ==================================================================================================
+#                                           FUNCTIONS
+# ==================================================================================================
 function arxiv() {
 # Get source files from arxiv.org and create folder of them
 TAR=$1.tar.gz
@@ -169,10 +299,37 @@ cd $1
 tar -zxvf "$TAR"
 }
 
-function mkcd() {
-# Make directory and cd into it straight away.
-mkdir $1 && cd $1
+function sbtsubmit() {
+
+    sbt "submit t.allam.jr@gmail.com $@"
+
 }
+
+function new() {
+
+    if [ "$1" == "scala" ]; then
+
+        mkdir -p src/{main,test}/{java,resources,scala}
+echo 'name := ""
+version := "1.0"
+scalaVersion := "2.13.1"
+
+libraryDependencies ++= Seq(
+    "org.scalactic" %% "scalactic" % "3.0.8",
+    "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+)
+' > build.sbt
+    fi
+
+}
+
+function portal() {
+# Create local portal to Hypatia for use of notebooks on cluster
+PORTNUMBER=$1
+NODENUMBER=$2
+ssh -t -t tallam@hypatia -L $PORTNUMBER:localhost:$PORTNUMBER ssh compute-0-$NODENUMBER -L $PORTNUMBER:localhost:$PORTNUMBER
+}
+
 function mkcd() {
 # Make directory and cd into it straight away.
 mkdir $1 && cd $1
@@ -214,6 +371,18 @@ function jj() {
 javac $1 && java `basename $1 .java`
 }
 
+function bdd() {
+
+    ORG=$1
+    TAG_VERSION=$(git describe --tags)
+    REPO_NAME=${PWD##*/}
+    docker build --tag=$REPO_NAME .
+    for tag in {$TAG_VERSION,latest}; do
+        docker tag $REPO_NAME $ORG/$REPO_NAME:${tag}
+        docker push $ORG/$REPO_NAME:${tag}
+    done
+}
+
 function extract() {
 # Extract any compressed file, courtsey http://efavdb.com/dotfiles/
     if [ -f "$1" ]; then
@@ -249,25 +418,11 @@ function ccmake() {
     $ccmake_path $*
   fi
 }
-# ================ Miscellaneous ==============
-#
-export MKL_NUM_THREADS=1
-# Global variable for date format YY-MM-DD
-# DATE=date +"%A %b %d %Y"
-export DATE
-# Command line cheat
-export CHEATCOLORS=true
-# --appdir=/my/path changes the path where the symlinks to the applications
-# (above) will be generated. This is commonly used to create the links in the
-# root Applications directory instead of the home Applications directory by
-# specifying --appdir=/Applications. Default is ~/Applications. See
-# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# For awscli completion
-complete -C aws_completer aws
-# source /usr/local/etc/bash_completion.d/password-store
-export INCLUDE=""
-export LIBRARY_PATH=""
+
+function pythonversion() {
+# Check version of install Python package
+    python -c "import $1; print($1.__version__)"
+}
 
 function frameworkpython {
 if [[ ! -z "$VIRTUAL_ENV" ]]; then
@@ -276,41 +431,6 @@ else
     /usr/local/bin/python "$@"
 fi
 }
-
-# Tensorflow
-export TF_CPP_MIN_LOG_LEVEL=2
-# Kaggle
-export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
-# added by travis gem
-[ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
-
-JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
-export FINK_HOME=~/github/fink-broker
-export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
-export SPARK_HOME=/usr/local/Cellar/apache-spark/2.4.0/libexec
-export PATH=$FINK_HOME/bin:$PATH
-
-export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
-export PYTHONPATH="${SPARKLIB}:${FINK_HOME}:${FINK_HOME}/python:$PYTHONPATH"
-export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
-
-# Hadoop home directory configuration
-export HADOOP_HOME=/usr/local/Cellar/hadoop/3.1.1
-export PATH=$PATH:$HADOOP_HOME/bin
-export PATH=$PATH:$HADOOP_HOME/sbin
-
-export HIVE_HOME=/usr/local/Cellar/hive/3.1.1
-export PATH=$PATH:$HIVE_HOME/bin
-
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-# export GEM_HOME=/usr/local/opt/ruby/lib/ruby
-# export GEM_PATH=/usr/local/opt/ruby/lib/ruby
-# export PATH=$GEM_PATH/bin:$PATH
-
-# export SPARK_HOME=/usr/local/Cellar/apache-spark/2.4.0/bin
-# export PATH=$SPARK_HOME:$PATH
-
-# ++++++++++++++++++++++++++++++++++++++
-# ================  EOF   ==============
-# ++++++++++++++++++++++++++++++++++++++
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#                                               EOF
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
