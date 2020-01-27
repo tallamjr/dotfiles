@@ -89,7 +89,7 @@ au BufRead,BufNewFile *.tex setlocal textwidth=80
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.txt setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
-au BufRead,BufNewFile *.* setlocal textwidth=80
+au BufRead,BufNewFile *.* setlocal textwidth=100
 
 set spelllang=en_gb
 set spellfile=$HOME/Dropbox/vim/spell/custom.en.utf-8.add
