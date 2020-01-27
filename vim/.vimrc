@@ -496,14 +496,40 @@ let wiki_2 = {}
 let wiki_2.path = '~/PhD/wiki/'
 let wiki_2.index = 'index'
 let wiki_2.syntax = 'markdown'
-" let wiki_2.ext = '.md'
 let wiki_2.ext = '.markdown'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_3 = {}
+let wiki_3.path = '~/PhD/cdt/placement/wiki/'
+let wiki_3.index = 'index'
+let wiki_3.syntax = 'markdown'
+let wiki_3.ext = '.markdown'
+let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_4 = {}
+let wiki_4.path = '~/Life/life/'
+let wiki_4.index = 'README'
+let wiki_4.syntax = 'markdown'
+let wiki_4.ext = '.md'
+let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_5 = {}
+let wiki_5.path = '~/Life/life/learn/'
+let wiki_5.index = 'README'
+let wiki_5.syntax = 'markdown'
+let wiki_5.ext = '.md'
+let wiki_5.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_5.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "
-let g:vimwiki_list = [wiki_1, wiki_2]
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4, wiki_5]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
+map <localleader>re :VimwikiAll2HTML<CR> :!open ~/vimwiki_html/index.html<CR>
+map <leader>ui :VimwikiUISelect<CR>
+map <leader>ft :setl filetype=
 
 " From docs; *VimwikiLinkHandler*
 " A customizable link handler can be defined to override Vimwiki's behavior when
@@ -540,7 +566,22 @@ endfunction
 
 " Set vimwiki syntax highlighting to follow markdown style
 " au FileType vimwiki set syntax=pandoc
-"
+:autocmd FileType vimwiki nnoremap <buffer> <localleader>d :VimwikiMakeDiaryNote<CR>
+
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki nnoremap <buffer> <localleader>c :call ToggleCalendar()<CR>
 " ================ 'suan/vim-instant-markdown' ==============
 "
 " vim-instant-markdown - Instant Markdown previews from Vim
