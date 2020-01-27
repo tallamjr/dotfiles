@@ -449,7 +449,12 @@ let g:airline#extensions#whitespace#show_message = 0
 " configure the formatting of the warning messages. >
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-
+" enable/disable word counting of the document/visual selection >
+  let g:airline#extensions#wordcount#enabled = 1
+" set list of filetypes for which word counting is enabled:
+" The default value matches filetypes typically used for documentation
+" such as markdown and help files. Default is:
+let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'vimwiki', 'markdown', 'org', 'rst', 'tex', 'text']
 " ================ 'mileszs/ack.vim' ==============
 "
 " map <leader>a :Ack<Space>
