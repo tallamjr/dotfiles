@@ -160,9 +160,14 @@ map <leader>lc :!latex <C-R>%<CR>
 map <leader>pc :!pdflatex <C-R>%<CR>
 map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>lm :w<CR>:!latex <C-R>%<CR><CR>:!bibtex <C-R>%<BS><BS><BS><BS><CR><CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
+map <leader>lmm :w<CR>:!latex <C-R>%<CR><CR>:!bibtex <C-R>%<BS><BS><BS><BS><CR><CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!mv <C-R>%<BS><BS><BS><BS>.pdf .. <CR><CR>:!open ../<C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
+
 map <leader>lmb :w<CR>:!latex <C-R>%<CR><CR>:!bibtex <C-R>%<CR><CR>:!latex <C-R>%<CR><CR>:!latex <C-R>%<CR><CR>:!pdflatex <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
 map <leader>mint :w<CR>:!latex --shell-escape <C-R>%<CR><CR>:!pdflatex --shell-escape <C-R>%<CR><CR>:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
 map <leader>twc :!texcount <C-R>%<CR>
+
+" map <leader>llm :w<CR>:!cd .. && latex src/<C-R>%<CR><CR>:!cd .. && bibtex src/<C-R>%<BS><BS><BS><BS><CR><CR>:!cd .. && latex src/<C-R>%<CR><CR>:!cd .. && pdflatex src/<C-R>%<CR><CR>:!cd .. && open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
+map <leader>ck :<CR>:!cd && pwd
 
 let g:tex_flavor='latex'
 let g:tex_conceal = ""
