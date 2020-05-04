@@ -162,26 +162,75 @@ alias hstop="$HADOOP_HOME/sbin/stop-dfs.sh;$HADOOP_HOME/sbin/stop-yarn.sh;$HADOO
 # Hide NativeCodeLoader Warning
 export HADOOP_HOME_WARN_SUPPRESS=1
 export HADOOP_ROOT_LOGGER="WARN,DRFA"
+
+alias uh="unset HADOOP_CONF_DIR"
+
+# ==================================================================================================
+#                                           KAFKA
+# ==================================================================================================
+KAFKA_VERSION_BREW=$(brew list --versions kafka | awk '{print $2}')
+export KAFKA_HOME=/usr/local/Cellar/kafka/$KAFKA_VERSION_BREW/libexec
+export PATH=$PATH:$KAFKA_HOME/bin
+export KAFKA_CONF_DIR=$KAFKA_HOME/config
 # ==================================================================================================
 #                                           HIVE
 # ==================================================================================================
 HIVE_VERSION_BREW=$(brew list --versions hive | awk '{print $2}')
 export HIVE_HOME=/usr/local/Cellar/hive/$HIVE_VERSION_BREW
 export PATH=$PATH:$HIVE_HOME/bin
-
+# ==================================================================================================
+#                                           HBASE
+# ==================================================================================================
 HBASE_VERSION_BREW=$(brew list --versions hbase | awk '{print $2}')
 export HBASE_HOME=/usr/local/Cellar/hbase/$HBASE_VERSION_BREW/libexec
 export PATH=$PATH:$HBASE_HOME/bin
 export HBASE_CONF_DIR=$HBASE_HOME/conf
+# ==================================================================================================
+#                                           ZOOKEEPER
+# ==================================================================================================
+ZOOKEEPER_VERSION_BREW=$(brew list --versions zookeeper | awk '{print $2}')
+export ZOOKEEPER_HOME=/usr/local/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
 
+export ZK=/usr/local/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
+export PATH=$PATH:$ZK/bin
+
+export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
+# ==================================================================================================
+#                                           FINK
+# ==================================================================================================
 export FINK_ALERT_SIMULATOR=$HOME/Github/fink-alert-simulator
 export PYTHONPATH=$FINK_ALERT_SIMULATOR:$PYTHONPATH
 export PATH=$FINK_ALERT_SIMULATOR/bin:$PATH
 # ==================================================================================================
 #                                           RUBY
 # ==================================================================================================
+# Ruby version
+RUBY_VERSION_BREW=$(brew list --versions ruby| awk '{print $2}')
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+# Gems
+export PATH="/usr/local/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.1/bin:$PATH"
+# ==================================================================================================
+#                                           RUST
+# ==================================================================================================
+export PATH="$HOME/.cargo/bin:$PATH"
+# ==================================================================================================
+#                                           GOLANG
+# ==================================================================================================
+# bison is keg-only, which means it was not symlinked into /usr/local,
+# because some formulae require a newer version of bison.
 
+# If you need to have bison first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/bison/bin:$PATH"' >> ~/.bash_profile
+
+# For compilers to find bison you may need to set:
+#   export LDFLAGS="-L/usr/local/opt/bison/lib"
+
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/bison/lib"
+# export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
+export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
+export PATH="/usr/bin/clang:$PATH"
 # ==================================================================================================
 #                                       MISCELLANEOUS
 # ==================================================================================================
@@ -221,8 +270,8 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-export CC=`which clang`
-export CXX=`which clang++`
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 # export CC=`which gcc-$GCC_VERSION`
 # export CXX=`which g++-$GCC_VERSION`
 export LC_ALL="en_US.UTF-8"
@@ -234,11 +283,11 @@ export PATH="$PATH:$SCALA_HOME/bin"
 # GNU sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
-# If you need to have bison first in your PATH run:
-export PATH="/usr/local/opt/bison/bin:$PATH"
+# # If you need to have bison first in your PATH run:
+# export PATH="/usr/local/opt/bison/bin:$PATH"
 
-# For compilers to find bison you may need to set:
-export LDFLAGS="-L/usr/local/opt/bison/lib"
+# # For compilers to find bison you may need to set:
+# export LDFLAGS="-L/usr/local/opt/bison/lib"
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
