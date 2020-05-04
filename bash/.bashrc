@@ -134,6 +134,8 @@ export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
 
 # PySpark
 export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
+# export PYSPARK_DRIVER_PYTHON="jupyter"
+# export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 # ==================================================================================================
 #                                           HADOOP
 # ==================================================================================================
