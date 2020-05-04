@@ -345,6 +345,7 @@ alias fire="open /Applications/Firefox.app/"
 alias matlab="matlab -nodesktop -nosplash"
 alias wpp="which pip && which python && python --version"
 alias ca="conda activate"
+alias rspace="rename \"s/ /-/g\" *"
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
