@@ -78,6 +78,7 @@ export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
 export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
 # MacTex binaries
 # export PATH="$(dirname `which latex`):$PATH"
+export PATH="$HOME/Github/forks/cli/bin:$PATH"
 # ==================================================================================================
 #                                           PYTHON/ANACONDA
 # ==================================================================================================
