@@ -348,6 +348,48 @@ alias ca="conda activate"
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
+function mvn2sbt() {
+# Convert pom.xml --> build.sbt file
+# Adapted from https://stackoverflow.com/questions/2972195/migrating-from-maven-to-sbt
+if [ "$1" == "--java" ]; then
+
+    echo 'name := "Tarek Allam Jr"' >> build.sbt
+    echo 'version := "0.1"' >> build.sbt
+    echo 'organization := "org.aar.tallamjr"' >> build.sbt
+
+    echo 'javacOptions in (Compile, compile) ++= Seq("-source", "1.8", "-target", "1.8", "-g:lines")' >> build.sbt
+
+    echo 'crossPaths := false // drop off Scala suffix from artifact names.' >> build.sbt
+    echo 'autoScalaLibrary := false // exclude scala-library from dependencies' >> build.sbt
+
+    mvn dependency:tree | grep "] +" | perl -pe 's/.*\s([\w\.\-]+):([\w\.\-]+):\w+:([\w\.\-]+):(\w+).*/libraryDependencies += "$1" % "$2" % "$3" % "$4"\n /' >> build.sbt
+    sed -i '/^\[/ d' build.sbt
+
+else
+
+    echo 'name := "Tarek Allam Jr"' >> build.sbt
+    echo 'version := "0.1"' >> build.sbt
+    echo 'organization := "org.aar.tallamjr"' >> build.sbt
+
+    mvn dependency:tree | grep "] +" | perl -pe 's/.*\s([\w\.\-]+):([\w\.\-]+):\w+:([\w\.\-]+):(\w+).*/libraryDependencies += "$1" % "$2" % "$3" % "$4"\n /' >> build.sbt
+    sed -i '/^\[/ d' build.sbt
+fi
+}
+
+function dockerrmi() {
+# Remove docker image by name
+
+if [ "$1" == "--force" ]; then
+
+    DOCKER_IMAGE_NAME=$2
+    docker rmi -f $(docker images --filter=reference="$DOCKER_IMAGE_NAME" --format "{{.ID}}")
+else
+    DOCKER_IMAGE_NAME=$1
+    docker rmi $(docker images --filter=reference="$DOCKER_IMAGE_NAME" --format "{{.ID}}")
+fi
+
+}
+
 function arxiv() {
 # Get source files from arxiv.org and create folder of them
 TAR=$1.tar.gz
