@@ -113,8 +113,14 @@ export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
 # ==================================================================================================
 #                                           FINK
 # ==================================================================================================
-export FINK_HOME=~/github/fink-broker
+# Fink-Broker
+export FINK_HOME=$HOME/Github/fink-broker
 export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
+
+# Fink-Client
+export FINK_CLIENT_HOME=$HOME/Github/fink-client
+export PYTHONPATH=${FINK_CLIENT_HOME}:$PYTHONPATH
+export PATH=${FINK_CLIENT_HOME}/bin:$PATH
 # ==================================================================================================
 #                                           SPARK
 # ==================================================================================================
