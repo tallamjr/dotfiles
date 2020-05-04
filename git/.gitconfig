@@ -32,7 +32,7 @@
     ba = branch --all --verbose
     pulla = pull --rebase --all
     pusm = pull --rebase upstream master --ff-only
-    update-branch = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD)"
+    update = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all"
     pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
     pushnov = push --no-verify
     spush = push --recurse-submodules=on-demand
@@ -44,7 +44,6 @@
     ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
     branch-rename = !sh -c 'git branch -m $1 $2 && git push origin --delete $1 && git push $2 && git push origin -u $2' -
     showcp = am --show-current-patch
-    update = "!git pusm && git fetch --all"
     cleann = clean -xffd
 [status]
 	submoduleSummary = true
@@ -56,3 +55,5 @@
 [blame]
 	coloring = highlightRecent
 	showEmail = true
+[pager]
+	branch = false
