@@ -11,6 +11,7 @@ boost-python
 browsh-org/browsh/browsh
 ccache
 cheat
+clamav
 cloc
 coreutils
 cowsay
@@ -20,15 +21,20 @@ dfu-util
 dirmngr
 docker-compose
 dos2unix
+double-conversion
 doxygen
 dtc
 iterative/dvc/dvc
+elasticsearch
+emacs
 fd
+flatbuffers
 fzf
 gdal
 gdb
 geckodriver
 geoip
+github/gh/gh
 git
 git-lfs
 gnu-go
@@ -37,6 +43,7 @@ go
 gobject-introspection
 gperf
 gpg-agent
+grafana
 graphviz
 gsl
 hbase
@@ -51,8 +58,8 @@ jq
 jython
 kafka
 kawa
-kubernetes-cli
 leveldb
+libcroco
 librasterlite
 librsvg
 libscrypt
@@ -64,6 +71,7 @@ llvm@7
 lynx
 make
 maven
+minikube
 mkdocs
 mono
 mupdf
@@ -110,6 +118,8 @@ spatialite-tools
 speedtest-cli
 spim
 stow
+swig
+telnet
 the_silver_searcher
 thefuck
 tmux
@@ -124,3 +134,4 @@ watch
 wget
 xrootd
 youtube-dl
+zsync
