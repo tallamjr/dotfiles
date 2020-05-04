@@ -3,7 +3,6 @@
 # ==================================================================================================
 # Vim key-bindings for movement within the shell.
 set -o vi
-export PAGER=vim
 # bash History
 # What is the difference between HISTSIZE vs. HISTFILESIZE?
 # http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
@@ -13,8 +12,11 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoredups
 export HISTIGNORE="pwd:ls:la:cl"
 
+export PAGER=less
 export EDITOR=vim
+
 export GIT_EDITOR=vim
+export GIT_PAGER=less
 
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
