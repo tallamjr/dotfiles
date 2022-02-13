@@ -106,13 +106,14 @@ brew install neovim
 nvim --version
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+bash --rcfile <(echo '. bash/.bashrc; vim +PlugInstall +qall')
 # Restart SHELL for installation to take effect
 echo "===============================  "
 echo " DOTFILES Installed.             "
 echo " System Ready.                   "
-echo " Please Restart $SHELL, Then Run:"
+echo " Please Restart $SHELL           "
+echo " Double check vim plugins with:  "
 echo "                                 "
 echo "      vim +PlugInstall +qall     "
 echo "                                 "
 echo "==============================   "
-bash --rcfile <(echo '. bash/.bashrc; vim +PlugInstall +qall')
