@@ -1,14 +1,12 @@
 # DOTFILES
 
-| `master`  | `develop` |
-| ------------- | ------------- |
-| [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=master)](https://travis-ci.com/tallamjr/dotfiles) | [![Build Status](https://travis-ci.com/tallamjr/dotfiles.svg?branch=develop)](https://travis-ci.com/tallamjr/dotfiles) |
+[![Smoke](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml/badge.svg)](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml)
 
 ![Automation](http://imgs.xkcd.com/comics/automation.png)
 
 ## Installation
 
-See my blog post for an overview of my dotfile story.
+See my blog for an overview of my _dotfile_ story.
 
 ### Clean System Install
 
@@ -29,12 +27,11 @@ continue to install all brew packages (_This will take a while_) with:
 bash brew/brew_install.sh
 ```
 
-Finally, when all is complete, resource the \$SHELL and install VIM plugins with:
+Finally, when all is complete, restart the \$SHELL and install VIM plugins with:
 
 ```bash
 source $HOME/.bashrc && vim +PluginInstall +qall
 ```
-
 
 ### Temporary Configuration Install [WIP]
 
@@ -51,7 +48,7 @@ Uninstalling, however, was definitely not as simple as hoped. Nonetheless, when
 finished, one can run `./uninstall.sh` from the dotfile directory itself to
 remove all settings.
 
-**WARNING!**
+🚧 **WARNING!** 🚧
 
 Install and uninstall scripts have been tested but please use
 with caution. Inspect files first!
@@ -68,4 +65,3 @@ https://github.com/ruslanosipov/dotfiles
 ## Screenshot
 
 ![screenshot](screenshot.png)
-
