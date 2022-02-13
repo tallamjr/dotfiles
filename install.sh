@@ -98,16 +98,20 @@ elif [[ $operatingSystem == Linux ]]; then
     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
     conda_prefix="$HOME/anaconda3"
 fi
-# Clone repo for bundle plug-ins installation
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install VIM and NEOVIM
+# Clone repo for bundle plug-ins installation. Currently using vim-plug
 brew install vim
 vim --version
+brew install neovim
+nvim --version
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 # Restart SHELL for installation to take effect
 echo "===============================  "
 echo " DOTFILES Installed.             "
 echo " System Ready.                   "
 echo " Please Restart $SHELL, Then Run:"
 echo "                                 "
-echo "      vim +PluginInstall +qall   "
+echo "      vim +PlugInstall +qall   "
 echo "                                 "
 echo "==============================   "
