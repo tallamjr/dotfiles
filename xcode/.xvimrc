@@ -1,4 +1,4 @@
-i kk <Esc>
+i kj <Esc>
 set incsearch
 
 " Case-insensitive searching.
@@ -18,3 +18,18 @@ nmap <space>b :xccmd toggleBreakpointAtCurrentLine<CR>
 
 " Use <space>cm to toggle comments for the selection
 nmap <space>cm :xccmd commentAndUncommentCurrentLines<CR>
+"https://github.com/dengcqw/XVim-config-file/blob/master/xvimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Project
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"map ,r  :run<CR>
+map ,bp  :xcmenucmd Build<CR>
+map ,cp  :xcmenucmd Clean<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"quick save and quit
+map ,<space> :w<CR>
+
+set ignorecase
