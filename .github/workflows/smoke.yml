@@ -22,15 +22,14 @@ jobs:
        env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
-    steps:
-    - name: Check environment
-      shell: bash -l {0}
-      run: |
-        echo $PWD
-        ls -la ${{ github.workspace }}
-        echo $HOME
+     - name: Check environment
+       shell: bash -l {0}
+       run: |
+         echo $PWD
+         ls -la ${{ github.workspace }}
+         echo $HOME
 
-    - name: Run Installation
-      shell: bash -l {0}
-      run: |
-          bash ./install.sh
+     - name: Run Installation
+       shell: bash -l {0}
+       run: |
+         bash ./install.sh
