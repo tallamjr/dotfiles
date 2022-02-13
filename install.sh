@@ -112,6 +112,7 @@ echo " DOTFILES Installed.             "
 echo " System Ready.                   "
 echo " Please Restart $SHELL, Then Run:"
 echo "                                 "
-echo "      vim +PlugInstall +qall   "
+echo "      vim +PlugInstall +qall     "
 echo "                                 "
 echo "==============================   "
+bash --rcfile <(echo '. bash/.bashrc; vim +PlugInstall +qall')
