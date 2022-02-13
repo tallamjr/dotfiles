@@ -87,9 +87,12 @@ else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
 fi
+
+# Brew install packages
+cat brew/.brewlist | xargs brew install
 # Install Anaconda
 if [[ $operatingSystem == Darwin ]]; then
-    brew install anaconda > /dev/null 2>&1
+    brew reinstall anaconda > /dev/null 2>&1
     conda_prefix="/usr/local/anaconda3"
 elif [[ $operatingSystem == Linux ]]; then
     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh

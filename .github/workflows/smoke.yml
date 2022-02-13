@@ -1,0 +1,46 @@
+name: Smoke
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  tutorials:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+    strategy:
+      # Prevent all build to stop if a single one fails
+      fail-fast: false
+      matrix:
+        name: [
+          ubuntu,
+          osx,
+          ]
+
+        include:
+          - name: ubuntu
+            os: ubuntu-latest
+
+          - name: osx
+            os: macos-latest
+    steps:
+    - name: Check environment
+      shell: bash -l {0}
+      run: |
+        echo $PWD
+        ls -la ${{ github.workspace }}
+        echo $HOME
+
+    - name: Run Installation
+      shell: bash -l {0}
+      run: |
+          bash ./install.sh
