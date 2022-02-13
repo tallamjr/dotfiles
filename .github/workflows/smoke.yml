@@ -11,31 +11,16 @@ on:
       - master
 
 jobs:
-  smoke:
-    strategy:
-      # Prevent all build to stop if a single one fails
-      fail-fast: false
-      matrix:
-        name: [
-          ubuntu,
-          osx-11,
-          osx-10.15,
-          ]
-
-        include:
-          - name: ubuntu
-            os: ubuntu-latest
-
-          - name: osx
-            os: macos-latest
-
-          - name: osx
-            os: macos-10.15
-
-    name: ${{ matrix.name }}
+  build:
     runs-on: ${{ matrix.os }}
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    strategy:
+      matrix:
+        os: [macos-latest, macos-10.15, ubuntu-latest]
+    steps:
+     - uses: actions/checkout@v1
+     - run: echo ${{matrix.os}}
+       env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
     - name: Check environment
