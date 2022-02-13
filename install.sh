@@ -20,7 +20,7 @@ do
     fi
 done
 
-function stowFiles(){
+function stow_files(){
 # Symlink dotfiles to home directory
 cd dotfiles && stow -v \
     bash/ \
@@ -54,18 +54,16 @@ if [ $operatingSystem == "Darwin" ]; then
     # Install Homebreww
     if ! command -v brew > /dev/null; then
         echo "Installing Homebrew..."
-        which ruby
-        ruby --version
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         echo "Homebrew already installed. Skipping."
     fi
 
-    brew cask install xquartz
-    brew cask install java
+    brew install xquartz
+    brew install java
     brew install stow
 
-    stowFiles
+    stow_files
 elif [ "$operatingSystem" == "Linux" ]; then
     echo " Linux Kernel Detected..."
     echo "=========================="
@@ -75,23 +73,23 @@ elif [ "$operatingSystem" == "Linux" ]; then
         echo " Installing Homebrew..."
         echo "======================================="
         sleep 1
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-        test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-        test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-        test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-        echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
+        test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+        test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+        echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
     fi
     # install stow dependencies
     brew install stow
-    stowFiles
+    stow_files
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
 fi
 # Install Anaconda
 if [[ $operatingSystem == Darwin ]]; then
-    brew cask install anaconda > /dev/null 2>&1
+    brew install anaconda > /dev/null 2>&1
     conda_prefix="/usr/local/anaconda3"
 elif [[ $operatingSystem == Linux ]]; then
     wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
