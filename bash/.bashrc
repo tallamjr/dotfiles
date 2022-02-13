@@ -15,7 +15,7 @@ export HISTIGNORE="pwd:ls:la:cl"
 export PAGER=less
 export EDITOR=vim
 
-export GIT_EDITOR=vim
+export GIT_EDITOR=nvim
 export GIT_PAGER=less
 
 # Locate file containing passwords and global variables that will be sourced within other files.
@@ -37,12 +37,17 @@ fi
 # If fuzzy finder installed, source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Temporay directory
+export TMP=/tmp
 # ==================================================================================================
 #                                           PATH EXPORTS
 # ==================================================================================================
 # Allows Coreutils package to be used without 'g' prefix before each command.
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
 #
 export PATH="/usr/local/bin:$PATH"
 
@@ -78,7 +83,15 @@ export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
 export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
 # MacTex binaries
 # export PATH="$(dirname `which latex`):$PATH"
-export PATH="$HOME/Github/forks/cli/bin:$PATH"
+# Github cli fork
+# export PATH="$HOME/github/tallamjr/forks/cli/bin:$PATH"
+# Ghidra SRE
+export GHIDRA_HOME="$HOME/bin/ghidra_9.1.2_PUBLIC"
+export PATH="$GHIDRA_HOME:$PATH"
+alias ghd="cd $GHIDRA_HOME && ./ghidraRun"
+
+# gitlatex path:
+export PATH=~/scratch/build:$PATH
 # ==================================================================================================
 #                                           PYTHON/ANACONDA
 # ==================================================================================================
@@ -94,6 +107,7 @@ source $HOME/scripts/condasource.sh
 
 # https://github.com/conda/conda/issues/6018
 export PYTHONNOUSERSITE=True
+export PYTHONHASHSEED=0
 # ==================================================================================================
 #                                           PROMPT
 # ==================================================================================================
@@ -136,16 +150,17 @@ export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
 export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
 # export PYSPARK_DRIVER_PYTHON="jupyter"
 # export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+alias ss="spark-submit"
 # ==================================================================================================
 #                                           HADOOP
 # ==================================================================================================
 # Hadoop home directory configuration
 HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
-export HADOOP_HOME=$HOME/bin/hadoop-$HADOOP_VERSION_BREW
+export HADOOP_HOME=$HOME/bin/hadoop-3.2.1
 export HADOOP_INSTALL=$HADOOP_HOME
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+# export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export HADOOP_COMMON_HOME=$HADOOP_HOME
 export HADOOP_HDFS_HOME=$HADOOP_HOME
 export HADOOP_YARN_HOME=$HADOOP_HOME
@@ -214,6 +229,16 @@ export PATH="/usr/local/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.
 #                                           RUST
 # ==================================================================================================
 export PATH="$HOME/.cargo/bin:$PATH"
+RUST_ANALYZER_VERSION=$(brew list --versions rust-analyzer | awk '{print }')
+# rust-analyzer
+export PATH="/usr/local/Cellar/rust-analyzer/$RUST_ANALYZER_VERSION/bin:$PATH"
+# debug
+# export RUST_BACKTRACE=1     # Backtrace on
+export RUST_BACKTRACE=full  # Verbosity full
+# ==================================================================================================
+#                                           OPTION3
+# ==================================================================================================
+export OPTION3_HOME=$HOME/github/origin/option3
 # ==================================================================================================
 #                                           GOLANG
 # ==================================================================================================
@@ -231,6 +256,11 @@ export LDFLAGS="-L/usr/local/opt/bison/lib"
 # export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export PATH="/usr/bin/clang:$PATH"
+# ==================================================================================================
+#                                       KAGGKE
+# ==================================================================================================
+export KAGGLE_HOME="$HOME/github/origin/kaggle"
+export KG_TITANIC_HOME="$KAGGLE_HOME/Titanic"
 # ==================================================================================================
 #                                       MISCELLANEOUS
 # ==================================================================================================
@@ -270,10 +300,10 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-# export CC=`which gcc-$GCC_VERSION`
-# export CXX=`which g++-$GCC_VERSION`
+# export CC=/usr/bin/clang
+# export CXX=/usr/bin/clang++
+export CC=`which gcc-$GCC_VERSION`
+export CXX=`which g++-$GCC_VERSION`
 export LC_ALL="en_US.UTF-8"
 
 # Scala
@@ -288,67 +318,129 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # # For compilers to find bison you may need to set:
 # export LDFLAGS="-L/usr/local/opt/bison/lib"
+
+# 4B25-Cambridge-EB3
+export ARMGCC_DIR="/usr/local"
+
+# astronet
+export ASNWD="$HOME/github/tallamjr/origin/astronet"
+export PYTHONPATH="${PYTHONPATH}:$ASNWD"
+
+# matlab2python
+export PYTHONPATH="${PYTHONPATH}:$HOME/scratch/matlab2python/"
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
-alias pylab="ipython -pylab"                                            # Ipython
-alias tmux="tmux -2"                                                    # Force tmux to use 256 colours
-alias ls="ls --color"                                                   # Listing in colour
-alias cl="clear"
-alias la="ls -lah"                                                      # Listing in human-readable format
-alias qq="exit"
-alias grep="grep -E"
-alias gg="grep -i"
-alias sleep="sudo shutdown -s now"                                      # Put computer to sleep
-alias pat="pygmentize -g"                                               # Colourful 'cat' output
-alias rr="R CMD BATCH "
-alias xx="chmod +x"                                                     # Make file executable
-alias todo="vim +VimwikiUISelect"
-alias wiki="vim +VimwikiIndex"
-alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/`date +%Y-%m-%d`.markdown"
-alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
-alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
-alias ff="gfortran"
-alias pingg="ping www.google.com"
-alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"     # Start Kalilinux via docker vm.
-alias vimplugininstall="vim +PluginInstall +qall"                       # Vim pluin install from command line.
-alias lsc="ls | wc | awk '{print $1}'"                                  # Show the 'count' of files in a director.
-alias sa="source activate"
-alias f="fzf -i --color=hl:200,hl+:200"
-alias sb="source ~/.bashrc"
-alias bashrc="vim ~/.bashrc"
-alias speed="speedtest-cli"
-alias dls="cd ~/Downloads/ && la -rt"
-alias vimrc="vim ~/.vimrc"
-alias ttop="top -o CPU"
-alias mp="cd ~/UCL_2016/major-project/"
-alias matlab="matlab -nodesktop"
-alias lrt="ls -lart"
-alias df="df -h"
-alias du="du -sh"
-alias jn="jupyter notebook"
+# git ls-files -z -o --exclude-standard | xargs -0 rm
+alias asn="cd $HOME/github/tallamjr/origin/astronet"
 alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
-alias vimf='vim `f`'
-alias openf='open "`f`"'
+alias bashrc="vim ~/.bashrc"
+alias blc="black . --check"
+alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
+alias brewversion="$(brew list --versions $1 | awk '{print $2}')"
+alias ca="conda activate"
+alias casn="conda activate astronet"
+alias chrome="open /Applications/Google\ Chrome.app/"
+alias cl="clear"
+alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
+alias df="df -h"
+alias dls="cd ~/Downloads/ && la -rt"
+alias du="du -sh"
+alias dus="du -sh * | sort -h"
 alias echof='echo "`f`"'
-alias printhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
+alias f="fzf -i --color=hl:200,hl+:200"
+alias ff="gfortran"
+alias fire="open /Applications/Firefox.app/"
 alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+alias gg="grep -i"
+alias ghub="cd ~/github/"
+alias grep="grep -E"
 alias hp="ssh hypatia"
+alias ino="arduino-cli"
+# alias jc="jupyter nbconvert --ClearOutputPreprocessor.enabled=True --ClearMetadataPreprocessor.enabled=True --clear-output --inplace"
+alias jbb="jupyter-book build"
+alias jc="jupyter nbconvert --ClearOutputPreprocessor.enabled=True --clear-output --inplace"
+alias jn="jupyter notebook"
+alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"     # Start Kalilinux via docker vm.
+alias la="ls -lah"                                                      # Listing in human-readable format
+alias lrt="ls -lart"
+alias ls="ls --color"                                                   # Listing in colour
+alias lsc="ls | wc | awk '{print $1}'"                                  # Show the 'count' of files in a director.
+alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
+alias matlab="matlab -nodesktop -nosplash"
+alias matlab="matlab -nodesktop"
+alias mp="cd ~/UCL_2016/major-project/"
+alias myp="echo $MYRIAD | pbcopy && ssh myriad"
+alias neo=" pip install neovim && pip install black"
+alias openf='open "`f`"'
 alias p2="ssh plus2"
+alias pat="pygmentize -g"                                               # Colourful 'cat' output
+alias pingg="ping www.google.com"
+alias pj="python -m json.tool"
+alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/`date +%Y-%m-%d`.markdown"
+alias poker="open /Applications/PokerStarsUK.app/"
+alias printhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
+alias pt='pytest --verbose --capture=no --showlocals --durations=0 --setup-show'
+alias pylab="ipython -pylab"                                            # Ipython
+alias qq="exit"
+alias resetusb='sudo launchctl stop com.apple.usbd; sudo launchctl start com.apple.usbd'
+alias rr="R CMD BATCH "
+alias rspace="rename \"s/ /-/g\" * && rename \"s/[\(\)]//g\" *"
+alias sa="source activate"
+alias sb="source ~/.bashrc"
+alias sleep="sudo shutdown -s now"                                      # Put computer to sleep
+alias speed="speedtest-cli"
+alias til="vim ~/github/origin/til/README.md"
+alias tree="tree -I '*__pycache__|*.pkl'"
+alias tmux="tmux -2"                                                    # Force tmux to use 256 colours
+alias todo="vim +VimwikiUISelect"
+alias ttop="top -o CPU"
+# Use Neovim as "preferred editor"
+export VISUAL="nvim"
+# Use Neovim instead of Vim or Vi
+alias vim="nvim"
+alias vi="nvim"
+alias vimf='vim `f`'
+alias vimplugininstall="vim +PluginInstall +qall"                       # Vim pluin install from command line.
+alias vimrc="vim ~/.vimrc"
+alias wiki="vim +VimwikiIndex"
+alias wpp="which pip && which python && python --version"
+alias xx="chmod +x"                                                     # Make file executable
+
 GCC_VERSION=`brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1`
 alias gcc="gcc-$GCC_VERSION"
 # Application shortcuts
-alias chrome="open /Applications/Google\ Chrome.app/"
-alias poker="open /Applications/PokerStarsUK.app/"
-alias fire="open /Applications/Firefox.app/"
-alias matlab="matlab -nodesktop -nosplash"
-alias wpp="which pip && which python && python --version"
-alias ca="conda activate"
-alias rspace="rename \"s/ /-/g\" *"
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
+function cdd() {
+    cd `python -c "print($1 * '../')"`
+}
+
+function lm(){
+    # Refs: https://stackoverflow.com/a/965069/4521950
+    FILE=$1
+
+    pdflatex "${FILE#*.}"
+    bibtex "${FILE%%.*}"
+    pdflatex "${FILE#*.}"
+    open "${FILE%%.*}".pdf
+
+}
+
+function lmm(){
+    # Refs: https://stackoverflow.com/a/7820227/4521950
+    FILE=$1
+    BASENAME=$(basename $FILE .tex)
+
+    pdflatex $BASENAME
+    biber $BASENAME
+    latexmk -pdf $FILE # https://tex.stackexchange.com/a/617203/84541
+    pdflatex $FILE
+    open $BASENAME.pdf
+
+}
+
 function mvn2sbt() {
 # Convert pom.xml --> build.sbt file
 # Adapted from https://stackoverflow.com/questions/2972195/migrating-from-maven-to-sbt
@@ -394,11 +486,13 @@ fi
 function arxiv() {
 # Get source files from arxiv.org and create folder of them
 TAR=$1.tar.gz
+NEW_NAME="$2-$1"
+NEW_LOCATION=$HOME/Downloads/arxiv-downloads/$NEW_NAME
 
 mv $1 $TAR
-mkdir $1
-mv $TAR $1
-cd $1
+mkdir -p $NEW_LOCATION
+mv $TAR $NEW_LOCATION
+cd $NEW_LOCATION
 tar -zxvf "$TAR"
 }
 
@@ -487,7 +581,7 @@ function bdd() {
 }
 
 function extract() {
-# Extract any compressed file, courtsey http://efavdb.com/dotfiles/
+# Extract any compressed file, courtsey https://efavdb.com/dotfiles/
     if [ -f "$1" ]; then
         case "$1" in
             *.tar.bz2)  tar -jxvf "$1"                        ;;
@@ -524,7 +618,8 @@ function ccmake() {
 
 function pythonversion() {
 # Check version of install Python package
-    python -c "import $1; print($1.__version__)"
+    # python -c "import $1; print($1.__version__)"
+    pip list | grep $1
 }
 
 function frameworkpython {
@@ -534,6 +629,13 @@ else
     /usr/local/bin/python "$@"
 fi
 }
+
+# If you need to have llvm first in your PATH run:
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# For compilers to find llvm you may need to set:
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
