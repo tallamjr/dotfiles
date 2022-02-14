@@ -20,14 +20,12 @@ This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/i
 script to determine the operating system that is running, and then either install [Homebrew](https://brew.sh/)
 or [Linuxbrew](http://linuxbrew.sh/).
 
-After the respective package manager is installed and dotfiles in place one can
-continue to install all brew packages (_This will take a while_) with:
+After the respective package manager is installed and dotfiles in place, it will continue to install
+all brew packages (_this will take a while_) found in `brew/.brewlist`:
 
-```bash
-bash brew/brew_install.sh
-```
-
-Finally, when all is complete, restart the \$SHELL and install VIM plugins with:
+Finally, when all is complete, an updated version of `vim` and `neovim` is installed, along with
+`vim-plug` for plugin management. It _may_ be necessary to restart the \$SHELL and install VIM
+plugins with:
 
 ```bash
 source $HOME/.bashrc && vim +PluginInstall +qall
