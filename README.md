@@ -1,6 +1,6 @@
 # DOTFILES
 
-[![Smoke](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml/badge.svg)](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml)
+[![Smoke Test](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml/badge.svg)](https://github.com/tallamjr/dotfiles/actions/workflows/smoke.yml)
 
 ![Automation](http://imgs.xkcd.com/comics/automation.png)
 
