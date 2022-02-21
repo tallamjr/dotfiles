@@ -124,7 +124,7 @@ cat brew/.brewlist | xargs brew install
 
 # Install Miniforge
 brew reinstall miniforge > /dev/null 2>&1
-conda init "$(basename "${SHELL}")"
+conda init bash
 
 mkdir -p ~/miniforge/envs
 
