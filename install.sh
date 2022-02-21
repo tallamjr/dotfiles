@@ -128,9 +128,6 @@ conda init bash
 
 mkdir -p ~/miniforge/envs
 
-ENV=`grep 'name:' $ROOT/conda/environment.yml | tail -n1 | awk '{ print $2}'`
-conda activate $ENV
-
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
 brew install vim
