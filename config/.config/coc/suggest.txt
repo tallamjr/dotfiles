@@ -1,3 +1,5 @@
+Brew|Brewfile|file
+bre|brewlists.sh|file
 mini|miniforge|file
 R|ROOT|around
 hom|homebrew|around
