@@ -1,0 +1,15 @@
+name: main
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.10
+  - pip:
+    - black
+    - neovim
+    - pytest
+    - pytest-cov
+    - pytest-subtests
+    - pep517
+    - twine

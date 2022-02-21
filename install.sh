@@ -29,6 +29,7 @@ pushd $ROOT
 cd dotfiles && stow -v \
     bash/ \
     brew/ \
+    conda / \
     config/ \
     emacs/ \
     git/ \
@@ -40,6 +41,7 @@ cd dotfiles && stow -v \
     zsh/
 popd
 }
+
 operatingSystem=`uname`
 # Determine operating system via uname. Install appropriate Homebrew.
 if [ $operatingSystem == "Darwin" ]; then
@@ -122,6 +124,10 @@ cat brew/.brewlist | xargs brew install
 
 # Install Miniforge
 brew reinstall miniforge > /dev/null 2>&1
+conda init "$(basename "${SHELL}")"
+
+ENV=`grep 'name:' $ROOT/conda/environment.yml | tail -n1 | awk '{ print $2}'`
+conda activate $ENV
 
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
