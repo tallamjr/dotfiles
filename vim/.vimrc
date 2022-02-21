@@ -346,7 +346,9 @@ let g:solarized_termcolors=256
 set background=dark
 " colorscheme solarized
 set t_Co=256
-colorscheme molokai
+if !exists('g:not_finish_vimplug')
+  colorscheme molokai
+endif
 highlight SpecialComment  ctermfg=245   cterm=bold
 highlight Comment  ctermfg=242   cterm=bold
 au BufRead,BufNewFile *.py highlight Comment ctermfg=darkgrey
