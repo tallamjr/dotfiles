@@ -63,7 +63,6 @@ brew "libssh2"
 brew "curl"
 brew "ddd"
 brew "dfu-util"
-brew "dirmngr"
 brew "docker-compose", link: false
 brew "dos2unix"
 brew "double-conversion"
