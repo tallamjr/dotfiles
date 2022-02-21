@@ -15,6 +15,9 @@ channels:
 # and in 'conda list'. The default is False.
 show_channel_urls: true
 
+pkgs_dirs:
+- ~/miniforge/envs/pkgs
+
 envs_dirs:
   - ~/miniforge/envs
 

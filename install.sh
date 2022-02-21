@@ -126,7 +126,7 @@ cat brew/.brewlist | xargs brew install
 brew reinstall miniforge > /dev/null 2>&1
 conda init bash
 
-mkdir -p ~/miniforge/envs
+mkdir -p ~/miniforge/envs/pkgs
 
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
