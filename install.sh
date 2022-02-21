@@ -96,7 +96,7 @@ if [[ $operatingSystem == Darwin ]]; then
 elif [[ $operatingSystem == Linux ]]; then
     wget \
     "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-    bash Miniforge3-$(uname)-$(uname -m).sh
+    yes | bash Miniforge3-$(uname)-$(uname -m).sh
     rm Miniforge3-$(uname)-$(uname -m).sh
 fi
 # Install VIM and NEOVIM
