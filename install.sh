@@ -90,15 +90,10 @@ fi
 
 # Brew install packages
 cat brew/.brewlist | xargs brew install
+
 # Install Miniforge
-if [[ $operatingSystem == Darwin ]]; then
-    brew reinstall miniforge > /dev/null 2>&1
-elif [[ $operatingSystem == Linux ]]; then
-    wget \
-    "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-    yes | bash Miniforge3-$(uname)-$(uname -m).sh
-    rm Miniforge3-$(uname)-$(uname -m).sh
-fi
+brew reinstall miniforge > /dev/null 2>&1
+
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
 brew install vim
