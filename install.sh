@@ -29,6 +29,7 @@ pushd $ROOT
 cd dotfiles && stow -v \
     bash/ \
     brew/ \
+    config/ \
     emacs/ \
     git/ \
     mutt/ \
