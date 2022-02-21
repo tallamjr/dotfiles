@@ -120,7 +120,7 @@ else
     export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
 fi
 # Brew install packages
-cat brew/.brewlist | xargs brew install
+brew bundle --file $ROOT/brew/Brewfile
 
 # Install Miniforge
 brew reinstall miniforge > /dev/null 2>&1
