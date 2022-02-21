@@ -126,6 +126,8 @@ cat brew/.brewlist | xargs brew install
 brew reinstall miniforge > /dev/null 2>&1
 conda init "$(basename "${SHELL}")"
 
+mkdir -p ~/miniforge/envs
+
 ENV=`grep 'name:' $ROOT/conda/environment.yml | tail -n1 | awk '{ print $2}'`
 conda activate $ENV
 
