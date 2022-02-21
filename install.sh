@@ -88,6 +88,29 @@ else
     exit 1;
 fi
 
+# Although inside ~/.bashrc, these export are required to continue installation
+if [ `uname -m` == "x86_64" ]; then
+    export PATH="/usr/local/bin:$PATH"
+    # Allows Coreutils package to be used without 'g' prefix before each command.
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+    export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+    if [ `uname` == "Linux" ]; then
+        # Export path variables for linuxbrew.
+        export PATH="$HOME/.linuxbrew/bin:$PATH"
+        export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+        export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    fi
+else
+    # Running on Apple silicon
+    export PATH="/opt/homebrew/bin:$PATH"
+    # Allows Coreutils package to be used without 'g' prefix before each command.
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+    export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
+fi
 # Brew install packages
 cat brew/.brewlist | xargs brew install
 
