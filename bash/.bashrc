@@ -115,8 +115,11 @@ if [ `uname -m` == "x86_64" ]; then
 
     source $HOME/scripts/condasource.sh
 else
-    export PATH="$BREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"
-    source $BREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/conda.sh
+    # Base env anaconda
+    export PATH="$HOME/miniforge3/bin:$PATH"
+    # Main env anaconda
+    export PATH="$HOME/miniforge3/envs/main/bin:$PATH"
+    source $HOME/miniforge3/etc/profile.d/conda.sh
     source activate main
 fi
 

@@ -123,10 +123,9 @@ fi
 brew bundle --file $ROOT/brew/Brewfile
 
 # Install Miniforge
-brew reinstall miniforge > /dev/null 2>&1
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+yes | bash Miniforge3-$(uname)-$(uname -m).sh
 conda init bash
-
-mkdir -p ~/miniforge/envs/pkgs
 
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
