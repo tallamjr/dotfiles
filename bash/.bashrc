@@ -42,14 +42,30 @@ export TMP=/tmp
 # ==================================================================================================
 #                                           PATH EXPORTS
 # ==================================================================================================
-# Allows Coreutils package to be used without 'g' prefix before each command.
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
-#
-export PATH="/usr/local/bin:$PATH"
+if [ `uname -m` == "x86_64" ]; then
+    export PATH="/usr/local/bin:$PATH"
+    # Allows Coreutils package to be used without 'g' prefix before each command.
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+    export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+    if [ `uname` == "Linux" ]; then
+        # Export path variables for linuxbrew.
+        export PATH="$HOME/.linuxbrew/bin:$PATH"
+        export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+        export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    fi
+else
+    # Running on Apple silicon
+    export PATH="/opt/homebrew/bin:$PATH"
+    # Allows Coreutils package to be used without 'g' prefix before each command.
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+    export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+    export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
+fi
+# HOMEBREW PREFIX
+export BREW_PREFIX=$(brew --prefix)
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
@@ -58,12 +74,6 @@ export GOPATH=$(go env GOPATH)
 # The orginal version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 
-if [ `uname` == "Linux" ]; then
-    # Export path variables for linuxbrew.
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-fi
 # Why this line?
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Homemade scripts
@@ -73,11 +83,11 @@ export PATH="$HOME/cronjobs:$PATH"
 # TMUX Battery Status
 export PATH="$HOME/Documents/tmux/bin:$PATH"
 # MySQL
-export PATH="/usr/local/mysql/bin:$PATH"
+export PATH="$BREW_PREFIX/mysql/bin:$PATH"
 # Mongodb PATH
 export PATH="$HOME/mongodb/bin:$PATH"
-# Why?
-export PATH="/usr/local/sbin:$PATH"
+# # Why?
+# export PATH="$BREW_PREFIX/sbin:$PATH"
 # MATLAB command line.
 export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
 export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
@@ -96,11 +106,11 @@ export PATH=~/scratch/build:$PATH
 #                                           PYTHON/ANACONDA
 # ==================================================================================================
 # Base env anaconda
-export PATH="/usr/local/anaconda3/bin:$PATH"
+export PATH="$BREW_PREFIX/anaconda3/bin:$PATH"
 # Main env anaconda
-export PATH="/usr/local/anaconda3/envs/main/bin:$PATH"
+export PATH="$BREW_PREFIX/anaconda3/envs/main/bin:$PATH"
 
-source /usr/local/anaconda3/etc/profile.d/conda.sh
+source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
 source activate main
 
 source $HOME/scripts/condasource.sh
@@ -139,7 +149,7 @@ export PATH=${FINK_CLIENT_HOME}/bin:$PATH
 #                                           SPARK
 # ==================================================================================================
 SPARK_VERSION_BREW=$(brew list --versions apache-spark | awk '{print $2}')
-export SPARK_HOME=/usr/local/Cellar/apache-spark/$SPARK_VERSION_BREW/libexec
+export SPARK_HOME=$BREW_PREFIX/Cellar/apache-spark/$SPARK_VERSION_BREW/libexec
 export PATH=$FINK_HOME/bin:$PATH
 
 export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
@@ -184,30 +194,30 @@ alias uh="unset HADOOP_CONF_DIR"
 #                                           KAFKA
 # ==================================================================================================
 KAFKA_VERSION_BREW=$(brew list --versions kafka | awk '{print $2}')
-export KAFKA_HOME=/usr/local/Cellar/kafka/$KAFKA_VERSION_BREW/libexec
+export KAFKA_HOME=$BREW_PREFIX/Cellar/kafka/$KAFKA_VERSION_BREW/libexec
 export PATH=$PATH:$KAFKA_HOME/bin
 export KAFKA_CONF_DIR=$KAFKA_HOME/config
 # ==================================================================================================
 #                                           HIVE
 # ==================================================================================================
 HIVE_VERSION_BREW=$(brew list --versions hive | awk '{print $2}')
-export HIVE_HOME=/usr/local/Cellar/hive/$HIVE_VERSION_BREW
+export HIVE_HOME=$BREW_PREFIX/Cellar/hive/$HIVE_VERSION_BREW
 export PATH=$PATH:$HIVE_HOME/bin
 # ==================================================================================================
 #                                           HBASE
 # ==================================================================================================
 HBASE_VERSION_BREW=$(brew list --versions hbase | awk '{print $2}')
-export HBASE_HOME=/usr/local/Cellar/hbase/$HBASE_VERSION_BREW/libexec
+export HBASE_HOME=$BREW_PREFIX/Cellar/hbase/$HBASE_VERSION_BREW/libexec
 export PATH=$PATH:$HBASE_HOME/bin
 export HBASE_CONF_DIR=$HBASE_HOME/conf
 # ==================================================================================================
 #                                           ZOOKEEPER
 # ==================================================================================================
 ZOOKEEPER_VERSION_BREW=$(brew list --versions zookeeper | awk '{print $2}')
-export ZOOKEEPER_HOME=/usr/local/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
+export ZOOKEEPER_HOME=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
 
-export ZK=/usr/local/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
+export ZK=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
 export PATH=$PATH:$ZK/bin
 
 export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
@@ -222,16 +232,16 @@ export PATH=$FINK_ALERT_SIMULATOR/bin:$PATH
 # ==================================================================================================
 # Ruby version
 RUBY_VERSION_BREW=$(brew list --versions ruby| awk '{print $2}')
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
 # Gems
-export PATH="/usr/local/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.1/bin:$PATH"
+export PATH="$BREW_PREFIX/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.1/bin:$PATH"
 # ==================================================================================================
 #                                           RUST
 # ==================================================================================================
 export PATH="$HOME/.cargo/bin:$PATH"
 RUST_ANALYZER_VERSION=$(brew list --versions rust-analyzer | awk '{print }')
 # rust-analyzer
-export PATH="/usr/local/Cellar/rust-analyzer/$RUST_ANALYZER_VERSION/bin:$PATH"
+export PATH="$BREW_PREFIX/Cellar/rust-analyzer/$RUST_ANALYZER_VERSION/bin:$PATH"
 # debug
 # export RUST_BACKTRACE=1     # Backtrace on
 export RUST_BACKTRACE=full  # Verbosity full
@@ -242,17 +252,17 @@ export OPTION3_HOME=$HOME/github/origin/option3
 # ==================================================================================================
 #                                           GOLANG
 # ==================================================================================================
-# bison is keg-only, which means it was not symlinked into /usr/local,
+# bison is keg-only, which means it was not symlinked into $BREW_PREFIX,
 # because some formulae require a newer version of bison.
 
 # If you need to have bison first in your PATH run:
-#   echo 'export PATH="/usr/local/opt/bison/bin:$PATH"' >> ~/.bash_profile
+#   echo 'export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"' >> ~/.bash_profile
 
 # For compilers to find bison you may need to set:
-#   export LDFLAGS="-L/usr/local/opt/bison/lib"
+#   export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/bison/lib"
+export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
+export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 # export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export PATH="/usr/bin/clang:$PATH"
@@ -295,7 +305,7 @@ export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
 [ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
 
 # Apache Arrow Compilation
-export ARROW_HOME=/usr/local/anaconda3/envs/pyarrow-dev
+export ARROW_HOME=$BREW_PREFIX/anaconda3/envs/pyarrow-dev
 export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
@@ -307,20 +317,20 @@ export CXX=`which g++-$GCC_VERSION`
 export LC_ALL="en_US.UTF-8"
 
 # Scala
-export SCALA_HOME="/usr/local/opt/scala"
+export SCALA_HOME="$BREW_PREFIX/opt/scala"
 export PATH="$PATH:$SCALA_HOME/bin"
 
 # GNU sed
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # # If you need to have bison first in your PATH run:
-# export PATH="/usr/local/opt/bison/bin:$PATH"
+# export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
 
 # # For compilers to find bison you may need to set:
-# export LDFLAGS="-L/usr/local/opt/bison/lib"
+# export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 
 # 4B25-Cambridge-EB3
-export ARMGCC_DIR="/usr/local"
+export ARMGCC_DIR="$BREW_PREFIX"
 
 # astronet
 export ASNWD="$HOME/github/tallamjr/origin/astronet"
@@ -631,11 +641,11 @@ fi
 }
 
 # If you need to have llvm first in your PATH run:
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 
 # For compilers to find llvm you may need to set:
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
+export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
