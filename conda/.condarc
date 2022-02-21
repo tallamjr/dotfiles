@@ -16,10 +16,10 @@ channels:
 show_channel_urls: true
 
 pkgs_dirs:
-  - ~/miniforge/envs/pkgs
+  - ~/miniforge3/pkgs
 
 envs_dirs:
-  - ~/miniforge/envs
+  - ~/miniforge3/envs
 
 create_default_packages:
   - python=3.10
