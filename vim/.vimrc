@@ -384,7 +384,8 @@ let g:vim_markdown_frontmatter = 1
 map <leader>rft :!rustfmt<CR>
 " On full file
 map <localleader>rft :RustFmt<CR>
-
+" Placing let g:rustfmt_autosave = 1 in your ~/.vimrc will enable automatic running of :RustFmt when
+" you save a buffer.
 " let g:rustfmt_autosave = 1
 
 " ================ 'jistr/vim-nerdtree-tabs' =============
