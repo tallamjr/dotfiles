@@ -110,11 +110,14 @@ if [ `uname -m` == "x86_64" ]; then
     export PATH="$BREW_PREFIX/anaconda3/bin:$PATH"
     # Main env anaconda
     export PATH="$BREW_PREFIX/anaconda3/envs/main/bin:$PATH"
-
     source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
     source activate main
 
     source $HOME/scripts/condasource.sh
+else
+    export PATH="$BREW_PREFIX/Caskroom/miniforge/base/bin:$PATH"
+    source $BREW_PREFIX/Caskroom/miniforge/base/etc/profile.d/conda.sh
+    source activate main
 fi
 
 # https://github.com/conda/conda/issues/6018
