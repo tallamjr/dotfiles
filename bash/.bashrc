@@ -105,15 +105,17 @@ export PATH=~/scratch/build:$PATH
 # ==================================================================================================
 #                                           PYTHON/ANACONDA
 # ==================================================================================================
-# Base env anaconda
-export PATH="$BREW_PREFIX/anaconda3/bin:$PATH"
-# Main env anaconda
-export PATH="$BREW_PREFIX/anaconda3/envs/main/bin:$PATH"
+if [ `uname -m` == "x86_64" ]; then
+    # Base env anaconda
+    export PATH="$BREW_PREFIX/anaconda3/bin:$PATH"
+    # Main env anaconda
+    export PATH="$BREW_PREFIX/anaconda3/envs/main/bin:$PATH"
 
-source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
-source activate main
+    source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
+    source activate main
 
-source $HOME/scripts/condasource.sh
+    source $HOME/scripts/condasource.sh
+fi
 
 # https://github.com/conda/conda/issues/6018
 export PYTHONNOUSERSITE=True
