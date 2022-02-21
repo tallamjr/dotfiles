@@ -90,13 +90,14 @@ fi
 
 # Brew install packages
 cat brew/.brewlist | xargs brew install
-# Install Anaconda
+# Install Miniforge
 if [[ $operatingSystem == Darwin ]]; then
-    brew reinstall anaconda > /dev/null 2>&1
-    conda_prefix="/usr/local/anaconda3"
+    brew reinstall miniforge > /dev/null 2>&1
 elif [[ $operatingSystem == Linux ]]; then
-    wget https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O ~/anaconda.sh && bash ~/anaconda.sh -b -p ~/anaconda3 && rm ~/anaconda.sh
-    conda_prefix="$HOME/anaconda3"
+    wget \
+    "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+    bash Miniforge3-$(uname)-$(uname -m).sh
+    rm Miniforge3-$(uname)-$(uname -m).sh
 fi
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
