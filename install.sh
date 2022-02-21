@@ -7,6 +7,9 @@ echo "............"
 sleep 1
 echo " Just Brace Yourself Rodney.... Brace Yourself!"
 sleep 3
+
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
 # Check users home directory for existing dotfiles such as .bashrc and .vimrc and create a backup version.
@@ -22,6 +25,7 @@ done
 
 function stow_files(){
 # Symlink dotfiles to home directory
+pushd $ROOT
 cd dotfiles && stow -v \
     bash/ \
     brew/ \
@@ -33,6 +37,7 @@ cd dotfiles && stow -v \
     vim/ \
     xcode/ \
     zsh/
+popd
 }
 operatingSystem=`uname`
 # Determine operating system via uname. Install appropriate Homebrew.
