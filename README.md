@@ -31,6 +31,24 @@ plugins with:
 source $HOME/.bashrc && vim +PluginInstall +qall
 ```
 
+**NOTE**
+
+It may be necessary to add the bash shell to `/etc/shells`, this can be done with:
+
+```bash
+$ echo /usr/local/bin/bash | sudo tee -a /etc/shells
+```
+
+Then one will need to "change shells" with:
+
+```bash
+$ chsh -s $(which bash)
+```
+
+If the above steps are not done, a common giveaway is `history` will not "work"
+
+Refs: https://stackoverflow.com/a/49049781/4521950
+
 ### Temporary Configuration Install [WIP]
 
 If only temporarily installing on another machine, run:
