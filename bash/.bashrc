@@ -58,6 +58,7 @@ if [ `uname -m` == "x86_64" ]; then
 else
     # Running on Apple silicon
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/bin/gcc-11:$PATH"
     # Allows Coreutils package to be used without 'g' prefix before each command.
     export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
     export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -111,16 +112,18 @@ if [ `uname -m` == "x86_64" ]; then
     # Main env anaconda
     export PATH="$BREW_PREFIX/anaconda3/envs/main/bin:$PATH"
     source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
-    source activate main
+    conda activate main
 
-    source $HOME/scripts/condasource.sh
+    source $HOME/github/tallamjr/origin/scripts/condasource.sh
 else
     # Base env anaconda
-    export PATH="$HOME/miniforge3/bin:$PATH"
+    export PATH="$HOME/mamaforge/bin:$PATH"
     # Main env anaconda
-    export PATH="$HOME/miniforge3/envs/main/bin:$PATH"
-    source $HOME/miniforge3/etc/profile.d/conda.sh
-    source activate main
+    export PATH="$HOME/mambaforge/envs/main/bin:$PATH"
+    source $HOME/mambaforge/etc/profile.d/conda.sh
+    conda activate main
+
+    source $HOME/github/tallamjr/origin/scripts/condasource.sh
 fi
 
 # https://github.com/conda/conda/issues/6018
@@ -141,7 +144,7 @@ export GREP_OPTIONS="--color=auto"
 # ==================================================================================================
 #                                           JAVA
 # ==================================================================================================
-export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
+# export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
 # ==================================================================================================
 #                                           FINK
 # ==================================================================================================
@@ -318,10 +321,10 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-# export CC=/usr/bin/clang
-# export CXX=/usr/bin/clang++
-export CC=`which gcc-$GCC_VERSION`
-export CXX=`which g++-$GCC_VERSION`
+export CC=`which clang`
+export CXX=`which clang++`
+# export CC=`which gcc-$GCC_VERSION`
+# export CXX=`which g++-$GCC_VERSION`
 export LC_ALL="en_US.UTF-8"
 
 # Scala

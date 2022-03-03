@@ -1,38 +1,113 @@
-# This is a sample .condarc file.
-# It adds the r Anaconda.org channel and enables
-# the show_channel_urls option.
-
-# channel locations. These override conda defaults, i.e., conda will
-# search *only* the channels listed here, in the order given.
-# Use "defaults" to automatically include all default channels.
-# Non-url channels will be interpreted as Anaconda.org usernames
-# (this can be changed by modifying the channel_alias key; see below).
-# The default is just 'defaults'.
+add_anaconda_token: True
+add_pip_as_python_dependency: True
+aggressive_update_packages:
+  - ca-certificates
+  - certifi
+  - openssl
+allow_conda_downgrades: False
+allow_cycles: True
+allow_non_channel_urls: False
+allow_softlinks: False
+always_copy: False
+always_softlink: False
+always_yes: None
+anaconda_upload: None
+auto_activate_base: True
+auto_stack: 0
+auto_update_conda: True
+bld_path: 
+changeps1: True
+channel_alias: https://conda.anaconda.org
+channel_priority: flexible
 channels:
   - conda-forge
-
-# Show channel URLs when displaying what is going to be downloaded
-# and in 'conda list'. The default is False.
-show_channel_urls: true
-
-pkgs_dirs:
-  - ~/miniforge3/pkgs
-
+client_ssl_cert: None
+client_ssl_cert_key: None
+clobber: False
+conda_build: {}
+create_default_packages: []
+croot: /Users/tallamjr/mambaforge/conda-bld
+custom_channels:
+  pkgs/main: https://repo.anaconda.com
+  pkgs/r: https://repo.anaconda.com
+  pkgs/pro: https://repo.anaconda.com
+custom_multichannels:
+  defaults: 
+    - https://repo.anaconda.com/pkgs/main
+    - https://repo.anaconda.com/pkgs/r
+  local: 
+debug: False
+default_channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+default_python: 3.9
+default_threads: None
+deps_modifier: not_set
+dev: False
+disallowed_packages: []
+download_only: False
+dry_run: False
+enable_private_envs: False
+env_prompt: ({default_env}) 
 envs_dirs:
-  - ~/miniforge3/envs
-
-create_default_packages:
-  - python=3.10
-  - pip:
-    - black
-    - neovim
-    - nbval
-    - pytest
-    - pytest-cov
-    - pytest-subtests
-    - pep517
-    - twine
-
-# For more information about this file see:
-# https://conda.io/docs/user-guide/configuration/use-condarc.html
-report_errors: false
+  - /Users/tallamjr/mambaforge/envs
+  - /Users/tallamjr/.conda/envs
+error_upload_url: https://conda.io/conda-post/unexpected-error
+execute_threads: 1
+extra_safety_checks: False
+force: False
+force_32bit: False
+force_reinstall: False
+force_remove: False
+ignore_pinned: False
+json: False
+local_repodata_ttl: 1
+migrated_channel_aliases: []
+migrated_custom_channels: {}
+non_admin_enabled: True
+notify_outdated_conda: True
+offline: False
+override_channels_enabled: True
+path_conflict: clobber
+pinned_packages: []
+pip_interop_enabled: False
+pkgs_dirs:
+  - /Users/tallamjr/mambaforge/pkgs
+  - /Users/tallamjr/.conda/pkgs
+proxy_servers: {}
+quiet: False
+remote_backoff_factor: 1
+remote_connect_timeout_secs: 9.15
+remote_max_retries: 3
+remote_read_timeout_secs: 60.0
+repodata_fns:
+  - current_repodata.json
+  - repodata.json
+repodata_threads: None
+report_errors: None
+restore_free_channel: False
+rollback_enabled: True
+root_prefix: /Users/tallamjr/mambaforge
+safety_checks: warn
+sat_solver: pycosat
+separate_format_cache: False
+shortcuts: True
+show_channel_urls: None
+signing_metadata_url_base: None
+solver_ignore_timestamps: False
+ssl_verify: True
+subdir: osx-arm64
+subdirs:
+  - osx-arm64
+  - noarch
+target_prefix_override: 
+track_features: []
+unsatisfiable_hints: True
+unsatisfiable_hints_check_depth: 2
+update_modifier: update_specs
+use_index_cache: False
+use_local: False
+use_only_tar_bz2: False
+verbosity: 0
+verify_threads: 1
+whitelist_channels: []
