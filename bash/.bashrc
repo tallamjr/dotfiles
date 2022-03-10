@@ -405,6 +405,7 @@ alias pt='pytest --verbose --capture=no --showlocals --durations=0 --setup-show'
 alias pylab="ipython -pylab"                                            # Ipython
 alias qq="exit"
 alias resetusb='sudo launchctl stop com.apple.usbd; sudo launchctl start com.apple.usbd'
+alias rmbiber="rm -rf `biber --cache`"
 alias rr="R CMD BATCH "
 alias rspace="rename \"s/ /-/g\" * && rename \"s/[\(\)]//g\" *"
 alias sa="source activate"
