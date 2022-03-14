@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "coc-rust-analyzer": ">=0.12.0"
+    "coc-rust-analyzer": ">=0.60.0"
   }
 }
