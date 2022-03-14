@@ -103,6 +103,8 @@ au BufRead,BufNewFile *.txt setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
 au BufRead,BufNewFile *.* setlocal textwidth=100
 
+map <Leader>stw :set textwidth=
+
 set spelllang=en_gb
 set spellfile=$HOME/dotfiles/vim/spell/custom.en.utf-8.add
 
@@ -637,7 +639,7 @@ let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_4 = {}
-let wiki_4.path = '~/Life/life/'
+let wiki_4.path = '~/github/tallamjr/origin/life/'
 let wiki_4.index = 'README'
 let wiki_4.syntax = 'markdown'
 let wiki_4.ext = '.md'
