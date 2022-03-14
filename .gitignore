@@ -30,7 +30,7 @@ vim/.netrwhist
 
 # Ignore certain folders in .config
 Autodesk
-coc/suggest.txt
+coc
 configstore
 dask
 exercism
