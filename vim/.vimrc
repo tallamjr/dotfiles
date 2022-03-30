@@ -135,9 +135,9 @@ au FileType python map <silent> <leader>B Obreakpoint()<esc>
 " 4 space tab, inspired by Linux kernel development
 " Modified from: https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 filetype plugin indent on
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 
@@ -357,6 +357,7 @@ au BufRead,BufNewFile *.py highlight Comment ctermfg=darkgrey
 au BufRead,BufNewFile *.bib highlight Comment ctermfg=green
 
 hi SpellBad cterm=bold ctermfg=yellow
+au FileType vimwiki highlight SpellBad cterm=bold ctermfg=white
 
 " ================ YAML Formatting ==============
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -403,6 +404,8 @@ map <Leader>nn <plug>NERDTreeTabsToggle<CR>
 
 map <leader>nt :NERDTreeFocusToggle<CR>
 map <leader>nfind :NERDTreeTabsFind<CR>
+
+nmap <Leader>R :NERDTreeFocus<CR>R<C-W><C-P>
 let g:nerdtree_tabs_autoclose = 1   " Close current tab if there is only one window in it and it's NERDTree
 let g:nerdtree_tabs_synchronize_view = 1    " Synchronize view of all NERDTree windows (scroll and cursor position)
 let g:nerdtree_tabs_autofind = 0    " Automatically find and select currently opened file in NERDTree.
@@ -452,7 +455,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+  set conceallevel=0 concealcursor=niv
 endif
 
 " Enable snipMate compatibility feature.
@@ -599,6 +602,7 @@ map <leader>aa :AgFromSearch<CR>
 "
 autocmd BufWritePre * StripWhitespace
 " map <leader>ws :StripWhitespace<CR>
+let g:current_line_whitespace_disabled_hard=1
 
 " ================ 'vimwiki/vimwiki' ==============
 "

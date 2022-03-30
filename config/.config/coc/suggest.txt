@@ -1,3 +1,5 @@
+tex|texttt|around
+cosmo|cosmologists|around
 Brew|Brewfile|file
 bre|brewlists.sh|file
 mini|miniforge|file
