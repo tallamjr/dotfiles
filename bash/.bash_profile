@@ -2,7 +2,6 @@
 export PATH="$HOME/anaconda/bin:$PATH"
 # export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -28,3 +27,4 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+. "$HOME/.cargo/env"

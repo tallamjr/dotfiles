@@ -114,7 +114,6 @@ if [ `uname -m` == "x86_64" ]; then
     source $BREW_PREFIX/anaconda3/etc/profile.d/conda.sh
     conda activate main
 
-    source $HOME/github/tallamjr/origin/scripts/condasource.sh
 else
     # Base env anaconda
     export PATH="$HOME/mamaforge/bin:$PATH"
@@ -123,8 +122,9 @@ else
     source $HOME/mambaforge/etc/profile.d/conda.sh
     conda activate main
 
-    source $HOME/github/tallamjr/origin/scripts/condasource.sh
 fi
+
+# source $HOME/github/tallamjr/origin/scripts/condasource.sh
 
 # https://github.com/conda/conda/issues/6018
 export PYTHONNOUSERSITE=True
@@ -361,6 +361,7 @@ alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew docto
 alias brewversion="$(brew list --versions $1 | awk '{print $2}')"
 alias ca="conda activate"
 alias casn="conda activate astronet"
+alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
 alias crontabedit="env EDITOR=vim crontab -e"                           # Edit crontab with vim
@@ -412,6 +413,7 @@ alias sa="source activate"
 alias sb="source ~/.bashrc"
 alias sleep="sudo shutdown -s now"                                      # Put computer to sleep
 alias speed="speedtest-cli"
+alias tmp="cd /tmp"
 alias til="vim ~/github/origin/til/README.md"
 alias tree="tree -I '*__pycache__|*.pkl'"
 alias tmux="tmux -2"                                                    # Force tmux to use 256 colours
@@ -661,3 +663,4 @@ export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+. "$HOME/.cargo/env"
