@@ -1,5 +1,9 @@
 " ================ General Shortcuts ==============k
 ab teh the
+ab redshit redshift
+ab universe Universe
+ab sun Sun
+ab univ Universe
 " ================ Emoji Shortcuts ==============k
 ab :bomb: 💣
 ab :book: 📖
@@ -26,5 +30,3 @@ ab :warning: ⚠
 ab :wip: 🚧
 ab :wrench: 🔧
 ab :writing: ✍🏼
-
-ab redshit redshift

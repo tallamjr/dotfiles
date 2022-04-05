@@ -67,6 +67,7 @@ else
 fi
 # HOMEBREW PREFIX
 export BREW_PREFIX=$(brew --prefix)
+export HOMEBREW_NO_AUTO_UPDATE=1  # Do not auto update everything
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)

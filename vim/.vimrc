@@ -667,7 +667,7 @@ let wiki_6.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_6.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "
 let wiki_7 = {}
-let wiki_7.path = '~/Github/tallamjr/origin/apache/'
+let wiki_7.path = '~/github/tallamjr/origin/apache/'
 let wiki_7.index = 'README'
 let wiki_7.syntax = 'markdown'
 let wiki_7.ext = '.md'
@@ -675,7 +675,7 @@ let wiki_7.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_7.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_8 = {}
-let wiki_8.path = '~/Github/tallamjr/origin/TIN/'
+let wiki_8.path = '~/github/tallamjr/origin/TIN/'
 let wiki_8.index = 'README'
 let wiki_8.syntax = 'markdown'
 let wiki_8.ext = '.md'
@@ -683,7 +683,7 @@ let wiki_8.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_8.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_9 = {}
-let wiki_9.path = '~/Github/tallamjr/origin/hp/'
+let wiki_9.path = '~/github/tallamjr/origin/hp/'
 let wiki_9.index = 'README'
 let wiki_9.syntax = 'markdown'
 let wiki_9.ext = '.md'
@@ -691,7 +691,7 @@ let wiki_9.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_9.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_10 = {}
-let wiki_10.path = '~/Github/tallamjr/origin/ssf/'
+let wiki_10.path = '~/github/tallamjr/origin/ssf/'
 let wiki_10.index = 'README'
 let wiki_10.syntax = 'markdown'
 let wiki_10.ext = '.md'
@@ -699,14 +699,22 @@ let wiki_10.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': '
 let wiki_10.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_11 = {}
-let wiki_11.path = '~/Github/tallamjr/origin/curriculum-vitae/'
+let wiki_11.path = '~/github/tallamjr/origin/curriculum-vitae/'
 let wiki_11.index = 'README'
 let wiki_11.syntax = 'markdown'
 let wiki_11.ext = '.md'
 let wiki_11.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_11.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
-let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4, wiki_5, wiki_6, wiki_7, wiki_8, wiki_9, wiki_10, wiki_11]
+let wiki_12 = {}
+let wiki_12.path = '~/github/tallamjr/origin/wedmin/'
+let wiki_12.index = 'README'
+let wiki_12.syntax = 'markdown'
+let wiki_12.ext = '.md'
+let wiki_12.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_12.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4, wiki_5, wiki_6, wiki_7, wiki_8, wiki_9, wiki_10, wiki_11, wiki_12]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
 map <localleader>re :VimwikiAll2HTML<CR> :!open ~/vimwiki_html/index.html<CR>
