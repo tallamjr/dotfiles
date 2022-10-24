@@ -4,6 +4,8 @@ ab redshit redshift
 ab universe Universe
 ab sun Sun
 ab univ Universe
+ab photometic photometric
+ab eqaution equation
 " ================ Emoji Shortcuts ==============k
 ab :bomb: 💣
 ab :book: 📖
@@ -24,9 +26,11 @@ ab :sad_face: ☹️
 ab :see_no_evil: 🙈
 ab :sweat: 😅
 ab :telephone: 📞
+ab :telescope: 🔭
 ab :tick: ✅
 ab :thumbsup: 👍
 ab :warning: ⚠
 ab :wip: 🚧
 ab :wrench: 🔧
 ab :writing: ✍🏼
+ab :x: ❌

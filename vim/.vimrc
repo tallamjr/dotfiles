@@ -35,6 +35,8 @@ map <leader>sub :%s
 
 map <leader>fmt :!fmt -1000<CR>
 
+map <leader>mm :!markmap -w % &<CR>
+
 map <localleader>com :highlight Comment ctermfg=Grey<CR>
 
 nnoremap <Leader>l :set cursorline!<CR>
@@ -49,10 +51,19 @@ vnoremap <space> zf
 xnoremap <leader>say :w !say<CR>
 
 " set shellcmdflag=-ic    "Run interactive shell for custom commands
+"
+fun! SetMyTodos()
+  syn match myTodos /\%(DONE\)\|\%(NOTE:\)/ containedin=.*Comment
+  hi link myTodos Todo
+endfu
+autocmd bufenter * :call SetMyTodos()
+autocmd filetype * :call SetMyTodos()
 
 " ================ NeoVim ==============
 tnoremap kj <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>:bd!<CR>
+
+let g:python3_host_prog = '/Users/tallamjr/mambaforge/envs/main/bin/python'
 
 " ================ Persistant Undo ===========================
 "
@@ -85,6 +96,8 @@ set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
+
+nmap <Leader>ic :set ignorecase! ignorecase?<CR>
 " map <Leader>/ :noh<CR>
 " nnoremap <C-h> :set hlsearch! hlsearch?<CR>
 map <Leader>/ :set hlsearch! hlsearch?<CR>
@@ -182,12 +195,8 @@ map <leader>po :!open <C-R>%<BS><BS><BS><BS>.pdf<CR>
 map <leader>ck :<CR>:!cd && pwd
 
 map <leader>lm :w<CR>
-    \:!pdflatex <C-R>%<CR><CR>
     \:!biber <C-R>%<BS><BS><BS><BS><CR><CR>
-    \:!latexmk <C-R>%<CR><CR>
-    \:!pdflatex -shell-escape <C-R>%<CR><CR>
-    \:!pythontex --rerun=always<C-R>%<CR><CR>
-    \:!pdflatex -shell-escape <C-R>%<CR><CR>
+    \:!latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape <C-R>%<CR><CR>
     \:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
 
 map <leader>lmm :w<CR>
@@ -272,17 +281,27 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'suan/vim-instant-markdown'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/neocomplete'
+" Plug 'Shougo/neocomplete'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Multiple Plug commands can be written in a single line using | separators
 Plug 'Yggdroot/indentLine'
 Plug 'altercation/vim-colors-solarized'
 Plug 'beloglazov/vim-online-thesaurus'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'chrisbra/unicode.vim'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go', { 'tag': '*' } " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fisadev/vim-isort'
 Plug 'flazz/vim-colorschemes'
 Plug 'gmarik/Vundle.vim'
 Plug 'godlygeek/tabular'
@@ -358,16 +377,34 @@ au BufRead,BufNewFile *.bib highlight Comment ctermfg=green
 
 hi SpellBad cterm=bold ctermfg=yellow
 au FileType vimwiki highlight SpellBad cterm=bold ctermfg=white
+" ================ Python =======================
+"
+autocmd BufWritePre *.py Isort
+map <Leader>r :FZF<CR>
 
 " ================ YAML Formatting ==============
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au FileType yaml let &l:formatprg= "yamlfmt /dev/stdin"
 
+" ================ ''nvie/vim-flake8' =============
+"
+let g:flake8_cmd = "/Users/tallamjr/mambaforge/envs/astronet/bin/flake8"
 " ================ 'psf/black' =============
 "
 " Black(Python) format the visual selection
 xnoremap <Leader>k :!black -q -<CR>
 map <Leader>kk :Black<CR>
+autocmd BufWritePre *.py Black
+
+" ================ 'neoclide/coc.nvim' =============
+"
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <C-@> on vim
+inoremap <silent><expr> <c-@> coc#refresh()
+
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 " ================ 'junegunn/fzf' =============
 "
@@ -393,7 +430,7 @@ map <leader>rft :!rustfmt<CR>
 map <localleader>rft :RustFmt<CR>
 " Placing let g:rustfmt_autosave = 1 in your ~/.vimrc will enable automatic running of :RustFmt when
 " you save a buffer.
-" let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 1
 
 " ================ 'jistr/vim-nerdtree-tabs' =============
 "
@@ -429,12 +466,45 @@ let g:syntastic_python_flake8_post_args='--ignore=E501,E203'
 "
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" COCsnippets
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " ================ 'Shougo/neosnippet.vim' ==============
 "
@@ -485,67 +555,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 " let g:haskell_indent_do = 3
 " let g:haskell_indent_in = 1
 "
-" ================ 'Shougo/neocomplete'  ==============
-" Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? \"\<Down>" : \"\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " ================ 'vim/airline'  ==============
 "
+let g:airline_theme='deus'
 " airline options
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
@@ -620,30 +632,31 @@ let g:calendar_google_task = 1
 let g:vimwiki_hl_headers = 1
 
 let wiki_1 = {}
-let wiki_1.path = '~/vimwiki/'
-" let wiki_1.syntax = 'markdown'
-" let wiki_1.ext = '.md'
-" let wiki_1.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
+let wiki_1.path = '~/github/tallamjr/origin/life/'
+let wiki_1.index = 'README'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let wiki_1.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_2 = {}
-let wiki_2.path = '~/PhD/wiki/'
-let wiki_2.index = 'index'
+let wiki_2.path = '~/github/tallamjr/origin/learn/'
+let wiki_2.index = 'README'
 let wiki_2.syntax = 'markdown'
-let wiki_2.ext = '.markdown'
+let wiki_2.ext = '.md'
 let wiki_2.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_2.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_3 = {}
-let wiki_3.path = '~/PhD/cdt/placement/wiki/'
-let wiki_3.index = 'index'
+let wiki_3.path = '~/github/tallamjr/origin/biz/'
+let wiki_3.index = 'README'
 let wiki_3.syntax = 'markdown'
-let wiki_3.ext = '.markdown'
+let wiki_3.ext = '.md'
 let wiki_3.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_3.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_4 = {}
-let wiki_4.path = '~/github/tallamjr/origin/life/'
+let wiki_4.path = '~/github/tallamjr/origin/curriculum-vitae/'
 let wiki_4.index = 'README'
 let wiki_4.syntax = 'markdown'
 let wiki_4.ext = '.md'
@@ -651,7 +664,7 @@ let wiki_4.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_4.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_5 = {}
-let wiki_5.path = '~/github/tallamjr/origin/learn/'
+let wiki_5.path = '~/github/tallamjr/origin/phd/'
 let wiki_5.index = 'README'
 let wiki_5.syntax = 'markdown'
 let wiki_5.ext = '.md'
@@ -659,13 +672,13 @@ let wiki_5.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'm
 let wiki_5.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_6 = {}
-let wiki_6.path = '~/github/tallamjr/origin/phd/'
+let wiki_6.path = '~/github/tallamjr/origin/wedmin/'
 let wiki_6.index = 'README'
 let wiki_6.syntax = 'markdown'
 let wiki_6.ext = '.md'
 let wiki_6.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_6.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-"
+
 let wiki_7 = {}
 let wiki_7.path = '~/github/tallamjr/origin/apache/'
 let wiki_7.index = 'README'
@@ -699,22 +712,26 @@ let wiki_10.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': '
 let wiki_10.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 let wiki_11 = {}
-let wiki_11.path = '~/github/tallamjr/origin/curriculum-vitae/'
+let wiki_11.path = '~/github/tallamjr/origin/nova/'
 let wiki_11.index = 'README'
 let wiki_11.syntax = 'markdown'
 let wiki_11.ext = '.md'
 let wiki_11.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
 let wiki_11.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
-let wiki_12 = {}
-let wiki_12.path = '~/github/tallamjr/origin/wedmin/'
-let wiki_12.index = 'README'
-let wiki_12.syntax = 'markdown'
-let wiki_12.ext = '.md'
-let wiki_12.ext2syntax = {'.md': 'markdown', '.markdown': 'markdown','.mdown': 'markdown'}
-let wiki_12.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-
-let g:vimwiki_list = [wiki_1, wiki_2, wiki_3, wiki_4, wiki_5, wiki_6, wiki_7, wiki_8, wiki_9, wiki_10, wiki_11, wiki_12]
+let g:vimwiki_list = [
+      \ wiki_1,
+      \ wiki_2,
+      \ wiki_3,
+      \ wiki_4,
+      \ wiki_5,
+      \ wiki_6,
+      \ wiki_7,
+      \ wiki_8,
+      \ wiki_9,
+      \ wiki_10,
+      \ wiki_11,
+      \ ]
 
 map <leader>iu :VimwikiDiaryGenerateLinks<CR>
 map <localleader>re :VimwikiAll2HTML<CR> :!open ~/vimwiki_html/index.html<CR>

@@ -1,7 +1,7 @@
 # Apache License
 # lic
 snippet lic
-    # Copyright 2020 A. A. Research
+    # Copyright 2020 - 2022
     # Author: Tarek Allam Jr.
     #
     # Licensed under the Apache License, Version 2.0 (the "License");
@@ -44,3 +44,9 @@ snippet docc
 
 snippet pdb
     import pdb;pdb.set_trace()
+
+snippet niy
+    import inspect
+    import logging as log
+    log.critical(f"{inspect.stack()[0].function} -- Not Fully Implemented Yet")
+    pass
