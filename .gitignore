@@ -1,3 +1,7 @@
+# coc
+config/.config/coc/*/**
+macos/*/**
+
 # General
 .DS_Store
 .AppleDouble
