@@ -28,3 +28,4 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 . "$HOME/.cargo/env"
+export PATH="/opt/homebrew/sbin:$PATH"

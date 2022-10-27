@@ -42,6 +42,11 @@ export TMP=/tmp
 # ==================================================================================================
 #                                           PATH EXPORTS
 # ==================================================================================================
+# Setting PATH for EPD-6.3-1
+# The orginal version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
+export PATH="/usr/bin:${PATH}"
+
 if [ `uname -m` == "x86_64" ]; then
     export PATH="/usr/local/bin:$PATH"
     # Allows Coreutils package to be used without 'g' prefix before each command.
@@ -69,17 +74,10 @@ fi
 export BREW_PREFIX=$(brew --prefix)
 export HOMEBREW_NO_AUTO_UPDATE=1  # Do not auto update everything
 
-export PATH=$PATH:$(go env GOPATH)/bin
-export GOPATH=$(go env GOPATH)
-#
-# Setting PATH for EPD-6.3-1
-# The orginal version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
-
 # Why this line?
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Homemade scripts
-export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/github/tallamjr/origin/scripts:$PATH"
 # Cronjobs
 export PATH="$HOME/cronjobs:$PATH"
 # TMUX Battery Status
@@ -102,8 +100,14 @@ export GHIDRA_HOME="$HOME/bin/ghidra_9.1.2_PUBLIC"
 export PATH="$GHIDRA_HOME:$PATH"
 alias ghd="cd $GHIDRA_HOME && ./ghidraRun"
 
+export PATH="$HOME/bin:$PATH"
+
 # gitlatex path:
 export PATH=~/scratch/build:$PATH
+
+# grpcio -- https://stackoverflow.com/a/68137855/4521950
+export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 # ==================================================================================================
 #                                           PYTHON/ANACONDA
 # ==================================================================================================
@@ -145,16 +149,16 @@ export GREP_OPTIONS="--color=auto"
 # ==================================================================================================
 #                                           JAVA
 # ==================================================================================================
-# export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
+export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
 # ==================================================================================================
 #                                           FINK
 # ==================================================================================================
 # Fink-Broker
-export FINK_HOME=$HOME/Github/fink-broker
+export FINK_HOME=$HOME/github/tallam/forks/fink-broker
 export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
 
 # Fink-Client
-export FINK_CLIENT_HOME=$HOME/Github/fink-client
+export FINK_CLIENT_HOME=$HOME/github/tallamjr/forks/fink-client
 export PYTHONPATH=${FINK_CLIENT_HOME}:$PYTHONPATH
 export PATH=${FINK_CLIENT_HOME}/bin:$PATH
 # ==================================================================================================
@@ -168,6 +172,9 @@ export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zi
 export PYTHONPATH="${SPARKLIB}:${FINK_HOME}:${FINK_HOME}/python:$PYTHONPATH"
 export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
 
+# With explicit path to 'hadoop' binary
+export SPARK_DIST_CLASSPATH=$(`which hadoop` classpath)
+
 # PySpark
 export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
 # export PYSPARK_DRIVER_PYTHON="jupyter"
@@ -177,8 +184,9 @@ alias ss="spark-submit"
 #                                           HADOOP
 # ==================================================================================================
 # Hadoop home directory configuration
-HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
-export HADOOP_HOME=$HOME/bin/hadoop-3.2.1
+# BREW_CELLAR=$(brew --cellar)
+export HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
+export HADOOP_HOME=$(brew --cellar)/hadoop/${HADOOP_VERSION_BREW}
 export HADOOP_INSTALL=$HADOOP_HOME
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
@@ -201,7 +209,6 @@ export HADOOP_HOME_WARN_SUPPRESS=1
 export HADOOP_ROOT_LOGGER="WARN,DRFA"
 
 alias uh="unset HADOOP_CONF_DIR"
-
 # ==================================================================================================
 #                                           KAFKA
 # ==================================================================================================
@@ -236,7 +243,7 @@ export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
 # ==================================================================================================
 #                                           FINK
 # ==================================================================================================
-export FINK_ALERT_SIMULATOR=$HOME/Github/fink-alert-simulator
+export FINK_ALERT_SIMULATOR=$HOME/github/tallamjr/forks/fink-alert-simulator
 export PYTHONPATH=$FINK_ALERT_SIMULATOR:$PYTHONPATH
 export PATH=$FINK_ALERT_SIMULATOR/bin:$PATH
 # ==================================================================================================
@@ -353,7 +360,6 @@ export PYTHONPATH="${PYTHONPATH}:$HOME/scratch/matlab2python/"
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
-# git ls-files -z -o --exclude-standard | xargs -0 rm
 alias asn="cd $HOME/github/tallamjr/origin/astronet"
 alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias bashrc="vim ~/.bashrc"
@@ -361,7 +367,7 @@ alias blc="black . --check"
 alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
 alias brewversion="$(brew list --versions $1 | awk '{print $2}')"
 alias ca="conda activate"
-alias casn="conda activate astronet"
+alias caa="conda activate astronet"
 alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
@@ -373,11 +379,14 @@ alias dus="du -sh * | sort -h"
 alias echof='echo "`f`"'
 alias f="fzf -i --color=hl:200,hl+:200"
 alias ff="gfortran"
+alias f8="flake8"
 alias fire="open /Applications/Firefox.app/"
 alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
 alias gg="grep -i"
 alias ghub="cd ~/github/"
+alias gpu="watch sudo powermetrics --samplers gpu_power -i500 -n1"
 alias grep="grep -E"
+alias hashme="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
 alias hp="ssh hypatia"
 alias ino="arduino-cli"
 # alias jc="jupyter nbconvert --ClearOutputPreprocessor.enabled=True --ClearMetadataPreprocessor.enabled=True --clear-output --inplace"
@@ -386,7 +395,7 @@ alias jc="jupyter nbconvert --ClearOutputPreprocessor.enabled=True --clear-outpu
 alias jn="jupyter notebook"
 alias kali="dockerdaemon && docker run -t -i kali:latest /bin/bash"     # Start Kalilinux via docker vm.
 alias la="ls -lah"                                                      # Listing in human-readable format
-alias lrt="ls -lart"
+alias lrt="ls -lahrt"
 alias ls="ls --color"                                                   # Listing in colour
 alias lsc="ls | wc | awk '{print $1}'"                                  # Show the 'count' of files in a director.
 alias lsg="ls | grep -i"                                                # Search a directory listing with grep case-insensitive.
@@ -395,9 +404,11 @@ alias matlab="matlab -nodesktop"
 alias mp="cd ~/UCL_2016/major-project/"
 alias myp="echo $MYRIAD | pbcopy && ssh myriad"
 alias neo=" pip install neovim && pip install black"
+alias nq="networkQuality"
 alias openf='open "`f`"'
 alias p2="ssh plus2"
 alias pat="pygmentize -g"                                               # Colourful 'cat' output
+alias pdflatex="pdflatex -interaction nonstopmode -halt-on-error -file-line-error"
 alias pingg="ping www.google.com"
 alias pj="python -m json.tool"
 alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/`date +%Y-%m-%d`.markdown"
@@ -410,10 +421,12 @@ alias resetusb='sudo launchctl stop com.apple.usbd; sudo launchctl start com.app
 alias rmbiber="rm -rf `biber --cache`"
 alias rr="R CMD BATCH "
 alias rspace="rename \"s/ /-/g\" * && rename \"s/[\(\)]//g\" *"
+alias rrs="rsync -avzh --progress --stats"
 alias sa="source activate"
 alias sb="source ~/.bashrc"
 alias sleep="sudo shutdown -s now"                                      # Put computer to sleep
 alias speed="speedtest-cli"
+alias tc="texcount -inc -total"
 alias tmp="cd /tmp"
 alias til="vim ~/github/origin/til/README.md"
 alias tree="tree -I '*__pycache__|*.pkl'"
@@ -428,16 +441,35 @@ alias vi="nvim"
 alias vimf='vim `f`'
 alias vimplugininstall="vim +PluginInstall +qall"                       # Vim pluin install from command line.
 alias vimrc="vim ~/.vimrc"
+alias vimn="vim +NERDTree"
+alias watch="watch --differences"
 alias wiki="vim +VimwikiIndex"
 alias wpp="which pip && which python && python --version"
 alias xx="chmod +x"                                                     # Make file executable
 
 GCC_VERSION=`brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1`
 alias gcc="gcc-$GCC_VERSION"
-# Application shortcuts
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
+function ldd() {
+
+  OLD=$1
+  NEW=$2
+  FILE=$3
+
+  latexdiff-vc \
+    --config LATEX="pdflatex --interaction=nonstopmode" \
+    --flatten \
+    --pdf \
+    --git \
+    --revision $OLD --revision $NEW \
+    $FILE
+
+  open "${FILE%%.*}"-diff$old-$new.pdf
+
+}
+
 function cdd() {
     cd `python -c "print($1 * '../')"`
 }
@@ -546,51 +578,50 @@ libraryDependencies ++= Seq(
 }
 
 function portal() {
-# Create local portal to Hypatia for use of notebooks on cluster
-PORTNUMBER=$1
-NODENUMBER=$2
-ssh -t -t tallam@hypatia -L $PORTNUMBER:localhost:$PORTNUMBER ssh compute-0-$NODENUMBER -L $PORTNUMBER:localhost:$PORTNUMBER
+  # Create local portal to Hypatia for use of notebooks on cluster
+  PORTNUMBER=$1
+  NODENUMBER=$2
+  ssh -t -t tallam@hypatia -L $PORTNUMBER:localhost:$PORTNUMBER ssh compute-0-$NODENUMBER -L $PORTNUMBER:localhost:$PORTNUMBER
 }
 
 function mkcd() {
-# Make directory and cd into it straight away.
-mkdir $1 && cd $1
+  # Make directory and cd into it straight away.
+  mkdir $1 && cd $1
 }
 
 function cmdfu() {
-# Get random command line fact from commanlinefu.com
-curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext"
+  # Get random command line fact from commanlinefu.com
+  curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext"
 }
 
 function calc() {
-# Python calculator
-python -ic "from __future__ import division; from math import *; from random import *"
+  # Python calculator
+  python -ic "from __future__ import division; from math import *; from random import *"
 }
 
 function lag() {
-# List of files in a directory and grep for a certain one.
-ls -la | grep -i "$1" | awk '{print $9}'
+  # List of files in a directory and grep for a certain one.
+  ls -la | grep -i "$1" | awk '{print $9}'
 }
 
 function devlog() {
-# PhD Development Logbook
-vim ~/PhD/project/logs/logbook-`date +%Y%W`.md
+  # PhD Development Logbook
+  vim ~/PhD/project/logs/logbook-`date +%Y%W`.md
 }
 
 function so() {
-# Size Of - folder, then sort in human readable form.
-du -s "$1" | sort -h
-
+  # Size Of - folder, then sort in human readable form.
+  du -s "$1" | sort -h
 }
 
 function ppwd() {
-# Get PWD variable and copy to system clipboard - OSX specific.
-echo $PWD | pbcopy
+  # Get PWD variable and copy to system clipboard - OSX specific.
+  echo $PWD | pbcopy
 }
 
 function jj() {
-# Compile and then run java code.
-javac $1 && java `basename $1 .java`
+  # Compile and then run java code.
+  javac $1 && java `basename $1 .java`
 }
 
 function bdd() {
@@ -661,7 +692,13 @@ export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 # For compilers to find llvm you may need to set:
 export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
 export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
+
+. "$HOME/.cargo/env"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+alias db="export LOCAL_DEBUG=0"
+alias ndb="unset LOCAL_DEBUG"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-. "$HOME/.cargo/env"
