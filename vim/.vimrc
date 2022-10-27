@@ -143,6 +143,7 @@ au! Syntax scala source ~/.vim/syntax/scala.vim
 
 au FileType python map <silent> <leader>b obreakpoint()<esc>
 au FileType python map <silent> <leader>B Obreakpoint()<esc>
+
 " ================ Tabs/Buffers ==============
 "
 " 4 space tab, inspired by Linux kernel development
@@ -279,17 +280,7 @@ endif
 set rtp +=~/.vim
 call plug#begin('~/.vim/plugged')
 
-" Plug 'suan/vim-instant-markdown'
 Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'Shougo/neocomplete'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Multiple Plug commands can be written in a single line using | separators
@@ -328,7 +319,6 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'rstacruz/sparkup'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " On-demand loading
 Plug 'sickill/vim-pasta'
 Plug 'stephpy/vim-yaml'
@@ -346,13 +336,7 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'vim-scripts/yavdb' " Yet another debugger
 Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
-
-" " Plugin 'python-mode/python-mode', { 'branch': 'develop' }
-" " A Vim Plugin for Lively Previewing LaTeX PDF Output
-" Plugin 'xuhdev/vim-latex-live-preview'"
 set rtp+=~/usr/local/opt/fzf
-" Plugin 'junegunn/fzf'
-" ==============================================================================
 " All of your Plugins must be added before the following line
 " Initialize plugin system
 call plug#end()
@@ -386,9 +370,73 @@ map <Leader>r :FZF<CR>
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au FileType yaml let &l:formatprg= "yamlfmt /dev/stdin"
 
-" ================ ''nvie/vim-flake8' =============
+" ================ 'Shougo/neosnippet.vim' ==============
+"
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=0 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/dotfiles/vim/my-snippets'
+
+map<leader>snip :NeoSnippetEdit<CR>
+
+" ================ COCsnippets ==============
+"
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <C-l>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" ================ 'nvie/vim-flake8' =============
 "
 let g:flake8_cmd = "/Users/tallamjr/mambaforge/envs/astronet/bin/flake8"
+
 " ================ 'psf/black' =============
 "
 " Black(Python) format the visual selection
@@ -403,8 +451,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <C-@> on vim
 inoremap <silent><expr> <c-@> coc#refresh()
 
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<S-Tab>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<Tab>"
+
+set completeopt=menu,menuone,noselect
 
 " ================ 'junegunn/fzf' =============
 "
@@ -466,95 +516,13 @@ let g:syntastic_python_flake8_post_args='--ignore=E501,E203'
 "
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-n>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" COCsnippets
-
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ CheckBackSpace() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! CheckBackSpace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
-
-" ================ 'Shougo/neosnippet.vim' ==============
-"
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=0 concealcursor=niv
-endif
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/dotfiles/vim/my-snippets'
-map<leader>snip :NeoSnippetEdit<CR>
-
-" ================ 'vim-scripts/AutoComplPop' ==============
-"
-" Allows <Tab> to go through options in 'AutoComplPop'
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-
-" ================ 'raichoo/haskell-vim' ==============
-"
-" for Haskell
-" let g:haskell_enable_quantification = 1 " to enable highlighting of forall
-" let g:haskell_enable_recursivedo = 1 " to enable highlighting of mdo and rec
-" let g:haskell_enable_arrowsyntax = 1 " to enable highlighting of proc
-" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of pattern
-" let g:haskell_enable_typeroles = 1 " to enable highlighting of type roles
-" let g:haskell_indent_if = 3
-" let g:haskell_indent_case = 2
-" let g:haskell_indent_let = 4
-" let g:haskell_indent_where = 6
-" let g:haskell_indent_do = 3
-" let g:haskell_indent_in = 1
-"
 " ================ 'vim/airline'  ==============
 "
 let g:airline_theme='deus'
@@ -764,7 +732,6 @@ function! VimwikiLinkHandler(link)
   endif
 endfunction
 
-
 " let g:vimwiki_list = [{'path': '~/PhD/wiki',
 "   \ 'path_html': '~/PhD/wiki/html',
 "   \ 'syntax': 'markdown',
@@ -789,14 +756,6 @@ function! ToggleCalendar()
   end
 endfunction
 :autocmd FileType vimwiki nnoremap <buffer> <localleader>c :call ToggleCalendar()<CR>
-" ================ 'suan/vim-instant-markdown' ==============
-"
-" vim-instant-markdown - Instant Markdown previews from Vim
-" https://github.com/suan/vim-instant-markdown
-" let g:instant_markdown_autostart = 0    " disable autostart
-" map <leader>md :InstantMarkdownPreview<CR>
-
-" let g:livepreview_previewer = 'open -a Preview'
 
 " ================ 'iamcco/markdown-preview.nvim' ==============
 " Start the preview
@@ -896,25 +855,6 @@ let g:mkdp_page_title = '[${name}]'
 " these filetypes will have MarkdownPreview... commands
 let g:mkdp_filetypes = ['markdown']
 
-" ================== 'fsharp/vim-fsharp' =====================
-
-" let g:fsharp_only_check_errors_on_write = 1
-"
-" ================== 'autozimu/LanguageClient-neovim' =====================
-" Required for operations modifying multiple buffers like rename.
-" set hidden
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-"     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"     \ 'python': ['/usr/local/bin/pyls'],
-"     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-"     \ }
-
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " ================ 'Ron89/thesaurus_query.vim' =============
 nnoremap <Leader>s :ThesaurusQueryReplaceCurrentWord<CR>
 nnoremap <Leader>ss :Thesaurus
