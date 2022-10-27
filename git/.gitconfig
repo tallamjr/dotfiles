@@ -1,82 +1,84 @@
 [alias]
-    ap = add --patch
-    ba = branch --all --verbose
-    branch-rename = !sh -c 'git branch -m $1 $2 && git push origin --delete $1 && git push $2 && git push origin -u $2' -
-    cleann = clean -xffd
-    cnov = commit --no-verify
-    co = checkout
-    cp = cherry-pick
-    dcom = "!git add . && git commit -m \"[DIRTY-COMMIT] Update\""
-    dc = diff --cached
-    iss = "!gh issue create"
-    logg = log --graph --decorate --oneline --abbrev --all
-    loggg = log --all --source --pretty=oneline --graph
-    logggg = log --all --source --graph
-    logo = log --oneline
-    logs = log --stat
-    plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
-    pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
-    pru = !sh -c 'git checkout -b pull/$1/test && git pull --rebase upstream pull/$1/head' -
-    pull = pull --rebase
-    pulla = pull --rebase --all
-    pushnov = push --no-verify
-    pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
-    pusm = pull --rebase upstream master --ff-only
-    ra = remote add upstream
-    rinse = !sh - 'git clean -xfd && git submodule foreach --recursive git clean -xfd && git reset --hard && git submodule foreach --recursive git reset --hard && git submodule update --init --recursive' -
-    rmu = "!git ls-files -z -o --exclude-standard | xargs -0 rm"
-    rv = remote --verbose
-    sa = stash apply
-    sd = stash drop
-    showcp = am --show-current-patch
-    sl = stash list
-    sp = stash pop
-    spull = "!git sup && git pull --recurse-submodules --jobs=10"
-    spush = push --recurse-submodules=on-demand
-    ss = status
-    sup = "!git submodule update --init --recursive"
-    tmp = !sh -c 'cd $TMP && git clone $1' -
-    trim = "!git reflog expire --all --expire=now && git gc --prune=now --aggressive"
-    update = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all"
-    vimdiff = difftool
-    ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
+  ap = add --patch
+  ba = branch --all --verbose
+  branch-rename = !sh -c 'git branch -m $1 $2 && git push origin --delete $1 && git pushup $2 && git push origin -u $2' -
+  cleann = clean -xffd
+  commitnov = commit --no-verify
+  co = checkout
+  cp = cherry-pick
+  dcom = "!git add . && git commit -m \"[DIRTY-COMMIT] Update\""
+  dc = diff --cached
+  iss = "!gh issue create"
+  logg = log --graph --decorate --oneline --abbrev --all
+  loggg = log --all --source --pretty=oneline --graph
+  logggg = log --all --source --graph
+  logo = log --oneline
+  logs = log --stat
+  plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+  pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
+  pru = !sh -c 'git checkout -b pull/$1/test && git pull --rebase upstream pull/$1/head' -
+  pull = pull --rebase
+  pulla = pull --rebase --all
+  pushnov = push --no-verify
+  pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+  pusm = pull --rebase upstream master --ff-only
+  ra = remote add upstream
+  rinse = !sh - 'git clean -xfd && git submodule foreach --recursive git clean -xfd && git reset --hard && git submodule foreach --recursive git reset --hard && git submodule update --init --recursive' -
+  rmu = "!git ls-files -z -o --exclude-standard | xargs -0 rm"
+  rv = remote --verbose
+  sa = stash apply
+  sd = stash drop
+  shash = "!git rev-parse --short HEAD"
+  showcp = am --show-current-patch
+  sl = stash list
+  sp = stash pop
+  spull = "!git sup && git pull --recurse-submodules --jobs=10"
+  spush = push --recurse-submodules=on-demand
+  ss = status
+  sup = "!git submodule update --init --recursive"
+  tag = tag --annotate
+  tmp = !sh -c 'cd $TMP && git clone $1' -
+  trim = "!git reflog expire --all --expire=now && git gc --prune=now --aggressive"
+  update = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all"
+  vimdiff = difftool
+  ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
 [blame]
-    coloring = highlightRecent
-    showEmail = true
+  coloring = highlightRecent
+  showEmail = true
 [color "blame"]
-    highlightRecent = magenta,12 month ago,white,1 month ago,cyan
+  highlightRecent = magenta,12 month ago,white,1 month ago,cyan
 [color "diff"]
-    meta = yellow bold
+  meta = yellow bold
     ; new = green bold
     ; frag = magenta bold
 [core]
-    whitespace = fix,-blank-at-eof
+  whitespace = fix,-blank-at-eof
 [diff]
-    tool = vimdiff
-	submodule = log
+  tool = vimdiff
+  submodule = log
 [difftool]
-    prompt = false
+  prompt = false
 [filter "lfs"]
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 [pager]
-	branch = false
+  branch = false
 [pull]
-    rebase = true
-    ff = only
+  rebase = true
+  ff = only
 [push]
-    default = simple
-    followTags = true
+  default = simple
+  followTags = true
 [status]
-    submoduleSummary = true
+  submoduleSummary = true
 [user]
-    name = Tarek Allam
-    email = t.allam.jr@gmail.com
+  name = Tarek Allam Jr
+  email = t.allam.jr@gmail.com
 [init]
-	defaultBranch = master
+  defaultBranch = master
