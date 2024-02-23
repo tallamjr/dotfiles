@@ -1,6 +1,4 @@
-# coc
-config/.config/coc/*/**
-macos/*/**
+vim/spell/
 
 # General
 .DS_Store
