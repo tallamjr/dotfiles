@@ -129,6 +129,7 @@ Spotify
 ASTRONET
 Ia
 xception
+<<<<<<< Updated upstream
 Friedmann
 tikz
 pointwise
@@ -163,3 +164,8 @@ sparsifiying
 COMBAK
 explainability
 Denoising
+=======
+huggingface
+dotfiles
+whatsapp
+>>>>>>> Stashed changes

@@ -114,7 +114,7 @@ au BufRead,BufNewFile *.tex setlocal textwidth=80
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.txt setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
-au BufRead,BufNewFile *.* setlocal textwidth=100
+au BufRead,BufNewFile *.* setlocal textwidth=80
 
 map <Leader>stw :set textwidth=
 
@@ -304,13 +304,13 @@ Plug 'jistr/vim-nerdtree-tabs' " To allow just one NERDTree
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/vim-easy-align' " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'kien/ctrlp.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Use release branch (recommend)
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " Use release branch (recommend)
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' } " Plugin options
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvie/vim-flake8'
 Plug 'pbrisbin/vim-colors-off'
 Plug 'plasticboy/vim-markdown'
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black', { 'tag': '24.2.0' }
 Plug 'raichoo/haskell-vim' " Haskell help for Vim
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' } " Using a non-default branch
 Plug 'rking/ag.vim'
@@ -403,35 +403,35 @@ map<leader>snip :NeoSnippetEdit<CR>
 " ================ COCsnippets ==============
 "
 " Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+" imap <C-l> <Plug>(coc-snippets-expand)
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+" " Use <C-j> for select text for visual placeholder of snippet.
+" vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
+" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" let g:coc_snippet_next = '<c-j>'
 
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" let g:coc_snippet_prev = '<c-k>'
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" " Use <C-j> for both expand and jump (make expand higher priority.)
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+" " Use <leader>x for convert visual selected code to snippet
+" xmap <leader>x  <Plug>(coc-convert-snippet)
 
-inoremap <silent><expr> <C-l>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ CheckBackSpace() ? "\<TAB>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <C-l>
+"       \ coc#pum#visible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ CheckBackSpace() ? "\<TAB>" :
+"       \ coc#refresh()
 
-function! CheckBackSpace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! CheckBackSpace() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
 
 " ================ 'nvie/vim-flake8' =============
 "
@@ -443,6 +443,7 @@ let g:flake8_cmd = "/Users/tallamjr/mambaforge/envs/astronet/bin/flake8"
 xnoremap <Leader>k :!black -q -<CR>
 map <Leader>kk :Black<CR>
 autocmd BufWritePre *.py Black
+" let g:black_virtualenv="/Users/tallamjr/miniforge3/envs/main/bin"
 
 " ================ 'neoclide/coc.nvim' =============
 "
