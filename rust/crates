@@ -1,0 +1,15 @@
+cargo-audit
+cargo-binutils
+cargo-bloat
+cargo-generate
+cargo-tarpaulin
+flip-link
+itm
+mdbook
+mdbook-mermaid
+nrf-unlock
+nrfdfu
+probe-rs
+rust-analyzer
+rustlings
+tickrs
