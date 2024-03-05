@@ -15,7 +15,7 @@ export HISTIGNORE="pwd:ls:la:cl"
 export PAGER=less
 export EDITOR=vim
 
-export GIT_EDITOR=vim
+export GIT_EDITOR=nvim
 export GIT_PAGER=less
 
 # Locate file containing passwords and global variables that will be sourced within other files.
