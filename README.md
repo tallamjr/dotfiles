@@ -6,8 +6,6 @@
 
 ## Installation
 
-See my blog for an overview of my _dotfile_ story.
-
 ### Clean System Install
 
 To provision a new machine, clone this repo and simply run:
@@ -21,7 +19,7 @@ script to determine the operating system that is running, and then either instal
 or [Linuxbrew](http://linuxbrew.sh/).
 
 After the respective package manager is installed and dotfiles in place, it will continue to install
-all brew packages (_this will take a while_) found in `brew/.brewlist`:
+all brew packages (_this will take a while_) found in `brew/Brewfile`:
 
 Finally, when all is complete, an updated version of `vim` and `neovim` is installed, along with
 `vim-plug` for plugin management. It _may_ be necessary to restart the \$SHELL and install VIM
