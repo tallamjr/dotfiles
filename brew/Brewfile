@@ -45,7 +45,7 @@ brew "binutils"
 brew "bison"
 brew "boost"
 brew "bitcoin"
-brew "boost-python"
+brew "boost-python3"
 brew "ccache"
 brew "libomp", link: true
 brew "tbb"
