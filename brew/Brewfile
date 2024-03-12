@@ -182,7 +182,7 @@ brew "pwgen"
 brew "pwsafe"
 brew "pygobject3"
 brew "python@2", link: false
-brew "q"
+brew "activemq"
 brew "qemu"
 brew "qpdf"
 brew "rabbitmq"
