@@ -124,7 +124,7 @@ brew bundle --file $ROOT/brew/Brewfile
 
 # Install Miniforge
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-yes | bash Miniforge3-$(uname)-$(uname -m).sh
+bash Miniforge3-$(uname)-$(uname -m).sh
 conda init bash
 
 # Install VIM and NEOVIM
