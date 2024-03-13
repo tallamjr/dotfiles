@@ -6,7 +6,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "iterative/dvc"
-brew tap mongodb/brew
+tap "mongodb/brew"y
 tap "keith/formulae"
 tap "tallamjr/local-tap"
 tap "teamookla/speedtest"
