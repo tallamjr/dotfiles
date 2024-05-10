@@ -254,6 +254,14 @@ RUBY_VERSION_BREW=$(brew list --versions ruby | awk '{print $2}')
 export PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
 # Gems
 export PATH="$BREW_PREFIX/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.1/bin:$PATH"
+
+export PATH="/usr/local/lib/ruby/gems/3.3.0/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 # ==================================================================================================
 #                                           RUST
 # ==================================================================================================
@@ -281,7 +289,7 @@ export OPTION3_HOME=$HOME/github/origin/option3
 #   export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 
 export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
-export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
+# export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 # export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export PATH="/usr/bin/clang:$PATH"
@@ -329,10 +337,10 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-export CC=`which clang`
-export CXX=`which clang++`
-# export CC=$(which gcc-$GCC_VERSION)
-# export CXX=$(which g++-$GCC_VERSION)
+# export CC=`which clang`
+# export CXX=`which clang++`
+export CC=$(which gcc-$GCC_VERSION)
+export CXX=$(which g++-$GCC_VERSION)
 export LC_ALL="en_US.UTF-8"
 
 # Scala
@@ -689,8 +697,8 @@ function frameworkpython {
 export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 
 # For compilers to find llvm you may need to set:
-export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
-export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
+# export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
+# export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
 
 . "$HOME/.cargo/env"
 
@@ -704,3 +712,5 @@ alias ndb="unset LOCAL_DEBUG"
 . "$HOME/.cargo/env"
 
 export HOMEBREW_AUTOREMOVE=1
+
+export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)

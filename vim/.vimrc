@@ -197,7 +197,7 @@ map <leader>ck :<CR>:!cd && pwd
 
 map <leader>lm :w<CR>
     \:!biber <C-R>%<BS><BS><BS><BS><CR><CR>
-    \:!latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape <C-R>%<CR><CR>
+    \:!latexmk -pdflatex=lualatex -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape <C-R>%<CR><CR>
     \:!open <C-R>%<BS><BS><BS><BS>.pdf<CR><CR>
 
 map <leader>lmm :w<CR>
@@ -578,6 +578,17 @@ let g:airline#extensions#wordcount#filetypes = ['asciidoc', 'help', 'vimwiki', '
 "
 map <leader>a :Ag<Space>
 map <leader>aa :AgFromSearch<CR>
+
+" ================ 'easy-align'
+"
+" Align GitHub-flavored Markdown tables
+au FileType * vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" au FileType vimwiki vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ================ 'ntpeters/vim-better-whitespace' ==============
 "
