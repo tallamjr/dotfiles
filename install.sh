@@ -1,14 +1,12 @@
 #!/bin/bash
 clear
 
-echo " Beginning System Configuration Install"
+echo "Beginning System Configuration Install........"
 sleep 3
-echo "............"
+echo ".............................................."
 sleep 1
-echo " Just Brace Yourself Rodney.... Brace Yourself!"
+echo "Brace Yourself Rodney.... Just Brace Yourself!"
 sleep 3
-
-ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 
 # Arrays containing list of dotfiles that will be in use.
 dotfile_array=( .bash_profile .bashrc .emacs .gitconfig .inputrc .muttrc .tmux.conf .vimrc .xvimrc .zshrc )
@@ -25,21 +23,17 @@ done
 
 function stow_files(){
 # Symlink dotfiles to home directory
-pushd $ROOT
-cd dotfiles && stow -v \
-    bash/ \
-    brew/ \
-    conda / \
-    config/ \
-    emacs/ \
-    git/ \
-    mutt/ \
-    readline/ \
-    tmux/ \
-    vim/ \
-    xcode/ \
-    zsh/
-popd
+folder_array=( vim bash brew conda config emacs git mutt readline tmux vim xcode zsh )
+for folder in ${folder_array[*]}
+do
+	stow -v --target=$HOME --no-folding $folder
+done
+
+# folder_array=( config )
+# for folder in ${folder_array[*]}
+# do
+#	stow -v --target=$HOME $folder
+# done
 }
 
 operatingSystem=`uname`
@@ -120,7 +114,7 @@ else
     export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
 fi
 # Brew install packages
-brew bundle --file $ROOT/brew/Brewfile
+brew bundle --file $HOME/dotfiles/brew/Brewfile
 
 # Install Rust + toolchains
 curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -141,7 +135,6 @@ brew install neovim
 nvim --version
 
 git clone git@github.com:tallamjr/vimwiki.git $HOME/vimwiki
-
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
