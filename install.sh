@@ -122,10 +122,16 @@ fi
 # Brew install packages
 brew bundle --file $ROOT/brew/Brewfile
 
+# Install Rust + toolchains
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+
 # Install Miniforge
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-yes | bash Miniforge3-$(uname)-$(uname -m).sh
+bash Miniforge3-$(uname)-$(uname -m).sh -b
 conda init bash
+
+# Ref: https://github.com/conda/conda/issues/13405
+sudo chmod g+w -R $HOME/miniforge3/*
 
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
@@ -133,6 +139,10 @@ brew install vim
 vim --version
 brew install neovim
 nvim --version
+
+git clone git@github.com:tallamjr/vimwiki.git $HOME/vimwiki
+
+
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 bash --rcfile <(echo '. bash/.bashrc; vim +PlugInstall +qall')

@@ -13,7 +13,7 @@ See my blog for an overview of my _dotfile_ story.
 To provision a new machine, clone this repo and simply run:
 
 ```bash
-bash install.sh
+git clone git@github.com:tallamjr/dotfiles.git $HOME && bash install.sh
 ```
 
 This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/install.sh)
