@@ -49,6 +49,12 @@ If the above steps are not done, a common giveaway is `history` will not "work"
 
 Refs: https://stackoverflow.com/a/49049781/4521950
 
+Adding new SSH key to the agent can be done with:
+
+```bash
+ssh-keygen -t ed25519 -C "<NAME>" -f $HOME/.ssh/id_ed25519 -q -N "" && eval "$(ssh-agent -s)"
+```
+
 ### Temporary Configuration Install [WIP]
 
 If only temporarily installing on another machine, run:

@@ -5,21 +5,17 @@ export PATH="$HOME/anaconda/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tallamjr/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/tallam/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/tallamjr/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/tallamjr/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/Users/tallam/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tallam/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/tallamjr/miniforge3/bin:$PATH"
+        export PATH="/Users/tallam/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-
-if [ -f "/Users/tallamjr/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/Users/tallamjr/miniforge3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 
 #Find .bashrc file and source.

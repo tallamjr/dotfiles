@@ -15,7 +15,7 @@ export HISTIGNORE="pwd:ls:la:cl"
 export PAGER=less
 export EDITOR=vim
 
-export GIT_EDITOR=nvim
+export GIT_EDITOR=vim
 export GIT_PAGER=less
 
 # Locate file containing passwords and global variables that will be sourced within other files.
@@ -109,25 +109,13 @@ export PATH=~/scratch/build:$PATH
 export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 # ==================================================================================================
-#                                           PYTHON/ANACONDA
+#                                           PYTHON/CONDA
 # ==================================================================================================
-if [ $(uname -m) == "x86_64" ]; then
-	# Base env anaconda
-	export PATH="$HOME/miniforge3/bin:$PATH"
-	# Main env miniforge
-	export PATH="$HOME/miniforge3/envs/main/bin:$PATH"
-	source $HOME/miniforge3/etc/profile.d/conda.sh
-	conda activate main
-
-else
-	# Base env anaconda
-	export PATH="$HOME/mamaforge/bin:$PATH"
-	# Main env anaconda
-	export PATH="$HOME/mambaforge/envs/main/bin:$PATH"
-	source $HOME/mambaforge/etc/profile.d/conda.sh
-	conda activate main
-
-fi
+# Base env anaconda
+export PATH="$HOME/miniforge3/bin:$PATH"
+# Main env miniforge
+export PATH="$HOME/miniforge3/envs/main/bin:$PATH"
+source $HOME/miniforge3/etc/profile.d/conda.sh
 
 # source $HOME/github/tallamjr/origin/scripts/condasource.sh
 
@@ -700,17 +688,17 @@ export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 # export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
 # export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
 
-. "$HOME/.cargo/env"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 alias db="export LOCAL_DEBUG=0"
 alias ndb="unset LOCAL_DEBUG"
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#                                               EOF
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 . "$HOME/.cargo/env"
 
 export HOMEBREW_AUTOREMOVE=1
 
 export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#                                               EOF
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
