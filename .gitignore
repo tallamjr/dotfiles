@@ -1,5 +1,7 @@
 vim/spell/
 
+*.lock.*
+
 # General
 .DS_Store
 .AppleDouble
