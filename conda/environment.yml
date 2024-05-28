@@ -1,9 +1,9 @@
-name: main
+name: x
 channels:
   - conda-forge
 dependencies:
   - pip
-  - python=3.10
+  - python=3.12
   - pip:
     - black
     - neovim
@@ -12,3 +12,4 @@ dependencies:
     - pytest-subtests
     - pep517
     - twine
+    - -r requirements.txt
