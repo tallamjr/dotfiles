@@ -1,6 +1,9 @@
+# Specific folders
 vim/spell/
+config/.config/iterm2
+config/.config/github-copilot
 
-*.lock.*
+*lock.*
 
 # General
 .DS_Store
