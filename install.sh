@@ -117,7 +117,9 @@ fi
 brew bundle --file $HOME/dotfiles/brew/Brewfile
 
 # Install Rust + toolchains
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+pushd rust
+source install-rust-with-crates.sh
+popd
 
 # Install Miniforge
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
