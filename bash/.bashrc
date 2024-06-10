@@ -436,6 +436,16 @@ alias gcc="gcc-$GCC_VERSION"
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
+function cec() {
+
+  ENV_NAME=$1
+  sed -i "1 s/.*/name: $ENV_NAME/" $HOME/environment.yml
+  conda env create --file $HOME/environment.yml
+  sed -i "1 s/.*/name: main/" $HOME/environment.yml
+  conda activate $ENV_NAME
+
+}
+
 function ldd() {
 
 	OLD=$1
