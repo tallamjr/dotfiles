@@ -442,7 +442,7 @@ let g:flake8_cmd = "/Users/tallamjr/mambaforge/envs/astronet/bin/flake8"
 " Black(Python) format the visual selection
 xnoremap <Leader>k :!black -q -<CR>
 map <Leader>kk :Black<CR>
-autocmd BufWritePre *.py Black
+" autocmd BufWritePre *.py Black
 " let g:black_virtualenv="/Users/tallamjr/miniforge3/envs/main/bin"
 
 " ================ 'neoclide/coc.nvim' =============
