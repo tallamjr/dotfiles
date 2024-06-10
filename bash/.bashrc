@@ -11,6 +11,8 @@ export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoredups
 export HISTIGNORE="pwd:ls:la:cl"
+# Ref: https://unix.stackexchange.com/a/131507
+export PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 
 export PAGER=less
 export EDITOR=vim
