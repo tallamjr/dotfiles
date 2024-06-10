@@ -683,9 +683,13 @@ alias ndb="unset LOCAL_DEBUG"
 
 . "$HOME/.cargo/env"
 
-export HOMEBREW_AUTOREMOVE=1
-
 export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+
+export PYTORCH_ENABLE_MPS_FALLBACK=1
+
+export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
+
+export SHELL=/bin/bash
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
