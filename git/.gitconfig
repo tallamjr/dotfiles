@@ -17,7 +17,7 @@
   plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
   pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
   pru = !sh -c 'git checkout -b pull/$1/test && git pull --rebase upstream pull/$1/head' -
-  pull = pull --rebase
+  plr = pull --rebase
   pulla = pull --rebase --all
   pushnov = push --no-verify
   pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
@@ -39,7 +39,7 @@
   tag = tag --annotate
   tmp = !sh -c 'cd $TMP && git clone $1' -
   trim = "!git reflog expire --all --expire=now && git gc --prune=now --aggressive"
-  update = "!git pull --rebase upstream $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all"
+  updatefrom = !bash -c 'git pull --rebase $1 $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all' -
   vimdiff = difftool
   ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
 [blame]
@@ -67,6 +67,8 @@
   clean = git media clean %f
   smudge = git media smudge %f
   required = true
+[init]
+  defaultBranch = master
 [pager]
   branch = false
 [pull]
@@ -80,5 +82,3 @@
 [user]
   name = Tarek Allam Jr
   email = t.allam.jr@gmail.com
-[init]
-  defaultBranch = master
