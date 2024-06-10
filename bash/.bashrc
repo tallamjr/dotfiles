@@ -49,6 +49,25 @@ export TMP=/tmp
 export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH="/usr/bin:${PATH}"
 
+# HOMEBREW PREFIX
+export BREW_PREFIX=$(brew --prefix)
+export BREW_CELLAR=$(brew --cellar)
+export BREW_CASKROOM=$(brew --caskroom)
+export HOMEBREW_NO_AUTO_UPDATE=1 # Do not auto update everything
+export HOMEBREW_AUTOREMOVE=1
+# --appdir=/my/path changes the path where the symlinks to the applications
+# (above) will be generated. This is commonly used to create the links in the
+# root Applications directory instead of the home Applications directory by
+# specifying --appdir=/Applications. Default is ~/Applications. See
+# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_MAKE_JOBS=8
+
+# Homebrew install path:
+# •   macOS ARM: /opt/homebrew
+# •   macOS Intel: /usr/local
+# •   Linux: /home/linuxbrew/.linuxbrew
+
 if [ $(uname -m) == "x86_64" ]; then
 	export PATH="/usr/local/bin:$PATH"
 	# Allows Coreutils package to be used without 'g' prefix before each command.
@@ -72,9 +91,6 @@ else
 	export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 	export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
 fi
-# HOMEBREW PREFIX
-export BREW_PREFIX=$(brew --prefix)
-export HOMEBREW_NO_AUTO_UPDATE=1 # Do not auto update everything
 
 # Why this line?
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -88,8 +104,7 @@ export PATH="$HOME/Documents/tmux/bin:$PATH"
 export PATH="$BREW_PREFIX/mysql/bin:$PATH"
 # Mongodb PATH
 export PATH="$HOME/mongodb/bin:$PATH"
-# # Why?
-# export PATH="$BREW_PREFIX/sbin:$PATH"
+
 # MATLAB command line.
 export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
 export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
@@ -113,11 +128,8 @@ export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 # ==================================================================================================
 #                                           PYTHON/CONDA
 # ==================================================================================================
-# Base env anaconda
-export PATH="$HOME/miniforge3/bin:$PATH"
 # Main env miniforge
-export PATH="$HOME/miniforge3/envs/main/bin:$PATH"
-source $HOME/miniforge3/etc/profile.d/conda.sh
+export PATH="$PATH:${BREW_CASKROOM}/miniforge/base/envs/main/bin"
 
 # source $HOME/github/tallamjr/origin/scripts/condasource.sh
 
