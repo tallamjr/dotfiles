@@ -23,17 +23,17 @@ done
 
 function stow_files(){
 # Symlink dotfiles to home directory
-folder_array=( vim bash brew conda config emacs git mutt readline tmux vim xcode zsh )
+folder_array=( vim bash brew config emacs git mutt readline tmux vim xcode zsh )
 for folder in ${folder_array[*]}
 do
 	stow -v --target=$HOME --no-folding $folder
 done
 
-# folder_array=( config )
-# for folder in ${folder_array[*]}
-# do
-#	stow -v --target=$HOME $folder
-# done
+folder_array=( conda )
+for folder in ${folder_array[*]}
+do
+  stow -v --target=$HOME $folder
+done
 }
 
 operatingSystem=`uname`
@@ -66,6 +66,10 @@ if [ $operatingSystem == "Darwin" ]; then
     brew install stow
 
     stow_files
+
+    brew install miniforge
+    bash --rcfile <(echo '. bash/.bashrc; conda init "$(basename "${SHELL}")"')
+
 elif [ "$operatingSystem" == "Linux" ]; then
     echo " Linux Kernel Detected..."
     echo "=========================="
@@ -85,6 +89,9 @@ elif [ "$operatingSystem" == "Linux" ]; then
     # install stow dependencies
     brew install stow
     stow_files
+
+    brew install miniforge
+    bash --rcfile <(echo '. bash/.bashrc; conda init "$(basename "${SHELL}")"')
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
@@ -121,14 +128,6 @@ pushd rust
 source install-rust-with-crates.sh
 popd
 
-# Install Miniforge
-curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-bash Miniforge3-$(uname)-$(uname -m).sh -b
-conda init bash
-
-# Ref: https://github.com/conda/conda/issues/13405
-sudo chmod g+w -R $HOME/miniforge3/*
-
 # Install VIM and NEOVIM
 # Clone repo for bundle plug-ins installation. Currently using vim-plug
 brew install vim
@@ -137,6 +136,7 @@ brew install neovim
 nvim --version
 
 git clone git@github.com:tallamjr/vimwiki.git $HOME/vimwiki
+
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
