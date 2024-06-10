@@ -153,25 +153,12 @@ export GREP_OPTIONS="--color=auto"
 # ==================================================================================================
 export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
 # ==================================================================================================
-#                                           FINK
-# ==================================================================================================
-# Fink-Broker
-export FINK_HOME=$HOME/github/tallam/forks/fink-broker
-export PYTHONPATH=$FINK_HOME/python:$PYTHONPATH
-
-# Fink-Client
-export FINK_CLIENT_HOME=$HOME/github/tallamjr/forks/fink-client
-export PYTHONPATH=${FINK_CLIENT_HOME}:$PYTHONPATH
-export PATH=${FINK_CLIENT_HOME}/bin:$PATH
-# ==================================================================================================
 #                                           SPARK
 # ==================================================================================================
 SPARK_VERSION_BREW=$(brew list --versions apache-spark | awk '{print $2}')
 export SPARK_HOME=$BREW_PREFIX/Cellar/apache-spark/$SPARK_VERSION_BREW/libexec
-export PATH=$FINK_HOME/bin:$PATH
 
 export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
-export PYTHONPATH="${SPARKLIB}:${FINK_HOME}:${FINK_HOME}/python:$PYTHONPATH"
 export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
 
 # With explicit path to 'hadoop' binary
@@ -186,7 +173,6 @@ alias ss="spark-submit"
 #                                           HADOOP
 # ==================================================================================================
 # Hadoop home directory configuration
-# BREW_CELLAR=$(brew --cellar)
 export HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
 export HADOOP_HOME=$(brew --cellar)/hadoop/${HADOOP_VERSION_BREW}
 export HADOOP_INSTALL=$HADOOP_HOME
@@ -242,12 +228,6 @@ export ZK=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
 export PATH=$PATH:$ZK/bin
 
 export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
-# ==================================================================================================
-#                                           FINK
-# ==================================================================================================
-export FINK_ALERT_SIMULATOR=$HOME/github/tallamjr/forks/fink-alert-simulator
-export PYTHONPATH=$FINK_ALERT_SIMULATOR:$PYTHONPATH
-export PATH=$FINK_ALERT_SIMULATOR/bin:$PATH
 # ==================================================================================================
 #                                           RUBY
 # ==================================================================================================
@@ -311,13 +291,6 @@ export DATE=$(date +'%A %b %d %Y')
 # Command line cheat
 export CHEATCOLORS=true
 
-# --appdir=/my/path changes the path where the symlinks to the applications
-# (above) will be generated. This is commonly used to create the links in the
-# root Applications directory instead of the home Applications directory by
-# specifying --appdir=/Applications. Default is ~/Applications. See
-# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
 # For awscli completion
 complete -C aws_completer aws
 # source /usr/local/etc/bash_completion.d/password-store
@@ -361,12 +334,12 @@ export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 # 4B25-Cambridge-EB3
 export ARMGCC_DIR="$BREW_PREFIX"
 
-# astronet
-export ASNWD="$HOME/github/tallamjr/origin/astronet"
-export PYTHONPATH="${PYTHONPATH}:$ASNWD"
+# # astronet
+# export ASNWD="$HOME/github/tallamjr/origin/astronet"
+# export PYTHONPATH="${PYTHONPATH}:$ASNWD"
 
-# matlab2python
-export PYTHONPATH="${PYTHONPATH}:$HOME/scratch/matlab2python/"
+# # matlab2python
+# export PYTHONPATH="${PYTHONPATH}:$HOME/scratch/matlab2python/"
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
@@ -394,6 +367,7 @@ alias fire="open /Applications/Firefox.app/"
 alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
 alias gg="grep -i"
 alias ghub="cd ~/github/"
+alias gl="cd ~/gitlab/git.arg/"
 alias gpu="watch sudo powermetrics --samplers gpu_power -i500 -n1"
 alias grep="grep -E"
 alias hashme="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
@@ -701,7 +675,6 @@ export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 # For compilers to find llvm you may need to set:
 # export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
 # export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
-
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
