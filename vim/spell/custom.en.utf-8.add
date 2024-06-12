@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 ARG
 ASTRONET
 ATI
@@ -174,9 +171,19 @@ timesteps
 tinyML
 unproductivity
 upskill
+<<<<<<< HEAD
 whatsapp
 whereever
 whitepapers
 wireguard
 word2vec
 xception
+=======
+roadmap
+Revolut
+NordPass
+mathison
+TODOs
+firstpage
+Jetson
+>>>>>>> 201b80e (Update tools)

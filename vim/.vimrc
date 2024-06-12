@@ -130,6 +130,8 @@ autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 
+autocmd BufNewFile,BufRead *.gs set filetype=javascript
+
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 " Set files with extention of .md as markdown type.
