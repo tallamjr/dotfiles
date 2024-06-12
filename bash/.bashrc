@@ -700,6 +700,9 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 
 export SHELL=/bin/bash
+
+export TVM_HOME=/Users/tallam/github/tallamjr/forks/tvm
+export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
