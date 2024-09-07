@@ -8,6 +8,7 @@
   cp = cherry-pick
   dcom = "!git add . && git commit -m \"[DIRTY-COMMIT] Update\""
   dc = diff --cached
+  ig = !sh -c 'cat ~/gitignore/Global/macOS.gitignore ~/gitignore/Python.gitignore ~/gitignore/Rust.gitignore ~/gitignore/TeX.gitignore ~/gitignore/C++.gitignore ~/gitignore/C.gitignore ~/gitignore/Global/Archives.gitignore >> .gitignore' -
   iss = "!gh issue create"
   logg = log --graph --decorate --oneline --abbrev --all
   loggg = log --all --source --pretty=oneline --graph

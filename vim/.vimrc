@@ -37,7 +37,9 @@ map <leader>fmt :!fmt -1000<CR>
 
 map <leader>mm :!markmap -w % &<CR>
 
-map <localleader>com :highlight Comment ctermfg=Grey<CR>
+map <Leader>/ :set hlsearch! hlsearch?<CR>
+map <localleader>com :highlight Comment ctermfg=LightGreen<CR>
+" hi Comment ctermbg=0 ctermfg=LightBlue
 
 nnoremap <Leader>l :set cursorline!<CR>
 map <Leader>col :set colorcolumn=80<CR>
@@ -68,10 +70,13 @@ let g:python3_host_prog = '/Users/tallamjr/mambaforge/envs/main/bin/python'
 " ================ Persistant Undo ===========================
 "
 " Modern Vim pg 100
-set undofile
-if !has('nvim')
-  set undodir=~/.vim/undo
+" if !has('nvim')
+" Ref: https://vi.stackexchange.com/a/53/5525
+if !isdirectory($HOME."/.vim/undo")
+  call mkdir($HOME."/.vim/undo", "", 0700)
 endif
+set undofile
+set undodir=~/.vim/undo
 augroup vimrc
   autocmd!
   autocmd BufWritePre /tmp/* setlocal noundofile
@@ -588,9 +593,6 @@ au FileType * vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " au FileType vimwiki vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 " ================ 'ntpeters/vim-better-whitespace' ==============
 "

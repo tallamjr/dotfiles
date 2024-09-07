@@ -4,3 +4,5 @@
 
 # added by travis gem
 [ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
+
+. "$HOME/.cargo/env"

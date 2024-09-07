@@ -8,17 +8,25 @@ set -o vi
 # http://stackoverflow.com/questions/19454837/bash-histsize-vs-histfilesize
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTCONTROL=ignoredups
-export HISTIGNORE="pwd:ls:la:cl"
-# Ref: https://unix.stackexchange.com/a/131507
-export PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
+export HISTTIMEFORMAT='%d/%m/%y %H:%M '
+export HISTCONTROL=ignoreboth:erasedups
+# export HISTIGNORE="pwd:ls *:la:cl:cd *:ppwd:vim *:whoami: git add *:git ss: git co *:git commit"
+unset HISTIGNORE
+
+# Refs:
+# - https://unix.stackexchange.com/a/131507
+# - https://phoenixnap.com/kb/linux-history-command
+shopt -s histappend
+export PROMPT_COMMAND="history -a;history -c;history -r"
 
 export PAGER=less
 export EDITOR=vim
 
 export GIT_EDITOR=vim
 export GIT_PAGER=less
+
+# Temporay directory
+export TMP=/tmp
 
 # Locate file containing passwords and global variables that will be sourced within other files.
 if [ -f ~/.localrc ]; then
@@ -36,11 +44,23 @@ if [ -f ~/.git-prompt.sh ]; then
 else
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
+# ==================================================================================================
+#                                           FZF
+# ==================================================================================================
 # If fuzzy finder installed, source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Temporay directory
-export TMP=/tmp
+# Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='\\'
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
 # ==================================================================================================
 #                                           PATH EXPORTS
 # ==================================================================================================
@@ -48,20 +68,6 @@ export TMP=/tmp
 # The orginal version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH="/usr/bin:${PATH}"
-
-# HOMEBREW PREFIX
-export BREW_PREFIX=$(brew --prefix)
-export BREW_CELLAR=$(brew --cellar)
-export BREW_CASKROOM=$(brew --caskroom)
-export HOMEBREW_NO_AUTO_UPDATE=1 # Do not auto update everything
-export HOMEBREW_AUTOREMOVE=1
-# --appdir=/my/path changes the path where the symlinks to the applications
-# (above) will be generated. This is commonly used to create the links in the
-# root Applications directory instead of the home Applications directory by
-# specifying --appdir=/Applications. Default is ~/Applications. See
-# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export HOMEBREW_MAKE_JOBS=8
 
 # Homebrew install path:
 # •   macOS ARM: /opt/homebrew
@@ -91,6 +97,20 @@ else
 	export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 	export PATH="/opt/homebrew/grep/libexec/gnubin:$PATH"
 fi
+
+# HOMEBREW PREFIX
+export BREW_PREFIX=$(brew --prefix)
+export BREW_CELLAR=$(brew --cellar)
+export BREW_CASKROOM=$(brew --caskroom)
+export HOMEBREW_NO_AUTO_UPDATE=1 # Do not auto update everything
+export HOMEBREW_AUTOREMOVE=1
+# --appdir=/my/path changes the path where the symlinks to the applications
+# (above) will be generated. This is commonly used to create the links in the
+# root Applications directory instead of the home Applications directory by
+# specifying --appdir=/Applications. Default is ~/Applications. See
+# https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_MAKE_JOBS=8
 
 # Why this line?
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -162,7 +182,7 @@ export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zi
 export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
 
 # With explicit path to 'hadoop' binary
-export SPARK_DIST_CLASSPATH=$($(which hadoop) classpath)
+# export SPARK_DIST_CLASSPATH=$($(which hadoop) classpath)
 
 # PySpark
 export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
@@ -185,7 +205,7 @@ export HADOOP_YARN_HOME=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
-export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+# export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
 
 export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH
 
@@ -240,8 +260,8 @@ export PATH="$BREW_PREFIX/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.1
 export PATH="/usr/local/lib/ruby/gems/3.3.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export LDFLAGS="-L/usr/local/opt/ruby/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
 
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 # ==================================================================================================
@@ -343,14 +363,13 @@ export ARMGCC_DIR="$BREW_PREFIX"
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
-alias asn="cd $HOME/github/tallamjr/origin/astronet"
 alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias bashrc="vim ~/.bashrc"
 alias blc="black . --check"
 alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
 alias brewversion="$(brew list --versions $1 | awk '{print $2}')"
 alias ca="conda activate"
-alias caa="conda activate astronet"
+alias cargo="cargo +nightly"
 alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
@@ -360,10 +379,7 @@ alias dls="cd ~/Downloads/ && la -rt"
 alias du="du -sh"
 alias dus="du -sh * | sort -h"
 alias echof='echo "`f`"'
-alias f="fzf -i --color=hl:200,hl+:200"
-alias ff="gfortran"
-alias f8="flake8"
-alias fire="open /Applications/Firefox.app/"
+alias f="history -a;history -n;history -r;fzf -i --color=hl:200,hl+:200"
 alias gethash="git show | head -1 | cut -d' ' -f2 | cut -c1-7 | pbcopy"
 alias gg="grep -i"
 alias ghub="cd ~/github/"
@@ -371,7 +387,6 @@ alias gl="cd ~/gitlab/git.arg/"
 alias gpu="watch sudo powermetrics --samplers gpu_power -i500 -n1"
 alias grep="grep -E"
 alias hashme="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
-alias hp="ssh hypatia"
 alias ino="arduino-cli"
 # alias jc="jupyter nbconvert --ClearOutputPreprocessor.enabled=True --ClearMetadataPreprocessor.enabled=True --clear-output --inplace"
 alias jbb="jupyter-book build"
@@ -384,19 +399,14 @@ alias ls="ls --color"                  # Listing in colour
 alias lsc="ls | wc | awk '{print $1}'" # Show the 'count' of files in a director.
 alias lsg="ls | grep -i"               # Search a directory listing with grep case-insensitive.
 alias matlab="matlab -nodesktop -nosplash"
-alias matlab="matlab -nodesktop"
-alias mp="cd ~/UCL_2016/major-project/"
-alias myp="echo $MYRIAD | pbcopy && ssh myriad"
-alias neo=" pip install neovim && pip install black"
+alias mks="mkdocs serve --open"
 alias nq="networkQuality"
 alias openf='open "`f`"'
-alias p2="ssh plus2"
 alias pat="pygmentize -g" # Colourful 'cat' output
 alias pdflatex="pdflatex -interaction nonstopmode -halt-on-error -file-line-error"
 alias pingg="ping www.google.com"
 alias pj="python -m json.tool"
 alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/$(date +%Y-%m-%d).markdown"
-alias poker="open /Applications/PokerStarsUK.app/"
 alias printhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
 alias pt='pytest --verbose --capture=no --showlocals --durations=0 --setup-show'
 alias pylab="ipython -pylab" # Ipython
@@ -406,20 +416,16 @@ alias rmbiber="rm -rf $(biber --cache)"
 alias rr="R CMD BATCH "
 alias rspace="rename \"s/ /-/g\" * && rename \"s/[\(\)]//g\" *"
 alias rrs="rsync -avzh --progress --stats"
-alias sa="source activate"
 alias sb="source ~/.bashrc"
 alias sleep="sudo shutdown -s now" # Put computer to sleep
 alias speed="speedtest-cli"
 alias tc="texcount -inc -total"
 alias tmp="cd /tmp"
-alias til="vim ~/github/origin/til/README.md"
 alias tree="tree -I '*__pycache__|*.pkl'"
+alias triple="rustc -vV | sed -n 's/^host: \\(.*\\)$/\\1/p'"
 alias tmux="tmux -2" # Force tmux to use 256 colours
 alias todo="vim +VimwikiUISelect"
 alias ttop="top -o CPU"
-# Use Neovim as "preferred editor"
-export VISUAL="vim"
-# Use Neovim instead of Vim or Vi
 # alias vim="nvim"
 # alias vi="nvim"
 alias vimf='vim `f`'
@@ -436,6 +442,22 @@ alias gcc="gcc-$GCC_VERSION"
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
+
+function ds() {
+  docker ps -q --filter ancestor="$1" | xargs -r docker stop
+}
+
+function pip() {
+  uv pip "$@"
+  exitCode=$?
+  if [[ ${exitCode} -ne 0 ]]; then
+    # ref: https://github.com/astral-sh/uv/issues/3951
+    echo "\t If error message reads: 'error: No Python interpreters found in virtual environments'\n"
+    echo "\t Then you may need to run: \n"
+    echo "\t\t $ uv pip install --python=$(which python) ..."
+  fi
+}
+
 function cec() {
 
   ENV_NAME=$1
@@ -444,6 +466,18 @@ function cec() {
   sed -i "1 s/.*/name: main/" $HOME/environment.yml
   conda activate $ENV_NAME
 
+}
+
+function caff() {
+  ENV_NAME=`cat environment.yml | sed -n 's/^name: \(.*\)$/\1/p'`
+  conda activate $ENV_NAME
+  exitCode=$?
+  if [[ ${exitCode} -ne 0 ]]; then
+    conda env create -f environment.yml
+  fi
+  if [[ ! -f requirements.txt ]]; then
+    touch requirements.txt
+  fi
 }
 
 function ldd() {
@@ -683,8 +717,8 @@ function frameworkpython {
 export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 
 # For compilers to find llvm you may need to set:
-# export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib"
-# export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include"
+export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include $CPPFLAGS"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
@@ -699,10 +733,28 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 
 export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
 
-export SHELL=/bin/bash
+# export SHELL=/bin/bash
 
 export TVM_HOME=/Users/tallam/github/tallamjr/forks/tvm
 export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
+
+# Use a Python environment with PyTorch installed.
+export LIBTORCH_USE_PYTORCH=1
+
+# export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+
+# export LDFLAGS="-L/opt/homebrew/opt/binutils/lib $LDFLAGS"
+# export CPPFLAGS="-I/opt/homebrew/opt/binutils/include $CPPFLAGS"
+
+# https://stackoverflow.com/a/67361161/4521950
+# Fixes: docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
+export DOCKER_DEFAULT_PLATFORM=linux/x86_64/v8
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
+export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+
+alias mudiupdate="rrs /Users/tallam/gitlab/git.arg/tiny-ml/mudi jetson:/home/ubuntu/gitlab/git.arg/tiny-ml/"
+
+export BAT_THEME="1337"

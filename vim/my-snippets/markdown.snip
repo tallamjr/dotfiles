@@ -33,9 +33,21 @@ snippet diaryy
     Date    : `system("date")`
     ${0}
 
-snippet bash
+snippet con
 
-    \`\`\`scala
+    \`\`\`console
+    ${0}
+    \`\`\`
+
+snippet rust
+
+    \`\`\`rust
+    ${0}
+    \`\`\`
+
+snippet diff
+
+    \`\`\`diff
     ${0}
     \`\`\`
 
@@ -71,21 +83,32 @@ snippet yaml
 
 snippet post
 
-    ---
-    layout: post
-    title: ${1}
-    author: "Tarek Allam"
-    date: `system("date +%Y-%m-%d")`
-    category: ${2}
-    tags: [${3}]
-    cover:  /media/posts/
-    ---
+  ---
+  draft: false
+  date:
+    created: `system("date +%Y-%m-%d")`
+    # updated: 2024-01-02
+  authors: [tallamjr]
+  categories:
+      - Conferences
+      - Embedded Systems
+      - Life
+      - Opinionated
+      - RSW Engineering
+      - Tooling
+      - tinyML + Edge A.I.
+  tags:
+      - unix
+      - vim
+  ---
 
-    ${4}
+  # 🐍 **Calling Compiled Scala Code from Python using PySpark**
 
-    <!--more-->
+  Calling compiled Scala code inside the JVM from Python using PySpark.
 
-    ${5}
+  <!-- more -->
+
+  ${1}
 
 snippet anchor
     <a name="${0}"></a>
