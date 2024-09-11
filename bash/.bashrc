@@ -424,7 +424,7 @@ alias tmp="cd /tmp"
 alias tree="tree -I '*__pycache__|*.pkl'"
 alias triple="rustc -vV | sed -n 's/^host: \\(.*\\)$/\\1/p'"
 alias tmux="tmux -2" # Force tmux to use 256 colours
-alias todo="vim +VimwikiUISelect"
+alias todo="\vim +VimwikiUISelect"
 alias ttop="top -o CPU"
 # Check for Neovim
 which nvim > /dev/null; exitCode=$?

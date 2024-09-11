@@ -8,6 +8,7 @@ keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>qq", "<cmd>q!<cr>", { desc = "Quick-quit" }) -- close file
+keymap.set("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quick-quit" }) -- close file
 keymap.set("n", "<leader><space>", "<cmd>w<cr>", { desc = "Save file" }) -- save file
 
 -- clear search highlights
