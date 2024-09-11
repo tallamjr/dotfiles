@@ -426,8 +426,12 @@ alias triple="rustc -vV | sed -n 's/^host: \\(.*\\)$/\\1/p'"
 alias tmux="tmux -2" # Force tmux to use 256 colours
 alias todo="vim +VimwikiUISelect"
 alias ttop="top -o CPU"
-# alias vim="nvim"
-# alias vi="nvim"
+# Check for Neovim
+which nvim > /dev/null; exitCode=$?
+if [[ ${exitCode} -eq 0 ]]; then
+  alias vim="nvim"
+  alias vi="nvim"
+fi
 alias vimf='vim `f`'
 alias vimplugininstall="vim +PluginInstall +qall" # Vim pluin install from command line.
 alias vimrc="vim ~/.vimrc"
@@ -758,3 +762,6 @@ export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 alias mudiupdate="rrs /Users/tallam/gitlab/git.arg/tiny-ml/mudi jetson:/home/ubuntu/gitlab/git.arg/tiny-ml/"
 
 export BAT_THEME="1337"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
