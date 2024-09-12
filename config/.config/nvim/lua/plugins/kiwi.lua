@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 return {
   "serenevoid/kiwi.nvim",
@@ -16,9 +16,10 @@ return {
     },
   },
   keys = {
-    { "<leader>ww", ':lua require("kiwi").open_wiki_index()<cr>', desc = "Open Wiki index" },
-    { "<leader>wp", ':lua require("kiwi").open_wiki_index("personal")<cr>', desc = "Open index of personal wiki" },
-    { "T", ':lua require("kiwi").todo.toggle()<cr>', desc = "Toggle Markdown Task" },
+    { "<leader>k", ':lua require("kiwi").open_wiki_index()<cr>', desc = "Open Wiki index" },
+    { "<leader>kp", ':lua require("kiwi").open_wiki_index("personal")<cr>', desc = "Open index of personal wiki" },
+    { "K", ':lua require("kiwi").todo.toggle()<cr>', desc = "Toggle Markdown Task" },
+    { "<space-bs>", "<C-o>", desc = "Go back" },
   },
-  lazy = true,
+  lazy = false,
 }
