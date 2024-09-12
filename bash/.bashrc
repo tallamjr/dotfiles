@@ -437,6 +437,7 @@ which nvim > /dev/null; exitCode=$?
 if [[ ${exitCode} -eq 0 ]]; then
   alias vim="nvim"
   alias vi="nvim"
+  alias nnvim="nvim ~/.config/nvim"
 fi
 alias vimf='vim `f`'
 alias vimplugininstall="vim +PluginInstall +qall" # Vim pluin install from command line.
