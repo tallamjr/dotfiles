@@ -1,7 +1,7 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 return {
-  "saimo/peek.nvim",
+  "toppair/peek.nvim",
   event = { "VeryLazy" },
   build = "deno task --quiet build:fast",
   keys = {
