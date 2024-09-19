@@ -2,8 +2,16 @@
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  { "yavorski/lualine-macro-recording.nvim" },
+  dependencies = {
+    -- display macro recording
+    { "yavorski/lualine-macro-recording.nvim" },
+  },
+  opts = {
+    sections = {
+      -- add to section of your choice
+      lualine_c = { "macro_recording", "%S" },
+    },
+  },
   config = function()
     local lualine = require "lualine"
     local lazy_status = require "lazy.status" -- to configure lazy pending updates count
