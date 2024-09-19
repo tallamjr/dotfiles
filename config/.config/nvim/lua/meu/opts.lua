@@ -41,6 +41,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+opt.cmdheight = 1
+
 -- set line length for all filetypes
 opt.textwidth = 80
 -- autocmds
