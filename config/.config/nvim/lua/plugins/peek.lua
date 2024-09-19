@@ -4,6 +4,10 @@ return {
   "saimo/peek.nvim",
   event = { "VeryLazy" },
   build = "deno task --quiet build:fast",
+  keys = {
+    { "<leader>mo", "<cmd>PeekOpen<cr>", desc = "Open Markdown Preview" },
+    { "<leader>mc", "<cmd>PeekClose<cr>", desc = "Close Markdown Preview" },
+  },
   config = function()
     -- default config:
     require("peek").setup {
