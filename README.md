@@ -16,7 +16,7 @@ To provision a new machine, clone this repo and simply run:
 git clone git@github.com:tallamjr/dotfiles.git $HOME && bash install.sh
 ```
 
-This will run a [*bootstrap*](https://github.com/tallamjr/dotfiles/blob/master/install.sh)
+This will run a [_bootstrap_](https://github.com/tallamjr/dotfiles/blob/master/install.sh)
 script to determine the operating system that is running, and then either install [Homebrew](https://brew.sh/)
 or [Linuxbrew](http://linuxbrew.sh/).
 
@@ -75,7 +75,7 @@ remove all settings.
 Install and uninstall scripts have been tested but please use
 with caution. Inspect files first!
 
-*NOTE* : This repo is a work in progress and subject
+_NOTE_ : This repo is a work in progress and subject
 to change. In it's current form, it has drawn inspiration from these sources:
 
 https://github.com/skwp/dotfiles
