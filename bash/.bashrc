@@ -448,6 +448,8 @@ alias wiki="vim +VimwikiIndex"
 alias wpp="which pip && which python && python --version"
 alias xx="chmod +x" # Make file executable
 
+alias uvpi="uv pip install --python=$(which python)"
+
 GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
 alias gcc="gcc-$GCC_VERSION"
 # ==================================================================================================
@@ -759,7 +761,7 @@ export LIBTORCH_USE_PYTORCH=1
 
 # https://stackoverflow.com/a/67361161/4521950
 # Fixes: docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
-export DOCKER_DEFAULT_PLATFORM=linux/x86_64/v8
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
