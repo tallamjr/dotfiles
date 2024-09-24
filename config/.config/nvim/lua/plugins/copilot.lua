@@ -24,5 +24,11 @@ return {
         end,
       },
     }
+
+    -- Disable Copilot for markdown files
+    vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+      pattern = { "*.md", "*.markdown" },
+      callback = function() vim.b.copilot_enabled = false end,
+    })
   end,
 }
