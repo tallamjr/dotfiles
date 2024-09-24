@@ -33,40 +33,43 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- abbreviations
-keymap.set("ia", "WQ", "wq")
-keymap.set("ia", "teh", "the")
-keymap.set("ia", "sun", "Sun")
-keymap.set("ia", "universe", "Universe")
-keymap.set("ia", "eqaution", "equation")
--- emoji shortcuts
-keymap.set("ia", ":bomb:", "💣")
-keymap.set("ia", ":book:", "📖")
-keymap.set("ia", ":bulb:", "💡")
-keymap.set("ia", ":grimm:", "😬")
-keymap.set("ia", ":computer:", "💻")
-keymap.set("ia", ":email:", "📧")
-keymap.set("ia", ":happy_face:", "🙂")
-keymap.set("ia", ":info:", "ℹ️")
-keymap.set("ia", ":link:", "🔗")
-keymap.set("ia", ":nerd_face:", "🤓")
-keymap.set("ia", ":pencil:", "✏️")
-keymap.set("ia", ":pill:", "💊")
-keymap.set("ia", ":point_right:", "👉🏼")
-keymap.set("ia", ":point_down:", "👇🏼")
-keymap.set("ia", ":point_up:", "👆🏼")
-keymap.set("ia", ":point_left:", "👈🏼")
-keymap.set("ia", ":pushpin:", "📍")
-keymap.set("ia", ":sad_face:", "☹️")
-keymap.set("ia", ":see_no_evil:", "🙈")
-keymap.set("ia", ":sweat:", "😅")
-keymap.set("ia", ":telephone:", "☎️")
-keymap.set("ia", ":telescope:", "🔭")
-keymap.set("ia", ":tick:", "✅")
-keymap.set("ia", ":thumbsup:", "👍🏼")
-keymap.set("ia", ":warning:", "⚠️")
-keymap.set("ia", ":wip:", "🚧")
-keymap.set("ia", ":wrench:", "🔧")
-keymap.set("ia", ":writing:", "🏼")
-keymap.set("ia", ":x:", "❌")
-keymap.set("ia", ":??:", "❔")
+-- URL handling
+keymap.set("n", "<leader>o", "<cmd>URLOpenUnderCursor<cr>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+keymap.set("n", "<leader>coe", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" }) --  enable copilot
+keymap.set("n", "<leader>cod", "<cmd>Copilot disable<cr>", { desc = "Disable Copilot" }) --  disable copilot
+
+-- Fighting one-eyed Kirby
+keymap.set("v", "<localleader>r", [[:s/\(\w.*\)/]], { noremap = true, silent = false })
+
+-- Unmap "\" from any normal mode mappings
+vim.api.nvim_set_keymap("n", "\\", "<NOP>", { noremap = true, silent = true })
+
+-- NOTE: theprimeagen/remap.lua
+
+-- greatest remap ever
+keymap.set("x", "<leader>p", [["_dP]])
+
+-- next greatest remap ever : asbjornHaland
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+keymap.set("n", "<leader>Y", [["+Y]])
+
+keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+-- This is going to get me cancelled
+keymap.set("i", "<C-c>", "<Esc>")
+
+keymap.set("n", "Q", "<nop>")
+keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>+x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+-------------------------------------------------------------------------------

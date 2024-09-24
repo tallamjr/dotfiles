@@ -18,6 +18,7 @@ end
 require "lazy_setup"
 require "polish"
 
+require "meu.abbs"
 require "meu.keys"
 require "meu.opts"
 require "meu.misc"
