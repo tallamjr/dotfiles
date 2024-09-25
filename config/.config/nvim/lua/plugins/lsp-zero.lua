@@ -11,32 +11,6 @@ return {
     config = true,
   },
 
-  -- Autocompletion
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  --   dependencies = {
-  --     { "L3MON4D3/LuaSnip" },
-  --   },
-  --   config = function()
-  --     local cmp = require "cmp"
-  --
-  --     cmp.setup {
-  --       sources = {
-  --         { name = "nvim_lsp" },
-  --       },
-  --       mapping = cmp.mapping.preset.insert {
-  --         ["<C-Space>"] = cmp.mapping.complete(),
-  --         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-  --         ["<C-d>"] = cmp.mapping.scroll_docs(4),
-  --       },
-  --       snippet = {
-  --         expand = function(args) vim.snippet.expand(args.body) end,
-  --       },
-  --     }
-  --   end,
-  -- },
-
   -- LSP
   {
     "neovim/nvim-lspconfig",
@@ -46,6 +20,7 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
+      { "jose-elias-alvarez/null-ls.nvim" }, -- For null-ls code actions, note this plugin is nowarchived: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621
     },
     config = function()
       local lsp_zero = require "lsp-zero"
@@ -55,16 +30,23 @@ return {
       local lsp_attach = function(client, bufnr)
         local opts = { buffer = bufnr }
 
-        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-        vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-        vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-        vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-        vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-        vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-        vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Show hover information" })
+        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition" })
+        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" })
+        vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", { desc = "Go to implementation" })
+        vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", { desc = "Go to type definition" })
+        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Find references" })
+        vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { desc = "Show signature help" })
+        vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename symbol" })
+        vim.keymap.set(
+          { "n", "x" },
+          "<F3>",
+          "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",
+          { desc = "Format code" }
+        )
+        vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Show code actions" })
+        -- Keymap for triggering code actions (manual import fixes)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions (manual import fixes)" })
       end
 
       lsp_zero.extend_lspconfig {
@@ -74,13 +56,52 @@ return {
       }
 
       require("mason-lspconfig").setup {
-        -- ensure_installed = {},
+        ensure_installed = { "rust_analyzer" }, -- Ensure rust_analyzer is installed
         handlers = {
-          -- this first function is the "default handler"
-          -- it applies to every language server without a "custom handler"
-          function(server_name) require("lspconfig")[server_name].setup {} end,
+          function(server_name)
+            require("lspconfig")[server_name].setup {
+              on_attach = lsp_attach,
+              capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            }
+          end,
         },
       }
+
+      -- null-ls setup for code actions
+      local null_ls = require "null-ls"
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.code_actions.refactoring,
+          -- Add other code actions as needed
+        },
+        on_attach = lsp_attach,
+      }
+
+      -- Automatically apply missing imports on save for Rust files
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.rs",
+        callback = function()
+          local params = vim.lsp.util.make_range_params()
+          params.context = { diagnostics = vim.diagnostic.get(0) }
+          local results = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+
+          if results then
+            for _, res in pairs(results) do
+              for _, action in pairs(res.result or {}) do
+                if action.kind == "quickfix" and action.title:match "Add import" then
+                  -- Apply the code action
+                  if action.edit then
+                    vim.lsp.util.apply_workspace_edit(action.edit, "utf-8")
+                  elseif action.command then
+                    vim.lsp.buf.execute_command(action.command)
+                  end
+                end
+              end
+            end
+          end
+        end,
+      })
     end,
   },
 }
