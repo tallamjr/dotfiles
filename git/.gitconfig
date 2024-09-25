@@ -14,6 +14,7 @@
   loggg = log --all --source --pretty=oneline --graph
   logggg = log --all --source --graph
   logo = log --oneline
+  logob = log --pretty=format:\"%C(auto)%h %C(bold yellow)%ae%C(auto)%d %s\" --abbrev-commit --decorate # One line log with author and decorations
   logs = log --stat
   plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
   pr = !sh -c 'git checkout -b pull/$1/test && git pull origin pull/$1/head' -
