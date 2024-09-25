@@ -21,3 +21,34 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.spelllang = { "en_gb", "es", "pt" }
   end,
 })
+
+-- Automatically trigger code actions for missing imports on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rs",
+  callback = function()
+    local params = vim.lsp.util.make_range_params()
+    params.context = { diagnostics = vim.lsp.diagnostic.get_line_diagnostics() }
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+
+    for _, res in pairs(result or {}) do
+      for _, action in pairs(res.result or {}) do
+        if action.edit or type(action.command) == "table" then
+          if action.kind == "quickfix" then vim.lsp.buf.execute_command(action.command) end
+        end
+      end
+    end
+  end,
+})
+
+-- Function to remove trailing whitespace
+local function strip_trailing_whitespace()
+  local pos = vim.api.nvim_win_get_cursor(0) -- Save the current cursor position
+  vim.cmd [[%s/\s\+$//e]] -- Strip trailing whitespace
+  vim.api.nvim_win_set_cursor(0, pos) -- Restore the cursor position
+end
+
+-- Automatically strip whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = strip_trailing_whitespace,
+})
