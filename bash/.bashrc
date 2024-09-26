@@ -357,6 +357,8 @@ alias pdflatex="pdflatex -interaction nonstopmode -halt-on-error -file-line-erro
 alias pingg="ping www.google.com"
 alias pj="python -m json.tool"
 alias pn="vim -O $HOME/PhD/wiki/index.markdown $HOME/PhD/wiki/diary/$(date +%Y-%m-%d).markdown"
+alias pm="podman"
+alias poker="open /Applications/PokerStarsUK.app/"
 alias printhash="git show | head -1 | cut -d' ' -f2 | cut -c1-7"
 alias pt='pytest --verbose --capture=no --showlocals --durations=0 --setup-show'
 alias pylab="ipython -pylab" # Ipython
