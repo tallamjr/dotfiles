@@ -42,9 +42,9 @@ fi
 
 # For Git branch information in prompt
 if [ -d ~/.oh-my-bash ]; then
-	continue
+	:
 else
-	git clone git://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
+	git clone git@github.com:ohmybash/oh-my-bash.git ~/.oh-my-bash
 	cp ~/.oh-my-bash/templates/bashrc.osh-template ~/.ombrc
 fi
 
