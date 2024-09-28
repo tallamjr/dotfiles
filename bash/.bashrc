@@ -39,21 +39,19 @@ export TMP=/tmp
 if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
-# For Git completion
-if [ -f ~/.git-completion.bash ]; then
-	source ~/.git-completion.bash
-else
-	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-fi
+
 # For Git branch information in prompt
-if [ -f ~/.git-prompt.sh ]; then
-	source ~/.git-prompt.sh
+if [ -d ~/.oh-my-bash ]; then
+	continue
 else
-	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+	git clone git://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
+	cp ~/.oh-my-bash/templates/bashrc.osh-template ~/.ombrc
 fi
+
 # ==================================================================================================
 #                                           FZF
 # ==================================================================================================
+
 # If fuzzy finder installed, source
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Use ~~ as the trigger sequence instead of the default **
@@ -68,9 +66,11 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
+
 # ==================================================================================================
 #                                           PATH EXPORTS
 # ==================================================================================================
+
 # Setting PATH for EPD-6.3-1
 # The orginal version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
@@ -129,16 +129,7 @@ export PATH="$HOME/cronjobs:$PATH"
 export PATH="$HOME/Documents/tmux/bin:$PATH"
 # MySQL
 export PATH="$BREW_PREFIX/mysql/bin:$PATH"
-# Mongodb PATH
-export PATH="$HOME/mongodb/bin:$PATH"
 
-# MATLAB command line.
-export MATLAB_EXECUTABLE=/Applications/MATLAB_R2017a.app/bin/matlab
-export PATH="/Applications/MATLAB_R2017a.app/bin:$PATH"
-# MacTex binaries
-# export PATH="$(dirname `which latex`):$PATH"
-# Github cli fork
-# export PATH="$HOME/github/tallamjr/forks/cli/bin:$PATH"
 # Ghidra SRE
 export GHIDRA_HOME="$HOME/bin/ghidra_9.1.2_PUBLIC"
 export PATH="$GHIDRA_HOME:$PATH"
@@ -152,6 +143,7 @@ export PATH=~/scratch/build:$PATH
 # grpcio -- https://stackoverflow.com/a/68137855/4521950
 export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+
 # ==================================================================================================
 #                                           PYTHON/CONDA
 # ==================================================================================================
@@ -163,121 +155,26 @@ export PATH="$PATH:${BREW_CASKROOM}/miniforge/base/envs/main/bin"
 # https://github.com/conda/conda/issues/6018
 export PYTHONNOUSERSITE=True
 export PYTHONHASHSEED=0
+
 # ==================================================================================================
 #                                           PROMPT
 # ==================================================================================================
 # Shell prompt customisation with Grey time, exit code status, blue directory
 # and git branch informations. Needs to be on one line
 export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
+
 # ==================================================================================================
 #                                           COLOUR CUSTOMISATION
 # ==================================================================================================
+
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad # Blue directories
 export GREP_OPTIONS="--color=auto"
+
 # ==================================================================================================
 #                                           JAVA
 # ==================================================================================================
 export JAVA_HOME="$(/usr/libexec/java_home --version 1.8)"
-# ==================================================================================================
-#                                           SPARK
-# ==================================================================================================
-SPARK_VERSION_BREW=$(brew list --versions apache-spark | awk '{print $2}')
-export SPARK_HOME=$BREW_PREFIX/Cellar/apache-spark/$SPARK_VERSION_BREW/libexec
-
-export SPARKLIB=${SPARK_HOME}/python:${SPARK_HOME}/python/lib/py4j-0.10.7-src.zip
-export PATH="${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
-
-# With explicit path to 'hadoop' binary
-# export SPARK_DIST_CLASSPATH=$($(which hadoop) classpath)
-
-# PySpark
-export PYSPARK_SUBMIT_ARGS="--master local[*] pyspark-shell"
-# export PYSPARK_DRIVER_PYTHON="jupyter"
-# export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
-alias ss="spark-submit"
-# ==================================================================================================
-#                                           HADOOP
-# ==================================================================================================
-# Hadoop home directory configuration
-export HADOOP_VERSION_BREW=$(brew list --versions hadoop | awk '{print $2}')
-export HADOOP_HOME=$(brew --cellar)/hadoop/${HADOOP_VERSION_BREW}
-export HADOOP_INSTALL=$HADOOP_HOME
-export PATH=$PATH:$HADOOP_HOME/bin
-export PATH=$PATH:$HADOOP_HOME/sbin
-# export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export HADOOP_YARN_HOME=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true -Djava.security.krb5.realm= -Djava.security.krb5.kdc="
-# export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
-
-export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH
-
-alias hstart="$HADOOP_HOME/sbin/start-all.sh"
-alias hstop="$HADOOP_HOME/sbin/stop-dfs.sh;$HADOOP_HOME/sbin/stop-yarn.sh;$HADOOP_HOME/sbin/stop-all.sh"
-
-# Hide NativeCodeLoader Warning
-export HADOOP_HOME_WARN_SUPPRESS=1
-export HADOOP_ROOT_LOGGER="WARN,DRFA"
-
-alias uh="unset HADOOP_CONF_DIR"
-# ==================================================================================================
-#                                           KAFKA
-# ==================================================================================================
-KAFKA_VERSION_BREW=$(brew list --versions kafka | awk '{print $2}')
-export KAFKA_HOME=$BREW_PREFIX/Cellar/kafka/$KAFKA_VERSION_BREW/libexec
-export PATH=$PATH:$KAFKA_HOME/bin
-export KAFKA_CONF_DIR=$KAFKA_HOME/config
-# ==================================================================================================
-#                                           HIVE
-# ==================================================================================================
-
-HIVE_VERSION_BREW=$(brew list --versions hive | awk '{print $2}')
-export HIVE_HOME=$BREW_PREFIX/Cellar/hive/$HIVE_VERSION_BREW
-export PATH=$PATH:$HIVE_HOME/bin
-
-# ==================================================================================================
-#                                           HBASE
-# ==================================================================================================
-
-HBASE_VERSION_BREW=$(brew list --versions hbase | awk '{print $2}')
-export HBASE_HOME=$BREW_PREFIX/Cellar/hbase/$HBASE_VERSION_BREW/libexec
-export PATH=$PATH:$HBASE_HOME/bin
-export HBASE_CONF_DIR=$HBASE_HOME/conf
-
-# ==================================================================================================
-#                                           ZOOKEEPER
-# ==================================================================================================
-
-ZOOKEEPER_VERSION_BREW=$(brew list --versions zookeeper | awk '{print $2}')
-export ZOOKEEPER_HOME=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
-export PATH=$PATH:$ZOOKEEPER_HOME/bin
-
-export ZK=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
-export PATH=$PATH:$ZK/bin
-
-export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
-
-# ==================================================================================================
-#                                           RUBY
-# ==================================================================================================
-
-# Ruby version
-RUBY_VERSION_BREW=$(brew list --versions ruby | awk '{print $2}')
-export PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
-# Gems
-export PATH="$BREW_PREFIX/lib/ruby/gems/$RUBY_VERSION_BREW/gems/html-proofer-3.11.1/bin:$PATH"
-
-export PATH="/usr/local/lib/ruby/gems/3.3.0/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
-export LDFLAGS="-L/usr/local/opt/ruby/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
-
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 # ==================================================================================================
 #                                           RUST
@@ -753,6 +650,11 @@ function frameworkpython {
 		/usr/local/bin/python "$@"
 	fi
 }
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Oh-My-Bash
+if [ -f ~/.ombrc ]; then
+	source ~/.ombrc
+fi
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
