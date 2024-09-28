@@ -234,19 +234,24 @@ export KAFKA_CONF_DIR=$KAFKA_HOME/config
 # ==================================================================================================
 #                                           HIVE
 # ==================================================================================================
+
 HIVE_VERSION_BREW=$(brew list --versions hive | awk '{print $2}')
 export HIVE_HOME=$BREW_PREFIX/Cellar/hive/$HIVE_VERSION_BREW
 export PATH=$PATH:$HIVE_HOME/bin
+
 # ==================================================================================================
 #                                           HBASE
 # ==================================================================================================
+
 HBASE_VERSION_BREW=$(brew list --versions hbase | awk '{print $2}')
 export HBASE_HOME=$BREW_PREFIX/Cellar/hbase/$HBASE_VERSION_BREW/libexec
 export PATH=$PATH:$HBASE_HOME/bin
 export HBASE_CONF_DIR=$HBASE_HOME/conf
+
 # ==================================================================================================
 #                                           ZOOKEEPER
 # ==================================================================================================
+
 ZOOKEEPER_VERSION_BREW=$(brew list --versions zookeeper | awk '{print $2}')
 export ZOOKEEPER_HOME=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
@@ -255,9 +260,11 @@ export ZK=$BREW_PREFIX/Cellar/zookeeper/$ZOOKEEPER_VERSION_BREW/libexec
 export PATH=$PATH:$ZK/bin
 
 export ZOOKEEPER_CONF_DIR=$ZOOKEEPER_HOME/conf
+
 # ==================================================================================================
 #                                           RUBY
 # ==================================================================================================
+
 # Ruby version
 RUBY_VERSION_BREW=$(brew list --versions ruby | awk '{print $2}')
 export PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
@@ -271,42 +278,40 @@ export LDFLAGS="-L/usr/local/opt/ruby/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
 
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
 # ==================================================================================================
 #                                           RUST
 # ==================================================================================================
+
 export PATH="$HOME/.cargo/bin:$PATH"
 RUST_ANALYZER_VERSION=$(brew list --versions rust-analyzer | awk '{print }')
 # rust-analyzer
 export PATH="$BREW_PREFIX/Cellar/rust-analyzer/$RUST_ANALYZER_VERSION/bin:$PATH"
 # debug
-# export RUST_BACKTRACE=1     # Backtrace on
-export RUST_BACKTRACE=full # Verbosity full
+export RUST_BACKTRACE=1     # Backtrace on
+# export RUST_BACKTRACE=full # Verbosity full
+
 # ==================================================================================================
 #                                           OPTION3
 # ==================================================================================================
+
 export OPTION3_HOME=$HOME/github/origin/option3
+
 # ==================================================================================================
 #                                           GOLANG
 # ==================================================================================================
-# bison is keg-only, which means it was not symlinked into $BREW_PREFIX,
-# because some formulae require a newer version of bison.
-
-# If you need to have bison first in your PATH run:
-#   echo 'export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"' >> ~/.bash_profile
-
-# For compilers to find bison you may need to set:
-#   export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
 
 export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
-# export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
-# export LD_LIBRARY_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export PATH="/usr/bin/clang:$PATH"
+
 # ==================================================================================================
 #                                       KAGGKE
 # ==================================================================================================
+
 export KAGGLE_HOME="$HOME/github/origin/kaggle"
 export KG_TITANIC_HOME="$KAGGLE_HOME/Titanic"
+
 # ==================================================================================================
 #                                       MISCELLANEOUS
 # ==================================================================================================
@@ -318,20 +323,11 @@ export DATE=$(date +'%A %b %d %Y')
 # Command line cheat
 export CHEATCOLORS=true
 
-# For awscli completion
-complete -C aws_completer aws
-# source /usr/local/etc/bash_completion.d/password-store
-export INCLUDE=""
-export LIBRARY_PATH=""
-
 # Tensorflow
 export TF_CPP_MIN_LOG_LEVEL=2
 
 # Kaggle
 export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
-
-# Added by travis gem
-[ -f /Users/tallamjr/.travis/travis.sh ] && source /Users/tallamjr/.travis/travis.sh
 
 # Apache Arrow Compilation
 export ARROW_HOME=$BREW_PREFIX/anaconda3/envs/pyarrow-dev
@@ -352,24 +348,54 @@ export PATH="$PATH:$SCALA_HOME/bin"
 # GNU sed
 export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 
-# # If you need to have bison first in your PATH run:
-# export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
-
-# # For compilers to find bison you may need to set:
-# export LDFLAGS="-L$BREW_PREFIX/opt/bison/lib"
-
 # 4B25-Cambridge-EB3
 export ARMGCC_DIR="$BREW_PREFIX"
 
-# # astronet
-# export ASNWD="$HOME/github/tallamjr/origin/astronet"
-# export PYTHONPATH="${PYTHONPATH}:$ASNWD"
+# If you need to have llvm first in your PATH run:
+export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
 
-# # matlab2python
-# export PYTHONPATH="${PYTHONPATH}:$HOME/scratch/matlab2python/"
+# For compilers to find llvm you may need to set:
+export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include $CPPFLAGS"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+alias db="export LOCAL_DEBUG=0"
+alias ndb="unset LOCAL_DEBUG"
+
+. "$HOME/.cargo/env"
+
+export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+
+export PYTORCH_ENABLE_MPS_FALLBACK=1
+
+export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
+
+# export SHELL=/bin/bash
+
+export TVM_HOME=/Users/tallam/github/tallamjr/forks/tvm
+export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
+
+# Use a Python environment with PyTorch installed.
+export LIBTORCH_USE_PYTORCH=1
+
+# https://stackoverflow.com/a/67361161/4521950
+# Fixes: docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
+export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+
+alias mudiupdate="rrs /Users/tallam/gitlab/git.arg/tiny-ml/mudi jetson:/home/ubuntu/gitlab/git.arg/tiny-ml/"
+
+export BAT_THEME="1337"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # ==================================================================================================
 #                                           ALIASES
 # ==================================================================================================
+
 alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias bashrc="vim ~/.bashrc"
 alias blc="black . --check"
@@ -453,6 +479,7 @@ alias uvpi="uv pip install --python=$(which python)"
 
 GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
 alias gcc="gcc-$GCC_VERSION"
+
 # ==================================================================================================
 #                                           FUNCTIONS
 # ==================================================================================================
@@ -726,52 +753,6 @@ function frameworkpython {
 		/usr/local/bin/python "$@"
 	fi
 }
-
-# If you need to have llvm first in your PATH run:
-export PATH="$BREW_PREFIX/opt/llvm/bin:$PATH"
-
-# For compilers to find llvm you may need to set:
-export LDFLAGS="-L$BREW_PREFIX/opt/llvm/lib $LDFLAGS"
-export CPPFLAGS="-I$BREW_PREFIX/opt/llvm/include $CPPFLAGS"
-
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-alias db="export LOCAL_DEBUG=0"
-alias ndb="unset LOCAL_DEBUG"
-
-. "$HOME/.cargo/env"
-
-export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
-
-export PYTORCH_ENABLE_MPS_FALLBACK=1
-
-export BUILDKIT_COLORS=run=green:warning=yellow:error=red:cancel=255,165,0
-
-# export SHELL=/bin/bash
-
-export TVM_HOME=/Users/tallam/github/tallamjr/forks/tvm
-export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
-
-# Use a Python environment with PyTorch installed.
-export LIBTORCH_USE_PYTORCH=1
-
-# export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
-
-# export LDFLAGS="-L/opt/homebrew/opt/binutils/lib $LDFLAGS"
-# export CPPFLAGS="-I/opt/homebrew/opt/binutils/include $CPPFLAGS"
-
-# https://stackoverflow.com/a/67361161/4521950
-# Fixes: docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
-export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
-
-alias mudiupdate="rrs /Users/tallam/gitlab/git.arg/tiny-ml/mudi jetson:/home/ubuntu/gitlab/git.arg/tiny-ml/"
-
-export BAT_THEME="1337"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
