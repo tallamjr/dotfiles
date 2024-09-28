@@ -26,6 +26,7 @@ which nvim > /dev/null; exitCode=$?
 if [[ ${exitCode} -eq 0 ]]; then
 	export EDITOR=nvim
 	export GIT_EDITOR=nvim
+	alias vimdiff="nvim -d"
 else
 	export EDITOR=vim
 	export GIT_EDITOR=vim
