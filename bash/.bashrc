@@ -40,12 +40,32 @@ if [ -f ~/.localrc ]; then
 	source ~/.localrc
 fi
 
-# For Git branch information in prompt
+# # For Git completion
+# if [ -f ~/.git-completion.bash ]; then
+# 	source ~/.git-completion.bash
+# else
+# 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+# fi
+#
+# # For Git branch information in prompt
+# if [ -f ~/.git-prompt.sh ]; then
+#   source ~/.git-prompt.sh
+# else
+#   curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+# fi
+
+# ==================================================================================================
+#                                           OH-MY-BASH
+# ==================================================================================================
 if [ -d ~/.oh-my-bash ]; then
 	:
 else
 	git clone git@github.com:ohmybash/oh-my-bash.git ~/.oh-my-bash
 	cp ~/.oh-my-bash/templates/bashrc.osh-template ~/.ombrc
+fi
+
+if [ -f ~/.ombrc ]; then
+	source ~/.ombrc
 fi
 
 # ==================================================================================================
@@ -161,7 +181,7 @@ export PYTHONHASHSEED=0
 # ==================================================================================================
 # Shell prompt customisation with Grey time, exit code status, blue directory
 # and git branch informations. Needs to be on one line
-export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
+# export PS1='\[\e[01;30m\]\t`if [ $? = 0 ]; then echo "\[\e[32m\] ✔ "; else echo "\[\e[31m\] ✘ "; fi`\[\e[01;34m\]\w\[\e[00m\] `[[ $(git status 2> /dev/null | head -n5 | tail -n1) == "nothing to commit, working tree clean" ]] && echo "\[\e[01;32m\]"$(__git_ps1 "(%s)") || echo "\[\e[01;31m\]"$(__git_ps1 "(%s)")` \[\e[00m\]:: '
 
 # ==================================================================================================
 #                                           COLOUR CUSTOMISATION
@@ -297,7 +317,7 @@ alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias bashrc="vim ~/.bashrc"
 alias blc="black . --check"
 alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
-alias brewversion="$(brew list --versions $1 | awk '{print $2}')"
+alias brewversion="$(brew config | grep 'HOMEBREW_VERSION' | awk '{print $2}')"
 alias ca="conda activate"
 alias cargo="cargo +nightly"
 alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
@@ -418,7 +438,7 @@ function caff() {
   fi
 }
 
-function ldd() {
+function texdd() {
 
 	OLD=$1
 	NEW=$2
@@ -650,11 +670,8 @@ function frameworkpython {
 		/usr/local/bin/python "$@"
 	fi
 }
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Oh-My-Bash
-if [ -f ~/.ombrc ]; then
-	source ~/.ombrc
-fi
+
+. "/Users/tallam/.deno/env"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
