@@ -52,3 +52,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = strip_trailing_whitespace,
 })
+
+-- Build latex documents
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>lm",
+  ":w<CR>"
+    .. ":!biber %<CR>"
+    .. ":!latexmk -pdflatex=lualatex -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape %<CR>"
+    .. ":!open %:r.pdf<CR>",
+  { noremap = true, silent = true }
+)

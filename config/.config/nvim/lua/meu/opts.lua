@@ -7,6 +7,17 @@ vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 vim.opt.shiftwidth = 2 -- 2 spaces for indent width
 vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
+--
+-- Enable list mode to display listchars
+vim.opt.list = true
+
+-- Set custom listchars
+vim.opt.listchars = {
+  tab = " ", -- Tab character displayed as ' ' followed by a space
+  extends = "❯", -- Line extends beyond window, shows ❯
+  precedes = "❮", -- Text before start of window, shows ❮
+  nbsp = "␣", -- Non-breaking space shown as ␣
+}
 
 -- line wrapping
 vim.opt.wrap = false -- disable line wrapping

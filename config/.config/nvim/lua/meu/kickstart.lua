@@ -962,3 +962,153 @@ require("lazy").setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- NOTE: OLD CONFIGURATION
+
+-- ================= Leader-Key ===========================
+vim.g.mapleader = ","
+vim.g.maplocalleader = "\\"
+
+-- ================= Re-map Escape ===========================
+vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true })
+
+-- ================= General Configuration ==================
+vim.opt.compatible = false -- We're running Vim, not Vi!
+vim.cmd "syntax on" -- Enable syntax highlighting
+vim.cmd "filetype on" -- Enable filetype detection
+vim.cmd "filetype indent on" -- Enable filetype-specific indenting
+vim.cmd "filetype plugin on" -- Enable filetype-specific plugins
+vim.opt.nrformats = "" -- Disable octal numeric system
+vim.opt.hlsearch = true
+vim.opt.wildmenu = true
+vim.opt.wildmode = "full"
+vim.opt.history = 1000
+vim.opt.fileformat = "unix"
+vim.opt.showcmd = true -- Show incomplete cmds at the bottom
+vim.opt.showmode = true -- Show current mode at the bottom
+vim.opt.visualbell = true -- No sounds
+vim.opt.autoread = true -- Reload files changed outside vim
+vim.opt.backspace = "2" -- Make backspace behave like in other apps
+vim.opt.number = true -- Display line numbers on the left
+vim.opt.clipboard = "unnamed" -- Use system clipboard
+vim.opt.cursorline = true
+vim.opt.shortmess:remove "S" -- Fix for https://vi.stackexchange.com/a/23296/5525
+
+-- ================= Keybindings ==================
+vim.api.nvim_set_keymap("n", "<leader>sub", ":%s", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fmt", ":!fmt -1000<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>mm", ":!markmap -w % &<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>/", ":set hlsearch! hlsearch?<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<localleader>com", ":highlight Comment ctermfg=LightGreen<CR>", { noremap = true })
+
+vim.api.nvim_set_keymap("n", "<Leader>l", ":set cursorline!<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>col", ":set colorcolumn=80<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>coll", ":set colorcolumn&<CR>", { noremap = true })
+
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
+vim.api.nvim_set_keymap("n", "<space>", "za", { noremap = true })
+vim.api.nvim_set_keymap("v", "<space>", "zf", { noremap = true })
+
+vim.api.nvim_set_keymap("x", "<leader>say", ":w !say<CR>", { noremap = true })
+
+-- ================= NeoVim ==================
+vim.api.nvim_set_keymap("t", "kj", "<C-\\><C-n>", { noremap = true })
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>:bd!<CR>", { noremap = true })
+
+vim.g.python3_host_prog = "/Users/tallamjr/mambaforge/envs/main/bin/python"
+
+-- ================= Persistent Undo ==================
+if vim.fn.isdirectory(vim.fn.expand "$HOME/.vim/undo") == 0 then
+  vim.fn.mkdir(vim.fn.expand "$HOME/.vim/undo", "", 0700)
+end
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand "~/.vim/undo"
+vim.cmd [[
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
+]]
+
+-- ================= Un-map Arrow Keys ==================
+vim.api.nvim_set_keymap("n", "<Up>", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Down>", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Left>", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Right>", "<Nop>", { noremap = true })
+
+-- ================= Turn Off Swap Files ==================
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+
+-- ================= Search ==================
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.api.nvim_set_keymap("n", "<Leader>ic", ":set ignorecase! ignorecase?<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>wc", ":w !wc -w<CR>", { noremap = true })
+vim.api.nvim_set_keymap("x", "<leader>wcc", ":g <C-G>", { noremap = true })
+
+-- ================= Textwidth/Spellchecker ==================
+vim.cmd [[
+au BufRead,BufNewFile *.tex setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.txt setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
+au BufRead,BufNewFile *.* setlocal textwidth=80
+]]
+vim.api.nvim_set_keymap("n", "<Leader>stw", ":set textwidth=", { noremap = true })
+
+vim.opt.spelllang = "en_gb"
+vim.opt.spellfile = vim.fn.expand "$HOME/dotfiles/vim/spell/custom.en.utf-8.add"
+
+vim.cmd [[
+autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.vimwiki setlocal spell
+autocmd BufRead,BufNewFile *.wiki setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.markdown setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd FileType gitcommit setlocal spell
+]]
+
+vim.opt.complete:append "kspell"
+
+vim.cmd [[
+autocmd BufNewFile,BufRead *.gs set filetype=javascript
+]]
+
+-- Automatic reloading of init.lua
+vim.cmd [[
+autocmd! bufwritepost init.lua source %
+]]
+
+-- ================= Tabs/Buffers ==================
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+
+vim.api.nvim_set_keymap("n", "<leader>t", ":tabe<Space>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tt", ":tabnew<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>n", ":bnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bp", ":bprev<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bf", ":bfirst<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bl", ":blast<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>e", ":e<CR>", { noremap = true })
+
+-- ================= Splits ==================
+vim.api.nvim_set_keymap("n", "<leader>-", ":split<Space>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader><Bar>", ":vsplit<Space>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>qw", ":close<CR>", { noremap = true })
+
+vim.api.nvim_set_keymap("n", "<C-J>", "<C-W><C-J>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-K>", "<C-W><C-K>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-L>", "<C-W><C-L>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-H>", "<C-W><C-H>", { noremap = true })
+
+-- ================= More configuration like LaTeX, markdown-preview, etc. ==================
+-- Rest of the mappings are handled similarly using `vim.api.nvim_set_keymap`.
+-- Plugins section should be moved to a plugin manager like `packer.nvim`, `lazy.nvim`, etc.
