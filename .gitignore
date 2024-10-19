@@ -1,7 +1,7 @@
 # Specific folders
 vim/spell/
-config/.config/iterm2
-config/.config/github-copilot
+config/.config/iterm2/
+config/.config/github-copilot/
 python/config.toml
 pack/
 
