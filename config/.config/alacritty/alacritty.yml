@@ -1,0 +1,73 @@
+# Window settings
+window:
+  opacity: 0.9
+  dimensions:
+    columns: 120
+    lines: 30
+  padding:
+    x: 8
+    y: 8
+  dynamic_title: true
+
+# Font configuration
+font:
+  normal:
+    family: "FiraCode Nerd Font" # Change to your preferred font
+    style: Regular
+  size: 12.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Tokyo Night color scheme
+colors:
+  primary:
+    background: "#1a1b26"
+    foreground: "#c0caf5"
+
+  normal:
+    black: "#15161e"
+    red: "#f7768e"
+    green: "#9ece6a"
+    yellow: "#e0af68"
+    blue: "#7aa2f7"
+    magenta: "#bb9af7"
+    cyan: "#7dcfff"
+    white: "#a9b1d6"
+
+  bright:
+    black: "#414868"
+    red: "#f7768e"
+    green: "#9ece6a"
+    yellow: "#e0af68"
+    blue: "#7aa2f7"
+    magenta: "#bb9af7"
+    cyan: "#7dcfff"
+    white: "#c0caf5"
+
+# Cursor settings
+cursor:
+  style: Block # Can be Block, Underline, or Beam
+  blink: true
+  unfocused_hollow: true
+
+# Scrolling
+scrolling:
+  history: 10000
+  multiplier: 3
+
+# Keybindings
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: F, mods: Control|Shift, action: ToggleFullscreen }
+  - { key: K, mods: Command, action: IncreaseFontSize }
+  - { key: J, mods: Command, action: DecreaseFontSize }
+# Shell configuration (uncomment and modify to set a custom shell)
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - --login
