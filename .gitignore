@@ -2,6 +2,7 @@
 vim/spell/
 config/.config/iterm2/
 config/.config/github-copilot/
+config/.config/nvim/lazy-lock.json
 python/config.toml
 pack/
 
