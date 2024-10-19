@@ -22,7 +22,8 @@ export PROMPT_COMMAND="history -a;history -c;history -r"
 export PAGER=less
 export GIT_PAGER=less
 
-which nvim > /dev/null; exitCode=$?
+which nvim >/dev/null
+exitCode=$?
 if [[ ${exitCode} -eq 0 ]]; then
 	export EDITOR=nvim
 	export GIT_EDITOR=nvim
@@ -168,7 +169,7 @@ export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 #                                           PYTHON/CONDA
 # ==================================================================================================
 # Main env miniforge
-export PATH="$PATH:${BREW_CASKROOM}/miniforge/base/envs/main/bin"
+export PATH="${BREW_CASKROOM}/miniforge/base/envs/main/bin:$PATH"
 
 # source $HOME/github/tallamjr/origin/scripts/condasource.sh
 
@@ -205,7 +206,7 @@ RUST_ANALYZER_VERSION=$(brew list --versions rust-analyzer | awk '{print }')
 # rust-analyzer
 export PATH="$BREW_PREFIX/Cellar/rust-analyzer/$RUST_ANALYZER_VERSION/bin:$PATH"
 # debug
-export RUST_BACKTRACE=1     # Backtrace on
+export RUST_BACKTRACE=1 # Backtrace on
 # export RUST_BACKTRACE=full # Verbosity full
 
 # ==================================================================================================
@@ -377,11 +378,12 @@ alias tmux="tmux -2" # Force tmux to use 256 colours
 alias todo="\vim +VimwikiUISelect"
 alias ttop="top -o CPU"
 # Check for Neovim
-which nvim > /dev/null; exitCode=$?
+which nvim >/dev/null
+exitCode=$?
 if [[ ${exitCode} -eq 0 ]]; then
-  alias vim="nvim"
-  alias vi="nvim"
-  alias nnvim="nvim ~/.config/nvim"
+	alias vim="nvim"
+	alias vi="nvim"
+	alias nnvim="nvim ~/.config/nvim"
 fi
 alias vimf='vim `f`'
 alias vimplugininstall="vim +PluginInstall +qall" # Vim pluin install from command line.
@@ -402,40 +404,40 @@ alias gcc="gcc-$GCC_VERSION"
 # ==================================================================================================
 
 function ds() {
-  docker ps -q --filter ancestor="$1" | xargs -r docker stop
+	docker ps -q --filter ancestor="$1" | xargs -r docker stop
 }
 
 function pip() {
-  uv pip "$@"
-  exitCode=$?
-  if [[ ${exitCode} -ne 0 ]]; then
-    # ref: https://github.com/astral-sh/uv/issues/3951
-    echo "\t If error message reads: 'error: No Python interpreters found in virtual environments'\n"
-    echo "\t Then you may need to run: \n"
-    echo "\t\t $ uv pip install --python=$(which python) ..."
-  fi
+	uv pip "$@"
+	exitCode=$?
+	if [[ ${exitCode} -ne 0 ]]; then
+		# ref: https://github.com/astral-sh/uv/issues/3951
+		echo "\t If error message reads: 'error: No Python interpreters found in virtual environments'\n"
+		echo "\t Then you may need to run: \n"
+		echo "\t\t $ uv pip install --python=$(which python) ..."
+	fi
 }
 
 function cec() {
 
-  ENV_NAME=$1
-  sed -i "1 s/.*/name: $ENV_NAME/" $HOME/environment.yml
-  conda env create --file $HOME/environment.yml
-  sed -i "1 s/.*/name: main/" $HOME/environment.yml
-  conda activate $ENV_NAME
+	ENV_NAME=$1
+	sed -i "1 s/.*/name: $ENV_NAME/" $HOME/environment.yml
+	conda env create --file $HOME/environment.yml
+	sed -i "1 s/.*/name: main/" $HOME/environment.yml
+	conda activate $ENV_NAME
 
 }
 
 function caff() {
-  ENV_NAME=`cat environment.yml | sed -n 's/^name: \(.*\)$/\1/p'`
-  conda activate $ENV_NAME
-  exitCode=$?
-  if [[ ${exitCode} -ne 0 ]]; then
-    conda env create -f environment.yml
-  fi
-  if [[ ! -f requirements.txt ]]; then
-    touch requirements.txt
-  fi
+	ENV_NAME=$(cat environment.yml | sed -n 's/^name: \(.*\)$/\1/p')
+	conda activate $ENV_NAME
+	exitCode=$?
+	if [[ ${exitCode} -ne 0 ]]; then
+		conda env create -f environment.yml
+	fi
+	if [[ ! -f requirements.txt ]]; then
+		touch requirements.txt
+	fi
 }
 
 function texdd() {
