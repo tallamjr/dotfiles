@@ -10,6 +10,7 @@
   dc = diff --cached
   ig = !sh -c 'cat ~/gitignore/Global/macOS.gitignore ~/gitignore/Python.gitignore ~/gitignore/Rust.gitignore ~/gitignore/TeX.gitignore ~/gitignore/C++.gitignore ~/gitignore/C.gitignore ~/gitignore/Global/Archives.gitignore >> .gitignore' -
   iss = "!gh issue create"
+  lg = log --branches --remotes --tags --graph --decorate
   logg = log --graph --decorate --oneline --abbrev --all
   loggg = log --all --source --pretty=oneline --graph
   logggg = log --all --source --graph
