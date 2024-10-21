@@ -302,8 +302,6 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 
-alias mudiupdate="rrs /Users/tallam/gitlab/git.arg/tiny-ml/mudi jetson:/home/ubuntu/gitlab/git.arg/tiny-ml/"
-
 export BAT_THEME="1337"
 
 # Generated for envman. Do not edit.
