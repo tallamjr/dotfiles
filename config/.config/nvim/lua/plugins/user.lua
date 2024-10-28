@@ -51,6 +51,10 @@ return {
     opts = {
       headings = {
         pattern = "^(##)%s+(.+)$",
+        exclude = function(title)
+          -- Return true means, to exclude it from the ToC
+          return title:upper() == title
+        end,
       },
     },
   },
