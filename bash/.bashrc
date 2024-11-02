@@ -671,7 +671,25 @@ function frameworkpython {
 	fi
 }
 
+function auto_activate_venv() {
+    # Check if a .venv directory exists and is readable
+    if [ -d ".venv" ] && [ -r ".venv/bin/activate" ]; then
+        # Check if the activate script looks like a valid virtualenv script
+        if grep -q "VIRTUAL_ENV" ".venv/bin/activate" && grep -q "deactivate" ".venv/bin/activate"; then
+            # Source the virtual environment
+            echo "Auto-activating virtualenv in $(pwd)"
+            source .venv/bin/activate
+        else
+            echo "Warning: .venv/bin/activate script does not appear to be a valid virtualenv."
+        fi
+    fi
+}
+
+# Call the function each time you change directories
+# export PROMPT_COMMAND="auto_activate_venv; $PROMPT_COMMAND"
+
 . "/Users/tallam/.deno/env"
+
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
