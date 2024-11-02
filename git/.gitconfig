@@ -59,7 +59,7 @@
 [core]
   whitespace = fix,-blank-at-eof
 [diff]
-  tool = vimdiff
+	tool = nvimdiff
   submodule = log
 [difftool]
 	prompt = false
@@ -101,3 +101,5 @@
 	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [mergetool]
 	prompt = false
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
