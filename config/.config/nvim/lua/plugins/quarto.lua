@@ -9,7 +9,7 @@ return {
     opts = {
       lspFeatures = {
         enabled = true,
-        documentSymbols = false, -- ← disable outline requests
+        documentSymbols = false, -- disable outline requests
         chunks = "curly",
       },
       codeRunner = {
@@ -19,69 +19,35 @@ return {
     },
     dependencies = {
       -- for language features in code cells
-      -- configured in lua/plugins/lsp.lua
       "jmbuhr/otter.nvim",
     },
-    -- ─────────────────────────────────────────────────────────────────────────────
-    -- Add this config to wire up the runner keymaps:
     config = function(_, opts)
-      -- 1) let quarto-nvim apply your opts
       require("quarto").setup(opts)
-
-      -- 2) grab the runner interface
       local runner = require "quarto.runner"
-
-      -- 3) map your favourite keys under <localleader> (= '\')
-      vim.keymap.set("n", "<localleader>rc", runner.run_cell, {
-        desc = " Run current Quarto cell",
-        silent = true,
-      })
-      vim.keymap.set("n", "<localleader>ra", runner.run_above, {
-        desc = " Run this and all above",
-        silent = true,
-      })
-      vim.keymap.set("n", "<localleader>rb", runner.run_below, {
-        desc = " Run this and all below",
-        silent = true,
-      })
-      vim.keymap.set("n", "<localleader>rA", runner.run_all, {
-        desc = " Run all cells",
-        silent = true,
-      })
-      vim.keymap.set("n", "<localleader>rl", runner.run_line, {
-        desc = " Run current line",
-        silent = true,
-      })
-      vim.keymap.set("v", "<localleader>r", runner.run_range, {
-        desc = " Run visual selection",
-        silent = true,
-      })
+      vim.keymap.set("n", "<localleader>rc", runner.run_cell, { desc = " Run current Quarto cell", silent = true })
+      vim.keymap.set("n", "<localleader>ra", runner.run_above, { desc = " Run this and all above", silent = true })
+      vim.keymap.set("n", "<localleader>rb", runner.run_below, { desc = " Run this and all below", silent = true })
+      vim.keymap.set("n", "<localleader>rA", runner.run_all, { desc = " Run all cells", silent = true })
+      vim.keymap.set("n", "<localleader>rl", runner.run_line, { desc = " Run current line", silent = true })
+      vim.keymap.set("v", "<localleader>r", runner.run_range, { desc = " Run visual selection", silent = true })
     end,
   },
 
-  { -- directly open ipynb files as quarto docuements
+  { -- directly open ipynb files as quarto documents
     "GCBallesteros/jupytext.nvim",
     opts = {
       custom_language_formatting = {
-        python = {
-          extension = "qmd",
-          style = "quarto",
-          force_ft = "quarto",
-        },
-        r = {
-          extension = "qmd",
-          style = "quarto",
-          force_ft = "quarto",
-        },
+        python = { extension = "qmd", style = "quarto", force_ft = "quarto" },
+        r = { extension = "qmd", style = "quarto", force_ft = "quarto" },
       },
     },
   },
 
-  { -- send code from python/R/qmd docs to a tmux REPL pane
+  { -- send code from python/R/qmd docs to a Neovim terminal buffer (neovim-rpc)
     "jpalardy/vim-slime",
     dev = false,
     init = function()
-      -- Quarto chunk detection & ipython override
+      -- On macOS: ensure your terminal (e.g. iTerm2) supports bracketed-paste
       vim.b["quarto_is_python_chunk"] = false
       Quarto_is_in_python_chunk = function() require("otter.tools.functions").is_otter_language_context "python" end
 
@@ -89,21 +55,17 @@ return {
       let g:slime_dispatch_ipython_pause = 100
       function SlimeOverride_EscapeText_quarto(text)
         call v:lua.Quarto_is_in_python_chunk()
-        if exists('g:slime_python_ipython')
-          \ && len(split(a:text, "\n")) > 1
-          \ && b:quarto_is_python_chunk
-          \ && !(exists('b:quarto_is_r_mode') && b:quarto_is_r_mode)
+        if exists('g:slime_python_ipython') \
+           && len(split(a:text, "\n")) > 1 \
+           && b:quarto_is_python_chunk \
+           && !(exists('b:quarto_is_r_mode') && b:quarto_is_r_mode)
           return ["%cpaste -q\n", g:slime_dispatch_ipython_pause, a:text, "--\n"]
         endif
         return [a:text]
       endfunction
       ]]
 
-      -- neovim-rpc target
       vim.g.slime_target = "neovim"
-      vim.g.slime_no_mappings = true
-      vim.g.slime_python_ipython = 1
-
       vim.g.slime_bracketed_paste = true
       vim.g.slime_python_ipython = 1
       vim.g.slime_no_mappings = true
@@ -113,6 +75,19 @@ return {
       vim.g.slime_menu_config = false
       vim.g.slime_input_pid = false
       vim.g.slime_neovim_ignore_unlisted = true
+
+      local function mark_terminal()
+        local job_id = vim.b.terminal_job_id
+        vim.notify("Marked terminal job: " .. job_id, vim.log.levels.INFO)
+      end
+      local function set_terminal()
+        vim.fn["slime#config"] {}
+        vim.notify("Slime target set to marked terminal", vim.log.levels.INFO)
+      end
+
+      -- Mark and set terminal using <localleader> mappings
+      vim.keymap.set("n", "<localleader>cm", mark_terminal, { desc = "[C] Mark terminal", silent = true })
+      vim.keymap.set("n", "<localleader>cs", set_terminal, { desc = "[S] Set slime target", silent = true })
     end,
   },
 
@@ -143,16 +118,14 @@ return {
 
   { -- preview equations
     "jbyuki/nabla.nvim",
-    keys = {
-      { "<leader>qm", ':lua require"nabla".toggle_virt()<cr>', desc = "toggle [m]ath equations" },
-    },
+    keys = { { "<leader>qm", ':lua require"nabla".toggle_virt()<cr>', desc = "toggle [m]ath equations" } },
   },
 
   {
     "benlubas/molten-nvim",
     dev = false,
     enabled = true,
-    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+    version = "^1.0.0",
     build = ":UpdateRemotePlugins",
     init = function()
       vim.g.molten_image_provider = "image.nvim"
@@ -173,18 +146,18 @@ return {
       end
       vim.keymap.set("n", "<localleader>mi", init, { silent = true, desc = "Initialize molten" })
       vim.keymap.set("n", "<localleader>md", deinit, { silent = true, desc = "Stop molten" })
-      vim.keymap.set("n", "<localleader>mp", ":MoltenImagePopup<CR>", { silent = true, desc = "molten image popup" })
+      vim.keymap.set("n", "<localleader>mp", ":MoltenImagePopup<CR", { silent = true, desc = "molten image popup" })
       vim.keymap.set(
         "n",
         "<localleader>mb",
-        ":MoltenOpenInBrowser<CR>",
+        ":MoltenOpenInBrowser<CR",
         { silent = true, desc = "molten open in browser" }
       )
-      vim.keymap.set("n", "<localleader>mh", ":MoltenHideOutput<CR>", { silent = true, desc = "hide output" })
+      vim.keymap.set("n", "<localleader>mh", ":MoltenHideOutput<CR", { silent = true, desc = "hide output" })
       vim.keymap.set(
         "n",
         "<localleader>ms",
-        ":noautocmd MoltenEnterOutput<CR>",
+        ":noautocmd MoltenEnterOutput<CR",
         { silent = true, desc = "show/enter output" }
       )
     end,
