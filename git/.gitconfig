@@ -8,13 +8,14 @@
   cp = cherry-pick
   dcom = "!git add . && git commit -m \"[DIRTY-COMMIT] Update\""
   dc = diff --cached
+  fixup = "!git add . && git commit -m \"fixup\""
   ig = !sh -c 'cat ~/gitignore/Global/macOS.gitignore ~/gitignore/Python.gitignore ~/gitignore/Rust.gitignore ~/gitignore/TeX.gitignore ~/gitignore/C++.gitignore ~/gitignore/C.gitignore ~/gitignore/Global/Archives.gitignore >> .gitignore' -
   iss = "!gh issue create"
   lg = log --branches --remotes --tags --graph --decorate
   logg = log --graph --decorate --oneline --abbrev --all
   loggg = log --all --source --pretty=oneline --graph
   logggg = log --all --source --graph
-  logo = log --oneline
+  logo = log --oneline --invert-grep --grep '^chore:'
   logob = log --pretty=format:\"%C(auto)%h %C(bold yellow)%ae%C(auto)%d %s\" --abbrev-commit --decorate # One line log with author and decorations
   logs = log --stat
   plfs = \\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
@@ -22,6 +23,7 @@
   pru = !sh -c 'git checkout -b pull/$1/test && git pull --rebase upstream pull/$1/head' -
   plr = pull --rebase
   pulla = pull --rebase --all
+  pushall = "!f() { for r in $(git remote); do git push $r $1; done; }; f"
   pushnov = push --no-verify
   pushup = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
   pusm = pull --rebase upstream master --ff-only
@@ -45,6 +47,13 @@
   updatefrom = !bash -c 'git pull --rebase $1 $(git rev-parse --abbrev-ref HEAD) --ff-only && git fetch --all' -
   vimdiff = difftool
   ws = "!git rebase --whitespace=fix --onto $(git merge-base HEAD @{u})"
+  ; Claude Code
+  ; cc = "!claude --print --output-format 'text' Generate a conventional commit message for current changes' | sed -n '/```/,/```/p' | sed '1d;$d' | git commit -F -"
+  ; ccs = "!claude --print --output-format 'text' 'Generate a conventional commit message for staged changes' | sed -n '/```/,/```/p' | sed '1d;$d' | git commit -F -"
+  ; cc-amend = "!claude --print --output-format 'text' 'Generate an improved commit message for the last commit changes' | sed -n '/```/,/```/p' | sed '1d;$d' | git commit --amend -F -"
+  ; cc-since = "!f() { claude --print --output-format 'text' \"Generate commit message for changes from ${1:-HEAD~1} to HEAD: $(git diff ${1:-HEAD~1}..HEAD)\" | sed -n '/```/,/```/p' | sed '1d;$d' | git commit -F -; }; f"
+  ; cc-compare = "!f() { git diff ${1}..${2:-HEAD} | claude --print --output-format 'text' 'Analyze this diff and create a commit message' | sed -n '/```/,/```/p' | sed '1d;$d' | git commit -F -; }; f"
+  ; cc-branch = "!f() { git diff ${1:-main}...HEAD | claude --print --output-format 'text' 'Create commit message for branch changes vs ${1:-main}' | sed -n '/```/,/```/p' | sed '1d;$d' | git commit -F -; }; f"
 [blame]
   coloring = highlightRecent
   showEmail = true
@@ -58,16 +67,12 @@
     ; frag = magenta bold
 [core]
   whitespace = fix,-blank-at-eof
+	compression = 9
 [diff]
 	tool = nvimdiff
   submodule = log
 [difftool]
 	prompt = false
-[filter "lfs"]
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
-  clean = git-lfs clean -- %f
 [filter "media"]
   clean = git media clean %f
   smudge = git media smudge %f

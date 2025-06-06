@@ -10,3 +10,6 @@
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 . "/Users/tallam/.deno/env"
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
