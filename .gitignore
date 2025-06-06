@@ -53,3 +53,9 @@ htop
 octave
 vimgolf
 yamllint
+
+ai/claude/**/*
+!ai/claude/.claude/
+ai/claude/.claude/**/*
+!ai/claude/.claude/CLAUDE.md
+!ai/claude/.claude/PROMPTS.md
