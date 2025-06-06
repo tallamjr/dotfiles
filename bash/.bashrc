@@ -165,12 +165,12 @@ export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 
 # ==================================================================================================
-#                                           PYTHON/CONDA
+#                                           PYTHON
 # ==================================================================================================
 # Main env miniforge
 export PATH="$PATH:${BREW_CASKROOM}/miniforge/base/envs/main/bin"
 
-# source $HOME/github/tallamjr/origin/scripts/condasource.sh
+source $HOME/github/tallamjr/origin/scripts/uvup.sh
 
 # https://github.com/conda/conda/issues/6018
 export PYTHONNOUSERSITE=True
@@ -298,7 +298,7 @@ export LIBTORCH_USE_PYTORCH=1
 
 # https://stackoverflow.com/a/67361161/4521950
 # Fixes: docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export DOCKER_DEFAULT_PLATFORM=linux/arm64/v8
 export PATH="/opt/homebrew/opt/socket_vmnet/bin:$PATH"
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 
@@ -322,6 +322,7 @@ alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
 alias crontabedit="env EDITOR=vim crontab -e" # Edit crontab with vim
+alias docling="docling --pipeline vlm --vlm-model smoldocling --image-export-mode placeholder"
 alias df="df -h"
 alias dls="cd ~/Downloads/ && la -rt"
 alias du="du -sh"
@@ -371,6 +372,7 @@ alias sleep="sudo shutdown -s now" # Put computer to sleep
 alias speed="speedtest-cli"
 alias tc="texcount -inc -total"
 alias tmp="cd /tmp"
+alias transcript="youtube_transcript_api --format text"
 alias tree="tree -I '*__pycache__|*.pkl'"
 alias triple="rustc -vV | sed -n 's/^host: \\(.*\\)$/\\1/p'"
 alias tmux="tmux -2" # Force tmux to use 256 colours
@@ -657,10 +659,28 @@ function ccmake() {
 	fi
 }
 
+function newp() {
+	uv venv --python "$1"
+	source .venv/bin/activate
+	uv pip install pip
+	wpp
+}
+
 function pythonversion() {
 	# Check version of install Python package
 	# python -c "import $1; print($1.__version__)"
 	pip list | grep $1
+}
+
+function mid () {
+  FILE=$1
+  filename="${FILE%%.*}"
+  if command -v markitdown >/dev/null; then
+    markitdown "$1" > "${filename}.md"
+  else
+    pip install 'markitdown[all]'
+    markitdown "$1" > "${filename}.md"
+  fi
 }
 
 function frameworkpython {
@@ -669,6 +689,22 @@ function frameworkpython {
 	else
 		/usr/local/bin/python "$@"
 	fi
+}
+
+function fcc() {
+	# Fix-command but without previous command
+	fc -e "vim -c '1d' -c 'normal! ggOcodex' -c 'startinsert'"
+}
+
+function cx() {
+	# Fix-command but without previous command
+	fc -e "vim -c '1d' -c 'normal! ggOcodex  ' -c 'startinsert'"
+}
+
+function turl() {
+	TINY_URL_BASE="http://tinyurl.com/api-create.php?url="
+	LINK=$1
+	curl -s $TINY_URL_BASE$LINK
 }
 
 function auto_activate_venv() {
@@ -689,6 +725,48 @@ function auto_activate_venv() {
 # export PROMPT_COMMAND="auto_activate_venv; $PROMPT_COMMAND"
 
 . "/Users/tallam/.deno/env"
+
+export PATH="$PATH:/opt/homebrew/opt/riscv-gnu-toolchain/bin"
+
+export DYLD_LIBRARY_PATH=/Users/tallam/github/tallamjr/origin/pup/.venv/lib/python3.11/site-packages/onnxruntime/capi:$DYLD_LIBRARY_PATH
+
+# macOS cross compiler toolchains
+export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc
+export CC_x86_64_unknown_linux_gnu=x86_64-linux-gnu-gcc
+export CXX_x86_64_unknown_linux_gnu=x86_64-linux-gnu-g++
+export AR_x86_64_unknown_linux_gnu=x86_64-linux-gnu-ar
+
+export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc
+export CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc
+export CXX_aarch64_unknown_linux_gnu=aarch64-linux-gnu-g++
+export AR_aarch64_unknown_linux_gnu=aarch64-linux-gnu-ar
+
+export BAUDRATE="115200"
+
+LDLIBS="-L/usr/local/lib -L/opt/local/lib -lftdi -lm"
+CFLAGS="-MD -O0 -ggdb -Wall -std=c99 -I/usr/local/include -I/opt/local/include/"
+
+# turn off daft telemetry
+export DAFT_ANALYTICS_ENABLED=0
+export SCARF_NO_ANALYTICS=true
+export DO_NOT_TRACK=true
+
+export TMPDIR=/tmp
+
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+export QUARTO_PYTHON="$HOME/.venv/bin/python"
+
+export CLICOLOR_FORCE=1
+alias watch="fswatch"
+
+# claude
+export DISABLE_ERROR_REPORTING=1
+export DISABLE_TELEMETRY=1
+export DISABLE_BUG_COMMAND=1
+
+alias cbp="cargo bump patch && cargo check"
+
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF

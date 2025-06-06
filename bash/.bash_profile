@@ -24,3 +24,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 . "/Users/tallam/.deno/env"
+. "$HOME/.atuin/bin/env"
