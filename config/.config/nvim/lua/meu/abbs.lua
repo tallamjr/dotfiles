@@ -6,6 +6,8 @@ keymap.set("ia", "teh", "the")
 keymap.set("ia", "sun", "Sun")
 keymap.set("ia", "universe", "Universe")
 keymap.set("ia", "eqaution", "equation")
+keymap.set("ia", "=-", "—")
+keymap.set("ia", "--", "—")
 -- emoji shortcuts
 keymap.set("ia", ":bomb:", "💣")
 keymap.set("ia", ":book:", "📖")

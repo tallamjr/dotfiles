@@ -50,7 +50,7 @@ return {
     cmd = { "Mtoc" }, -- Or, lazy load on "Mtoc" command
     opts = {
       headings = {
-        pattern = "^(##)%s+(.+)$",
+        pattern = "^(#+)%s+(.+)$",
         exclude = function(title)
           -- Return true means, to exclude it from the ToC
           return title:upper() == title

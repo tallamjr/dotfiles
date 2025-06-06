@@ -33,8 +33,19 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- URL handling
-keymap.set("n", "<leader>o", "<cmd>URLOpenUnderCursor<cr>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+-- Function to handle file:// links
+local function open_file_under_cursor()
+  local url = vim.fn.expand "<cWORD>"
+  if url:match "^file://" then
+    local file_path = url:gsub("file://", "") -- Remove 'file://' prefix
+    vim.cmd("e " .. vim.fn.fnameescape(file_path)) -- Open the file in Neovim
+  else
+    vim.cmd "URLOpenUnderCursor" -- Fallback to the default URL handler
+  end
+end
+
+-- Key mapping to handle file:// links
+vim.keymap.set("n", "<leader>o", open_file_under_cursor, { desc = "Open file or URL under cursor" })
 
 keymap.set("n", "<leader>coe", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" }) --  enable copilot
 keymap.set("n", "<leader>cod", "<cmd>Copilot disable<cr>", { desc = "Disable Copilot" }) --  disable copilot

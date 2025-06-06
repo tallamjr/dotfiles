@@ -15,6 +15,8 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.env.PATH = vim.env.PATH .. ":/Users/tallam/.local/share/nvim/mason/bin"
+
 require "lazy_setup"
 require "polish"
 
@@ -22,3 +24,11 @@ require "meu.abbs"
 require "meu.keys"
 require "meu.opts"
 require "meu.misc"
+
+require("lspconfig").pyright.setup {
+  filetypes = { "python" },
+}
+
+require("lspconfig").ruff.setup {
+  filetypes = { "python" },
+}

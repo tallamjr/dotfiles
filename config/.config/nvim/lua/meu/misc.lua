@@ -53,6 +53,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = strip_trailing_whitespace,
 })
 
+-- No folds allowed
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function() vim.opt_local.foldenable = false end,
+})
+
 -- Build latex documents
 vim.api.nvim_set_keymap(
   "n",
