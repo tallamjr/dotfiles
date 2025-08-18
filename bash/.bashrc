@@ -252,10 +252,10 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-# export CC=`which clang`
-# export CXX=`which clang++`
-export CC=$(which gcc-$GCC_VERSION)
-export CXX=$(which g++-$GCC_VERSION)
+export CC=`which clang`
+export CXX=`which clang++`
+# export CC=$(which gcc-$GCC_VERSION)
+# export CXX=$(which g++-$GCC_VERSION)
 export LC_ALL="en_US.UTF-8"
 
 # Scala
@@ -321,6 +321,7 @@ alias cargo="cargo +nightly"
 alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
+alias cleanme="docker system prune -a --volumes && brew cleanup --prune=all && brew cask cleanup && rm -rf \"$(brew --cache)\""
 alias crontabedit="env EDITOR=vim crontab -e" # Edit crontab with vim
 alias docling="docling --pipeline vlm --vlm-model smoldocling --image-export-mode placeholder"
 alias df="df -h"
@@ -764,10 +765,19 @@ alias watch="fswatch"
 export DISABLE_ERROR_REPORTING=1
 export DISABLE_TELEMETRY=1
 export DISABLE_BUG_COMMAND=1
+alias yolo="claude --dangerously-skip-permissions"
 
 alias cbp="cargo bump patch && cargo check"
+alias cbm="cargo bump minor && cargo check"
 
+export HOMEBREW_DEVELOPER=1
+export HOMEBREW_FORCE_BREWED_CURL=1
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tallam/.lmstudio/bin"
+# End of LM Studio CLI section
+

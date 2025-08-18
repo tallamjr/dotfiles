@@ -25,3 +25,9 @@ unset __conda_setup
 
 . "/Users/tallam/.deno/env"
 . "$HOME/.atuin/bin/env"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tallam/.lmstudio/bin"
+# End of LM Studio CLI section
+

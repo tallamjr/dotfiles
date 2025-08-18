@@ -13,3 +13,8 @@
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tallam/.lmstudio/bin"
+# End of LM Studio CLI section
+
