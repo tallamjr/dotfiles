@@ -16,7 +16,7 @@ pack/
 Miniforge*
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -54,8 +54,9 @@ octave
 vimgolf
 yamllint
 
-ai/claude/**/*
+ai/claude/*
+ai/claude/*/
 !ai/claude/.claude/
-ai/claude/.claude/**/*
+ai/claude/.claude/*
 !ai/claude/.claude/CLAUDE.md
-!ai/claude/.claude/PROMPTS.md
+!ai/claude/.claude/commands/
