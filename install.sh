@@ -23,16 +23,10 @@ done
 
 function stow_files(){
 # Symlink dotfiles to home directory
-folder_array=( vim bash brew config emacs git mutt readline tmux vim xcode zsh )
+folder_array=( vim bash brew config emacs git mutt readline tmux vim xcode zsh python )
 for folder in ${folder_array[*]}
 do
 	stow -v --target=$HOME --no-folding $folder
-done
-
-folder_array=( conda )
-for folder in ${folder_array[*]}
-do
-  stow -v --target=$HOME $folder
 done
 }
 
@@ -67,8 +61,13 @@ if [ $operatingSystem == "Darwin" ]; then
 
     stow_files
 
-    brew install miniforge
-    bash --rcfile <(echo '. bash/.bashrc; conda init "$(basename "${SHELL}")"')
+    # Install uv for Python package management
+    if ! command -v uv > /dev/null; then
+        echo "Installing uv..."
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+    else
+        echo "uv already installed. Skipping."
+    fi
 
 elif [ "$operatingSystem" == "Linux" ]; then
     echo " Linux Kernel Detected..."
@@ -90,8 +89,13 @@ elif [ "$operatingSystem" == "Linux" ]; then
     brew install stow
     stow_files
 
-    brew install miniforge
-    bash --rcfile <(echo '. bash/.bashrc; conda init "$(basename "${SHELL}")"')
+    # Install uv for Python package management
+    if ! command -v uv > /dev/null; then
+        echo "Installing uv..."
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+    else
+        echo "uv already installed. Skipping."
+    fi
 else
     echo "Not running OSX or Linux. Sort it out mate!"
     exit 1;
@@ -122,6 +126,18 @@ else
 fi
 # Brew install packages
 brew bundle --file $HOME/dotfiles/brew/Brewfile
+
+# Setup Python environment with uv
+if command -v uv > /dev/null; then
+    echo "Setting up Python environment with uv..."
+    cd $HOME/dotfiles/python
+    uv venv --python 3.12
+    source .venv/bin/activate
+    uv pip install -e .
+    cd $HOME/dotfiles
+else
+    echo "Warning: uv not found, skipping Python environment setup"
+fi
 
 # Install Rust + toolchains
 pushd rust

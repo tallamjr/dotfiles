@@ -167,8 +167,8 @@ export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 # ==================================================================================================
 #                                           PYTHON
 # ==================================================================================================
-# Main env miniforge
-export PATH="$PATH:${BREW_CASKROOM}/miniforge/base/envs/main/bin"
+# Python environment with uv
+# uv is managed through shell integration
 
 source $HOME/github/tallamjr/origin/scripts/uvup.sh
 
@@ -247,7 +247,7 @@ export TF_CPP_MIN_LOG_LEVEL=2
 export KAGGLE_CONFIG_DIR=$HOME/.kaggle/
 
 # Apache Arrow Compilation
-export ARROW_HOME=$BREW_PREFIX/anaconda3/envs/pyarrow-dev
+# export ARROW_HOME=$BREW_PREFIX/anaconda3/envs/pyarrow-dev
 export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
@@ -316,9 +316,9 @@ alias bashrc="vim ~/.bashrc"
 alias blc="black . --check"
 alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
 alias brewversion="$(brew config | grep 'HOMEBREW_VERSION' | awk '{print $2}')"
-alias ca="conda activate"
+# alias ca="conda activate"
 alias cargo="cargo +nightly"
-alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
+# alias condasource="source $HOME/github/tallamjr/origin/scripts/condasource.sh"
 alias chrome="open /Applications/Google\ Chrome.app/"
 alias cl="clear"
 alias cleanme="docker system prune -a --volumes && brew cleanup --prune=all && brew cask cleanup && rm -rf \"$(brew --cache)\""
@@ -422,20 +422,18 @@ function pip() {
 function cec() {
 
   ENV_NAME=$1
-  sed -i "1 s/.*/name: $ENV_NAME/" $HOME/environment.yml
-  conda env create --file $HOME/environment.yml
-  sed -i "1 s/.*/name: main/" $HOME/environment.yml
-  conda activate $ENV_NAME
+  echo "Use uv for Python environment management:"
+  echo "  uv venv $ENV_NAME"
+  echo "  source $ENV_NAME/bin/activate"
+  echo "  uv pip install -e ."
 
 }
 
 function caff() {
   ENV_NAME=`cat environment.yml | sed -n 's/^name: \(.*\)$/\1/p'`
-  conda activate $ENV_NAME
-  exitCode=$?
-  if [[ ${exitCode} -ne 0 ]]; then
-    conda env create -f environment.yml
-  fi
+  # Use uv for Python environment management
+  echo "Use 'uv venv' to create virtual environments"
+  echo "Use 'uv pip install -e .' to install from pyproject.toml"
   if [[ ! -f requirements.txt ]]; then
     touch requirements.txt
   fi
