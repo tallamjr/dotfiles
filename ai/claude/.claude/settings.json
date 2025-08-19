@@ -16,5 +16,43 @@
         ]
       }
     ]
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "LS",
+      "WebFetch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(uv sync)",
+      "Bash(uv run mkdocs serve)",
+      "Bash(uv run mkdocs build)",
+      "Bash(uv run pytest)",
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Edit(src/**)",
+      "Edit(*.md)"
+    ],
+    "ask": [
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(docker *)",
+      "Edit(package.json)",
+      "Edit(requirements.txt)",
+      "Edit(.env*)"
+    ],
+    "deny": [
+      "Bash(git rebase *)",
+      "Bash(git reset --hard *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)"
+    ],
+    "defaultMode": "default"
   }
 }
