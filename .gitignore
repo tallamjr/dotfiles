@@ -59,4 +59,7 @@ ai/claude/*/
 !ai/claude/.claude/
 ai/claude/.claude/*
 !ai/claude/.claude/CLAUDE.md
+!ai/claude/.claude/settings.json
+!ai/claude/.claude/agents/
 !ai/claude/.claude/commands/
+!ai/claude/.claude/hooks/
