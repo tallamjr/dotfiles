@@ -46,11 +46,6 @@
             "type": "command",
             "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.sh /Users/tallam/.claude-code-project-index/scripts/reindex_if_needed.py",
             "timeout": 10
-          },
-          {
-            "type": "command",
-            "command": "$HOME/dotfiles/ai/claude/.claude/hooks/auto-verify.sh",
-            "timeout": 30
           }
         ]
       }
