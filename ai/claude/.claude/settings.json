@@ -22,7 +22,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.py /Users/tallam/.claude-code-project-index/scripts/update_index.py",
+            "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.sh /Users/tallam/.claude-code-project-index/scripts/update_index.py",
             "timeout": 5
           }
         ]
