@@ -11,7 +11,7 @@ Check project root directory for existing CLAUDE configuration files following t
 
 ### File Priority Order
 1. **CLAUDE.md exists**: Prepend planning section to beginning of CLAUDE.md
-2. **CLAUDE.local.md exists** (but no CLAUDE.md): Prepend planning section to beginning of CLAUDE.local.md  
+2. **CLAUDE.local.md exists** (but no CLAUDE.md): Prepend planning section to beginning of CLAUDE.local.md
 3. **Neither file exists**: Run `/init` to create CLAUDE.local.md, then add planning section to top of newly created file
 
 ## Section to Add

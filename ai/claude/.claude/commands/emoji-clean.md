@@ -62,4 +62,3 @@ Provide summary including:
 - Number of emojis removed
 - Types of emojis found
 - Any replacements made with descriptive text
-

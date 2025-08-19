@@ -84,5 +84,3 @@ Overall publication readiness verdict with specific recommendations for improvem
 - Specific, actionable improvement recommendations provided
 - Clear verdict on publication readiness given
 - All concerns supported with examples and evidence
-
-

@@ -113,4 +113,3 @@ if [ -n "$CUTE_BATTERY_INDICATOR" ]; then
 else
     echo ${BATTERY_STATUS}%
 fi
-

@@ -1,43 +1,87 @@
-<!-- General -->
+# Dotfiles Development Guidelines
 
-# Always use descriptive variable names
+This file provides development standards and workflows for managing dotfiles configurations across *NIX systems using GNU Stow.
 
-# Do not use emojis at all
+## Code Quality Standards
 
-# Never use or set up mock data. Always only use real data that is usually found in a data directory.
+- Always use descriptive variable names
+- Do not use emojis at all
+- Never use or set up mock data. Always only use real data that is usually found in a data directory
+- Never include placeholders or workarounds just to allow for tests to pass, all code should be real and not be a fake implementation
+- Work in a test-driven development mindset when tests are carefully considered for any new feature implementation. Aim for greater than 80% test coverage when implementing new items
+- When implementing features there is no middle ground, no "good enough" compromises and no elaborate failure handling. Things should work as intended otherwise it's a failure and should be treated as incomplete
+- Please avoid bending to keep backwards compatibility or legacy code
+- When you believe you have completed a task, you should deploy a separate subagent to verify and validate your work.
 
-# Never include placeholders or workarounds just to allow for tests to pass, all code should be real and not be a fake implementation
+## Git Workflow
 
-# Work in a test-driven development mindset when tests are carefully considered for any new feature implementation. You should aim for greater than 80% test coverage when implementing new items.
+- Use British English when writing git commit messages or documentation
+- Follow https://www.conventionalcommits.org/en/v1.0.0-beta.4/ guidance when writing git commit messages
+- When writing a commit message include references sections when a GitHub issue, Stack Overflow or other useful information found online was used to solve a problem but it should be a weblink to that source
+- When adding a references section to the commit message it should only be web links and does not need to be a sentence
+- Do not include "🤖 Generated with [Claude Code](https://claude.ai/code)" or "Co-Authored-By: Claude <noreply@anthropic.com>" in commit messages
 
-# When implementing features there is no middle ground, no "good enough" compromises and no elaborate failure handling. Things should work as intended otherwise its a failure and should be treated as incomplete.
+## Language-Specific Standards
 
-# Please avoid bending to keep backwards compatibility or legacy code.
+### Python
+- Format python code using Black
+- When creating a Jupyter notebook please do not use emojis
+- Verify new python code with `pytest`
+- Verify new python code with `pytest --nbmake`
 
-<!-- Git -->
+### Rust
+- Format rust code using `rustfmt`
+- Verify new rust code with `cargo check` and `cargo test`
 
-# Use British English when writing git commit messages or documentation
+### Shell Scripts
+- Use bash for shell scripts unless specific shell features are required
+- Include proper error handling and exit codes
+- Use shellcheck for linting shell scripts
 
-# Follow https://www.conventionalcommits.org/en/v1.0.0-beta.4/ guidance when writing git commit messages.
+## Common Commands
 
-# When writing a commit message include references sections when a github issue, stackoverflow or other useful information found online was used to solve a problem but it should be a weblink to that source.
+### Configuration Management
+```bash
+# Symlink configurations using stow
+stow -v --target=$HOME --no-folding [folder_name]
 
-# When adding a references section to the commit message it should only be web links and does not need to be a sentence.
+# Example: symlink vim configuration
+stow -v --target=$HOME --no-folding vim
+```
 
-# Do not include "🤖 Generated with [Claude Code](https://claude.ai/code)" or "Co-Authored-By: Claude <noreply@anthropic.com>" in commit messages
+### Package Management
+```bash
+# Install all brew packages from Brewfile
+brew bundle --file $HOME/dotfiles/brew/Brewfile
 
-<!-- Python -->
+# Install Rust toolchain and crates
+cd rust && source install-rust-with-crates.sh
+```
 
-# Format python code using Black
+### System Provisioning
+```bash
+# Full system setup on new machine
+git clone git@github.com:tallamjr/dotfiles.git $HOME && bash install.sh
 
-# When creating a Jupyter notebook please do not use emojis
+# Temporary configuration install
+bash temp/temp-install.sh
+```
 
-# Verify new python code with `pytest`
+## Dotfiles Architecture
 
-# Verify new python code with `pytest --nbmake`
+### Stow Configuration Patterns
+- Use `--no-folding` for most configurations to prevent deep directory creation
+- Target `$HOME` for most symlinks
+- Some packages like `conda` use default stow behaviour for proper directory structure
 
-<!-- Rust -->
+### Directory Organisation
+- Each application/tool has its own directory (bash/, vim/, git/, etc.)
+- Configuration files are organised to be symlinked via GNU Stow
+- The `install.sh` script handles OS detection and appropriate package manager setup
 
-# Format rust code using `rustfmt`
-
-# Verify new rust code with `cargo check` and `cargo test`
+### Key Directories
+- `config/` - Contains Neovim and other application configs
+- `brew/` - Homebrew package definitions and Brewfile
+- `rust/` - Rust toolchain setup and crate installations
+- `playbook/` - Ansible playbooks for system provisioning
+- `temp/` - Temporary installation scripts for quick setup

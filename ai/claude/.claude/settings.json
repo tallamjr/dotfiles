@@ -15,6 +15,45 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.py /Users/tallam/.claude-code-project-index/scripts/update_index.py",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/ai/claude/.claude/hooks/todo-tracker.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.sh /Users/tallam/.claude-code-project-index/scripts/reindex_if_needed.py",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/ai/claude/.claude/hooks/auto-verify.sh",
+            "timeout": 30
+          }
+        ]
+      }
     ]
   },
   "permissions": {
@@ -32,6 +71,8 @@
       "Bash(uv run pytest)",
       "Bash(git status)",
       "Bash(git diff)",
+      "Bash(pre-commit *)",
+      "Bash(~/.claude-code-docs/claude-docs-helper.sh *)",
       "Edit(src/**)",
       "Edit(*.md)"
     ],

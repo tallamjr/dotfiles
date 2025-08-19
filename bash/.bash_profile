@@ -30,4 +30,3 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tallam/.lmstudio/bin"
 # End of LM Studio CLI section
-
