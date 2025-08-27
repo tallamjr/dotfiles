@@ -404,6 +404,12 @@ alias gcc="gcc-$GCC_VERSION"
 #                                           FUNCTIONS
 # ==================================================================================================
 
+function mcp-add-local() {
+
+	"$@" --scope project
+
+}
+
 function ds() {
   docker ps -q --filter ancestor="$1" | xargs -r docker stop
 }
@@ -771,6 +777,7 @@ alias cbm="cargo bump minor && cargo check"
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_FORCE_BREWED_CURL=1
 
+alias pc="pre-commit run --all-files"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -778,3 +785,5 @@ export HOMEBREW_FORCE_BREWED_CURL=1
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tallam/.lmstudio/bin"
 # End of LM Studio CLI section
+
+export DYLD_ROOT_PATH="$(xcrun --sdk iphonesimulator --show-sdk-path)"

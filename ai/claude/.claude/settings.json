@@ -51,6 +51,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-enhanced.sh"
+  },
   "permissions": {
     "allow": [
       "Read",
@@ -66,8 +70,8 @@
       "Bash(uv run pytest)",
       "Bash(git status)",
       "Bash(git diff)",
-      "Bash(pre-commit *)",
-      "Bash(~/.claude-code-docs/claude-docs-helper.sh *)",
+      "Bash(pre-commit:*)",
+      "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
       "Edit(src/**)",
       "Edit(*.md)"
     ],
