@@ -52,3 +52,10 @@ Check project root directory for existing CLAUDE configuration files following t
 - Section is properly formatted and positioned at the beginning
 - File maintains existing content and structure
 - Planning workflow is clearly documented for future use
+
+Following you running `/init` and we have the section outlined above done, you
+should try to use the `gh` command to understand the state of play with the repo
+and current issues or pull requests that have been filed with the associated
+repo. This should give a good overview of things. Then you should try to create
+either in ASCII art or Mermaid a system diagram of the architecture and how
+components fit together.

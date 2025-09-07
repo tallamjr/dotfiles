@@ -39,9 +39,19 @@ CREATE TABLE IF NOT EXISTS rate_limit_state (
     is_active BOOLEAN DEFAULT 1
 );
 
+-- Message tracking for rate limits (based on actual message count)
+CREATE TABLE IF NOT EXISTS message_tracking (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT,
+    window_start INTEGER,
+    timestamp INTEGER,
+    message_type TEXT DEFAULT 'user_prompt'
+);
+
 -- Create indexes for performance
 CREATE INDEX IF NOT EXISTS idx_sessions_last_seen ON sessions(last_seen);
 CREATE INDEX IF NOT EXISTS idx_daily_date ON daily_metrics(date);
+CREATE INDEX IF NOT EXISTS idx_message_tracking_window ON message_tracking(window_start);
 
 -- Initialize today's entry if it doesn't exist
 INSERT OR IGNORE INTO daily_metrics (date, total_cost, total_minutes, session_count)

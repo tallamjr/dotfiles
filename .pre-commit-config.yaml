@@ -26,6 +26,9 @@ repos:
   - repo: https://github.com/doublify/pre-commit-rust
     rev: v1.0
     hooks:
-      - id: fmt
       - id: cargo-check
+        files: ^ai/claude/\.claude/hooks/.*\.rs$
+        args: [--manifest-path, ai/claude/.claude/hooks/Cargo.toml]
       - id: clippy
+        files: ^ai/claude/\.claude/hooks/.*\.rs$
+        args: [--manifest-path, ai/claude/.claude/hooks/Cargo.toml]

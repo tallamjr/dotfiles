@@ -38,6 +38,17 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/tallam/.claude/hooks/target/release/api-fallback",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",
@@ -51,47 +62,52 @@
       }
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-enhanced.sh"
+  "env": {
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "75000"
   },
   "permissions": {
     "allow": [
-      "Read",
-      "Grep",
-      "Glob",
-      "LS",
-      "WebFetch",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:docs.anthropic.com)",
-      "Bash(uv sync)",
-      "Bash(uv run mkdocs serve)",
-      "Bash(uv run mkdocs build)",
-      "Bash(uv run pytest)",
-      "Bash(git status)",
+      "Bash(gh:*)",
       "Bash(git diff)",
+      "Bash(git status)",
       "Bash(pre-commit:*)",
+      "Bash(uv run mkdocs build)",
+      "Bash(uv run mkdocs serve)",
+      "Bash(uv run pytest)",
+      "Bash(uv sync)",
       "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
+      "Edit(*.md)",
       "Edit(src/**)",
-      "Edit(*.md)"
+      "Glob",
+      "Grep",
+      "LS",
+      "Read",
+      "WebFetch",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:github.com)"
     ],
     "ask": [
-      "Bash(npm install *)",
-      "Bash(npm uninstall *)",
-      "Bash(git push *)",
-      "Bash(git commit *)",
-      "Bash(docker *)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(git push:*)",
+      "Bash(git push)",
+      "Bash(git commit:*)",
+      "Bash(git commit)",
+      "Bash(docker:*)",
+      "Bash(sudo:*)",
       "Edit(package.json)",
       "Edit(requirements.txt)",
       "Edit(.env*)"
     ],
     "deny": [
-      "Bash(git rebase *)",
-      "Bash(git reset --hard *)",
-      "Bash(git push --force *)",
-      "Bash(git push -f *)",
-      "Bash(rm -rf *)",
-      "Bash(sudo *)"
+      "Bash(git rebase:*)",
+      "Bash(git rebase)",
+      "Bash(git reset --hard:*)",
+      "Bash(git reset:*)",
+      "Bash(git reset)",
+      "Bash(git push --force)",
+      "Bash(git push -f:*)",
+      "Bash(rm -rf:*)"
     ],
     "defaultMode": "default"
   }
