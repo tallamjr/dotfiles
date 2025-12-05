@@ -1,7 +1,14 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- NOTE: Using fmorroni's fork with GitHub-style callouts/alerts support.
+-- The upstream toppair/peek.nvim does not render [!NOTE], [!WARNING], [!TIP],
+-- [!IMPORTANT], [!CAUTION] blockquotes. This fork implements PR #68 which adds
+-- Obsidian-style callout rendering (same syntax as GitHub alerts).
+-- See: https://github.com/toppair/peek.nvim/pull/68
+-- Revert to "toppair/peek.nvim" once PR #68 is merged upstream.
 return {
-  "toppair/peek.nvim",
+  "fmorroni/peek.nvim",
+  branch = "callouts",
   event = { "VeryLazy" },
   build = "deno task --quiet build:fast",
   keys = {
