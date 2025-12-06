@@ -54,7 +54,7 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
      - `> [!WARNING]` - cautions and potential pitfalls
      - `> [!CAUTION]` - critical warnings about dangerous mistakes
    - **Tables**: Use for comparisons, specifications, structured data
-   - **ASCII diagrams**: For simple block diagrams and conceptual illustrations
+   - **ASCII diagrams**: For block diagrams, circuit diagrams, and conceptual illustrations
    - **Code blocks**: For any code examples mentioned in the lecture
 
 5. **Figure generation** (when transcript discusses visualisable concepts):
@@ -66,10 +66,6 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
    """Generate figures for YouTube lecture notes."""
    from pathlib import Path
    import matplotlib.pyplot as plt
-
-   # Optional: import schemdraw for circuit diagrams
-   # import schemdraw
-   # import schemdraw.elements as elm
 
    OUTPUT_DIR = Path(__file__).parent
    plt.style.use('default')
@@ -95,8 +91,8 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
 
    - Run with: `/Users/tallam/.venv/bin/python <output-dir>/figures/generate_figures.py`
    - Use naming convention: `lecture-XX-{description}.png`
-   - Use schemdraw for circuit diagrams when transcript discusses circuits
    - Use matplotlib for plots, waveforms, graphs, and data visualisations
+   - Use ASCII art for circuit diagrams (include in lecture notes directly)
    - Reference figures in notes with relative paths: `figures/lecture-XX-description.png`
 
 6. **Index generation** (playlists only):
@@ -150,7 +146,7 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
 - [ ] Equations formatted with MathJax where applicable
 - [ ] GitHub admonitions used for key insights
 - [ ] Signal plots/diagrams rendered when transcript discusses visualisable concepts
-- [ ] ASCII diagrams for simple block diagrams
+- [ ] ASCII diagrams for block diagrams and circuits
 - [ ] Link to original YouTube video included
 - [ ] Table of contents with working anchor links
 - [ ] Quick reference section included
