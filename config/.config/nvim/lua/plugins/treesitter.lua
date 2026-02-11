@@ -36,6 +36,7 @@ return {
         "query",
         "rust",
         "typescript",
+        "verilog",
         "vim",
         "vimdoc",
         "yaml",

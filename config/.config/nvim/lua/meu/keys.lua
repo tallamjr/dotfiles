@@ -33,15 +33,63 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- Function to handle file:// links
-local function open_file_under_cursor()
-  local url = vim.fn.expand "<cWORD>"
-  if url:match "^file://" then
-    local file_path = url:gsub("file://", "") -- Remove 'file://' prefix
-    vim.cmd("e " .. vim.fn.fnameescape(file_path)) -- Open the file in Neovim
-  else
-    vim.cmd "URLOpenUnderCursor" -- Fallback to the default URL handler
+-- Function to open a file with the system's default application
+local function open_with_system(file_path)
+  local cmd = vim.fn.has "mac" == 1 and "open" or "xdg-open"
+  vim.fn.jobstart({ cmd, file_path }, { detach = true })
+end
+
+-- Function to resolve a path (handles ~, relative paths, etc.)
+local function resolve_path(path)
+  -- Expand ~ to home directory
+  path = vim.fn.expand(path)
+  -- If not absolute, resolve relative to current buffer's directory
+  if not path:match "^/" then
+    local buf_dir = vim.fn.expand "%:p:h"
+    path = buf_dir .. "/" .. path
   end
+  -- Normalise the path (resolve . and ..)
+  return vim.fn.fnamemodify(path, ":p")
+end
+
+-- Function to handle file://, PDF files, and URLs under cursor
+local function open_file_under_cursor()
+  local word = vim.fn.expand "<cWORD>"
+
+  -- Strip common surrounding punctuation (quotes, parens, brackets, backticks)
+  local cleaned = word:gsub("^[\"'`%(%[{<]+", ""):gsub("[\"'`%)%]}>]+$", "")
+
+  -- Check for file:// URI
+  local file_path
+  if cleaned:match "^file://" then
+    file_path = cleaned:gsub("^file://", "")
+  -- Check if it ends with .pdf (case insensitive)
+  elseif cleaned:lower():match "%.pdf$" then
+    file_path = cleaned
+  end
+
+  -- If we identified a PDF path, try to open it
+  if file_path and file_path:lower():match "%.pdf$" then
+    local resolved = resolve_path(file_path)
+    if vim.fn.filereadable(resolved) == 1 then
+      open_with_system(resolved)
+      vim.notify("Opening PDF: " .. vim.fn.fnamemodify(resolved, ":t"), vim.log.levels.INFO)
+    else
+      vim.notify("PDF not found: " .. resolved, vim.log.levels.ERROR)
+    end
+    return
+  end
+
+  -- Handle non-PDF file:// URIs (open in Neovim)
+  if cleaned:match "^file://" then
+    local path = cleaned:gsub("^file://", "")
+    path = vim.fn.expand(path)
+    vim.cmd("e " .. vim.fn.fnameescape(path))
+    return
+  end
+
+  -- Fallback to the URL handler for web links and other content
+  vim.cmd "URLOpenUnderCursor"
 end
 
 -- Key mapping to handle file:// links

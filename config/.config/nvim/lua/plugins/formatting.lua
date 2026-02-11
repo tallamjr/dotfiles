@@ -33,7 +33,7 @@ return {
 
     vim.keymap.set(
       { "n", "v" },
-      "<leader>mp",
+      "<leader>mf",
       function()
         conform.format {
           lsp_fallback = true,

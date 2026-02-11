@@ -1,8 +1,57 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "model": "opusplan",
-  "feedbackSurveyState": {
-    "lastShownTime": 1754079108753
+  "env": {
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "75000"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(git diff)",
+      "Bash(git status)",
+      "Bash(pre-commit:*)",
+      "Bash(uv run mkdocs build)",
+      "Bash(uv run mkdocs serve)",
+      "Bash(uv run pytest)",
+      "Bash(uv sync)",
+      "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
+      "Edit(*.md)",
+      "Edit(src/**)",
+      "Glob",
+      "Grep",
+      "LS",
+      "Read",
+      "WebFetch",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(python3:*)",
+      "Bash(ruby -e:*)"
+    ],
+    "deny": [
+      "Bash(git rebase:*)",
+      "Bash(git rebase)",
+      "Bash(git reset --hard:*)",
+      "Bash(git reset:*)",
+      "Bash(git reset)",
+      "Bash(git restore:*)",
+      "Bash(git restore)",
+      "Bash(git push --force)",
+      "Bash(git push -f:*)",
+      "Bash(rm -rf:*)"
+    ],
+    "ask": [
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(git push:*)",
+      "Bash(git push)",
+      "Bash(git commit:*)",
+      "Bash(git commit)",
+      "Bash(docker:*)",
+      "Bash(sudo:*)",
+      "Edit(package.json)",
+      "Edit(requirements.txt)",
+      "Edit(.env*)"
+    ],
+    "defaultMode": "default"
   },
   "hooks": {
     "PreToolUse": [
@@ -26,27 +75,6 @@
             "timeout": 5
           }
         ]
-      },
-      {
-        "matcher": "TodoWrite",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/dotfiles/ai/claude/.claude/hooks/todo-tracker.sh",
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/tallam/.claude/hooks/target/release/api-fallback",
-            "timeout": 1
-          }
-        ]
       }
     ],
     "Stop": [
@@ -62,53 +90,13 @@
       }
     ]
   },
-  "env": {
-    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "75000"
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
-  "permissions": {
-    "allow": [
-      "Bash(gh:*)",
-      "Bash(git diff)",
-      "Bash(git status)",
-      "Bash(pre-commit:*)",
-      "Bash(uv run mkdocs build)",
-      "Bash(uv run mkdocs serve)",
-      "Bash(uv run pytest)",
-      "Bash(uv sync)",
-      "Bash(~/.claude-code-docs/claude-docs-helper.sh:*)",
-      "Edit(*.md)",
-      "Edit(src/**)",
-      "Glob",
-      "Grep",
-      "LS",
-      "Read",
-      "WebFetch",
-      "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:github.com)"
-    ],
-    "ask": [
-      "Bash(npm install:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(git push:*)",
-      "Bash(git push)",
-      "Bash(git commit:*)",
-      "Bash(git commit)",
-      "Bash(docker:*)",
-      "Bash(sudo:*)",
-      "Edit(package.json)",
-      "Edit(requirements.txt)",
-      "Edit(.env*)"
-    ],
-    "deny": [
-      "Bash(git rebase:*)",
-      "Bash(git rebase)",
-      "Bash(git reset --hard:*)",
-      "Bash(git reset:*)",
-      "Bash(git reset)",
-      "Bash(git push --force)",
-      "Bash(git push -f:*)",
-      "Bash(rm -rf:*)"
-    ],
-    "defaultMode": "default"
+  "outputStyle": "explanatory",
+  "alwaysThinkingEnabled": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754079108753
   }
 }

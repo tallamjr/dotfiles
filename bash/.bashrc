@@ -35,11 +35,6 @@ fi
 # Temporay directory
 export TMP=/tmp
 
-# Locate file containing passwords and global variables that will be sourced within other files.
-if [ -f ~/.localrc ]; then
-	source ~/.localrc
-fi
-
 # # For Git completion
 # if [ -f ~/.git-completion.bash ]; then
 # 	source ~/.git-completion.bash
@@ -117,7 +112,6 @@ if [ $(uname -m) == "x86_64" ]; then
 else
 	# Running on Apple silicon
 	export PATH="/opt/homebrew/bin:$PATH"
-	export PATH="/opt/homebrew/bin/gcc-11:$PATH"
 	# Allows Coreutils package to be used without 'g' prefix before each command.
 	export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 	export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -252,10 +246,15 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-export CC=`which clang`
-export CXX=`which clang++`
-# export CC=$(which gcc-$GCC_VERSION)
-# export CXX=$(which g++-$GCC_VERSION)
+# export CC=`which clang`
+# export CXX=`which clang++`
+
+GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
+export PATH="/opt/homebrew/bin/gcc-$GCC_VERSION:$PATH"
+alias gcc="gcc-$GCC_VERSION"
+
+export CC=$(which gcc-$GCC_VERSION)
+export CXX=$(which g++-$GCC_VERSION)
 export LC_ALL="en_US.UTF-8"
 
 # Scala
@@ -364,7 +363,7 @@ alias pt='pytest --verbose --capture=no --showlocals --durations=0 --setup-show'
 alias pylab="ipython -pylab" # Ipython
 alias qq="exit"
 alias resetusb='sudo launchctl stop com.apple.usbd; sudo launchctl start com.apple.usbd'
-alias rmbiber="rm -rf $(biber --cache)"
+# alias rmbiber="rm -rf $(biber --cache)"
 alias rr="R CMD BATCH "
 alias rspace="rename \"s/ /-/g\" * && rename \"s/[\(\)]//g\" *"
 alias rrs="rsync -avzh --progress --stats"
@@ -396,9 +395,6 @@ alias wpp="which pip && which python && python --version"
 alias xx="chmod +x" # Make file executable
 
 alias uvpi="uv pip install --python=$(which python)"
-
-GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
-alias gcc="gcc-$GCC_VERSION"
 
 # ==================================================================================================
 #                                           FUNCTIONS
@@ -771,19 +767,29 @@ export DISABLE_TELEMETRY=1
 export DISABLE_BUG_COMMAND=1
 alias yolo="claude --dangerously-skip-permissions"
 
-alias cbp="cargo bump patch && cargo check"
-alias cbm="cargo bump minor && cargo check"
+alias cbp="cargo bump patch && cargo check && git add Cargo.toml && git add Cargo.lock && git commit --amend --no-edit"
+alias cbm="cargo bump minor && cargo check && git add Cargo.toml && git add Cargo.lock && git commit --amend --no-edit"
 
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_FORCE_BREWED_CURL=1
 
 alias pc="pre-commit run --all-files"
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#                                               EOF
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tallam/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export DYLD_ROOT_PATH="$(xcrun --sdk iphonesimulator --show-sdk-path)"
+
+# Locate file containing passwords and global variables that will be sourced within other files.
+if [ -f ~/.localrc ]; then
+	source ~/.localrc
+fi
+
+export PATH="$PATH:/Applications/KiCad/KiCad.app/Contents/MacOS"
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#                                               EOF
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# >>> chipmunk PATH (added by build) >>>
+export PATH="/Users/tallam/github/tallamjr/forks/chipmunk/bin:$PATH"
+# <<< chipmunk PATH (added by build) <<<

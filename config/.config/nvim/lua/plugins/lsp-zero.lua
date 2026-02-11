@@ -20,7 +20,7 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
-      { "jose-elias-alvarez/null-ls.nvim" },
+      { "nvimtools/none-ls.nvim" },
     },
     config = function()
       local lsp_zero = require "lsp-zero"
