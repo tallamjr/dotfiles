@@ -246,15 +246,15 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
-# export CC=`which clang`
-# export CXX=`which clang++`
+export CC=`which clang`
+export CXX=`which clang++`
 
 GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
 export PATH="/opt/homebrew/bin/gcc-$GCC_VERSION:$PATH"
 alias gcc="gcc-$GCC_VERSION"
 
-export CC=$(which gcc-$GCC_VERSION)
-export CXX=$(which g++-$GCC_VERSION)
+# export CC=$(which gcc-$GCC_VERSION)
+# export CXX=$(which g++-$GCC_VERSION)
 export LC_ALL="en_US.UTF-8"
 
 # Scala
