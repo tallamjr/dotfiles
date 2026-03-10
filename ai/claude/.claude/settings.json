@@ -63,6 +63,15 @@
             "command": "~/.claude-code-docs/claude-docs-helper.sh hook-check"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-error-suppression.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -99,5 +108,6 @@
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754079108753
-  }
+  },
+  "effortLevel": "high"
 }

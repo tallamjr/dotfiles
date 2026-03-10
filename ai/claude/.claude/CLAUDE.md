@@ -13,6 +13,18 @@ This file provides development standards and workflows for managing dotfiles con
 - Please avoid bending to keep backwards compatibility or legacy code
 - When you believe you have completed a task, you should deploy a separate subagent to verify and validate your work.
 
+### Error Suppression is Forbidden
+
+Never use patterns that silently suppress errors. If a command or expression can fail, handle the failure explicitly or let it propagate. The following patterns are banned in all languages:
+
+- **Bash**: `command || true`, `command || :`, `set +e` (to disable errexit around specific commands), `command 2>/dev/null || true`
+- **Python**: bare `except: pass`, `except Exception: pass` without logging or re-raising
+- **Rust**: `.unwrap_or_default()` used to hide meaningful errors, `let _ = fallible_call()`
+- **JavaScript/TypeScript**: empty `catch {}` blocks, `.catch(() => {})`
+- **Any language**: any construct whose sole purpose is to force a success status when the underlying operation has failed
+
+If an error is genuinely expected and safe to ignore, add an explicit comment explaining **why** it is safe, and use the narrowest possible exception or error type.
+
 ## Git Workflow
 
 - Use British English when writing git commit messages or documentation
