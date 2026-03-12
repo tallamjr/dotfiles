@@ -64,3 +64,4 @@ ai/claude/.claude/*
 !ai/claude/.claude/agents/
 !ai/claude/.claude/commands/
 !ai/claude/.claude/hooks/
+!ai/claude/.claude/skills/
