@@ -31,4 +31,4 @@ If an error is genuinely expected and safe to ignore, add an explicit comment ex
 - Follow https://www.conventionalcommits.org/en/v1.0.0-beta.4/ guidance when writing git commit messages
 - When writing a commit message include references sections when a GitHub issue, Stack Overflow or other useful information found online was used to solve a problem but it should be a weblink to that source
 - When adding a references section to the commit message it should only be web links and does not need to be a sentence
-- Do not include "🤖 Generated with [Claude Code](https://claude.ai/code)" or "Co-Authored-By: Claude <noreply@anthropic.com>" in commit messages
+- Do not include "Generated with Claude Code" or any "Co-Authored-By:" lines referencing Claude or Anthropic in commit messages
