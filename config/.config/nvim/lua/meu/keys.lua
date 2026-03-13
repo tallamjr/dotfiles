@@ -95,8 +95,6 @@ end
 -- Key mapping to handle file:// links
 vim.keymap.set("n", "<leader>o", open_file_under_cursor, { desc = "Open file or URL under cursor" })
 
-keymap.set("n", "<leader>coe", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" }) --  enable copilot
-keymap.set("n", "<leader>cod", "<cmd>Copilot disable<cr>", { desc = "Disable Copilot" }) --  disable copilot
 
 -- Fighting one-eyed Kirby
 keymap.set("v", "<localleader>r", [[:s/\(\w.*\)/]], { noremap = true, silent = false })
