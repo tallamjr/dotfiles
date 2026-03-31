@@ -214,8 +214,6 @@ export OPTION3_HOME=$HOME/github/origin/option3
 
 export PATH="$BREW_PREFIX/opt/bison/bin:$PATH"
 export C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
-export PATH="/usr/bin/clang:$PATH"
-
 # ==================================================================================================
 #                                       KAGGKE
 # ==================================================================================================
@@ -246,6 +244,7 @@ export PYARROW_WITH_FLIGHT=1
 export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export CC=`which clang`
 export CXX=`which clang++`
 
@@ -787,6 +786,8 @@ if [ -f ~/.localrc ]; then
 fi
 
 export PATH="$PATH:/Applications/KiCad/KiCad.app/Contents/MacOS"
+
+export RISCV_XHEEP="$HOME/tools/risc-v"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -30,3 +30,7 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/tallam/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# Zero2ASIC / IIC-OSIC-TOOLS
+export DOCKER_TAG=2025.07
+export DESIGNS=~/asic
