@@ -2,6 +2,10 @@
 
 This file provides development standards and workflows for managing dotfiles configurations across *NIX systems using GNU Stow.
 
+## Execution Preferences
+
+- When executing implementation plans, always use the subagent-driven approach (superpowers:subagent-driven-development). Never ask to choose between subagent-driven and inline execution -- subagents are always preferred.
+
 ## Code Quality Standards
 
 - Always use descriptive variable names
@@ -12,6 +16,16 @@ This file provides development standards and workflows for managing dotfiles con
 - When implementing features there is no middle ground, no "good enough" compromises and no elaborate failure handling. Things should work as intended otherwise it's a failure and should be treated as incomplete
 - Please avoid bending to keep backwards compatibility or legacy code
 - When you believe you have completed a task, you should deploy a separate subagent to verify and validate your work.
+
+### Bug Fix Workflow
+
+When a bug is reported, do not start by trying to fix it. Instead:
+
+1. Analyse the bug report and understand the expected vs actual behaviour
+2. Write a test that reproduces the bug -- this test must fail, confirming the bug exists
+3. Verify the test fails for the correct reason (the bug, not a typo or setup error)
+4. Dispatch a subagent to fix the bug, providing it with the failing test as the acceptance criterion
+5. The subagent must prove the fix by demonstrating the test passes along with all other existing tests
 
 ### Error Suppression is Forbidden
 

@@ -102,12 +102,20 @@
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "huggingface-skills@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   },
   "outputStyle": "explanatory",
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754079108753
-  },
-  "effortLevel": "high"
+  }
 }
