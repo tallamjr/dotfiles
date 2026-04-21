@@ -82,6 +82,23 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       }
 
+      -- Resolve rust-analyzer to the project's pinned toolchain when one is
+      -- installed via rustup, otherwise fall back to the Mason-installed
+      -- binary. Avoids version-mismatch warnings on projects pinned to
+      -- toolchains older than the standalone rust-analyzer requires.
+      local function resolve_toolchain_rust_analyzer(root_dir)
+        local cmd = string.format(
+          "cd %s && rustup which rust-analyzer 2>/dev/null",
+          vim.fn.shellescape(root_dir)
+        )
+        local handle = io.popen(cmd)
+        if not handle then return nil end
+        local result = handle:read "*l"
+        handle:close()
+        if result and result ~= "" then return { result } end
+        return nil
+      end
+
       require("mason-lspconfig").setup {
         ensure_installed = { "rust_analyzer" }, -- Ensure rust_analyzer is installed
         handlers = {
@@ -89,6 +106,16 @@ return {
             require("lspconfig")[server_name].setup {
               on_attach = lsp_attach,
               capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            }
+          end,
+          rust_analyzer = function()
+            require("lspconfig").rust_analyzer.setup {
+              on_attach = lsp_attach,
+              capabilities = require("cmp_nvim_lsp").default_capabilities(),
+              on_new_config = function(new_config, root_dir)
+                local toolchain_cmd = resolve_toolchain_rust_analyzer(root_dir)
+                if toolchain_cmd then new_config.cmd = toolchain_cmd end
+              end,
             }
           end,
         },
