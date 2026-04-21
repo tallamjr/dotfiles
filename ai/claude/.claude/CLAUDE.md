@@ -1,6 +1,6 @@
-# Dotfiles Development Guidelines
+# Personal Development Guidelines
 
-This file provides development standards and workflows for managing dotfiles configurations across *NIX systems using GNU Stow.
+Global preferences and standards loaded into every Claude Code session. These apply across all projects regardless of working directory; project-specific guidance lives in each project's own CLAUDE.md.
 
 ## Execution Preferences
 
