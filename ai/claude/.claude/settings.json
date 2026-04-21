@@ -72,6 +72,15 @@
             "command": "~/.claude/hooks/block-error-suppression.sh"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/enforce-venv-python.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -82,6 +91,17 @@
             "type": "command",
             "command": "/Users/tallam/.claude-code-project-index/scripts/run_python.sh /Users/tallam/.claude-code-project-index/scripts/update_index.py",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if the file that was just edited contains ASCII box-drawing characters (lines with characters like U+2500 range: ┌ ┐ └ ┘ │ ─ ├ ┤). If it does NOT contain any box-drawing characters, respond with just 'No box-drawing diagrams found - no check needed.' and nothing else. If it DOES contain box-drawing diagrams, verify alignment: for each box, count the inner width from the top border (number of ─ between ┌ and ┐), then check that every content line between │...│ has exactly that many display columns of content (multi-byte UTF-8 chars like x ← → ↓ count as 1 display column). If any boxes are misaligned, report which lines need fixing. If all boxes are aligned, respond with 'All box-drawing diagrams verified - alignment correct.' Context: $ARGUMENTS",
+            "if": "Edit(*.md)|Write(*.md)|Edit(*.txt)|Write(*.txt)",
+            "statusMessage": "Checking ASCII art alignment..."
           }
         ]
       }
@@ -98,6 +118,12 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 2,
+    "refreshInterval": 60
   },
   "enabledPlugins": {
     "frontend-design@claude-code-plugins": true,

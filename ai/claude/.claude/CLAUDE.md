@@ -6,6 +6,14 @@ This file provides development standards and workflows for managing dotfiles con
 
 - When executing implementation plans, always use the subagent-driven approach (superpowers:subagent-driven-development). Never ask to choose between subagent-driven and inline execution -- subagents are always preferred.
 
+## Python Environment Preferences
+
+- Before running any Python command (`python`, `python3`, `pip`, `pytest`, etc.), always check if a `.venv` directory exists in the current project root
+- If `.venv/bin/python` exists, use it instead of bare `python` or `python3` -- e.g. `.venv/bin/python script.py` instead of `python3 script.py`
+- Similarly, prefer `.venv/bin/pip`, `.venv/bin/pytest`, etc. over system-installed versions
+- If using `uv run`, this is fine as-is since uv manages its own virtualenv resolution
+- This applies to all projects, not just this dotfiles repo
+
 ## Code Quality Standards
 
 - Always use descriptive variable names
@@ -46,3 +54,10 @@ If an error is genuinely expected and safe to ignore, add an explicit comment ex
 - When writing a commit message include references sections when a GitHub issue, Stack Overflow or other useful information found online was used to solve a problem but it should be a weblink to that source
 - When adding a references section to the commit message it should only be web links and does not need to be a sentence
 - Do not include "Generated with Claude Code" or any "Co-Authored-By:" lines referencing Claude or Anthropic in commit messages
+
+## Personal Knowledge Base
+
+Durable concept notes live in `~/github/tallamjr/origin/learn/kb/`, rendered
+as a Quarto book. See `~/github/tallamjr/origin/learn/kb/README.md` for the
+layout and conventions. To add a note during a conversation, invoke the
+`/log-concept` skill. Notes follow the template in `kb/.template.md`.
