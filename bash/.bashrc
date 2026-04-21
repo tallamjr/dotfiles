@@ -312,7 +312,7 @@ export BAT_THEME="1337"
 alias audio-dl='youtube-dl -x --audio-format "wav" --audio-quality 0'
 alias bashrc="vim ~/.bashrc"
 alias blc="black . --check"
-alias brewski='brew update && brew upgrade && brew cleanup --prune=7; brew doctor'
+alias brewski='brew update && brew upgrade && brew doctor && brew cleanup --prune=all'
 alias brewversion="$(brew config | grep 'HOMEBREW_VERSION' | awk '{print $2}')"
 # alias ca="conda activate"
 alias cargo="cargo +nightly"
@@ -788,6 +788,8 @@ fi
 export PATH="$PATH:/Applications/KiCad/KiCad.app/Contents/MacOS"
 
 export RISCV_XHEEP="$HOME/tools/risc-v"
+
+export RUSTUP_AUTO_INSTALL=0
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
