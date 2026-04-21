@@ -91,11 +91,11 @@ case $(uname -s) in
                         exit
                     fi
                 ;;
-                "FullyCharged")
-                    if [ "$value" = "Yes" ]; then
-                        exit
-                    fi
-                ;;
+                # Intentionally no FullyCharged branch: ioreg output is
+                # sorted alphabetically, so "FullyCharged" arrives before
+                # "MaxCapacity". Exiting here on "Yes" aborted the loop
+                # before the percentage could be printed, producing an
+                # empty status at 100% charge.
             esac
             if [[ -n "$maxcap" && -n $curcap ]]; then
                 echo $(( 100 * $curcap / $maxcap ))
