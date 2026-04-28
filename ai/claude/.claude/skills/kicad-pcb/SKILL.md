@@ -1,13 +1,13 @@
 ---
 user-invocable: false
-description: Inspect a running KiCad 10+ board (footprints, nets, tracks, vias, zones, pads, selection) and inject DRC markers via kicad-ctlrs
+description: Inspect and modify a running KiCad 10+ board (footprints, nets, tracks, vias, zones, pads, selection) via kicad-ctlrs. Includes footprint move/rotate/flip, track + via creation, and DRC marker injection.
 ---
 
 # KiCad PCB Operations
 
 Auto-loaded when working with a `.kicad_pcb` file and the user wants to
-inspect board content interactively (requires a running KiCad instance
-with the board open) or inject a DRC marker.
+inspect or modify board content interactively. Requires a running KiCad 10+
+instance with the target board open in the PCB editor.
 
 ## Prerequisites
 
@@ -35,27 +35,53 @@ All operations go through `kicad-ctlrs pcb …`. Run
 - Filter pads by footprint:      `kicad-ctlrs pcb pads list --footprint U1`
 - Inspect the GUI selection:     `kicad-ctlrs pcb selection get`
 
-### Mutations
+### Footprint mutations
 
-Only one mutation is supported in v0:
+Each mutation appears as a single named entry in KiCad's undo stack
+(`kicad-ctlrs: <op> <ref> …`) so the user can review and undo individually.
+
+- Move a footprint:
+  `kicad-ctlrs pcb footprints move U1 --x 10 --y 20`
+  - Optional `--layer F.Cu` or `--layer B.Cu` to also place on a specific layer
+- Rotate a footprint to an absolute angle:
+  `kicad-ctlrs pcb footprints rotate U1 --angle 90`
+- Flip a footprint between top and bottom copper:
+  `kicad-ctlrs pcb footprints flip U1`
+  (Only defined for footprints currently on F.Cu or B.Cu.)
+
+### Track and via creation
+
+Both create operations require the named net and named layers to already
+exist on the board. We do NOT auto-create nets — pass an existing one.
+
+- Create a track segment:
+  `kicad-ctlrs pcb tracks create --start 0,0 --end 10,0 --layer F.Cu --width 0.2 --net GND`
+- Create a via:
+  `kicad-ctlrs pcb vias create --at 5,5 --from-layer F.Cu --to-layer B.Cu --net GND`
+  - Optional `--size 0.6 --drill 0.3` (defaults shown)
+
+Coordinates and lengths are millimetres by default. Pass `--units nm`
+globally for raw nanometres.
+
+### DRC marker injection
 
 - Inject a DRC marker:
   `kicad-ctlrs pcb drc inject --message "manual marker" --at 5,5 --severity warning`
   - `--severity` accepts `warning`, `error`, or `exclusion` (default `error`)
-  - `--at` is `X,Y` in millimetres; pass `--units nm` globally for nanometres
 
-## Why footprint and track mutations are unavailable
+### Custom undo-stack messages
 
-The kicad-ipc-rs crate at v0.4.3 keeps the proto types needed for
-`update_items` / `create_items` in `pub(crate)` modules, so footprint
-move/rotate/flip and track/via creation are not implementable from
-outside the crate. This is documented in the kicad-ctlrs design spec.
-The commands return cleanly to v1 if upstream exposes ergonomic helpers.
+Pass `--commit-msg "your text"` globally on any mutation to override the
+auto-generated KiCad undo entry text.
 
 ## Error handling
 
 - `kicad-not-running` (exit 2): ask the user to launch KiCad 10+ and open
   the board; do not retry blindly.
 - `kicad-no-document` (exit 3): KiCad is running but no board is open.
-- `not-found` (exit 5): the referenced footprint or net is not present.
-  Re-query `kicad-ctlrs pcb footprints list` to confirm available references.
+- `not-found` (exit 5): the referenced footprint, net, or layer is not
+  present. For mutations, the error envelope `details` shows what was
+  requested. Re-query the corresponding `list` command to confirm what
+  is available.
+- `invalid-argument` (exit 6): malformed coordinates or an unsupported
+  flip target (e.g. flipping a footprint that is not on F.Cu or B.Cu).
