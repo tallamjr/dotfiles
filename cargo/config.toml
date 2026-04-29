@@ -19,6 +19,12 @@ space_example = ["run", "--release", "--", "\"command list\""]
 # dep-info-basedir = "…"    # path for the base directory for targets in depfiles
 # pipelining = true         # rustc pipelining
 
+[build]
+# Shared target directory across all Rust projects on this machine.
+# Cargo isolates artefacts per-project via fingerprint hashes, so collisions
+# are not a concern. Override per-project by adding a local .cargo/config.toml.
+target-dir = "/Users/tallam/.cargo/target"
+
 [cargo-new]
 name = "Tarek Allam Jr."        # name to use in `authors` field
 email = "t.allam.jr@gmail.com"  # email address to use in `authors` field
