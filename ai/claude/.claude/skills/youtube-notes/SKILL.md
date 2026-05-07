@@ -1,5 +1,5 @@
 ---
-allowed-tools: Task, Read, Write, Edit, Glob, Grep, Bash(mkdir:*), Bash(ls:*), Bash(rm:*), Bash(yt-transcript:*), Bash(/Users/tallam/.venv/bin/python:*)
+allowed-tools: Task, Read, Write, Edit, Glob, Grep, Bash(mkdir:*), Bash(ls:*), Bash(rm:*), Bash(yt-dlp:*), Bash(mlx_whisper:*), Bash(ffmpeg:*), Bash(ffprobe:*), Bash(yt-transcript:*), Bash(/Users/tallam/.venv/bin/python:*)
 argument-hint: <youtube-url> [output-directory]
 description: Generate comprehensive lecture notes from YouTube videos or playlists
 ---
@@ -25,11 +25,50 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
    - If `$2` is provided, create the output directory if it doesn't exist
    - Create `<output-dir>/transcripts/` directory for transcript storage
 
-2. **Fetch transcripts**:
-   - Run: `yt-transcript --no-timestamps -o <output-dir>/transcripts "$1"`
-   - The tool outputs files named `XX-{video_id}.txt` where XX is the index
-   - Parse the command output to determine success/failure counts
-   - If all videos fail, report error and exit
+2. **Fetch transcripts (audio download + local transcription is the default)**:
+
+   YouTube frequently bot-blocks transcript API requests ("Sign in to confirm you're not a bot"). The reliable default is to download the audio with `yt-dlp` (using browser cookies) and transcribe locally with `mlx_whisper` using Metal acceleration on Apple Silicon. Do not start with `yt-transcript` — it is kept only as a last-resort fallback.
+
+   **Step 2a - Extract video/playlist IDs and fetch metadata** (for titles, indices, durations):
+   ```bash
+   yt-dlp --cookies-from-browser chrome --skip-download \
+     --print "%(playlist_index|1)s|%(id)s|%(title)s|%(duration)s|%(uploader)s|%(upload_date)s" \
+     "$1"
+   ```
+   Parse output to determine single video vs. playlist and build the filename index `XX`.
+
+   **Step 2b - Download audio as mp3** (one invocation per video; parallelise via subagents for playlists):
+   ```bash
+   yt-dlp --cookies-from-browser chrome \
+     -f 'bestaudio[ext=m4a]/bestaudio' \
+     --extract-audio --audio-format mp3 --audio-quality 5 \
+     -o '<output-dir>/transcripts/%(id)s.%(ext)s' \
+     "<single-video-url>"
+   ```
+   - If cookie extraction fails (Chrome not running / locked keychain), retry with `--cookies-from-browser firefox` or `--cookies-from-browser safari`, then without cookies.
+   - The `.mp3` files land in `<output-dir>/transcripts/{video_id}.mp3`.
+
+   **Step 2c - Transcribe with mlx_whisper (Metal accelerated)**:
+   ```bash
+   mlx_whisper <output-dir>/transcripts/{video_id}.mp3 \
+     --model mlx-community/whisper-large-v3-turbo \
+     --output-dir <output-dir>/transcripts \
+     --output-format txt
+   ```
+   - `mlx_whisper` uses the Apple Silicon GPU via Metal by default — do not pass CPU flags.
+   - `whisper-large-v3-turbo` gives the best quality/speed trade-off. Downgrade to `mlx-community/whisper-medium` only if disk/memory is tight.
+   - The timeout for a 2+ hour video should be generous: set Bash `timeout` to 600000 ms (10 min).
+   - Output file is `<output-dir>/transcripts/{video_id}.txt`.
+
+   **Step 2d - Rename to index format** so downstream steps match the expected `XX-{video_id}.txt`:
+   ```bash
+   mv <output-dir>/transcripts/{video_id}.txt <output-dir>/transcripts/XX-{video_id}.txt
+   ```
+
+   **Step 2e - Fallback only if audio pipeline fails entirely**:
+   `yt-transcript --no-timestamps -o <output-dir>/transcripts "$1"`
+
+   If every video fails both pipelines, report the error and exit.
 
 3. **Process each transcript file**:
    - Read each `XX-{video_id}.txt` file from the transcripts directory
@@ -120,14 +159,18 @@ Create detailed, comprehensive lecture notes from YouTube videos or playlists us
   lecture-02-{video_id}.md
   ...
   transcripts/
-    01-{video_id}.txt
+    01-{video_id}.txt           (mlx_whisper transcript)
+    01-{video_id}.mp3           (cached audio — keep for re-transcription)
     02-{video_id}.txt
+    02-{video_id}.mp3
     ...
   figures/                      (if figures generated)
     generate_figures.py
     lecture-01-*.png
     lecture-02-*.png
 ```
+
+Keep the `.mp3` audio files alongside the `.txt` transcripts so the lecture can be re-transcribed with a different Whisper model without a second download (YouTube rate-limits and cookies can become invalid).
 
 ## Example Usage
 
