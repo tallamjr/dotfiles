@@ -19,8 +19,8 @@ unset HISTIGNORE
 shopt -s histappend
 export PROMPT_COMMAND="history -a;history -c;history -r"
 
-export PAGER=less
-export GIT_PAGER=less
+export PAGER="less --IGNORE-CASE"
+export GIT_PAGER="less --IGNORE-CASE"
 
 which nvim > /dev/null; exitCode=$?
 if [[ ${exitCode} -eq 0 ]]; then
