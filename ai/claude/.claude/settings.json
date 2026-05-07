@@ -143,5 +143,8 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754079108753
-  }
+  },
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "verbose": true
 }
