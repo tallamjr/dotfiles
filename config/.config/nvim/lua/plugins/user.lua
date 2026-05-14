@@ -44,6 +44,10 @@ return {
 
   -- Disable pop-up notifications
   { "rcarriga/nvim-notify", enabled = false },
+
+  -- Disable AstroNvim's default Neo-tree; we use nvim-tree instead
+  -- (see plugins/nvim-tree.lua, opened with <Leader>ee).
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "hedyhli/markdown-toc.nvim",
     ft = "markdown", -- Lazy load on markdown filetype
