@@ -12,7 +12,7 @@ return {
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -91,6 +91,14 @@ return {
           cond = function(client)
             return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
+        },
+        -- Shadow AstroNvim's global <Leader>h (Home Screen) in LSP buffers so
+        -- the more frequently useful inlay-hint toggle takes that key. Falls
+        -- back to Home Screen automatically in non-LSP buffers.
+        ["<Leader>h"] = {
+          function() require("astrolsp.toggles").buffer_inlay_hints() end,
+          desc = "Toggle LSP inlay hints (buffer)",
+          cond = vim.lsp.inlay_hint and "textDocument/inlayHint" or false,
         },
       },
     },
