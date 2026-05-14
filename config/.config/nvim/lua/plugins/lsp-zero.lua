@@ -58,6 +58,13 @@ return {
       local lsp_attach = function(client, bufnr)
         local opts = { buffer = bufnr }
 
+        -- Wire AstroLSP into the attach pipeline so its buffer-local mappings,
+        -- codelens refresh, format-on-save flags, and semantic-token setup
+        -- actually fire. Run it first so the explicit vim.keymap.set lines
+        -- below still win on overlapping keys (K, gd, gD, gi, go, gr, gs).
+        local astrolsp_ok, astrolsp = pcall(require, "astrolsp")
+        if astrolsp_ok then astrolsp.on_attach(client, bufnr) end
+
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Show hover information" })
         vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to definition" })
         vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" })
