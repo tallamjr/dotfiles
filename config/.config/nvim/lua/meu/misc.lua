@@ -59,6 +59,15 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function() vim.opt_local.foldenable = false end,
 })
 
+-- Brighten LSP inlay hints: astrotheme leaves LspInlayHint undefined, so
+-- Neovim falls back to a near-invisible NonText link. Re-apply on every
+-- ColorScheme load and once immediately for the current session.
+local function set_inlay_hint_hl()
+  vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#7aa2f7", italic = true })
+end
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_inlay_hint_hl })
+set_inlay_hint_hl()
+
 -- Build latex documents
 vim.api.nvim_set_keymap(
   "n",
