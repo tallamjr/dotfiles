@@ -245,15 +245,15 @@ export PYARROW_WITH_GANDIVA=1
 export PYARROW_WITH_ORC=1
 export PYARROW_WITH_PARQUET=1
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export CC=`which clang`
-export CXX=`which clang++`
+# export CC=`which clang`
+# export CXX=`which clang++`
 
 GCC_VERSION=$(brew list --versions gcc | awk '{print $2}' | cut -d '.' -f1)
 export PATH="/opt/homebrew/bin/gcc-$GCC_VERSION:$PATH"
 alias gcc="gcc-$GCC_VERSION"
 
-# export CC=$(which gcc-$GCC_VERSION)
-# export CXX=$(which g++-$GCC_VERSION)
+export CC=$(which gcc-$GCC_VERSION)
+export CXX=$(which g++-$GCC_VERSION)
 export LC_ALL="en_US.UTF-8"
 
 # Scala
@@ -347,7 +347,24 @@ alias ls="ls --color"                  # Listing in colour
 alias lsc="ls | wc | awk '{print $1}'" # Show the 'count' of files in a director.
 alias lsg="ls | grep -i"               # Search a directory listing with grep case-insensitive.
 alias matlab="matlab -nodesktop -nosplash"
-alias mks="mkdocs serve --open"
+# mkdocs serve, preferring the project's uv environment when one exists
+mks() {
+    # Find the first free TCP port starting from 8000
+    local port=8000
+    while lsof -iTCP:"$port" -sTCP:LISTEN -t >/dev/null 2>&1; do
+        port=$((port + 1))
+    done
+
+    if [ "$port" -ne 8000 ]; then
+        echo "Port 8000 in use, serving on $port instead" >&2
+    fi
+
+    if { [ -f uv.lock ] || [ -f pyproject.toml ]; } && command -v uv >/dev/null 2>&1; then
+        uv run mkdocs serve -a "localhost:$port" --open "$@"
+    else
+        mkdocs serve -a "localhost:$port" --open "$@"
+    fi
+}
 alias nq="networkQuality"
 alias openf='open "`f`"'
 alias pat="pygmentize -g" # Colourful 'cat' output
@@ -659,6 +676,11 @@ function ccmake() {
 	fi
 }
 
+function checkrunners() {
+	gh api orgs/ati-arg/actions/runners \
+  --jq '.runners[] | "\(.name): \(.status), busy=\(.busy)"'
+}
+
 function newp() {
 	uv venv --python "$1"
 	source .venv/bin/activate
@@ -790,6 +812,8 @@ export PATH="$PATH:/Applications/KiCad/KiCad.app/Contents/MacOS"
 export RISCV_XHEEP="$HOME/tools/risc-v"
 
 export RUSTUP_AUTO_INSTALL=0
+
+export UV_NO_CACHE=1
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                               EOF
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
