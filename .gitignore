@@ -811,3 +811,5 @@ ai/claude/.claude/*
 !ai/claude/.claude/commands/
 !ai/claude/.claude/hooks/
 !ai/claude/.claude/skills/
+!ai/claude/.claude/rules/
+!ai/claude/.claude/guides/
