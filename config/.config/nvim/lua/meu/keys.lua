@@ -127,4 +127,11 @@ keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>+x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Show current buffer's full path and copy it to the system clipboard
+keymap.set("n", "<leader>cp", function()
+  local path = vim.fn.expand "%:p"
+  vim.fn.setreg("+", path)
+  vim.notify(path, vim.log.levels.INFO)
+end, { desc = "Copy buffer path to clipboard" })
 -------------------------------------------------------------------------------
