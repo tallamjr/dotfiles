@@ -14,6 +14,7 @@
   iss = "!gh issue create"
   lg = log --branches --remotes --tags --graph --decorate
   logg = log --graph --decorate --oneline --abbrev --all
+  logga = log --graph --abbrev-commit --decorate --all --pretty=format:\"%C(auto)%h %C(bold blue)<%an>%C(auto)%d %s\" # logg with author next to the hash
   loggg = log --all --source --pretty=oneline --graph
   logggg = log --all --source --graph
   logo = log --oneline --invert-grep --grep '^chore:'
@@ -96,6 +97,8 @@
 # Load folder specific config.
 [includeIf "gitdir:**/git.arg/**"]
   path = "~/.gitconfig-turing"
+[includeIf "gitdir:**/ati-arg/**"]
+  path = "~/.gitconfig-turing"
 [diff "jupyternotebook"]
 	command = git-nbdiffdriver diff
 [merge "jupyternotebook"]
@@ -109,3 +112,8 @@
 	prompt = false
 [difftool "nvimdiff"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
