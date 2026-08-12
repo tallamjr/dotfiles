@@ -53,7 +53,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "fable",
   "skillOverrides": {
     "lang-standards": "off",
     "research": "off",
