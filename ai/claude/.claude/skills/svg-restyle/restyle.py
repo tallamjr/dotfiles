@@ -21,7 +21,25 @@ from pathlib import Path
 
 TAHOMA_STACK = "Tahoma, sans-serif"
 
-FONT_FAMILY_IN_STYLE = re.compile(r"font-family\s*:\s*[^;\"']+")
+# Match font-family in an inline style attribute. Treats &quot;...&quot;
+# pairs (HTML-encoded quoted font names, common in SVGs exported from web
+# tools) as atomic units so the regex doesn't terminate at the `;` inside
+# the encoded entity name itself.
+FONT_FAMILY_IN_STYLE = re.compile(
+    r"""font-family\s*:\s*(?:&quot;[^"]*?&quot;|[^;"'])+"""
+)
+# Cleanup pass: strip residue left by older versions of this script that
+# mis-parsed &quot;-encoded font names. Those runs wrote
+# `font-family:Tahoma, sans-serif;<orphan-stack>` — this pattern detects
+# the orphan by looking for well-known font-stack keywords immediately
+# after the replaced declaration and removes the leftover up to the next
+# CSS separator.
+FONT_FAMILY_RESIDUE = re.compile(
+    r"font-family\s*:\s*Tahoma,\s*sans-serif\s*;"
+    r"\s*(?:Anthropic Sans|-apple-system|system-ui|Segoe UI)"
+    r"(?:&quot;|[^;\"])*"
+    r"(?=;|\")"
+)
 FONT_FAMILY_ATTR = re.compile(r'font-family\s*=\s*"[^"]*"')
 VIEWBOX_RE = re.compile(r'viewBox\s*=\s*"([^"]+)"')
 RECT_SELF_CLOSING = re.compile(r"<rect\b[^/>]*/>")
@@ -65,6 +83,7 @@ def _is_full_canvas_background(
 
 def restyle(svg: str) -> str:
     svg = FONT_FAMILY_IN_STYLE.sub(f"font-family:{TAHOMA_STACK}", svg)
+    svg = FONT_FAMILY_RESIDUE.sub(f"font-family:{TAHOMA_STACK}", svg)
     svg = FONT_FAMILY_ATTR.sub(f'font-family="{TAHOMA_STACK}"', svg)
 
     canvas_w, canvas_h = _canvas_dims(svg)
