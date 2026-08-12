@@ -16,6 +16,12 @@ return {
     treesitter.setup { -- enable syntax highlighting
       highlight = {
         enable = true,
+        -- Disable treesitter highlighting in diff mode (e.g. `nvim -d`, git difftool)
+        -- so the native Diff* colours stay visible instead of being overdrawn by syntax.
+        disable = function(_, buf)
+          local win = vim.fn.bufwinid(buf)
+          return win ~= -1 and vim.wo[win].diff
+        end,
       },
       -- enable indentation
       indent = { enable = true },
