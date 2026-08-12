@@ -36,22 +36,51 @@
       "Bash(git restore)",
       "Bash(git push --force)",
       "Bash(git push -f:*)",
-      "Bash(rm -rf:*)"
+      "Bash(rm -rf:*)",
+      "Bash(sleep:*)",
+      "Bash(sleep)"
     ],
     "ask": [
       "Bash(npm install:*)",
       "Bash(npm uninstall:*)",
       "Bash(git push:*)",
       "Bash(git push)",
-      "Bash(git commit:*)",
-      "Bash(git commit)",
       "Bash(docker:*)",
       "Bash(sudo:*)",
       "Edit(package.json)",
       "Edit(requirements.txt)",
       "Edit(.env*)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "skillOverrides": {
+    "lang-standards": "off",
+    "research": "off",
+    "emoji-clean": "off",
+    "academic-review": "off",
+    "audit-notebooks": "off",
+    "optimize": "off",
+    "kicad-export": "off",
+    "make-pr": "off",
+    "kicad-project": "off",
+    "make-issue": "off",
+    "coursera-notes": "off",
+    "kicad-pcb": "off",
+    "index": "off",
+    "audit-codebase": "off",
+    "audit-tests": "off",
+    "kicad-connect": "off",
+    "fix-issue": "off",
+    "stow-config": "off",
+    "dark-matplotlib-style": "off",
+    "notes": "off",
+    "git-commit": "off",
+    "brew-manage": "off",
+    "quarto-book": "off",
+    "rtl-migrate": "off",
+    "academic-prose-sweep": "off",
+    "context7-mcp": "off"
   },
   "hooks": {
     "PreToolUse": [
@@ -81,6 +110,15 @@
             "command": "~/.claude/hooks/enforce-venv-python.sh"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-dangerous-bash.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -102,6 +140,27 @@
             "prompt": "Check if the file that was just edited contains ASCII box-drawing characters (lines with characters like U+2500 range: ┌ ┐ └ ┘ │ ─ ├ ┤). If it does NOT contain any box-drawing characters, respond with just 'No box-drawing diagrams found - no check needed.' and nothing else. If it DOES contain box-drawing diagrams, verify alignment: for each box, count the inner width from the top border (number of ─ between ┌ and ┐), then check that every content line between │...│ has exactly that many display columns of content (multi-byte UTF-8 chars like x ← → ↓ count as 1 display column). If any boxes are misaligned, report which lines need fixing. If all boxes are aligned, respond with 'All box-drawing diagrams verified - alignment correct.' Context: $ARGUMENTS",
             "if": "Edit(*.md)|Write(*.md)|Edit(*.txt)|Write(*.txt)",
             "statusMessage": "Checking ASCII art alignment..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$(jq -r '.tool_input.file_path')\"; [ -n \"$f\" ] && npx --yes prettier --write \"$f\" >/dev/null 2>&1 || true",
+            "if": "Write(*.md)|Write(*.markdown)",
+            "statusMessage": "Formatting markdown with prettier..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'STYLE REMINDER (applies to this reply): apply the FULL i-have-adhd ruleset from session start and the ASD-STE100 rules in ~/.claude/CLAUDE.md Communication Preferences. Core: short sentences (max 20-25 words), active voice, plain words, no jargon, no em-dashes; lead with the answer or next action, number multi-step lists, max 5 bullets, no preamble, no closers.'"
           }
         ]
       }
@@ -126,25 +185,37 @@
     "refreshInterval": 60
   },
   "enabledPlugins": {
-    "frontend-design@claude-code-plugins": true,
+    "frontend-design@claude-code-plugins": false,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": false,
     "superpowers@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "explanatory-output-style@claude-plugins-official": true,
-    "huggingface-skills@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
+    "huggingface-skills@claude-plugins-official": false,
+    "swift-lsp@claude-plugins-official": false,
+    "context7@claude-plugins-official": false,
+    "frontend-design@claude-plugins-official": false,
+    "i-have-adhd@i-have-adhd": true
+  },
+  "extraKnownMarketplaces": {
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "tallamjr/i-have-adhd"
+      }
+    }
   },
   "outputStyle": "explanatory",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "askUserQuestionTimeout": "never",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "verbose": false,
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754079108753
-  },
-  "theme": "dark-daltonized",
-  "editorMode": "vim",
-  "verbose": true
+  }
 }
