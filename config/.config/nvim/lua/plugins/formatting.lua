@@ -43,5 +43,22 @@ return {
       end,
       { desc = "Format file or range (in visual mode)" }
     )
+
+    -- Manually run prettier on the current markdown buffer. Markdown is
+    -- deliberately excluded from formatters_by_ft and format_on_save above to
+    -- preserve hand-written formatting, so this forces prettier on demand by
+    -- naming the formatter explicitly rather than relying on the filetype map.
+    vim.keymap.set("n", "<leader>mp", function()
+      if vim.bo.filetype ~= "markdown" then
+        vim.notify("<leader>mp only runs prettier on markdown buffers", vim.log.levels.WARN)
+        return
+      end
+      conform.format {
+        formatters = { "prettier" },
+        lsp_format = "never",
+        async = false,
+        timeout_ms = 3000,
+      }
+    end, { desc = "Format markdown with prettier" })
   end,
 }
