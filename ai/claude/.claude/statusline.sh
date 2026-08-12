@@ -74,3 +74,54 @@ else
   # suppression: the failure mode is surfaced via a stale `ts` field.
   rm -f "$cache_tmp"
 fi
+
+# ── Visible status line for Claude Code's bottom bar ─────────────────────────
+# 1. Current working directory (basename only; the full path is rarely
+#    needed and would crowd out the other fields).
+cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // empty')
+dir_name=$(basename "$cwd" 2>/dev/null || true)
+if [ -z "$dir_name" ]; then
+  dir_name="~"
+fi
+
+# 2. Model name
+model=$(echo "$input" | jq -r '.model.display_name // "claude"')
+
+# 3. Context remaining: use pre-calculated field, fall back to 100 - used_pct,
+#    fall back to "--" when neither is available (no messages yet).
+ctx_remaining=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
+if [ -z "$ctx_remaining" ]; then
+  ctx_used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+  if [ -n "$ctx_used" ]; then
+    ctx_remaining=$(printf '%.0f' "$(echo "$ctx_used" | awk '{print 100 - $1}')")
+  else
+    ctx_remaining="--"
+  fi
+else
+  ctx_remaining=$(printf '%.0f' "$ctx_remaining")
+fi
+
+# 4. Rate limits (Pro/Max only; each bucket may be independently absent).
+five_used=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+week_used=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+
+rate_parts=""
+if [ -n "$five_used" ]; then
+  five_left=$(printf '%.0f' "$(echo "$five_used" | awk '{print 100 - $1}')")
+  rate_parts="5h: ${five_left}% left"
+fi
+if [ -n "$week_used" ]; then
+  week_left=$(printf '%.0f' "$(echo "$week_used" | awk '{print 100 - $1}')")
+  if [ -n "$rate_parts" ]; then
+    rate_parts="${rate_parts} | wk: ${week_left}% left"
+  else
+    rate_parts="wk: ${week_left}% left"
+  fi
+fi
+
+# Assemble the line: always show dir + model + context; append rate limits when present.
+if [ -n "$rate_parts" ]; then
+  printf '%s  |  %s  |  %s%% ctx left  |  %s\n' "$dir_name" "$model" "$ctx_remaining" "$rate_parts"
+else
+  printf '%s  |  %s  |  %s%% ctx left\n' "$dir_name" "$model" "$ctx_remaining"
+fi
