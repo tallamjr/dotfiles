@@ -1,0 +1,39 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz-house}
+\begin{document}
+% Accelerometer. The case moves with input acceleration, so it is not hatched.
+% The mass lags the case: input to the left gives displacement to the right.
+% Dashed lines mark the mass centre at rest and now; x(t) is measured between them.
+% Helpers \spring and \damper take start, angle and length.
+\begin{tikzpicture}
+  \def\caseWidth{8.0}  \def\caseHeight{4.2}
+  \def\massSize{1.2}   % mass side, cm
+  \def\restX{2.8}      % mass left edge at rest, cm
+  \def\displacement{1.6}
+  \pgfmathsetmacro{\massX}{\restX+\displacement}
+
+  \draw[hsStroke, line width=1.2pt] (0,0) rectangle (\caseWidth,\caseHeight);
+  \node[block, minimum size=\massSize cm, anchor=west] (mass)
+    at (\massX,\caseHeight/2) {$m$};
+
+  \spring{(0,{\caseHeight/2+0.45})}{0}{\massX}
+  \damper{(0,{\caseHeight/2-0.45})}{0}{\massX}
+  \node at ({\massX/2},{\caseHeight/2+1.0}) {$k$};
+  \node at ({\massX/2},{\caseHeight/2-1.0}) {$c$};
+
+  % Displacement from the rest centre to the current centre, drawn below the
+  % damper so that no line crosses the spring or damper.
+  \pgfmathsetmacro{\restCentre}{\restX+\massSize/2}
+  \pgfmathsetmacro{\massCentre}{\massX+\massSize/2}
+  \def\arrowY{0.9}
+  \draw[dashed, hsText!60] (\restCentre,{\arrowY+0.25}) -- (\restCentre,{\arrowY-0.25});
+  \node[font=\footnotesize, text=hsText!70, anchor=north] at (\restCentre,{\arrowY-0.3}) {mass at rest};
+  \node[font=\footnotesize, text=hsText!70, anchor=north] at (\massCentre,{\arrowY-0.3}) {mass now};
+  \draw[dashed, hsText!60] (\massCentre,{\caseHeight/2-\massSize/2}) -- (\massCentre,{\arrowY-0.25});
+  \draw[signal] (\restCentre,\arrowY) -- node[above=1pt] {$x(t)$} (\massCentre,\arrowY);
+
+  % The case accelerates to the left, so the mass lags to the right of the case.
+  \draw[signal, line width=1.6pt] (0,\caseHeight/2) -- ++(-1.6,0)
+    node[left] {$a_{\mathrm{in}}(t)$};
+\end{tikzpicture}
+\end{document}

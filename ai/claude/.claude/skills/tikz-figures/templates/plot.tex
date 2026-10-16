@@ -1,0 +1,23 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz-house}
+\begin{document}
+% Step response of a second-order system for three damping ratios.
+% Natural frequency is 4 rad/s. Use \addplot+ so the colour cycle stays active.
+\begin{tikzpicture}
+  \begin{axis}[house axis, width=9cm, height=5cm,
+      xlabel={Time $t$ (s)}, ylabel={Displacement $x(t)$},
+      xmin=0, xmax=6, ymin=0, ymax=1.6,
+      legend pos=south east, legend cell align=left]
+    \addplot+[domain=0:6, samples=200]
+      {1 - exp(-0.2*4*x)*(cos(deg(4*sqrt(1-0.04)*x))
+        + 0.2/sqrt(1-0.04)*sin(deg(4*sqrt(1-0.04)*x)))};
+    \addlegendentry{Underdamped, $\zeta = 0.2$}
+    \addplot+[domain=0:6, samples=200] {1 - (1+4*x)*exp(-4*x)};
+    \addlegendentry{Critically damped, $\zeta = 1$}
+    \addplot+[domain=0:6, samples=200]
+      {1 - exp(-1.8*4*x)*(cosh(4*sqrt(3.24-1)*x)
+        + 1.8/sqrt(3.24-1)*sinh(4*sqrt(3.24-1)*x))};
+    \addlegendentry{Overdamped, $\zeta = 1.8$}
+  \end{axis}
+\end{tikzpicture}
+\end{document}

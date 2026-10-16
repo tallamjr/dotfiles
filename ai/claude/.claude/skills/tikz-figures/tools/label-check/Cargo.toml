@@ -1,0 +1,11 @@
+[package]
+name = "tikz-label-check"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "label-check"
+path = "src/main.rs"
+
+[dependencies]
+png = "0.17"

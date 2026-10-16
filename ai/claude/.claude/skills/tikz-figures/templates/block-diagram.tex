@@ -1,0 +1,33 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz-house}
+\begin{document}
+% Two-row signal chain. Gaps are sized by the label that sits on the arrow.
+\begin{tikzpicture}
+  \node[block] (cube) {Populate\\raw data\\cube};
+  \node[block, right=26mm of cube] (range) {Range\\processing\\(N-point FFT)};
+  \node[block, right=26mm of range] (doppler) {Doppler\\processing\\(M-point FFT)};
+  \node[block, right=26mm of doppler] (cfar) {Target\\detection\\(2D CFAR)};
+  \node[block, below=18mm of cfar] (doa) {DOA\\processing\\(P-point FFT)};
+  \node[block, left=34mm of doa] (doacfar) {Target DOA\\detection\\(1D CFAR)};
+  \node[block, left=34mm of doacfar] (convert) {Target index\\to quantity\\conversion};
+  \node[block, left=30mm of convert] (cloud) {Pointcloud\\generation};
+
+  % Stacked inputs: one arrow per frame, with vertical dots between them.
+  \draw[signal] ([xshift=-20mm,yshift=4mm]cube.west) -- ([yshift=4mm]cube.west)
+    node[pos=0.5, above=1pt] {$s_{\mathrm{IF}_1}[m,n]$};
+  \draw[signal] ([xshift=-20mm,yshift=-4mm]cube.west) -- ([yshift=-4mm]cube.west)
+    node[pos=0.5, below=1pt] {$s_{\mathrm{IF}_P}[m,n]$};
+  \node at ([xshift=-10mm]cube.west) {$\vdots$};
+  \draw[decorate, decoration={brace, amplitude=4pt}]
+    ([xshift=-22mm,yshift=-4mm]cube.west) -- ([xshift=-22mm,yshift=4mm]cube.west)
+    node[midway, left=5pt] {Raw data\\frame};
+  \draw[signal] (cube) -- node[above=1pt] {$s_{\mathrm{IF}}[m,n,p]$} (range);
+  \draw[signal] (range) -- node[above=1pt] {$s_{\mathrm{IF}}[m,k,p]$} (doppler);
+  \draw[signal] (doppler) -- node[above=1pt] {$S_{\mathrm{IF}}[l,k,p]$} (cfar);
+  \draw[signal] (cfar) -- node[right=2pt] {$S_{\mathrm{IF}}[\hat{l}_i,\hat{k}_i,p]$} (doa);
+  \draw[signal] (doa) -- node[above=1pt] {$\tilde{S}_{\mathrm{IF}}[\hat{l}_i,\hat{k}_i,q]$} (doacfar);
+  \draw[signal] (doacfar) -- node[above=1pt] {$\hat{l}_i,\hat{k}_i,\hat{q}_i$} (convert);
+  \draw[signal] (convert) -- node[above=1pt] {$\hat{R}_i,\hat{v}_{r_i}$\\$\hat{\theta}_i,\hat{\phi}_i$} (cloud);
+  \draw[signal] (cloud.west) -- ++(-10mm,0) node[left] {Radar\\image};
+\end{tikzpicture}
+\end{document}

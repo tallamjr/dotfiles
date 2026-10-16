@@ -1,0 +1,62 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz-house}
+\begin{document}
+% Gaussian beam through a thin lens. The envelope is computed from the beam
+% equations, so the radius is continuous at the lens.
+\begin{tikzpicture}
+  \def\distOne{2.4}      % source to lens, cm
+  \def\distTwo{6.0}      % lens to waist, cm
+  \def\waistOne{0.12}    % source waist radius, cm
+  \def\rayleighOne{0.9}  % source Rayleigh range, cm
+  \def\waistTwo{0.12}    % new waist radius, cm
+  \pgfmathsetmacro{\lensX}{\distOne}
+  \pgfmathsetmacro{\waistX}{\distOne+\distTwo}
+  \pgfmathsetmacro{\spotAtLens}{\gaussradius{\distOne}{\waistOne}{\rayleighOne}}
+  % Rayleigh range after the lens, fixed by the radius at the lens.
+  \pgfmathsetmacro{\rayleighTwo}{\distTwo/sqrt((\spotAtLens/\waistTwo)^2-1)}
+  \def\endX{10.8}
+
+  % Soft glow: stacked translucent envelopes, then the dashed edge.
+  \begin{scope}[on background layer]
+    \foreach \from/\to/\waist/\rayleigh/\centre/\fade in
+        {0/\lensX/\waistOne/\rayleighOne/0/0, \lensX/\endX/\waistTwo/\rayleighTwo/\waistX/1} {
+      \foreach \scale in {2.4,2.325,...,0.45} {
+        % Outer layers stop earlier on the right, so the glow fades out.
+        \pgfmathsetmacro{\layerEnd}{\to-\fade*(2.4-\scale)*0.5}
+        \fill[hsRed, opacity=0.04]
+          plot[domain=\from:\layerEnd, samples=40]
+              ({\x},{\scale*\gaussradius{\x-\centre}{\waist}{\rayleigh}})
+          -- plot[domain=\layerEnd:\from, samples=40]
+              ({\x},{-\scale*\gaussradius{\x-\centre}{\waist}{\rayleigh}}) -- cycle;
+      }
+    }
+  \end{scope}
+  \foreach \sign in {1,-1} {
+    \draw[beam edge] plot[domain=0:\lensX, samples=30]
+      ({\x},{\sign*\gaussradius{\x}{\waistOne}{\rayleighOne}});
+    \draw[beam edge] plot[domain=\lensX:\endX, samples=60]
+      ({\x},{\sign*\gaussradius{\x-\waistX}{\waistTwo}{\rayleighTwo}});
+  }
+  \draw[axis arrow] (0,0) -- (11.4,0) node[right] {$z$};
+  \thinlens{(\lensX,0)}{0.95}
+  \node[source, anchor=east] at (0,0) {SLD};
+
+  % Dimensions below the axis. Each label is centred on its own dotted guide.
+  % The lens label sits on a lower row, centred on the lens guide, so it cannot reach the other labels.
+  \draw[guide] (0,0) -- (0,-1.5);
+  \draw[guide] (\lensX,-0.95) -- (\lensX,-2.75);
+  \draw[guide] (\waistX,\waistTwo+0.35) -- (\waistX,-1.5);
+  \draw[dim] (0,-1.2) -- node[above=1pt] {$d_1$} (\lensX,-1.2);
+  \draw[dim] (\lensX,-1.2) -- node[above=1pt] {$d_2$} (\waistX,-1.2);
+  \node[anchor=north] at (0,-1.5) {$q_1 = j b_1$\\(at the source)};
+  \node[anchor=north] at (\waistX,-1.5) {$q_2 = j b_2$\\(at the new waist)};
+  \node[anchor=north] at (\lensX,-2.75)
+    {just before the lens: $q_1 = d_1 + j b_1$\\just after the lens: $q_2 = -d_2 + j b_2$};
+
+  % Waist: dot on the axis, radius arrow, and a leader to the label.
+  \node[node dot] at (\waistX,0) {};
+  \draw[radius arrow] (\waistX+0.25,0) -- (\waistX+0.25,\waistTwo);
+  \draw[guide] (\waistX+0.25,\waistTwo) -- ++(0.45,0.55)
+    node[above right=-2pt] {$w_{0,2}$};
+\end{tikzpicture}
+\end{document}
